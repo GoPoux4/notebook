@@ -1,17 +1,35 @@
 site_name: GoPoux's Notebook
+repo_url: https://github.com/GoPoux4/notebook
+repo_name: GoPoux4/notebook
 
 theme:
   name: material
   language: 'zh'
+  icon:
+    repo: fontawesome/brands/github
   features:
     - content.code.annotate
     - navigation.tracking
     - navigation.tabs
     - navigation.indexes
     - navigation.top
+    - navigation.footer
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 nav:
   - Home:
     - index.md
+  - Computer Science:
+    - Computer Science: CS/index.md
   - HPC:
-    - HPC/index.md
+    - HPC: HPC/index.md
