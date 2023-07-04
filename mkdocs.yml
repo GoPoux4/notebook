@@ -10,15 +10,8 @@ theme:
     - navigation.indexes
     - navigation.top
 
-plugins:
-  - search
-
 nav:
   - Home:
     - index.md
-  - Notes:
-    - notes/index.md
-    - Note1:
-      - note1: notes/note1.md
-    - Note2:
-      - note2: notes/note2.md
+  - HPC:
+    - HPC/index.md
