@@ -5,8 +5,10 @@ repo_name: GoPoux4/notebook
 theme:
   name: material
   language: 'zh'
+  favicon: 'assert/ico/favicon.ico'
   icon:
     repo: fontawesome/brands/github
+    logo: material/notebook-outline
   palette:
     - scheme: default
       primary: white
@@ -25,6 +27,9 @@ theme:
     - navigation.indexes
     - navigation.top
     - navigation.footer
+  font:
+    text: Fira Sans
+    code: Fira Mono
 
 plugins:
   - search:
