@@ -5,7 +5,7 @@ repo_name: GoPoux4/notebook
 theme:
   name: material
   language: 'zh'
-  favicon: 'assert/ico/favicon.ico'
+  favicon: 'assert/ico/favicon.png'
   icon:
     repo: fontawesome/brands/github
     logo: material/notebook-outline
