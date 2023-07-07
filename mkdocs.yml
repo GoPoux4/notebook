@@ -1,6 +1,9 @@
-site_name: GoPoux's Notebook
-repo_url: https://github.com/GoPoux4/notebook
+site_name: GoPoux 的笔记本
+site_url: https://note.gopoux.cc/
 repo_name: GoPoux4/notebook
+repo_url: https://github.com/GoPoux4/notebook/
+copyright: Copyright &copy; 2023-2023 GoPoux
+
 
 theme:
   name: material
@@ -24,6 +27,7 @@ theme:
     - content.code.annotate
     - navigation.tracking
     - navigation.tabs
+    - navigation.path
     - navigation.indexes
     - navigation.top
     - navigation.footer
@@ -48,5 +52,49 @@ nav:
     - index.md
   - Computer Science:
     - Computer Science: CS/index.md
+    - CS/content.md
   - HPC:
     - HPC: HPC/index.md
+
+markdown_extensions:
+
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/GoPoux4
+      name: My Github Page
+    - icon: fontawesome/solid/rss
+      link: https://www.cnblogs.com/syc233/
+      name: My Cnblog Page

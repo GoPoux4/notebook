@@ -1,5 +1,3 @@
 # Welcome to My Notebook
 
-还在测试阶段
-
-test
+这里是 GoPoux 的个人笔记本
