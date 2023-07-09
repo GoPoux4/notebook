@@ -2,7 +2,7 @@ site_name: GoPoux 的笔记本
 site_url: https://note.gopoux.cc/
 repo_name: GoPoux4/notebook
 repo_url: https://github.com/GoPoux4/notebook/
-copyright: Copyright &copy; 2023-2023 GoPoux
+copyright: Copyright &copy; 2023-2024 GoPoux
 
 
 theme:
@@ -55,6 +55,9 @@ nav:
     - CS/content.md
   - HPC:
     - HPC: HPC/index.md
+    - HPC 101 labs:
+      - HPC 101 labs: HPC/HPC 101 labs/index.md
+      - 课堂实验 NVIDIA CUDA C: HPC/HPC 101 labs/cudaC.md
 
 markdown_extensions:
 
