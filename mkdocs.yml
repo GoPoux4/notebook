@@ -31,6 +31,7 @@ theme:
     - navigation.indexes
     - navigation.top
     - navigation.footer
+    - content.code.copy
   font:
     text: Fira Sans
     code: Fira Mono
@@ -58,6 +59,8 @@ nav:
     - HPC 101 labs:
       - HPC 101 labs: HPC/HPC 101 labs/index.md
       - 课堂实验 NVIDIA CUDA C: HPC/HPC 101 labs/cudaC.md
+  - Labs:
+    - HPC lab2 向量化计算: Labs/numpy.md
 
 markdown_extensions:
 
@@ -92,6 +95,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - pymdownx.arithmatex:
+      generic: true
 
 extra:
   social:
@@ -101,3 +106,8 @@ extra:
     - icon: fontawesome/solid/rss
       link: https://www.cnblogs.com/syc233/
       name: My Cnblog Page
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

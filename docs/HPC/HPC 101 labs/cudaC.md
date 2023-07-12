@@ -19,7 +19,7 @@ TODO:
 
 查询 GPU 信息命令：
 
-```bash
+```bash linenums="1"
 nvidia-smi
 ```
 
@@ -38,7 +38,7 @@ nvidia-smi
 
 CUDA 加速程序文件扩展名为 `.cu` ，一个简单例子：
 
-```cpp
+```cpp linenums="1"
 void CPUFunction()
 {
   printf("This function is defined to run on the CPU.\n");
@@ -80,7 +80,7 @@ int main()
 !!! info "编译运行 CUDA 加速程序"
     使用 `nvcc` 命令编译和运行程序：
 
-    ```bash
+    ```bash linenums="1"
     nvcc -arch=sm_70 -o hello-gpu hello-gpu.cu -run
     ```
 
@@ -111,7 +111,7 @@ CUDA 提供了一系列线程层次结构变量：
 
 加速前：
 
-```cpp
+```cpp linenums="1"
 for (int i = 0; i < N; ++i)
 {
   printf("%d\n", i);
@@ -120,7 +120,7 @@ for (int i = 0; i < N; ++i)
 
 加速后：使用核函数实现单词迭代
 
-```cpp
+```cpp linenums="1"
 __global__ void loop() {
     int idx = threadIdx.x + blockIdx.x * blockDim.x;
     if (idx < N)
@@ -130,7 +130,7 @@ __global__ void loop() {
 
 并调用
 
-```cpp
+```cpp linenums="1"
 loop<<<number_of_blocks, threads_per_block>>>();
 ```
 
@@ -140,7 +140,7 @@ loop<<<number_of_blocks, threads_per_block>>>();
 
 回忆一般的 CPU 程序分配并释放内存的方式：
 
-```cpp
+```cpp linenums="1"
 int *a;
 a = (int *)malloc(size);
 ...
@@ -149,7 +149,7 @@ free(a);
 
 要分配和释放内存，并获取可在主机和设备代码中引用的指针，则需要使用 CUDA 提供的函数 `cudaMallocManaged()` 和 `cudaFree()` ：
 
-```cpp
+```cpp linenums="1"
 int *a;
 cudaMallocManaged(&a, size);
 ...
@@ -160,7 +160,7 @@ cudaFree(a);
 
 当数据集比网格大的时候，可以使每个线程处理多个数据：
 
-```cpp
+```cpp linenums="1"
 __global__ void kernel(int *a, int N)
 {
   int idx = threadIdx.x + blockIdx.x * blockDim.x;
@@ -185,7 +185,7 @@ __global__ void kernel(int *a, int N)
 
 一个包装 CUDA 函数调用的宏：
 
-```cpp
+``` cpp linenums="1"
 inline cudaError_t checkCuda(cudaError_t result)
 {
   if (result != cudaSuccess) {
@@ -211,7 +211,7 @@ int main()
 
 可以将网格和线程块定义为最多具有 3 个维度， CUDA 提供 `dim3` 类型定义多维网格和块：
 
-```cpp
+```cpp linenums="1"
 dim3 threads_per_block(block_dim_x, block_dim_y, block_dim_z);
 dim3 number_of_blocks(grid_dim_x, grid_dim_y, grid_dim_z);
 someKernel<<<number_of_blocks, threads_per_block>>>();
