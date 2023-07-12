@@ -56,11 +56,11 @@ nav:
     - CS/content.md
   - HPC:
     - HPC: HPC/index.md
-    - HPC 101 labs:
-      - HPC 101 labs: HPC/HPC 101 labs/index.md
-      - 课堂实验 NVIDIA CUDA C: HPC/HPC 101 labs/cudaC.md
-  - Labs:
-    - HPC lab2 向量化计算: Labs/numpy.md
+    - HPC 101:
+      - HPC 101 labs: HPC/HPC 101/index.md
+      - 课堂实验 NVIDIA CUDA C: HPC/HPC 101/cudaC.md
+  # - Labs:
+  #   - HPC lab2 向量化计算: Labs/numpy.md
 
 markdown_extensions:
 
