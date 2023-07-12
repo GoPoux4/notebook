@@ -57,7 +57,7 @@ nav:
   - HPC:
     - HPC: HPC/index.md
     - HPC 101:
-      - HPC 101 labs: HPC/HPC 101/index.md
+      - HPC 101: HPC/HPC 101/index.md
       - 课堂实验 NVIDIA CUDA C: HPC/HPC 101/cudaC.md
   # - Labs:
   #   - HPC lab2 向量化计算: Labs/numpy.md
