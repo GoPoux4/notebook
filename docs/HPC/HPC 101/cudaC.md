@@ -5,7 +5,31 @@
 
 ## GPU 编程原理
 
-TODO:
+### CPU vs. GPU
+
+CPU ：
+
+: - 少量且复杂的核心
+  - 低内存延迟的缓存（cache）较大
+  - 内存大但慢
+
+GPU ：
+
+: - 大量简单核心
+  - 低内存延迟的缓存（cache）较小
+  - 内存小但快
+
+### CUDA 编程模型 vs. 硬件执行模型
+
+![](/assert/img/HPC/HPC%20101%20labs/CUDA/img3.png)
+
+### 体系结构类别和编程模型
+
+- SISD（Single instruction, single data）单指令流单数据流：传统的串行计算机。
+- SIMD（Single instruction, multiple data）单指令多数据流：AVX、SSE 等指令集。
+- SPMD（Single program, multiple data）单程序多数据流：对问题进行分解，再进行并行求解。
+
+前两个是体系结构类别，最后一个是编程模型。
 
 ## CUDA C/C++ 编程
 
@@ -20,7 +44,7 @@ TODO:
 查询 GPU 信息命令：
 
 ```bash linenums="1"
-nvidia-smi
+$ nvidia-smi
 ```
 
 #### GPU 加速原理
@@ -81,7 +105,7 @@ int main()
     使用 `nvcc` 命令编译和运行程序：
 
     ```bash linenums="1"
-    nvcc -arch=sm_70 -o hello-gpu hello-gpu.cu -run
+    $ nvcc -arch=sm_70 -o hello-gpu hello-gpu.cu -run
     ```
 
     - `nvcc` 为编译器命令。
@@ -136,7 +160,7 @@ loop<<<number_of_blocks, threads_per_block>>>();
 
 此处必须有 `number_of_blocks * threads_per_block >= N` 。
 
-#### 分配将要在 GPU 和 CPU 上访问的内存
+#### 分配内存
 
 回忆一般的 CPU 程序分配并释放内存的方式：
 
@@ -155,6 +179,18 @@ cudaMallocManaged(&a, size);
 ...
 cudaFree(a);
 ```
+
+其他一些用于手动内存管理的 CUDA 命令：
+
+- `cudaMalloc` 命令将直接为处于活动状态的 GPU 分配内存。这可防止出现所有 GPU 分页错误，而代价是主机代码将无法访问该命令返回的指针。
+- `cudaMallocHost` 命令将直接为 CPU 分配内存。该命令可固定内存（pinned memory）或页锁定内存（page-locked memory）。允许将内存异步拷贝至 GPU 或从 GPU 异步拷贝至内存。但固定内存过多会干扰 CPU 性能，因此需避免无端使用该命令。释放固定内存时应使用 `cudaFreeHost` 命令。
+- `cudaMemcpy` 命令可拷贝内存。示例
+  ```cpp linenums="1"
+  // 从 host 向 device 拷贝内存
+  cudaMemcpy(device_a, host_a, size, cudaMemcpyHostToDevice);
+  // 从 device 向 host 拷贝内存
+  cudaMemcpy(host_a, device_a, size, cudaMemcpyDeviceToHost);
+  ```
 
 #### 跨网格循环
 
@@ -218,3 +254,76 @@ someKernel<<<number_of_blocks, threads_per_block>>>();
 ```
 
 在核函数中，可以使用 `threadIdx.y` 及类似形式获得相关索引和维度。
+
+### 统一内存使用与使用 nsys 管理内存
+
+#### nsys 使用
+
+使用 `nsys profile` 分析编译好的可执行文件
+
+```bash
+$ nsys profile --stats=true ./test
+```
+
+`nsys profile` 将生成一个 `qdrep` 报告文件，使用 `--stats = true` 标志表示希望打印输出摘要统计信息。
+
+#### 流多处理器（Streaming Multiprocessors）
+
+GPU 具有称为流多处理器（或 SM）的处理单元。在核函数执行期间，将线程块提供给 SM 以供其执行。SM 同时调度执行的线程块取决于 warp 大小（一般为 32）。
+
+通常可以选择线程数量数倍于 32 的线程块大小来提升性能。
+
+#### 查询 GPU 属性
+
+```cpp linenums="1"
+int deviceId;
+cudaGetDevice(&deviceId);
+
+cudaDeviceProp props;
+cudaGetDeviceProperties(&props, deviceId);
+```
+
+`props` 中包含了 GPU 设备属性，主要用到 warp 大小 `props.warpSize` 。
+
+#### 统一内存（UM）行为
+
+分配 UM 时，内存尚未驻留在主机或设备上。主机或设备尝试访问内存时会发生页错误（Page Fault），此时主机或设备会批量迁移所需的数据。同理，当 CPU 或加速系统中的任何 GPU 尝试访问尚未驻留在其上的内存时，会发生页错误并触发迁移。
+
+稀疏访问数据时，触发页错误并按需迁移内存会有显著优势。
+
+而需要大量连续的内存块时，通过异步预取内存可以有效规避页错误和按需数据迁移所产生的开销。
+
+#### 异步内存预取
+
+CUDA 可通过 `cudaMemPrefetchAsync` 函数，将托管内存异步预取到 GPU 设备或 CPU：
+
+```cpp linenums="1"
+int deviceId;
+cudaGetDevice(&deviceId);
+
+// Prefetch to GPU device.
+cudaMemPrefetchAsync(pointerToSomeUMData, size, deviceId);
+// Prefetch to host.
+cudaMemPrefetchAsync(pointerToSomeUMData, size, cudaCpuDeviceId); 
+```
+
+#### 并发 CUDA 流
+
+流是由按顺序执行的一系列命令构成。在 CUDA 应用程序中，核函数的执行以及一些内存传输均在 CUDA 流中进行。未作特殊声明的核函数在默认流中执行。
+
+此外，程序可以创建非默认流，在不同的流中并发执行多个核函数。
+
+默认流会阻止其他流中的所有核函数。当其他流中的所有核函数执行完毕之后，默认流中的核函数才开始执行；当默认流中的核函数执行完毕，其他流中的核函数才可以开始执行。
+
+![](/assert/img/HPC/HPC%20101%20labs/CUDA/img4.png)
+
+创建非默认流，并在非默认流中启动核函数：
+
+```cpp linenums="1"
+cudaStream_t stream;
+cudaStreamCreate(&stream);
+
+someKernel<<<number_of_blocks, threads_per_block, 0, stream>>>();
+
+cudaStreamDestroy(stream);
+```

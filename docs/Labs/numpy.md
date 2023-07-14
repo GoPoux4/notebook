@@ -15,10 +15,8 @@ $$
     f(x,y) \approx
     {\frac {1}{(x_{2}-x_{1})(y_{2}-y_{1})}} 
     {\big (}
-    &f(Q_{11})(x_{2}-x)(y_{2}-y) \\
-    +&f(Q_{21})(x-x_{1})(y_{2}-y)\\
-    +&f(Q_{12})(x_{2}-x)(y-y_{1})\\
-    +&f(Q_{22})(x-x_{1})(y-y_{1})
+    &f(Q_{11})(x_{2}-x)(y_{2}-y) + f(Q_{21})(x-x_{1})(y_{2}-y)\\
+    +&f(Q_{12})(x_{2}-x)(y-y_{1}) + f(Q_{22})(x-x_{1})(y-y_{1})
     {\big )}
 \end{aligned}
 $$
@@ -73,8 +71,7 @@ $$
 据此即可使用向量化去掉内层两层 `for` 循环，代码实现如下：
 
 ```py linenums="1" title="vectorize1.py"
-def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) \
-    -> np.ndarray:
+def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     """
     This is the vectorized implementation of bilinear interpolation.
     - a is a ND array with shape [N, H1, W1, C], dtype = int64
@@ -92,8 +89,7 @@ def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) \
 
     for n in range(N):
         X, Y = b[n]
-        X_idx , Y_idx = np.floor(X).astype(int64), \
-                        np.floor(Y).astype(int64)
+        X_idx , Y_idx = np.floor(X).astype(int64), np.floor(Y).astype(int64)
         _X, _Y = X - X_idx, Y - Y_idx
         A00 = a[n, X_idx, Y_idx].transpose(2, 0, 1)
         A01 = a[n, X_idx, Y_idx + 1].transpose(2, 0, 1)
@@ -103,10 +99,8 @@ def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) \
         res10 = A10 * _X * (1 - _Y)
         res01 = A01 * (1 - _X) * _Y
         res11 = A11 * _X * _Y
-        res[n] = res00.transpose(1, 2, 0) + \
-                 res01.transpose(1, 2, 0) + \
-                 res10.transpose(1, 2, 0) + \
-                 res11.transpose(1, 2, 0)
+        res[n] = res00.transpose(1, 2, 0) + res01.transpose(1, 2, 0) + \
+                 res10.transpose(1, 2, 0) + res11.transpose(1, 2, 0)
     return res
 ```
 
@@ -144,8 +138,7 @@ A11 = a[N_idx, X_idx + 1, Y_idx + 1].transpose(3, 0, 1, 2)
 完整代码如下：
 
 ```py linenums="1" title="vectorize.py"
-def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) \
-    -> np.ndarray:
+def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     """
     This is the vectorized implementation of bilinear interpolation.
     - a is a ND array with shape [N, H1, W1, C], dtype = int64
@@ -162,8 +155,7 @@ def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) \
 
     # Get the matrices of coordinates
     X, Y = b.transpose(3, 0, 1, 2)
-    X_idx , Y_idx = np.floor(X).astype(int64), \
-                    np.floor(Y).astype(int64)
+    X_idx , Y_idx = np.floor(X).astype(int64), np.floor(Y).astype(int64)
     _X, _Y = X - X_idx, Y - Y_idx
 
     # Generate the indices array

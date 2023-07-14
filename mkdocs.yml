@@ -61,6 +61,7 @@ nav:
       - 课堂实验 NVIDIA CUDA C: HPC/HPC 101/cudaC.md
   # - Labs:
   #   - HPC lab2 向量化计算: Labs/numpy.md
+  #   - HPC lab2.5 手写 SIMD 向量化: Labs/simd.md
 
 markdown_extensions:
 

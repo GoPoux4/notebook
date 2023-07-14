@@ -2,37 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://note.gopoux.cc/</loc>
-         <lastmod>2023-07-12</lastmod>
+         <lastmod>2023-07-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.gopoux.cc/CS/</loc>
-         <lastmod>2023-07-12</lastmod>
+         <lastmod>2023-07-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.gopoux.cc/CS/content/</loc>
-         <lastmod>2023-07-12</lastmod>
+         <lastmod>2023-07-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.gopoux.cc/HPC/</loc>
-         <lastmod>2023-07-12</lastmod>
+         <lastmod>2023-07-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.gopoux.cc/HPC/HPC%20101/</loc>
-         <lastmod>2023-07-12</lastmod>
+         <lastmod>2023-07-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.gopoux.cc/HPC/HPC%20101/cudaC/</loc>
-         <lastmod>2023-07-12</lastmod>
+         <lastmod>2023-07-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.gopoux.cc/Labs/numpy/</loc>
-         <lastmod>2023-07-12</lastmod>
+         <lastmod>2023-07-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.gopoux.cc/Labs/simd/</loc>
+         <lastmod>2023-07-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
