@@ -1,9 +1,9 @@
 site_name: GoPoux 的笔记本
 site_url: https://note.gopoux.cc/
+site_dir: E:\Study\Notebook\note.gopoux.cc
 repo_name: GoPoux4/notebook
 repo_url: https://github.com/GoPoux4/notebook/
-copyright: Copyright &copy; 2023-2024 GoPoux
-
+copyright: Copyright &copy; 2023-2024 GoPoux <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2023017648号</a>
 
 theme:
   name: material
@@ -37,31 +37,12 @@ theme:
     code: Fira Mono
 
 plugins:
-  - search:
-      separator: '[\s\u200b\-]'
-      lang:
-        - zh
-        - en
+  - search
 
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-
-nav:
-  - Home:
-    - index.md
-  - Computer Science:
-    - Computer Science: CS/index.md
-    - CS/content.md
-  - HPC:
-    - HPC: HPC/index.md
-    - HPC 101:
-      - HPC 101: HPC/HPC 101/index.md
-      - 课堂实验 NVIDIA CUDA C: HPC/HPC 101/cudaC.md
-  # - Labs:
-  #   - HPC lab2 向量化计算: Labs/numpy.md
-  #   - HPC lab2.5 手写 SIMD 向量化: Labs/simd.md
 
 markdown_extensions:
 
@@ -108,7 +89,42 @@ extra:
       link: https://www.cnblogs.com/syc233/
       name: My Cnblog Page
 
+extra_css:
+  - css/counter.css
+
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home:
+    - index.md
+  - Computer Science:
+    - Computer Science: cs/index.md
+    - 人工智能引论: cs/intro_to_ai/ai.md
+    - 计算机逻辑设计基础:
+      - cs/computer_logic/index.md
+      - Chapter1: cs/computer_logic/chapter1.md
+      - Chapter2: cs/computer_logic/chapter2.md
+    - 量子计算:
+      - Basic Definition: cs/quantum/introduction.md
+  - Math:
+    - Math: math/index.md
+    - 概率论:
+      - math/prob_theory/index.md
+      - 事件及其概率: math/prob_theory/chapter1.md
+    - 数论导引:
+      - math/num_theory/index.md
+      - Lecture 1: math/num_theory/lec1.md
+  - HPC:
+    - HPC: hpc/index.md
+    - HPC 101:
+      - HPC 101: hpc/hpc101/index.md
+      - 课堂实验 NVIDIA CUDA C: hpc/hpc101/cuda.md
+  - Labs:
+    - HPC lab2 向量化计算: labs/numpy.md
+    - HPC lab2.5 手写 SIMD 向量化: labs/simd.md
+    - HPC lab3 CUDA 使用基础: labs/cuda.md
+    - HPC lab4 PCG Solver: labs/pcg.md
+    - HPC lab5 简单神经网络训练与加速: labs/cnn.md
