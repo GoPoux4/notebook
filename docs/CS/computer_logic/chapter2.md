@@ -430,10 +430,49 @@ Delay is usually measured at the 50% point with respect to the H and L output vo
 
 The fan-out loading a gate’s output affects the gate’s propagation delay
 
-!!! example
+standard load: 带一个非门所需要的负载。
 
+!!! example
+    One realistic equation for $t_{pd}$ for a NAND gate with 4 inputs is
+
+    $$
+    t_{pd} = 0.07 + 0.021 SL \text{ns}
+    $$
+
+    $SL$: the number of standard loads the gate is driving.
+
+#### Cost/Performance Tradeoffs
+
+!!! example "Gate-Level Example"
+    NAND gate G with 20 standard loads on its output has a delay of 0.45 ns and has a normalized cost of 2.0.
+
+    A buffer H has a normalized cost of 1.5. The NAND gate driving the buffer with 20 standard loads gives a total delay of 0.33 ns.
+
+    In which if the following cases should the buffer be added?
+
+    1. The cost of this portion of the circuit cannot be more than 2.5
+    2. The delay of this portion of the circuit cannot be more than 0.40 ns
+    3. The delay of this portion of the circuit must be less than 0.40 ns and the cost less than 3.0
+
+    Answer:
+
+    1. No buffer
+    2. Need buffer
+    3. Cannot achieve by using buffer or not
+
+Tradeoffs can also be accomplished much higher in the design hierarchy.
+
+Constraints on cost and performance have a major role in making tradeoffs.
 
 ### Other Gate Types
+
+Why need other gate types?
+
+* Implementation feasibility and low cost
+* Power in implementing Boolean functions
+* Convenient conceptual representation
+
+
 
 ### Exclusive-OR Operator and Gates
 

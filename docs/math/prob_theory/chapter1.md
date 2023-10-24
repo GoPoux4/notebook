@@ -261,6 +261,8 @@ $P(B_k)$ 为先验概率， $P(B_k|A)$ 为后验概率
 
 ## 独立性
 
+### 两个事件独立
+
 假设 $(\Omega, \mathcal{A}, P)$ 是一个概率空间，$A, B$ 是两个事件。如果 $P(B)>0$，并且
 
 $$
@@ -272,3 +274,213 @@ $$
 $$
 P(AB) = P(A)P(B)
 $$
+
+!!! note
+    * $P(B)=0$ 时乘积公式仍有意义。
+    * $A, B$ 关系对等。
+    * 若 $A, B$ 独立，则 $A, \bar B$ 独立， $\bar A, B$ 独立， $\bar A, \bar B$ 独立
+    * 与加法（并）的区别：
+
+        $$
+        \begin{align}
+            P(A+B) &= P(A) + P(B) \qquad &&A \cap B = \emptyset \\
+            P(AB) &= P(A)P(B) \qquad &&A, B \text{独立}
+        \end{align}
+        $$
+
+### 三个事件独立
+
+若 $A, B, C$ 是三个事件，若 **$A, B, C$ 两两相互独立** 且
+
+$$
+P(ABC) = P(A)P(B)P(C)
+$$
+
+则称 $A,B,C$ 相互独立。
+
+!!! warning
+    两两独立不一定相互独立，相互独立一定两两独立。
+
+    !!! example
+        一个正四面体的三面分别涂成红、黑、白三色，另一面涂上三种颜色。现随机一扔，记底面涂有红、黑、白分别为事件 $A,B,C$。
+
+        可得
+
+        $$
+        P(A) = P(B) = P(C) = \frac{1}{2}
+        $$
+
+        且
+        
+        $$
+        \begin{align}
+        P(AB) = \frac{1}{4} = P(A)P(B) \\
+        P(AC) = \frac{1}{4} = P(A)P(C) \\
+        P(BC) = \frac{1}{4} = P(B)P(C)
+        \end{align}
+        $$
+
+        则 $A,B,C$ 两两独立。但
+
+        $$
+        P(ABC) = \frac{1}{4} \not = P(A)P(B)P(C)
+        $$
+
+        故 $A,B,C$ 不相互独立。原因在于若 $AB$ 发生，则 $C$ 一定发生，失去了独立性。
+
+!!! note
+    若 $A,B,C$ 相互独立，则 $\bar A,B,C$ 相互独立，$A+B, C$ 相互独立，等等类似关系成立。
+
+### m 个事件相互独立
+
+假设 $A_k, 1\leq k\leq m$ 是 $m$ 个事件，若 $A_k$ 中任意 $r < m$ 个都相互独立，且
+
+$$
+P(\bigcap_{1\leq k\leq m}A_k) = \prod_{1\leq k\leq m}P(A_k)
+$$
+
+则 $A_k, 1\leq k\leq m$ 相互独立。
+
+### 二项试验
+
+又称 n-重 Bernonlli 试验。
+
+* 试验 $E$ 包含若干个基本结果。
+* 事件 $A$ 为具有某种属性的基本结果集合，发生的概率为 $P(A) = p_A$
+
+独立重复进行 $n$ 次试验，并观察记录结果。判断 $A$ 发生与否，统计 $A$ 发生的次数 $n_A$.
+
+!!! note "概率模型"
+    每次试验 $A$ 发生记为 $1$，不发生记为 $0$。
+
+    独立重复 $n$ 次试验，所得结果为
+
+    $$
+    \omega = (\omega _1, \dots, \omega _n) \qquad \omega_i =0, 1
+    $$
+
+    用 $\Omega_n$ 表示所有 $\omega$ 的全体
+
+    $$
+    \Omega_n = \{\omega = (\omega _1, \dots, \omega _n), \omega_i =0, 1\}
+    $$
+
+    其中每个 $\omega$ 出现的概率为
+
+    $$
+    P_n(\{\omega\}) = p_A^{\sum \omega_i}(1 - p_A)^{n - \sum \omega_i}
+    $$
+
+    由此得到概率空间 $(\Omega_n, P_n)$，即为 n-重 Bernonlli 试验的概率模型。
+
+考虑事件 $B = \{\omega: n_A(\omega) = k\}$，则
+
+$$
+P_n(B) = {n \choose k}p_A^k(1 - p_A)^{n - k}
+$$
+
+### 乘积概率空间
+
+考虑两个试验 $E_1, E_2$，其概率空间分别为 $(\Omega_1, P_1), (\Omega_2, P_2)$
+
+现同时独立做两个试验，记录其基本结果 $\omega = (\omega_1, \omega_2)$
+
+考虑 $E_1, E_2$ 所有基本结果的全体
+
+$$
+\Omega = \{\omega = (\omega_1, \omega_2), \quad \omega_1 \in \Omega_1, \omega_2 \in \Omega_2\}
+$$
+
+考虑事件
+
+$$
+A = A_1 \times A_2 = \{\omega = (\omega_1, \omega_2), \quad \omega_1 \in A_1, \omega_2 \in A_2\}
+$$
+
+定义其概率
+
+$$
+P(A) = P(A_1)P(A_2)
+$$
+
+得到新的概率空间：乘积概率空间 $(\Omega, P)$
+
+## 补充说明
+
+### 概率的可加性
+
+如果 $A_n, n \geq 1$ 互不相交，则
+
+$$
+P(\sum_{n = 1}^\infty A_n) = \sum_{n = 1}^\infty P(A_n)
+$$
+
+### 概率的连续性
+
+!!! note "事件的极限"
+    * 假设 $A_n$ 是一列增加事件
+
+        $$
+        A_1 \subseteq \dots \subseteq A_n \subseteq \dots
+        $$
+
+        定义
+
+        $$
+        \lim_{n \to \infty} A_n = \bigcup_{n=1}^\infty A_n
+        $$
+
+    * 假设 $A_n$ 是一列递减事件
+
+        $$
+        A_1 \supseteq \dots \supseteq A_n \supseteq \dots
+        $$
+
+        定义
+
+        $$
+        \lim_{n \to \infty} A_n = \bigcap_{n=1}^\infty A_n
+        $$
+
+假设 $A_n$ 是一列增加事件，则
+
+$$
+P(\lim_{n\to \infty} A_n) = \lim_{n\to \infty}P(A_n)
+$$
+
+!!! proof
+    记 $B_1 = A_1, B_k = A_k - A_{k - 1}$ ，则 $B_k$ 互不相交，则
+
+    $$
+    \begin{align}
+    P(\lim_{n\to\infty}A_n) &= P(\sum_{n=1}^\infty B_n) \\
+                            &= \sum_{n=1}^\infty P(B_n) \\
+                            &= \sum_{n=1}^\infty P(A_n) - P(A_{n - 1}) \\
+                            &= \lim_{n\to\infty} P(A_n)
+    \end{align}
+    $$
+
+### 条件概率具有概率的运算性质
+
+假设 $(\Omega, \mathcal{A}, P)$ 是概率空间， $B$ 是一个事件， $P(B)>0$
+
+对于任意事件 $A \in \mathcal{A}$ ，条件概率 $P(A|B) = \frac{P(AB)}{P(B)}$
+
+将
+
+$$
+P(\cdot | B) : \mathcal{A} \mapsto [0, 1]
+$$
+
+视作一个概率。
+
+则有
+
+$$
+\begin{align}
+P(A_1+A_2|B) = P(A_1|B) + P(A_2|B) \\
+P(A_1-A_2|B) = P(A_1|B) - P(A_2|B)
+\end{align}
+$$
+
+等等类似性质。

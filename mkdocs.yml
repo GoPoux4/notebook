@@ -105,8 +105,8 @@ nav:
     - 人工智能引论: cs/intro_to_ai/ai.md
     - 计算机逻辑设计基础:
       - cs/computer_logic/index.md
-      - Chapter1: cs/computer_logic/chapter1.md
-      - Chapter2: cs/computer_logic/chapter2.md
+      - 数字系统和信息: cs/computer_logic/chapter1.md
+      - 组合逻辑电路: cs/computer_logic/chapter2.md
     - 量子计算:
       - Basic Definition: cs/quantum/introduction.md
   - Math:
