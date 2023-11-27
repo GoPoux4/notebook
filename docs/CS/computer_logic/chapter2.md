@@ -472,9 +472,9 @@ Why need other gate types?
 * Power in implementing Boolean functions
 * Convenient conceptual representation
 
-
-
 ### Exclusive-OR Operator and Gates
+
+
 
 ### High-Impedance Outputs
 

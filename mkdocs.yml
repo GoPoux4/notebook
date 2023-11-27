@@ -114,11 +114,13 @@ nav:
       - math/prob_theory/index.md
       - 事件及其概率: math/prob_theory/chapter1.md
       - 随机变量与分布函数: math/prob_theory/chapter2.md
-    - 数论导引:
-      - math/num_theory/index.md
-      - Lecture 1: math/num_theory/lec1.md
+      - 数学期望: math/prob_theory/chapter3.md
   - HPC:
     - HPC: hpc/index.md
+    - cute:
+      - cute: hpc/cute/index.md
+      - Layout: hpc/cute/layout.md
+      - Tensor: hpc/cute/tensor.md
     - HPC 101:
       - HPC 101: hpc/hpc101/index.md
       - 课堂实验 NVIDIA CUDA C: hpc/hpc101/cuda.md

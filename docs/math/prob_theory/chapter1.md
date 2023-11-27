@@ -177,26 +177,19 @@ $(\Omega, \mathcal{A}, P)$ 构成概率空间，是随机现象的数学描述�
 : 任何满足上述性质的 $P$ 都称为空间 $(\Omega, \mathcal{A})$ 上的概率。
 
 !!! note "概率 $P$ 的运算性质"
-    - 单调性： $A \subseteq B$ ，则 $P(A) \leq P(B)$
-    - $P(\bar A) = 1 - P(A)$
-    - 对任意 $A_N \in \mathcal{A}, n \geq 1$,
+    * 单调性： $A \subseteq B$ ，则 $P(A) \leq P(B)$
+    * $P(\bar A) = 1 - P(A)$
+    * 对任意 $A_N \in \mathcal{A}, n \geq 1$,
 
-    $$
-    P(\bigcup_{n=1}^{\infty}A_n) \leq \sum_{n=1}^{\infty}P(A_n)
-    $$
+        $$
+        P(\bigcup_{n=1}^{\infty}A_n) \leq \sum_{n=1}^{\infty}P(A_n)
+        $$
 
-    - $A, B \in \mathcal{A}$ ，则（容斥原理）
+    * $A, B \in \mathcal{A}$ ，则（容斥原理）
 
-    $$
-    P(A\cup B) = P(A) + P(B) - P(AB)
-    $$
-
-    : 一般地，对于任意 $A_k \in \mathcal{A}, 1 \leq k \leq m$,
-
-    $$
-    \begin{align}
-    \end{align}
-    $$
+        $$
+        P(A\cup B) = P(A) + P(B) - P(AB)
+        $$
 
 ## 条件概率
 
