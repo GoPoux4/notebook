@@ -806,6 +806,22 @@ $$
     \end{align*}
     $$
 
+!!! example
+    设 $X_1, X_2, \cdots, X_n$ 相互独立且服从 $[0, a]$ 上的均匀分布，求 $Y = \max\{X_1, X_2, \cdots, X_n\}, Z = \min\{X_1, X_2, \cdots, X_n\}$ 的联合分布。
+
+    解：
+
+    $$
+    \begin{align*}
+    F_{YZ}(y, z) =& P(Y \leq y, Z \leq z) \\
+        =& P(Y \leq y) - P(Y \leq y, Z > z) \\
+        =& F_X^n(y) - \prod_{i=1}^{n}P(z < X_i \leq y) \\
+        =& F_X^n(y) - (F_X(y) - F_X(z))^n \\
+        =& (\frac{y}{a})^n - (\frac{y-z}{a})^n, \quad 0 \leq z \leq y \leq a
+    \end{align*}
+    $$
+
+
 ## 总结
 
 - 二项 Bernoulli 分布
