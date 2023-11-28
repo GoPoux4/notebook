@@ -8,9 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/Labs/numpy/">
+        <link rel="canonical" href="https://note.gopoux.cc/labs/simd/">
       
       
+        <link rel="prev" href="../numpy/">
+      
+      
+        <link rel="next" href="../cuda/">
       
       
       <link rel="icon" href="../../assert/ico/favicon.png">
@@ -18,7 +22,7 @@
     
     
       
-        <title>lab2 向量化计算 - GoPoux 的笔记本</title>
+        <title>HPC lab2.5 手写 SIMD 向量化 - GoPoux 的笔记本</title>
       
     
     
@@ -75,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lab2" class="md-skip">
+        <a href="#lab25-simd" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              lab2 向量化计算
+              HPC lab2.5 手写 SIMD 向量化
             
           </span>
         </div>
@@ -291,11 +295,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../labs/numpy/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../numpy/" class="md-tabs__link">
           
   
     
@@ -1135,8 +1141,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1157,12 +1165,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -1176,7 +1184,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Labs
@@ -1190,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/numpy/" class="md-nav__link">
+      <a href="../numpy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1208,10 +1216,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../labs/simd/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    HPC lab2.5 手写 SIMD 向量化
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1220,6 +1248,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      思路
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      正确性和加速比
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      汇编代码分析
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1232,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/cuda/" class="md-nav__link">
+      <a href="../cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1253,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/pcg/" class="md-nav__link">
+      <a href="../pcg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1274,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/cnn/" class="md-nav__link">
+      <a href="../cnn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1328,36 +1412,21 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="思路">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      正确性与加速比
+      正确性和加速比
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      汇编代码分析
     </span>
   </a>
   
@@ -1390,63 +1459,147 @@
   
 
 
-<h1 id="lab2">lab2 向量化计算<a class="headerlink" href="#lab2" title="Permanent link">&para;</a></h1>
+<h1 id="lab25-simd">lab2.5 手写 SIMD 向量化<a class="headerlink" href="#lab25-simd" title="Permanent link">&para;</a></h1>
 <h2 id="_1">思路<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="step-1">Step 1<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h3>
-<p>先考虑计算单张图片的情形（ <code>N = 1</code> ）。</p>
-<p>下设新的 <span class="arithmatex">\(H_2 \times W_2\)</span> 的图中 <span class="arithmatex">\((i,j)\)</span> 处像素所想要采样的 <code>a</code> 图中对应点坐标为 <span class="arithmatex">\((x_{(i,j)}, y_{(i,j)})\)</span> ，即 <code>b[n, i, j]</code> 处所存坐标。</p>
-<p>阅读 <code>baseline.py</code> ，可知基准代码采用了如下等式计算每个采样点 <code>(x, y)</code> 的采样结果：</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    f(x,y) \approx
-    {\frac {1}{(x_{2}-x_{1})(y_{2}-y_{1})}} 
-    {\big (}
-    &amp;f(Q_{11})(x_{2}-x)(y_{2}-y) + f(Q_{21})(x-x_{1})(y_{2}-y)\\
-    +&amp;f(Q_{12})(x_{2}-x)(y-y_{1}) + f(Q_{22})(x-x_{1})(y-y_{1})
-    {\big )}
-\end{aligned}
-\]</div>
-<p>在本次实验给出的情景中，
-<span class="arithmatex">\(x_2 - x_1 = y_2 - y_1 = 1, x_1 = \lfloor x \rfloor, y_1 = \lfloor y \rfloor\)</span> 
-，记 
-<span class="arithmatex">\(x' = x - \lfloor x \rfloor， y' = y - \lfloor y \rfloor\)</span> 
-，上述等式可简化为：</p>
-<div class="arithmatex">\[
-\displaystyle
-\begin{aligned}
-    f(x,y) \approx 
-    \ &amp; f(Q_{11})(1 - x')(1 - y')+f(Q_{21})(x')(1 - y') \\
-    + \ &amp; f(Q_{12})(1 - x')(y')+f(Q_{22})(x')(y') \\
-\end{aligned}
-\]</div>
-<p>由于每个采样点的计算都是独立的，我们可以定义如下几个矩阵，</p>
-<div class="arithmatex">\[
-\mathbf{F} = \big( f(x_{(i,j)}, y_{(i,j)})\big)_{H2 \times W2} 
-\]</div>
-<div class="arithmatex">\[
-\begin{aligned}
-    \mathbf{F_{00}} = \big( f(Q_{11})\big)_{H2 \times W2} \quad
-    \mathbf{F_{01}} = \big( f(Q_{12})\big)_{H2 \times W2} \\
-    \mathbf{F_{10}} = \big( f(Q_{21})\big)_{H2 \times W2} \quad
-    \mathbf{F_{11}} = \big( f(Q_{22})\big)_{H2 \times W2} \\
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-\begin{aligned}
-    \mathbf{X'} = \big( x'_{(i, j)} \big)_{H2 \times W2} \\
-    \mathbf{Y'} = \big( y'_{(i, j)} \big)_{H2 \times W2}
-\end{aligned}
-\]</div>
-<p>使用逐元素乘法（ <code>*</code> ）和矩阵加法即可实现向量化计算矩阵 <span class="arithmatex">\(\mathbf{F}\)</span> 中的采样信息：</p>
-<div class="arithmatex">\[
-\begin{aligned}
-    \mathbf{F}
-    &amp; = \mathbf{F_{00}} * (1 - \mathbf{X'}) * (1 - \mathbf{Y'}) + \mathbf{F_{10}} * \mathbf{X'} * (1 - \mathbf{Y'}) \\
-    &amp; + \mathbf{F_{01}} * (1 - \mathbf{X'}) * \mathbf{Y'} + \mathbf{F_{11}} * \mathbf{X'} * \mathbf{Y'} 
-\end{aligned}
-\]</div>
-<p>据此即可使用向量化去掉内层两层 <code>for</code> 循环，代码实现如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">vectorize1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p>首先分析需要向量化的部分：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAXN</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>可以分为三个部分：</p>
+<ul>
+<li>需要计算的数据： <code>a[i], b[i], c[i]</code> 。</li>
+<li>计算操作： <code>tmp = a[i] * b[i]</code> 和 <code>c[i] = c[i] + tmp</code> 。</li>
+</ul>
+<p>于是根据向量化的基本流程，大致需要几个操作：</p>
+<ul>
+<li>Load <code>a, b, c</code> 到 <code>__m256</code> 类型变量 <code>A, B, C</code> 。</li>
+<li>令 <code>C = C + A * B</code> 。（此处运算符只代表操作的含义）</li>
+<li>将 <code>C</code> 的数据存回 <code>float</code> 数组 <code>c</code> 中 。</li>
+</ul>
+<p>如何实现？</p>
+<p>Load 操作：</p>
+<dl>
+<dt><code>__m256 _mm256_loadu_ps (float const * mem_addr)</code> </dt>
+<dd>
+<p>从 <code>mem_addr</code> 指向的内存地址中 load 256 位（8 个 <code>float</code> 元素）的数据到向量寄存器。</p>
+</dd>
+</dl>
+<p>计算操作：</p>
+<dl>
+<dt><code>__m256 _mm256_mul_ps (__m256 a, __m256 b)</code></dt>
+<dd>
+<p>计算 <code>a</code> 和 <code>b</code> 中 <code>float</code> 元素逐位相乘的结果。</p>
+</dd>
+<dt><code>__m256 _mm256_add_ps (__m256 a, __m256 b)</code></dt>
+<dd>
+<p>计算 <code>a</code> 和 <code>b</code> 中 <code>float</code> 元素逐位相加的结果。</p>
+</dd>
+</dl>
+<p>Store 操作：</p>
+<dl>
+<dt><code>void _mm256_storeu_ps (float * mem_addr, __m256 a)</code></dt>
+<dd>
+<p>将 <code>a</code> 中的 256 位（8 个 <code>float</code> 元素）的数据 store 到 <code>mem_addr</code> 指向的内存地址中。</p>
+</dd>
+</dl>
+<p>于是就可以写出向量化的代码了：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define LEN (MAXN / 8)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LEN</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">__m256</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Load data</span>
+<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_mm256_loadu_ps</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_mm256_loadu_ps</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_mm256_loadu_ps</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Calculate</span>
+<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_mm256_add_ps</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">_mm256_mul_ps</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">));</span>
+
+<span class="w">    </span><span class="c1">// Store data</span>
+<span class="w">    </span><span class="n">_mm256_storeu_ps</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>由于 <code>__m256</code> 类型变量只能同时操作 256 位数据，即 8 个 <code>float</code> ，向量化时需对每 8 个数据进行一次向量化</p>
+</div>
+<h2 id="_2">正确性和加速比<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>编译运行 <code>add.cpp</code> ，程序输出：</p>
+<div class="highlight"><pre><span></span><code>time=1.916000
+Check Passed
+</code></pre></div>
+<p>向量化后计算结果正确，加速比为 1.916 。</p>
+<h2 id="_3">汇编代码分析<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>利用 <a href="https://godbolt.org/">godbolt</a> 进行汇编代码分析。</p>
+<p>向量化前，需要向量化的代码部分的汇编代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">...</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-20</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nf">jmp</span><span class="w">     </span><span class="no">.L11</span>
+<span class="nl">.L12:</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-20</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">cdqe</span>
+<span class="w">        </span><span class="nf">vmovss</span><span class="w">  </span><span class="no">xmm1</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="no">c</span><span class="p">[</span><span class="mi">0</span><span class="err">+</span><span class="no">rax</span><span class="p">*</span><span class="mi">4</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-20</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">cdqe</span>
+<span class="w">        </span><span class="nf">vmovss</span><span class="w">  </span><span class="no">xmm2</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="no">a</span><span class="p">[</span><span class="mi">0</span><span class="err">+</span><span class="no">rax</span><span class="p">*</span><span class="mi">4</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-20</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">cdqe</span>
+<span class="w">        </span><span class="nf">vmovss</span><span class="w">  </span><span class="no">xmm0</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="no">b</span><span class="p">[</span><span class="mi">0</span><span class="err">+</span><span class="no">rax</span><span class="p">*</span><span class="mi">4</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmulss</span><span class="w">  </span><span class="no">xmm0</span><span class="p">,</span><span class="w"> </span><span class="no">xmm2</span><span class="p">,</span><span class="w"> </span><span class="no">xmm0</span>
+<span class="w">        </span><span class="nf">vaddss</span><span class="w">  </span><span class="no">xmm0</span><span class="p">,</span><span class="w"> </span><span class="no">xmm1</span><span class="p">,</span><span class="w"> </span><span class="no">xmm0</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-20</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">cdqe</span>
+<span class="w">        </span><span class="nf">vmovss</span><span class="w">  </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="no">c</span><span class="p">[</span><span class="mi">0</span><span class="err">+</span><span class="no">rax</span><span class="p">*</span><span class="mi">4</span><span class="p">],</span><span class="w"> </span><span class="no">xmm0</span>
+<span class="w">        </span><span class="nf">add</span><span class="w">     </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-20</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+<span class="nl">.L11:</span>
+<span class="w">        </span><span class="nf">cmp</span><span class="w">     </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-20</span><span class="p">],</span><span class="w"> </span><span class="mi">99999999</span>
+<span class="w">        </span><span class="nf">jle</span><span class="w">     </span><span class="no">.L12</span>
+<span class="na">...</span>
+</code></pre></div></td></tr></table></div>
+<p>可知，<code>for</code> 循环内部的代码被顺次执行了 <code>MAXN</code> 次，每次只对 1 组数据（ <code>a[i], b[i], c[i]</code> ） 进行操作。</p>
+<p>向量化后，被向量化的代码部分的汇编代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1476,146 +1629,102 @@
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bilinear_interp_vectorized</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This is the vectorized implementation of bilinear interpolation.</span>
-<span class="sd">    - a is a ND array with shape [N, H1, W1, C], dtype = int64</span>
-<span class="sd">    - b is a ND array with shape [N, H2, W2, 2], dtype = float64</span>
-<span class="sd">    - return a ND array with shape [N, H2, W2, C], dtype = int64</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># get axis size from ndarray shape</span>
-    <span class="n">N</span><span class="p">,</span> <span class="n">H1</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">N1</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span>
-    <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="n">N1</span>
-
-    <span class="c1"># Do iteration</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">C</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-        <span class="n">X_idx</span> <span class="p">,</span> <span class="n">Y_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64</span><span class="p">)</span>
-        <span class="n">_X</span><span class="p">,</span> <span class="n">_Y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">X_idx</span><span class="p">,</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">Y_idx</span>
-        <span class="n">A00</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">X_idx</span><span class="p">,</span> <span class="n">Y_idx</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">A01</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">X_idx</span><span class="p">,</span> <span class="n">Y_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">A10</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">X_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Y_idx</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">A11</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">X_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Y_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">res00</span> <span class="o">=</span> <span class="n">A00</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_X</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_Y</span><span class="p">)</span>
-        <span class="n">res10</span> <span class="o">=</span> <span class="n">A10</span> <span class="o">*</span> <span class="n">_X</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_Y</span><span class="p">)</span>
-        <span class="n">res01</span> <span class="o">=</span> <span class="n">A01</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_X</span><span class="p">)</span> <span class="o">*</span> <span class="n">_Y</span>
-        <span class="n">res11</span> <span class="o">=</span> <span class="n">A11</span> <span class="o">*</span> <span class="n">_X</span> <span class="o">*</span> <span class="n">_Y</span>
-        <span class="n">res</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">res00</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">res01</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> \
-                 <span class="n">res10</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">res11</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">...</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-36</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="nf">jmp</span><span class="w">     </span><span class="no">.L11</span>
+<span class="nl">.L17:</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-36</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">sal</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">        </span><span class="nf">cdqe</span>
+<span class="w">        </span><span class="nf">sal</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="nf">add</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="no">OFFSET</span><span class="w"> </span><span class="no">FLAT</span><span class="p">:</span><span class="no">a</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">QWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-392</span><span class="p">],</span><span class="w"> </span><span class="no">rax</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="no">QWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-392</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovups</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rax</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-112</span><span class="p">],</span><span class="w"> </span><span class="no">ymm0</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-36</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">sal</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">        </span><span class="nf">cdqe</span>
+<span class="w">        </span><span class="nf">sal</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="nf">add</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="no">OFFSET</span><span class="w"> </span><span class="no">FLAT</span><span class="p">:</span><span class="no">b</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">QWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-384</span><span class="p">],</span><span class="w"> </span><span class="no">rax</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="no">QWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-384</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovups</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rax</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-144</span><span class="p">],</span><span class="w"> </span><span class="no">ymm0</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-36</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">sal</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">        </span><span class="nf">cdqe</span>
+<span class="w">        </span><span class="nf">sal</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="nf">add</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="no">OFFSET</span><span class="w"> </span><span class="no">FLAT</span><span class="p">:</span><span class="no">c</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">QWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-376</span><span class="p">],</span><span class="w"> </span><span class="no">rax</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="no">QWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-376</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovups</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rax</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-176</span><span class="p">],</span><span class="w"> </span><span class="no">ymm0</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-112</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-336</span><span class="p">],</span><span class="w"> </span><span class="no">ymm0</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-144</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-368</span><span class="p">],</span><span class="w"> </span><span class="no">ymm0</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-336</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmulps</span><span class="w">  </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-368</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">ymm1</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-176</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-272</span><span class="p">],</span><span class="w"> </span><span class="no">ymm1</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-304</span><span class="p">],</span><span class="w"> </span><span class="no">ymm0</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-272</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vaddps</span><span class="w">  </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-304</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-176</span><span class="p">],</span><span class="w"> </span><span class="no">ymm0</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-36</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">sal</span><span class="w">     </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">        </span><span class="nf">cdqe</span>
+<span class="w">        </span><span class="nf">sal</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="nf">add</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="no">OFFSET</span><span class="w"> </span><span class="no">FLAT</span><span class="p">:</span><span class="no">c</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">QWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-184</span><span class="p">],</span><span class="w"> </span><span class="no">rax</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-176</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-240</span><span class="p">],</span><span class="w"> </span><span class="no">ymm0</span>
+<span class="w">        </span><span class="nf">vmovaps</span><span class="w"> </span><span class="no">ymm0</span><span class="p">,</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-240</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">mov</span><span class="w">     </span><span class="no">rax</span><span class="p">,</span><span class="w"> </span><span class="no">QWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-184</span><span class="p">]</span>
+<span class="w">        </span><span class="nf">vmovups</span><span class="w"> </span><span class="no">YMMWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rax</span><span class="p">],</span><span class="w"> </span><span class="no">ymm0</span>
+<span class="w">        </span><span class="nf">nop</span>
+<span class="w">        </span><span class="nf">add</span><span class="w">     </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-36</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+<span class="nl">.L11:</span>
+<span class="w">        </span><span class="nf">cmp</span><span class="w">     </span><span class="no">DWORD</span><span class="w"> </span><span class="no">PTR</span><span class="w"> </span><span class="p">[</span><span class="no">rbp-36</span><span class="p">],</span><span class="w"> </span><span class="mi">12499999</span>
+<span class="w">        </span><span class="nf">jle</span><span class="w">     </span><span class="no">.L17</span>
+<span class="na">...</span>
 </code></pre></div></td></tr></table></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>代码中使用了 <code>np.transpose</code> 函数进行矩阵转置，使得 <code>X, Y</code> 能容易地从 <code>b</code> 中取出，并且使得在进行矩阵逐元素乘法时能满足广播规则，同时对 <code>C</code> 个通道的信息进行处理。</p>
-</div>
-<h3 id="step-2">Step 2<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h3>
-<p>现在考虑同时对 <code>N</code> 张图片进行处理。</p>
-<p>对 <code>vectorize1.py</code> 进行进一步的修改。</p>
-<p>我们要将 <code>N</code> 张图片的信息进行整合处理，一个可行的方法为在 <code>X, Y</code> 的基础上增加一个代表图片索引的轴，使其形状从 <code>(H2, W2)</code> 变为 <code>(N, H2, W2)</code> 。具体实现如下（ <code>X_idx, Y_idx, _X, _Y</code> 的获取一并给出）：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">X_idx</span> <span class="p">,</span> <span class="n">Y_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64</span><span class="p">)</span>
-<span class="n">_X</span><span class="p">,</span> <span class="n">_Y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">X_idx</span><span class="p">,</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">Y_idx</span>
-</code></pre></div></td></tr></table></div>
-<p>同理，<code>A00, A01, A10, A11</code> 均需要增加一个轴，于是新增一个索引数组 <code>N_idx</code> 对 <code>a</code> 数组的第一个轴 （ <code>axis = 0</code> ） 进行索引。具体实现如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">N_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="n">A00</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">N_idx</span><span class="p">,</span> <span class="n">X_idx</span><span class="p">,</span> <span class="n">Y_idx</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">A01</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">N_idx</span><span class="p">,</span> <span class="n">X_idx</span><span class="p">,</span> <span class="n">Y_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">A10</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">N_idx</span><span class="p">,</span> <span class="n">X_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Y_idx</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">A11</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">N_idx</span><span class="p">,</span> <span class="n">X_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Y_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>N_idx</code> 的形状与 <code>X_idx, Y_idx</code> 并不匹配，之所以能够像这样对 <code>a</code> 数组进行 fancy indexing ，是因为进行索引的时候对 <code>N_idx</code> 的后两个轴（ <code>axis=1, axis=2</code> ）进行了 broadcast 。</p>
-</div>
-<p>完整代码如下：</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">vectorize.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bilinear_interp_vectorized</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This is the vectorized implementation of bilinear interpolation.</span>
-<span class="sd">    - a is a ND array with shape [N, H1, W1, C], dtype = int64</span>
-<span class="sd">    - b is a ND array with shape [N, H2, W2, 2], dtype = float64</span>
-<span class="sd">    - return a ND array with shape [N, H2, W2, C], dtype = int64</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># get axis size from ndarray shape</span>
-    <span class="n">N</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">N1</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span>
-    <span class="k">assert</span> <span class="n">N</span> <span class="o">==</span> <span class="n">N1</span>
-
-    <span class="c1"># Do iteration</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">W2</span><span class="p">,</span> <span class="n">C</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
-
-    <span class="c1"># Get the matrices of coordinates</span>
-    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">X_idx</span> <span class="p">,</span> <span class="n">Y_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64</span><span class="p">)</span>
-    <span class="n">_X</span><span class="p">,</span> <span class="n">_Y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">X_idx</span><span class="p">,</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">Y_idx</span>
-
-    <span class="c1"># Generate the indices array</span>
-    <span class="n">N_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-    <span class="n">A00</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">N_idx</span><span class="p">,</span> <span class="n">X_idx</span><span class="p">,</span> <span class="n">Y_idx</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">A01</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">N_idx</span><span class="p">,</span> <span class="n">X_idx</span><span class="p">,</span> <span class="n">Y_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">A10</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">N_idx</span><span class="p">,</span> <span class="n">X_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Y_idx</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">A11</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">N_idx</span><span class="p">,</span> <span class="n">X_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Y_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">A00</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_X</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_Y</span><span class="p">)</span> <span class="o">+</span> <span class="n">A01</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_X</span><span class="p">)</span> <span class="o">*</span> <span class="n">_Y</span> <span class="o">+</span> \
-          <span class="n">A10</span> <span class="o">*</span> <span class="n">_X</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_Y</span><span class="p">)</span> <span class="o">+</span> <span class="n">A11</span> <span class="o">*</span> <span class="n">_X</span> <span class="o">*</span> <span class="n">_Y</span>
-    <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="_2">正确性与加速比<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>运行 <code>main.py</code> ，查看输出：</p>
-<div class="highlight"><pre><span></span><code>Generating Data...
-Executing Baseline Implementation...
-Finished in 99.58129525184631s
-Executing Vectorized Implementation...
-Finished in 3.138871192932129s
-[PASSED] Results are identical.
-Speed Up 31.725193272051396x
-</code></pre></div>
-<p>可见运行结果正确，加速比为 31.725193272051396 。</p>
+<p>可知程序使用了 <code>vmoups</code> 等汇编指令和 256 位寄存器 <code>ymm0, ymm1</code> ，同时对 8 组 <code>float</code> 类型数据进行操作，循环次数减少到 <code>MAXN / 8</code> 次。</p>
 <h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
 <ul>
-<li>初探Numpy中的花式索引：<a href="https://zhuanlan.zhihu.com/p/123858781">https://zhuanlan.zhihu.com/p/123858781</a></li>
-<li>Numpy中transpose()函数的可视化理解：<a href="https://zhuanlan.zhihu.com/p/61203757">https://zhuanlan.zhihu.com/p/61203757</a></li>
-<li>NumPy 中文文档，广播（Broadcasting）：<a href="https://numpy.org.cn/user/basics/broadcasting.html">https://numpy.org.cn/user/basics/broadcasting.html</a></li>
+<li>Intel® Intrinsics Guide：<a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html">https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html</a></li>
+<li>n方过百万 暴力碾标算——指令集优化的基础使用：<a href="https://www.luogu.com.cn/blog/ouuan/avx-optimize">https://www.luogu.com.cn/blog/ouuan/avx-optimize</a></li>
+<li>汇编语言笔记（六）——SIMD指令：<a href="https://zhuanlan.zhihu.com/p/424475308">https://zhuanlan.zhihu.com/p/424475308</a></li>
 </ul>
 
 
@@ -1639,6 +1748,44 @@ Speed Up 31.725193272051396x
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../numpy/" class="md-footer__link md-footer__link--prev" aria-label="上一页: HPC lab2 向量化计算">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                HPC lab2 向量化计算
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cuda/" class="md-footer__link md-footer__link--next" aria-label="下一页: HPC lab3 CUDA 使用基础">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                HPC lab3 CUDA 使用基础
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
