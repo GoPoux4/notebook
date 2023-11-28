@@ -29,7 +29,7 @@ Toffoli gate is reversible and universal:
 
 By reversible circuit:
 
-![](/assert/img/CS/quantum/reverse.jpg)
+![](../../assert/img/CS/quantum/reverse.jpg)
 
 Input: $(x_1, \cdots, x_n)$.
 
@@ -73,7 +73,7 @@ $\mathinner{|\varphi\rangle} = \cos{\frac{\theta}{2}}\mathinner{|0\rangle} + e^{
 
 **Bloch Sphere**
 
-![](/assert/img/CS/quantum/sphere.jpg)
+![](../../assert/img/CS/quantum/sphere.jpg)
 
 ### Quantum Dynamics / Time Evolution
 

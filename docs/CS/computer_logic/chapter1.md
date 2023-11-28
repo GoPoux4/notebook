@@ -115,7 +115,7 @@ System State 保存状态（内存）
 
 旋转编码器
 
-![gray](/assert/img/CS/computer_logic/gray.png)
+![gray](../../assert/img/CS/computer_logic/gray.png)
 
 光传感器接收，避免出现中间结果，每次到达下一个状态只会变一位。
 

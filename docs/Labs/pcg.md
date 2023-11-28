@@ -66,27 +66,27 @@ mpirun ./pcg input_2.bin | grep -v 'mpool' | grep -v 'ib_md'
 
 以输入 `input_2.bin` 为例，使用 `Intel Trace Analyzer and Collector` 进行性能分析。
 
-![](/assert/img/HPC/HPC%20101%20labs/PCG/img2.png)
+![](../assert/img/HPC/HPC%20101%20labs/PCG/img2.png)
 
 由图可得，耗时最多的三个 `MPI` 函数分别为 `MPI_Allgather` 、 `MPI_Bcast` 、 `MPI_Comm_rank` 。
 
-![](/assert/img/HPC/HPC%20101%20labs/PCG/img1.png)
+![](../assert/img/HPC/HPC%20101%20labs/PCG/img1.png)
 
 可得程序消耗的总时间为 103 s ，其中消耗在 `MPI` 上的总时间为 37.9 s 。
 
 打开事件时间轴 (Event Timeline) 可以看到各个进程的运行情况：
 
-![](/assert/img/HPC/HPC%20101%20labs/PCG/img3.png)
+![](../assert/img/HPC/HPC%20101%20labs/PCG/img3.png)
 
 由图可得，程序一共开启了 8 个进程，调用 `MPI` 的开销主要的位于每次进入 `PCG` 函数时调用 `MPI_Bcast` 函数。
 
 截取一小段时间轴进行放大，可以得知在一次 `PCG` 函数的调用中，`MPI_Allgather` 函数被调用了多次：
 
-![](/assert/img/HPC/HPC%20101%20labs/PCG/img4.png)
+![](../assert/img/HPC/HPC%20101%20labs/PCG/img4.png)
 
 此外，右键下方的 `Group MPI` 选择 `Ungroup MPI` ，可以看到各个 `MPI` 函数的调用次数及时间消耗：
 
-![](/assert/img/HPC/HPC%20101%20labs/PCG/img5.png)
+![](../assert/img/HPC/HPC%20101%20labs/PCG/img5.png)
 
 ## Bonus
 
