@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/math/prob_theory/chapter1/">
+        <link rel="canonical" href="https://note.gopoux.cc/HPC/hpc101/cuda/">
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../chapter2/">
       
       
       <link rel="icon" href="../../../assert/ico/favicon.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>事件及其概率 - GoPoux 的笔记本</title>
+        <title>NVIDIA CUDA C - GoPoux 的笔记本</title>
       
     
     
@@ -79,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#nvidia-cuda-c" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              事件及其概率
+              NVIDIA CUDA C
             
           </span>
         </div>
@@ -255,13 +251,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
           
   
     
@@ -706,8 +700,6 @@
       
   
   
-    
-  
   
   
     
@@ -726,17 +718,17 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../../math/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -753,7 +745,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Math
@@ -766,8 +758,6 @@
                 
   
   
-    
-  
   
   
     
@@ -787,17 +777,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../math/prob_theory/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -814,7 +804,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             概率论
@@ -827,30 +817,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    事件及其概率
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../math/prob_theory/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -859,272 +829,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机事件和概率
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="随机事件和概率">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机现象
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      样本空间
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      事件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率运算的基本性质
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      基本概率模型
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="基本概率模型">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      古典概率模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      几何概率模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      其他概率模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率空间公理化体系
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      条件概率
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="条件概率">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      全概率公式
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      贝叶斯公式
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      独立性
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="独立性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      两个事件独立
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      三个事件独立
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#m" class="md-nav__link">
-    <span class="md-ellipsis">
-      m 个事件相互独立
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      二项试验
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      乘积概率空间
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
-    <span class="md-ellipsis">
-      补充说明
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="补充说明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率的可加性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率的连续性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
-    <span class="md-ellipsis">
-      条件概率具有概率的运算性质
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1137,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter2/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1158,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter3/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1663,19 +1367,107 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#gpu" class="md-nav__link">
     <span class="md-ellipsis">
-      随机事件和概率
+      GPU 编程原理
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="随机事件和概率">
+    <nav class="md-nav" aria-label="GPU 编程原理">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu-vs-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU vs. GPU
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      CUDA 编程模型 vs. 硬件执行模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      体系结构类别和编程模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuda-cc" class="md-nav__link">
+    <span class="md-ellipsis">
+      CUDA C/C++ 编程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CUDA C/C++ 编程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuda-cc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 CUDA C/C++ 加速程序
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 CUDA C/C++ 加速程序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      加速系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU 加速原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU 加速应用程序编写
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      CUDA 线性层次结构
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      随机现象
+      加速循环
     </span>
   </a>
   
@@ -1684,7 +1476,7 @@
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      样本空间
+      分配内存
     </span>
   </a>
   
@@ -1693,7 +1485,7 @@
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      事件
+      跨网格循环
     </span>
   </a>
   
@@ -1702,7 +1494,67 @@
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      概率
+      错误处理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      进阶内容 - 多维网格和块
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nsys" class="md-nav__link">
+    <span class="md-ellipsis">
+      统一内存使用与使用 nsys 管理内存
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="统一内存使用与使用 nsys 管理内存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nsys_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      nsys 使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-multiprocessors" class="md-nav__link">
+    <span class="md-ellipsis">
+      流多处理器（Streaming Multiprocessors）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      查询 GPU 属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#um" class="md-nav__link">
+    <span class="md-ellipsis">
+      统一内存（UM）行为
     </span>
   </a>
   
@@ -1711,7 +1563,16 @@
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      概率运算的基本性质
+      异步内存预取
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      并发 CUDA 流
     </span>
   </a>
   
@@ -1719,187 +1580,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      基本概率模型
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="基本概率模型">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      古典概率模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      几何概率模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      其他概率模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率空间公理化体系
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      条件概率
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="条件概率">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      全概率公式
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      贝叶斯公式
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      独立性
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="独立性">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      两个事件独立
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      三个事件独立
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#m" class="md-nav__link">
-    <span class="md-ellipsis">
-      m 个事件相互独立
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      二项试验
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      乘积概率空间
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
-    <span class="md-ellipsis">
-      补充说明
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="补充说明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率的可加性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率的连续性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
-    <span class="md-ellipsis">
-      条件概率具有概率的运算性质
-    </span>
-  </a>
   
 </li>
         
@@ -1926,409 +1606,332 @@
   
 
 
-<h1 id="_1">事件及其概率<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">随机事件和概率<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="_3">随机现象<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>随机现象：确定性现象、随机现象（不确定性现象）。</p>
-<p>随机现象基本属性：
-- 可重复进行或重复观察（定性）
-- 试验之前不知道会出现何种结果（定性）
-- 所有可能的结果是已知的（定量）</p>
-<h3 id="_4">样本空间<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>样本空间：随机现象所有可能的结果 <span class="arithmatex">\(\Omega\)</span>.</p>
-<p>样本点：每一个结果 <span class="arithmatex">\(\omega \in \Omega\)</span>.</p>
-<h3 id="_5">事件<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>事件：具有某种属性的基本结果构成事件，通常用 <span class="arithmatex">\(A, B, C\)</span> 表示.</p>
-<p>事件的发生：某次试验的结果 <span class="arithmatex">\(\omega \in A\)</span> 则 <span class="arithmatex">\(A\)</span> 发生，否则不发生.</p>
-<h3 id="_6">概率<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>概率：事件 <span class="arithmatex">\(A\)</span> 发生的概率 <span class="arithmatex">\(P(A)\)</span>.</p>
-<p>概率的计算：</p>
-<ul>
-<li>物理方法</li>
-<li>统计方法：频率估计概率.</li>
-</ul>
-<p>概率的定义和量化：</p>
-<ul>
-<li>主观概率：基于已有知识和信息的一种信仰或判断</li>
-<li>经验概率（统计）：通过随机测试（例：抛掷硬币，频率推算概率）</li>
-<li>公理化体系：严格逻辑推理</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">关于统计方法</p>
-<ul>
-<li>统计方法具体、可计算</li>
-<li>统计方法的基本出发点：频率极限存在且不依赖于具体的试验环境</li>
-<li>频率的极限是概率：Bernoulli 和 Borel 数学证明</li>
-</ul>
+<h1 id="nvidia-cuda-c">NVIDIA CUDA C<a class="headerlink" href="#nvidia-cuda-c" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>GPU 编程原理与 NVIDIA CUDA C 编程实验</p>
 </div>
-<p>概率论主要目的：计算随机事件的概率.</p>
-<div class="admonition note">
-<p class="admonition-title">事件的运算</p>
-<p>和集合运算类似，注意术语使用。</p>
-<ul>
-<li><span class="arithmatex">\(\emptyset\)</span> ，不可能事件.</li>
-<li><span class="arithmatex">\(\Omega\)</span> ，必然事件.</li>
-<li><span class="arithmatex">\(A \subseteq B\)</span> ，<span class="arithmatex">\(A\)</span> 发生则 <span class="arithmatex">\(B\)</span> 一定发生.</li>
-<li><span class="arithmatex">\(A \cap B \ \text{or} \ AB\)</span> ，<span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 同时发生.</li>
-<li><span class="arithmatex">\(A \cup B\)</span> ，<span class="arithmatex">\(A\)</span> 或者 <span class="arithmatex">\(B\)</span> 发生.</li>
-<li><span class="arithmatex">\(\bar A\)</span> ，<span class="arithmatex">\(A\)</span> 的对立事件.</li>
-<li><span class="arithmatex">\(A \setminus B\)</span> ，<span class="arithmatex">\(A\)</span> 发生但 <span class="arithmatex">\(B\)</span> 不发生.</li>
-<li><span class="arithmatex">\(A \cap B = \emptyset\)</span> ，<span class="arithmatex">\(A, B\)</span> 互不相交，写作 <span class="arithmatex">\(A \cup B = A + B\)</span>.</li>
-<li><span class="arithmatex">\(\text{De Morgan}\)</span> 对偶运算原理：<span class="arithmatex">\(\overline{(\cap A_n)} = \cup \bar A_n, \overline{(\cup A_n)} = \cap\bar A_n\)</span>.</li>
-</ul>
-</div>
-<h3 id="_7">概率运算的基本性质<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<ul>
-<li><span class="arithmatex">\(P(\emptyset) = 0, P(\Omega) = 1\)</span></li>
-<li><span class="arithmatex">\(P(\bar A) = 1 - P(A)\)</span></li>
-<li><span class="arithmatex">\(A \cap B = \emptyset\)</span>，则</li>
-</ul>
-<div class="arithmatex">\[
-P(A + B) = P(A) + P(B)
-\]</div>
-<ul>
-<li>若 <span class="arithmatex">\(A_1, \cdots, A_m\)</span> 互不相交，则</li>
-</ul>
-<div class="arithmatex">\[
-P(\sum_{k=1}^{m}A_k) = \sum_{k=1}^{m}P(A_k)
-\]</div>
-<h2 id="_8">基本概率模型<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<p>概率模型：随机现象的数学描述，包括样本空间、事件、每个事件的概率大小。</p>
-<h3 id="_9">古典概率模型<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>模型特征：</p>
-<ul>
-<li>有限个基本结果</li>
-<li>每个结果等可能发生</li>
-</ul>
-<p>数学描述：</p>
-<div class="arithmatex">\[
-\begin{align}
-    \Omega = \{\omega_1, \dots, \omega_N\}, \quad N &lt; \infty \\
-    P(\{\omega_i\}) = \frac{1}{N}, \quad i = 1, 2, \dots, N
-\end{align}
-\]</div>
-<p>事件 A 的概率： <span class="arithmatex">\(P(A) = \displaystyle\frac{|A|}{N}\)</span> ，其中 <span class="arithmatex">\(|A|\)</span> 为事件包含基本结果数。</p>
-<p>对于古典概率模型，关键在于计算 <span class="arithmatex">\(N\)</span> 和 <span class="arithmatex">\(|A|\)</span> 。</p>
-<div class="admonition note">
-<p class="admonition-title">计算技巧</p>
-<ul>
-<li>乘法原理</li>
-<li>排列组合</li>
-</ul>
-<p>常用关系式：</p>
-<div class="arithmatex">\[
-\begin{array}{ccc}
-    \displaystyle P_{N}^{k} = N(N-1)\dots (N-k+1) = \frac{N!}{k!} \\
-    \displaystyle {N \choose k} = \frac{P_N^k}{k!} \\
-    \displaystyle {N \choose k} + {N \choose k-1} = {N+1 \choose k} \\
-    \displaystyle N! \sim \sqrt{2\pi N} e^{-N} N^N, \quad N \rightarrow \infty
-\end{array}
-\]</div>
-</div>
-<h3 id="_10">几何概率模型<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>模型特征：样本空间是一个区域，所有基本结果等可能发生。</p>
-<ul>
-<li>基本结果不可数，且 <span class="arithmatex">\(\Omega\)</span> 是 <span class="arithmatex">\(\mathbb{R}, \mathbb{R}^2, \dots, \mathbb{R}^k\)</span> 上的可测区域</li>
-<li>事件 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(\Omega\)</span> 的可测子集</li>
-<li>事件 <span class="arithmatex">\(A\)</span> 的概率 <span class="arithmatex">\(\displaystyle P(A) = \frac{|A|}{|\Omega|}\)</span></li>
-</ul>
-<p>关键在于计算 <span class="arithmatex">\(|A|, |\Omega|\)</span></p>
-<details class="example" open="open">
-<summary>Buffon's Needle Problem</summary>
-<p>若一根长度为 <span class="arithmatex">\(l\)</span> 的短针，抛在横线间间距为 <span class="arithmatex">\(d\)</span> 的均匀横纹纸上，求针落在一个与某条横线相交的位置的概率。假设 <span class="arithmatex">\(l \leq d\)</span> 。</p>
-<p>记针的中心距离最近的平行线的距离为 <span class="arithmatex">\(a &lt; d/2\)</span> ，针与平行线的夹角为 <span class="arithmatex">\(\theta \leq \pi /2\)</span> 。</p>
-<p>则样本空间 <span class="arithmatex">\(\Omega = [0, d / 2] \times [0, \pi / 2]\)</span></p>
-<p>记事件 <span class="arithmatex">\(A\)</span> 为针落在一个与某条横线相交的位置，则</p>
-<div class="arithmatex">\[
-A \ \text{发生} \iff a \leq \frac{l}{2}\sin\theta
-\]</div>
-<div class="arithmatex">\[
-\begin{align}
-    P(A) &amp;= \frac{|A|}{|\Omega|} \\
-         &amp;= \frac{\int_{0}^{\pi / 2}\frac{l}{2} \sin\theta \text{d}\theta}{\frac{d}{2}\frac{\pi}{2}} \\
-         &amp;= \frac{2l}{\pi d}
-\end{align}
-\]</div>
-</details>
-<h3 id="_11">其他概率模型<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p>例：</p>
-<ul>
-<li>抛掷不均匀硬币</li>
-<li>彩票</li>
-</ul>
-<h3 id="_12">概率空间公理化体系<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<p>描述概率空间的三要素：</p>
-<ul>
-<li>样本空间 <span class="arithmatex">\(\Omega\)</span></li>
-<li>事件类 <span class="arithmatex">\(\sigma\)</span> -域 <span class="arithmatex">\(\mathcal{A}\)</span></li>
-<li>概率 <span class="arithmatex">\(P\)</span></li>
-</ul>
-<p><span class="arithmatex">\((\Omega, \mathcal{A}, P)\)</span> 构成概率空间，是随机现象的数学描述（概率模型），其中：</p>
-<ul>
-<li><span class="arithmatex">\(\mathcal{A}\)</span> 满足<ul>
-<li><span class="arithmatex">\(\emptyset, \Omega \in \mathcal{A}\)</span></li>
-<li><span class="arithmatex">\(A \in \mathcal{A} \rightarrow \bar A \in \mathcal{A}\)</span></li>
-<li><span class="arithmatex">\(A_n \in \mathcal{A}, n \geq 1 \rightarrow \bigcup_{n=1}^{\infty}A_n \in \mathcal{A}\)</span></li>
-</ul>
-</li>
-<li><span class="arithmatex">\(P\)</span> 满足<ul>
-<li><span class="arithmatex">\(P(\emptyset) = 0, P(\Omega) = 1\)</span></li>
-<li><span class="arithmatex">\(\forall A \in \mathcal{A}, P(A) \geq 0\)</span></li>
-<li>
-<p><span class="arithmatex">\(A_n \in \mathcal{A}\)</span> 互不相交，则</p>
-<div class="arithmatex">\[
-P(\sum_{n=1}^{\infty}A_n) = \sum_{n=1}^{\infty}P(A_n)
-\]</div>
-</li>
-</ul>
-</li>
-</ul>
+<h2 id="gpu">GPU 编程原理<a class="headerlink" href="#gpu" title="Permanent link">&para;</a></h2>
+<h3 id="cpu-vs-gpu">CPU vs. GPU<a class="headerlink" href="#cpu-vs-gpu" title="Permanent link">&para;</a></h3>
 <dl>
-<dd>任何满足上述性质的 <span class="arithmatex">\(P\)</span> 都称为空间 <span class="arithmatex">\((\Omega, \mathcal{A})\)</span> 上的概率。</dd>
+<dt>CPU ：</dt>
+<dd>
+<ul>
+<li>少量且复杂的核心</li>
+<li>低内存延迟的缓存（cache）较大</li>
+<li>内存大但慢</li>
+</ul>
+</dd>
+<dt>GPU ：</dt>
+<dd>
+<ul>
+<li>大量简单核心</li>
+<li>低内存延迟的缓存（cache）较小</li>
+<li>内存小但快</li>
+</ul>
+</dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">概率 <span class="arithmatex">\(P\)</span> 的运算性质</p>
+<h3 id="cuda-vs">CUDA 编程模型 vs. 硬件执行模型<a class="headerlink" href="#cuda-vs" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../../../assert/img/HPC/HPC%20101%20labs/CUDA/img3.png" /></p>
+<h3 id="_1">体系结构类别和编程模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>单调性： <span class="arithmatex">\(A \subseteq B\)</span> ，则 <span class="arithmatex">\(P(A) \leq P(B)\)</span></li>
-<li><span class="arithmatex">\(P(\bar A) = 1 - P(A)\)</span></li>
-<li>
-<p>对任意 <span class="arithmatex">\(A_N \in \mathcal{A}, n \geq 1\)</span>,</p>
-<div class="arithmatex">\[
-P(\bigcup_{n=1}^{\infty}A_n) \leq \sum_{n=1}^{\infty}P(A_n)
-\]</div>
-</li>
-<li>
-<p><span class="arithmatex">\(A, B \in \mathcal{A}\)</span> ，则（容斥原理）</p>
-<div class="arithmatex">\[
-P(A\cup B) = P(A) + P(B) - P(AB)
-\]</div>
-</li>
+<li>SISD（Single instruction, single data）单指令流单数据流：传统的串行计算机。</li>
+<li>SIMD（Single instruction, multiple data）单指令多数据流：AVX、SSE 等指令集。</li>
+<li>SPMD（Single program, multiple data）单程序多数据流：对问题进行分解，再进行并行求解。</li>
+</ul>
+<p>前两个是体系结构类别，最后一个是编程模型。</p>
+<h2 id="cuda-cc">CUDA C/C++ 编程<a class="headerlink" href="#cuda-cc" title="Permanent link">&para;</a></h2>
+<p>由 NVIDIA 深度学习培训中心 (DLI) 提供的课程，在由 NVIDIA 提供的云环境上进行实验。</p>
+<h3 id="cuda-cc_1">使用 CUDA C/C++ 加速程序<a class="headerlink" href="#cuda-cc_1" title="Permanent link">&para;</a></h3>
+<h4 id="_2">加速系统<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>加速系统又称异构系统，由 CPU 和 GPU 组成。加速系统运行 CPU 程序，由这些程序调度运行于 GPU 上的函数，通过 GPU 实现函数的并行计算。</p>
+<p>查询 GPU 信息命令：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>nvidia-smi
+</code></pre></div></td></tr></table></div>
+<h4 id="gpu_1">GPU 加速原理<a class="headerlink" href="#gpu_1" title="Permanent link">&para;</a></h4>
+<p>一个简单的 GPU 加速应用程序执行过程：</p>
+<p><img alt="" src="../../../assert/img/HPC/HPC%20101%20labs/CUDA/img1.png" /></p>
+<ul>
+<li><code>(1)</code> 段：数据由 <code>cudaMallocManaged()</code> 函数分配，并能由 CPU 访问处理。</li>
+<li><code>(2)</code> 段：数据可被迁移至可执行并行工作的 GPU ，并由 GPU 核函数访问，同时 CPU 可继续执行工作（异步执行）。</li>
+<li>通过 <code>cudaDeviceSynchronize()</code> ，将 CPU 与 GPU 的工作同步。</li>
+<li><code>(3)</code> 段：经 CPU 访问的数据迁移回 CPU。</li>
+</ul>
+<h4 id="gpu_2">GPU 加速应用程序编写<a class="headerlink" href="#gpu_2" title="Permanent link">&para;</a></h4>
+<p>CUDA 加速程序文件扩展名为 <code>.cu</code> ，一个简单例子：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">CPUFunction</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;This function is defined to run on the CPU.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">GPUFunction</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;This function is defined to run on the GPU.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">CPUFunction</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">GPUFunction</span><span class="o">&lt;&lt;&lt;</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">cudaDeviceSynchronize</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>一些语法：</p>
+<p><code>__global__ void GPUFunction()</code></p>
+<ul>
+<li><code>__global__</code> 关键字表明以下函数将在 GPU 上运行并可 <strong>全局</strong> 调用。</li>
+<li>通常，将在 CPU 上执行的代码称为 <strong>主机 (Host)</strong> 代码，而将在 GPU 上运行的代码称为 <strong>设备(Device)</strong> 代码。</li>
+<li>使用 <code>__global__</code> 关键字定义的函数需要返回 <code>void</code> 类型。</li>
+</ul>
+<p><code>GPUFunction&lt;&lt;&lt;1, 1&gt;&gt;&gt;();</code></p>
+<ul>
+<li>通常，当调用要在 GPU 上运行的函数时，将此种函数称为 <strong>已启动</strong> 的 <strong>核函数</strong> 。</li>
+<li>启动核函数时，必须提供 <strong>执行配置</strong> ，即在向核函数传递参数之前使用 <code>&lt;&lt;&lt;number_of_blocks, threads_per_block&gt;&gt;&gt;</code> 语法完成配置。</li>
+<li>在宏观层面，可通过执行配置为核函数启动指定 <strong>线程层次结构</strong> ，从而定义线程组（称为 <strong>线程块</strong> ）的数量 <code>number_of_blocks</code> ，以及要在每个线程块中执行的 <strong>线程</strong> 数量 <code>threads_per_block</code> 。如样例代码中，使用了包含 <code>1</code> 线程的 <code>1</code> 线程块启动核函数。</li>
+</ul>
+<p><code>cudaDeviceSynchronize();</code></p>
+<ul>
+<li>核函数启动方式为 <strong>异步</strong> ：CPU 代码将继续执行，无需等待核函数完成启动。</li>
+<li>调用 CUDA 运行时提供的函数 <code>cudaDeviceSynchronize</code> 使得主机 (CPU) 代码暂作等待，直至设备 (GPU) 代码执行完成，才能在 CPU 上恢复执行。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">编译运行 CUDA 加速程序</p>
+<p>使用 <code>nvcc</code> 命令编译和运行程序：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span>nvcc<span class="w"> </span>-arch<span class="o">=</span>sm_70<span class="w"> </span>-o<span class="w"> </span>hello-gpu<span class="w"> </span>hello-gpu.cu<span class="w"> </span>-run
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>nvcc</code> 为编译器命令。</li>
+<li><code>-arch</code> 选项指定架构类型。</li>
+<li><code>-o</code> 指定编译程序的输出文件。</li>
+<li><code>-run</code> 标志执行成功编译的二进制文件。</li>
 </ul>
 </div>
-<h2 id="_13">条件概率<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
-<p>假设 <span class="arithmatex">\((\Omega, \mathcal{A}, P)\)</span> 是一个概率空间， <span class="arithmatex">\(A, B\)</span> 是两个事件， <span class="arithmatex">\(P(B)&gt;0\)</span> 。令</p>
-<div class="arithmatex">\[
-P(A|B) = \frac{P(AB)}{P(B)}
-\]</div>
-<p>为在 <span class="arithmatex">\(B\)</span> 发生的条件下， <span class="arithmatex">\(A\)</span> 发生的条件概率。</p>
-<div class="admonition note">
-<p class="admonition-title"><span class="arithmatex">\(P(B)&gt;0\)</span></p>
+<h4 id="cuda">CUDA 线性层次结构<a class="headerlink" href="#cuda" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../../../assert/img/HPC/HPC%20101%20labs/CUDA/img2.png" /></p>
+<p>启动核函数时，核函数代码由每个已配置的线程块中的每个线程执行。</p>
+<p>CUDA 提供了一系列线程层次结构变量：</p>
 <ul>
-<li>分母不能为 <span class="arithmatex">\(0\)</span></li>
-<li>零概率事件无法观察到</li>
+<li><code>gridDim.x</code> 网格中块数；<code>blockDim.x</code> 每块中线程数。</li>
+<li><code>blockIdx.x</code> 当前线程所在线程块索引；<code>threadIdx.x</code> 当前线程在线程块中的索引。</li>
 </ul>
-</div>
-<p>原公式可以改写成乘法公式</p>
-<div class="arithmatex">\[
-P(AB) = P(A|B)P(B)
-\]</div>
-<p>推广到多个事件：链式法则</p>
-<div class="arithmatex">\[
-\begin{align}
-    P(ABC) &amp;= P(A|BC)P(BC) \\
-           &amp;= P(A|BC)P(B|C)P(C)
-\end{align}
-\]</div>
-<details class="example" open="open">
-<summary>Example</summary>
-<p><span class="arithmatex">\(n\)</span> 张彩票有一张中奖彩票，求第 <span class="arithmatex">\(k\)</span> 个人中奖的概率。</p>
-<p>令 <span class="arithmatex">\(A_i\)</span> 表示第 <span class="arithmatex">\(i\)</span> 个人中奖</p>
-<div class="arithmatex">\[
-\begin{align}
-P(A_k \bar A_1 \dots \bar A_{k-1})
-&amp;= P(\bar A_1)P(\bar A_2|\bar A_1)\dots P(A_k|\bar A_1 \dots \bar A_{k-1}) \\
-&amp;= \frac{n-1}{n} \cdot \frac{n-2}{n-1} \cdot \dots \cdot \frac{1}{n - k + 1} \\
-&amp;= \frac{1}{n}
-\end{align}
-\]</div>
-</details>
-<h3 id="_14">全概率公式<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
-<p>假设 <span class="arithmatex">\((\Omega, \mathcal{A}, P)\)</span> 是一个概率空间， <span class="arithmatex">\(B_k, 1\leq k \leq N\)</span> 是 <span class="arithmatex">\(N\)</span> 个互不相交事件，且 <span class="arithmatex">\(\Omega = \sum_{k=1}^NB_k\)</span> 则</p>
-<div class="arithmatex">\[
-P(A) = \sum_{k=1}^N P(A|B_k)P(B_k), \quad N \leq \infty
-\]</div>
-<h3 id="_15">贝叶斯公式<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
-<p>假设 <span class="arithmatex">\((\Omega, \mathcal{A}, P)\)</span> 是一个概率空间， <span class="arithmatex">\(B_k, 1\leq k \leq N\)</span> 是 <span class="arithmatex">\(N\)</span> 个互不相交事件，且 <span class="arithmatex">\(\Omega = \sum_{k=1}^NB_k\)</span> 则</p>
-<div class="arithmatex">\[
-P(B_k|A) = \frac{P(A|B_k)P(B_k)}{\sum_{i=1}^{N}P(A|B_i)P(B_i)} = \frac{P(A|B_k)P(B_k)}{P(A)}
-\]</div>
-<p><span class="arithmatex">\(P(B_k)\)</span> 为先验概率， <span class="arithmatex">\(P(B_k|A)\)</span> 为后验概率</p>
-<h2 id="_16">独立性<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
-<h3 id="_17">两个事件独立<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
-<p>假设 <span class="arithmatex">\((\Omega, \mathcal{A}, P)\)</span> 是一个概率空间，<span class="arithmatex">\(A, B\)</span> 是两个事件。如果 <span class="arithmatex">\(P(B)&gt;0\)</span>，并且</p>
-<div class="arithmatex">\[
-P(A|B)=P(A)
-\]</div>
-<p>则 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 独立。则由条件概率定义，上式可写成</p>
-<div class="arithmatex">\[
-P(AB) = P(A)P(B)
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<h4 id="_3">加速循环<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>步骤：</p>
 <ul>
-<li><span class="arithmatex">\(P(B)=0\)</span> 时乘积公式仍有意义。</li>
-<li><span class="arithmatex">\(A, B\)</span> 关系对等。</li>
-<li>若 <span class="arithmatex">\(A, B\)</span> 独立，则 <span class="arithmatex">\(A, \bar B\)</span> 独立， <span class="arithmatex">\(\bar A, B\)</span> 独立， <span class="arithmatex">\(\bar A, \bar B\)</span> 独立</li>
-<li>
-<p>与加法（并）的区别：</p>
-<div class="arithmatex">\[
-\begin{align}
-    P(A+B) &amp;= P(A) + P(B) \qquad &amp;&amp;A \cap B = \emptyset \\
-    P(AB) &amp;= P(A)P(B) \qquad &amp;&amp;A, B \text{独立}
-\end{align}
-\]</div>
-</li>
+<li>必须编写完成 <strong>循环的单次迭代</strong> 工作的核函数。</li>
+<li>由于核函数与其他正在运行的核函数无关，因此执行配置必须使核函数执行正确的次数，例如循环迭代的次数。（注意：各个线程执行顺序不定，故可加速的循环需要各次迭代无关联且顺序无影响）</li>
 </ul>
-</div>
-<h3 id="_18">三个事件独立<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<p>若 <span class="arithmatex">\(A, B, C\)</span> 是三个事件，若 <strong><span class="arithmatex">\(A, B, C\)</span> 两两相互独立</strong> 且</p>
-<div class="arithmatex">\[
-P(ABC) = P(A)P(B)P(C)
-\]</div>
-<p>则称 <span class="arithmatex">\(A,B,C\)</span> 相互独立。</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>两两独立不一定相互独立，相互独立一定两两独立。</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>一个正四面体的三面分别涂成红、黑、白三色，另一面涂上三种颜色。现随机一扔，记底面涂有红、黑、白分别为事件 <span class="arithmatex">\(A,B,C\)</span>。</p>
-<p>可得</p>
-<div class="arithmatex">\[
-P(A) = P(B) = P(C) = \frac{1}{2}
-\]</div>
-<p>且</p>
-<div class="arithmatex">\[
-\begin{align}
-P(AB) = \frac{1}{4} = P(A)P(B) \\
-P(AC) = \frac{1}{4} = P(A)P(C) \\
-P(BC) = \frac{1}{4} = P(B)P(C)
-\end{align}
-\]</div>
-<p>则 <span class="arithmatex">\(A,B,C\)</span> 两两独立。但</p>
-<div class="arithmatex">\[
-P(ABC) = \frac{1}{4} \not = P(A)P(B)P(C)
-\]</div>
-<p>故 <span class="arithmatex">\(A,B,C\)</span> 不相互独立。原因在于若 <span class="arithmatex">\(AB\)</span> 发生，则 <span class="arithmatex">\(C\)</span> 一定发生，失去了独立性。</p>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>若 <span class="arithmatex">\(A,B,C\)</span> 相互独立，则 <span class="arithmatex">\(\bar A,B,C\)</span> 相互独立，<span class="arithmatex">\(A+B, C\)</span> 相互独立，等等类似关系成立。</p>
-</div>
-<h3 id="m">m 个事件相互独立<a class="headerlink" href="#m" title="Permanent link">&para;</a></h3>
-<p>假设 <span class="arithmatex">\(A_k, 1\leq k\leq m\)</span> 是 <span class="arithmatex">\(m\)</span> 个事件，若 <span class="arithmatex">\(A_k\)</span> 中任意 <span class="arithmatex">\(r &lt; m\)</span> 个都相互独立，且</p>
-<div class="arithmatex">\[
-P(\bigcap_{1\leq k\leq m}A_k) = \prod_{1\leq k\leq m}P(A_k)
-\]</div>
-<p>则 <span class="arithmatex">\(A_k, 1\leq k\leq m\)</span> 相互独立。</p>
-<h3 id="_19">二项试验<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
-<p>又称 n-重 Bernonlli 试验。</p>
+<p>例子：</p>
+<p>加速前：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>加速后：使用核函数实现单词迭代</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">idx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>并调用</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">loop</span><span class="o">&lt;&lt;&lt;</span><span class="n">number_of_blocks</span><span class="p">,</span><span class="w"> </span><span class="n">threads_per_block</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>此处必须有 <code>number_of_blocks * threads_per_block &gt;= N</code> 。</p>
+<h4 id="_4">分配内存<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>回忆一般的 CPU 程序分配并释放内存的方式：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+<span class="p">...</span>
+<span class="n">free</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>要分配和释放内存，并获取可在主机和设备代码中引用的指针，则需要使用 CUDA 提供的函数 <code>cudaMallocManaged()</code> 和 <code>cudaFree()</code> ：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="n">cudaMallocManaged</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="p">...</span>
+<span class="n">cudaFree</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>其他一些用于手动内存管理的 CUDA 命令：</p>
 <ul>
-<li>试验 <span class="arithmatex">\(E\)</span> 包含若干个基本结果。</li>
-<li>事件 <span class="arithmatex">\(A\)</span> 为具有某种属性的基本结果集合，发生的概率为 <span class="arithmatex">\(P(A) = p_A\)</span></li>
+<li><code>cudaMalloc</code> 命令将直接为处于活动状态的 GPU 分配内存。这可防止出现所有 GPU 分页错误，而代价是主机代码将无法访问该命令返回的指针。</li>
+<li><code>cudaMallocHost</code> 命令将直接为 CPU 分配内存。该命令可固定内存（pinned memory）或页锁定内存（page-locked memory）。允许将内存异步拷贝至 GPU 或从 GPU 异步拷贝至内存。但固定内存过多会干扰 CPU 性能，因此需避免无端使用该命令。释放固定内存时应使用 <code>cudaFreeHost</code> 命令。</li>
+<li><code>cudaMemcpy</code> 命令可拷贝内存。示例
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 从 host 向 device 拷贝内存</span>
+<span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">device_a</span><span class="p">,</span><span class="w"> </span><span class="n">host_a</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">cudaMemcpyHostToDevice</span><span class="p">);</span>
+<span class="c1">// 从 device 向 host 拷贝内存</span>
+<span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">host_a</span><span class="p">,</span><span class="w"> </span><span class="n">device_a</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">cudaMemcpyDeviceToHost</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></li>
 </ul>
-<p>独立重复进行 <span class="arithmatex">\(n\)</span> 次试验，并观察记录结果。判断 <span class="arithmatex">\(A\)</span> 发生与否，统计 <span class="arithmatex">\(A\)</span> 发生的次数 <span class="arithmatex">\(n_A\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">概率模型</p>
-<p>每次试验 <span class="arithmatex">\(A\)</span> 发生记为 <span class="arithmatex">\(1\)</span>，不发生记为 <span class="arithmatex">\(0\)</span>。</p>
-<p>独立重复 <span class="arithmatex">\(n\)</span> 次试验，所得结果为</p>
-<div class="arithmatex">\[
-\omega = (\omega _1, \dots, \omega _n) \qquad \omega_i =0, 1
-\]</div>
-<p>用 <span class="arithmatex">\(\Omega_n\)</span> 表示所有 <span class="arithmatex">\(\omega\)</span> 的全体</p>
-<div class="arithmatex">\[
-\Omega_n = \{\omega = (\omega _1, \dots, \omega _n), \omega_i =0, 1\}
-\]</div>
-<p>其中每个 <span class="arithmatex">\(\omega\)</span> 出现的概率为</p>
-<div class="arithmatex">\[
-P_n(\{\omega\}) = p_A^{\sum \omega_i}(1 - p_A)^{n - \sum \omega_i}
-\]</div>
-<p>由此得到概率空间 <span class="arithmatex">\((\Omega_n, P_n)\)</span>，即为 n-重 Bernonlli 试验的概率模型。</p>
-</div>
-<p>考虑事件 <span class="arithmatex">\(B = \{\omega: n_A(\omega) = k\}\)</span>，则</p>
-<div class="arithmatex">\[
-P_n(B) = {n \choose k}p_A^k(1 - p_A)^{n - k}
-\]</div>
-<h3 id="_20">乘积概率空间<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
-<p>考虑两个试验 <span class="arithmatex">\(E_1, E_2\)</span>，其概率空间分别为 <span class="arithmatex">\((\Omega_1, P_1), (\Omega_2, P_2)\)</span></p>
-<p>现同时独立做两个试验，记录其基本结果 <span class="arithmatex">\(\omega = (\omega_1, \omega_2)\)</span></p>
-<p>考虑 <span class="arithmatex">\(E_1, E_2\)</span> 所有基本结果的全体</p>
-<div class="arithmatex">\[
-\Omega = \{\omega = (\omega_1, \omega_2), \quad \omega_1 \in \Omega_1, \omega_2 \in \Omega_2\}
-\]</div>
-<p>考虑事件</p>
-<div class="arithmatex">\[
-A = A_1 \times A_2 = \{\omega = (\omega_1, \omega_2), \quad \omega_1 \in A_1, \omega_2 \in A_2\}
-\]</div>
-<p>定义其概率</p>
-<div class="arithmatex">\[
-P(A) = P(A_1)P(A_2)
-\]</div>
-<p>得到新的概率空间：乘积概率空间 <span class="arithmatex">\((\Omega, P)\)</span></p>
-<h2 id="_21">补充说明<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
-<h3 id="_22">概率的可加性<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
-<p>如果 <span class="arithmatex">\(A_n, n \geq 1\)</span> 互不相交，则</p>
-<div class="arithmatex">\[
-P(\sum_{n = 1}^\infty A_n) = \sum_{n = 1}^\infty P(A_n)
-\]</div>
-<h3 id="_23">概率的连续性<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
-<div class="admonition note">
-<p class="admonition-title">事件的极限</p>
+<h4 id="_5">跨网格循环<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>当数据集比网格大的时候，可以使每个线程处理多个数据：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">kernel</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">stride</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gridDim</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">stride</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// do work on a[i];</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="_6">错误处理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <ul>
-<li>
-<p>假设 <span class="arithmatex">\(A_n\)</span> 是一列增加事件</p>
-<div class="arithmatex">\[
-A_1 \subseteq \dots \subseteq A_n \subseteq \dots
-\]</div>
-<p>定义</p>
-<div class="arithmatex">\[
-\lim_{n \to \infty} A_n = \bigcup_{n=1}^\infty A_n
-\]</div>
-</li>
-<li>
-<p>假设 <span class="arithmatex">\(A_n\)</span> 是一列递减事件</p>
-<div class="arithmatex">\[
-A_1 \supseteq \dots \supseteq A_n \supseteq \dots
-\]</div>
-<p>定义</p>
-<div class="arithmatex">\[
-\lim_{n \to \infty} A_n = \bigcap_{n=1}^\infty A_n
-\]</div>
-</li>
+<li>许多 CUDA 函数会返回类型为 <code>cudaError_t</code> 的值，可用于检查调用是否出错。</li>
+<li>为检查启动核函数时是否发生错误，CUDA 提供了 <code>cudaGetLastError</code> 函数，返回类型为 <code>cudaError_t</code> 的值。</li>
+<li>为捕捉异步错误（例如，在异步核函数执行期间），需要检查后续同步 CUDA 运行时 API 调用所返回的状态（例如 <code>cudaDeviceSynchronize</code> ），如果之前启动的其中一个核函数失败，则将返回错误。</li>
 </ul>
-</div>
-<p>假设 <span class="arithmatex">\(A_n\)</span> 是一列增加事件，则</p>
-<div class="arithmatex">\[
-P(\lim_{n\to \infty} A_n) = \lim_{n\to \infty}P(A_n)
-\]</div>
-<div class="admonition proof">
-<p class="admonition-title">Proof</p>
-<p>记 <span class="arithmatex">\(B_1 = A_1, B_k = A_k - A_{k - 1}\)</span> ，则 <span class="arithmatex">\(B_k\)</span> 互不相交，则</p>
-<div class="arithmatex">\[
-\begin{align}
-P(\lim_{n\to\infty}A_n) &amp;= P(\sum_{n=1}^\infty B_n) \\
-                        &amp;= \sum_{n=1}^\infty P(B_n) \\
-                        &amp;= \sum_{n=1}^\infty P(A_n) - P(A_{n - 1}) \\
-                        &amp;= \lim_{n\to\infty} P(A_n)
-\end{align}
-\]</div>
-</div>
-<h3 id="_24">条件概率具有概率的运算性质<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
-<p>假设 <span class="arithmatex">\((\Omega, \mathcal{A}, P)\)</span> 是概率空间， <span class="arithmatex">\(B\)</span> 是一个事件， <span class="arithmatex">\(P(B)&gt;0\)</span></p>
-<p>对于任意事件 <span class="arithmatex">\(A \in \mathcal{A}\)</span> ，条件概率 <span class="arithmatex">\(P(A|B) = \frac{P(AB)}{P(B)}\)</span></p>
-<p>将</p>
-<div class="arithmatex">\[
-P(\cdot | B) : \mathcal{A} \mapsto [0, 1]
-\]</div>
-<p>视作一个概率。</p>
-<p>则有</p>
-<div class="arithmatex">\[
-\begin{align}
-P(A_1+A_2|B) = P(A_1|B) + P(A_2|B) \\
-P(A_1-A_2|B) = P(A_1|B) - P(A_2|B)
-\end{align}
-\]</div>
-<p>等等类似性质。</p>
+<p>错误大致可分为同步错误 <code>synError</code> 和异步错误 <code>asynError</code> 。</p>
+<p>对于 <code>cudaError_t</code> 值，将其与 CUDA 提供的 <code>cudaSuccess</code> 进行比较，即可判断是否出错，同时可以使用函数 <code>cudaGetErrorString()</code> 获得错误信息。</p>
+<p>一个包装 CUDA 函数调用的宏：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">inline</span><span class="w"> </span><span class="n">cudaError_t</span><span class="w"> </span><span class="nf">checkCuda</span><span class="p">(</span><span class="n">cudaError_t</span><span class="w"> </span><span class="n">result</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">cudaSuccess</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CUDA Runtime Error: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cudaGetErrorString</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">cudaSuccess</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * The macro can be wrapped around any function returning</span>
+<span class="cm"> * a value of type `cudaError_t`.</span>
+<span class="cm"> */</span>
+
+<span class="w">  </span><span class="n">checkCuda</span><span class="p">(</span><span class="w"> </span><span class="n">cudaDeviceSynchronize</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="-">进阶内容 - 多维网格和块<a class="headerlink" href="#-" title="Permanent link">&para;</a></h4>
+<p>可以将网格和线程块定义为最多具有 3 个维度， CUDA 提供 <code>dim3</code> 类型定义多维网格和块：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">dim3</span><span class="w"> </span><span class="nf">threads_per_block</span><span class="p">(</span><span class="n">block_dim_x</span><span class="p">,</span><span class="w"> </span><span class="n">block_dim_y</span><span class="p">,</span><span class="w"> </span><span class="n">block_dim_z</span><span class="p">);</span>
+<span class="n">dim3</span><span class="w"> </span><span class="nf">number_of_blocks</span><span class="p">(</span><span class="n">grid_dim_x</span><span class="p">,</span><span class="w"> </span><span class="n">grid_dim_y</span><span class="p">,</span><span class="w"> </span><span class="n">grid_dim_z</span><span class="p">);</span>
+<span class="n">someKernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">number_of_blocks</span><span class="p">,</span><span class="w"> </span><span class="n">threads_per_block</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<p>在核函数中，可以使用 <code>threadIdx.y</code> 及类似形式获得相关索引和维度。</p>
+<h3 id="nsys">统一内存使用与使用 nsys 管理内存<a class="headerlink" href="#nsys" title="Permanent link">&para;</a></h3>
+<h4 id="nsys_1">nsys 使用<a class="headerlink" href="#nsys_1" title="Permanent link">&para;</a></h4>
+<p>使用 <code>nsys profile</code> 分析编译好的可执行文件</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>nsys<span class="w"> </span>profile<span class="w"> </span>--stats<span class="o">=</span><span class="nb">true</span><span class="w"> </span>./test
+</code></pre></div>
+<p><code>nsys profile</code> 将生成一个 <code>qdrep</code> 报告文件，使用 <code>--stats = true</code> 标志表示希望打印输出摘要统计信息。</p>
+<h4 id="streaming-multiprocessors">流多处理器（Streaming Multiprocessors）<a class="headerlink" href="#streaming-multiprocessors" title="Permanent link">&para;</a></h4>
+<p>GPU 具有称为流多处理器（或 SM）的处理单元。在核函数执行期间，将线程块提供给 SM 以供其执行。SM 同时调度执行的线程块取决于 warp 大小（一般为 32）。</p>
+<p>通常可以选择线程数量数倍于 32 的线程块大小来提升性能。</p>
+<h4 id="gpu_3">查询 GPU 属性<a class="headerlink" href="#gpu_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">deviceId</span><span class="p">;</span>
+<span class="n">cudaGetDevice</span><span class="p">(</span><span class="o">&amp;</span><span class="n">deviceId</span><span class="p">);</span>
+
+<span class="n">cudaDeviceProp</span><span class="w"> </span><span class="n">props</span><span class="p">;</span>
+<span class="n">cudaGetDeviceProperties</span><span class="p">(</span><span class="o">&amp;</span><span class="n">props</span><span class="p">,</span><span class="w"> </span><span class="n">deviceId</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p><code>props</code> 中包含了 GPU 设备属性，主要用到 warp 大小 <code>props.warpSize</code> 。</p>
+<h4 id="um">统一内存（UM）行为<a class="headerlink" href="#um" title="Permanent link">&para;</a></h4>
+<p>分配 UM 时，内存尚未驻留在主机或设备上。主机或设备尝试访问内存时会发生页错误（Page Fault），此时主机或设备会批量迁移所需的数据。同理，当 CPU 或加速系统中的任何 GPU 尝试访问尚未驻留在其上的内存时，会发生页错误并触发迁移。</p>
+<p>稀疏访问数据时，触发页错误并按需迁移内存会有显著优势。</p>
+<p>而需要大量连续的内存块时，通过异步预取内存可以有效规避页错误和按需数据迁移所产生的开销。</p>
+<h4 id="_7">异步内存预取<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>CUDA 可通过 <code>cudaMemPrefetchAsync</code> 函数，将托管内存异步预取到 GPU 设备或 CPU：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">deviceId</span><span class="p">;</span>
+<span class="n">cudaGetDevice</span><span class="p">(</span><span class="o">&amp;</span><span class="n">deviceId</span><span class="p">);</span>
+
+<span class="c1">// Prefetch to GPU device.</span>
+<span class="n">cudaMemPrefetchAsync</span><span class="p">(</span><span class="n">pointerToSomeUMData</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">deviceId</span><span class="p">);</span>
+<span class="c1">// Prefetch to host.</span>
+<span class="n">cudaMemPrefetchAsync</span><span class="p">(</span><span class="n">pointerToSomeUMData</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">cudaCpuDeviceId</span><span class="p">);</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<h4 id="cuda_1">并发 CUDA 流<a class="headerlink" href="#cuda_1" title="Permanent link">&para;</a></h4>
+<p>流是由按顺序执行的一系列命令构成。在 CUDA 应用程序中，核函数的执行以及一些内存传输均在 CUDA 流中进行。未作特殊声明的核函数在默认流中执行。</p>
+<p>此外，程序可以创建非默认流，在不同的流中并发执行多个核函数。</p>
+<p>默认流会阻止其他流中的所有核函数。当其他流中的所有核函数执行完毕之后，默认流中的核函数才开始执行；当默认流中的核函数执行完毕，其他流中的核函数才可以开始执行。</p>
+<p><img alt="" src="../../../assert/img/HPC/HPC%20101%20labs/CUDA/img4.png" /></p>
+<p>创建非默认流，并在非默认流中启动核函数：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">cudaStream_t</span><span class="w"> </span><span class="n">stream</span><span class="p">;</span>
+<span class="n">cudaStreamCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stream</span><span class="p">);</span>
+
+<span class="n">someKernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">number_of_blocks</span><span class="p">,</span><span class="w"> </span><span class="n">threads_per_block</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">stream</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+
+<span class="n">cudaStreamDestroy</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 
 
 
@@ -2351,44 +1954,6 @@ P(A_1-A_2|B) = P(A_1|B) - P(A_2|B)
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Index">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                Index
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../chapter2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 随机变量与分布函数">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                随机变量与分布函数
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">

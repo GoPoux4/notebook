@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/math/prob_theory/">
+        <link rel="canonical" href="https://note.gopoux.cc/Labs/pcg/">
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="chapter1/">
       
       
       <link rel="icon" href="../../assert/ico/favicon.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>Index - GoPoux 的笔记本</title>
+        <title>lab4 PCG Solver - GoPoux 的笔记本</title>
       
     
     
@@ -78,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#lab4-pcg-solver" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -108,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              lab4 PCG Solver
             
           </span>
         </div>
@@ -250,13 +251,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../math/" class="md-tabs__link">
           
   
     
@@ -701,8 +700,6 @@
       
   
   
-    
-  
   
   
     
@@ -721,17 +718,17 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../math/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -748,7 +745,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Math
@@ -761,8 +758,6 @@
                 
   
   
-    
-  
   
   
     
@@ -782,17 +777,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../math/prob_theory/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -803,13 +798,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             概率论
@@ -825,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter1/" class="md-nav__link">
+      <a href="../../math/prob_theory/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -846,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter2/" class="md-nav__link">
+      <a href="../../math/prob_theory/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -867,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter3/" class="md-nav__link">
+      <a href="../../math/prob_theory/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1362,6 +1357,85 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验步骤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      访存优化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      线程级并行（OpenMP）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      进程级并行（MPI）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bonus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1379,9 +1453,130 @@
   
 
 
-  <h1>Index</h1>
+<h1 id="lab4-pcg-solver">lab4 PCG Solver<a class="headerlink" href="#lab4-pcg-solver" title="Permanent link">&para;</a></h1>
+<h2 id="_1">实验步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">访存优化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>基准代码中，不连续的内存访问存在于对矩阵 A 对角线元素的访问中，通过将 A 对角线元素预先取出存放到连续的内存中，提高访存效率。</p>
+<h3 id="openmp">线程级并行（OpenMP）<a class="headerlink" href="#openmp" title="Permanent link">&para;</a></h3>
+<p>使用 OpenMP 将循环并行化。</p>
+<p>对于循环体之间无依赖的迭代，在循环前添加如下指令使其并行化：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#pragma omp parallel for schedule(static)</span>
+</code></pre></div>
+<p>对于进行累加操作的迭代，使用归约 (reduction) 使其并行化（对 <code>sum</code> 进行累加）：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#pragma omp parallel for reduction(+:sum) schedule(static)</span>
+</code></pre></div>
+<p>并且使用 <code>static</code> 调度方式，使各个块包含的迭代次数平均。</p>
+<h3 id="mpi">进程级并行（MPI）<a class="headerlink" href="#mpi" title="Permanent link">&para;</a></h3>
+<p>使用 MPI 开启不同进程进行并行计算。</p>
+<p>整体思路为：根进程在计算开始前将矩阵 A 和数组 b 广播给各个进程，将 <code>MatrixMulVec</code> 函数中的矩阵与向量相乘运算分发给各个进程进行计算，计算完毕之后将各个进程结果进行合并并且广播，其余部分各个进程独立计算。</p>
+<p>采用上述方式，尽量避免通信带来过大的开销，并且尽量加速时间消耗最大的矩阵与向量相乘运算。</p>
+<p>源代码及 <code>Makefile</code> 文件位于当前目录下 <code>pcg_c</code> 文件夹内。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>其中 <code>Makefile</code> 文件进行了两处更改：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Makefile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">CC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>mpiicc
+<span class="nv">CFLAGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-qopenmp<span class="w"> </span>-O3
+</code></pre></div></td></tr></table></div>
+<p>使用 Intel 提供的编译器 <code>mpiicc</code> 。</p>
+<p>根据官方文档，添加 <code>-qopenmp</code> 编译选项启用 OpenMP 。</p>
+</div>
+<p>使用 4 节点 8 任务对三组输入进行测试，使用 <code>sbatch</code> 提交如下脚本：</p>
+<div class="highlight"><span class="filename">job.sh</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -o out.txt</span>
+<span class="c1">#SBATCH -N 4</span>
+<span class="c1">#SBATCH -n 8</span>
+<span class="c1">#SBATCH --exclusive</span>
+<span class="c1">#SBATCH --cpus-per-task 12</span>
+<span class="nb">source</span><span class="w"> </span>/opt/intel/oneapi/setvars.sh
+<span class="nb">ulimit</span><span class="w"> </span>-s<span class="w"> </span>unlimited
+mpirun<span class="w"> </span>./pcg<span class="w"> </span>input_2.bin<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;mpool&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;ib_md&#39;</span>
+</code></pre></div>
+<p>结果分别用时 3.97 s 、17.48 s、91.90 s 。</p>
+<h3 id="profile">Profile<a class="headerlink" href="#profile" title="Permanent link">&para;</a></h3>
+<p>以输入 <code>input_2.bin</code> 为例，使用 <code>Intel Trace Analyzer and Collector</code> 进行性能分析。</p>
+<p><img alt="" src="../../assert/img/HPC/HPC%20101%20labs/PCG/img2.png" /></p>
+<p>由图可得，耗时最多的三个 <code>MPI</code> 函数分别为 <code>MPI_Allgather</code> 、 <code>MPI_Bcast</code> 、 <code>MPI_Comm_rank</code> 。</p>
+<p><img alt="" src="../../assert/img/HPC/HPC%20101%20labs/PCG/img1.png" /></p>
+<p>可得程序消耗的总时间为 103 s ，其中消耗在 <code>MPI</code> 上的总时间为 37.9 s 。</p>
+<p>打开事件时间轴 (Event Timeline) 可以看到各个进程的运行情况：</p>
+<p><img alt="" src="../../assert/img/HPC/HPC%20101%20labs/PCG/img3.png" /></p>
+<p>由图可得，程序一共开启了 8 个进程，调用 <code>MPI</code> 的开销主要的位于每次进入 <code>PCG</code> 函数时调用 <code>MPI_Bcast</code> 函数。</p>
+<p>截取一小段时间轴进行放大，可以得知在一次 <code>PCG</code> 函数的调用中，<code>MPI_Allgather</code> 函数被调用了多次：</p>
+<p><img alt="" src="../../assert/img/HPC/HPC%20101%20labs/PCG/img4.png" /></p>
+<p>此外，右键下方的 <code>Group MPI</code> 选择 <code>Ungroup MPI</code> ，可以看到各个 <code>MPI</code> 函数的调用次数及时间消耗：</p>
+<p><img alt="" src="../../assert/img/HPC/HPC%20101%20labs/PCG/img5.png" /></p>
+<h2 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permanent link">&para;</a></h2>
+<p>使用 Fortran 完成实验。</p>
+<p>源代码及 <code>Makefile</code> 文件位于当前目录下 <code>pcg_fortran</code> 文件夹内。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>Makefile</code> 文件如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Makefile</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">CC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>mpiicc
+<span class="nv">CF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>mpiifort
+<span class="nv">CFLAGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-qopenmp<span class="w"> </span>-O3
 
+<span class="nv">.PHONY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>pcg
 
+<span class="nf">pcg</span><span class="o">:</span><span class="w"> </span><span class="n">main</span>.<span class="n">o</span> <span class="n">judge</span>.<span class="n">o</span> <span class="n">pcg</span>.<span class="n">o</span>
+<span class="w">    </span><span class="k">$(</span>CF<span class="k">)</span><span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span>$^<span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span>
+
+<span class="nf">judge.o</span><span class="o">:</span><span class="w"> </span><span class="n">judge</span>.<span class="n">c</span> <span class="n">judge</span>.<span class="n">h</span>
+<span class="w">    </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span>-c<span class="w"> </span>judge.c<span class="w"> </span>-o<span class="w"> </span>judge.o
+
+<span class="nf">main.o</span><span class="o">:</span><span class="w"> </span><span class="n">main</span>.<span class="n">f</span>90
+<span class="w">    </span><span class="k">$(</span>CF<span class="k">)</span><span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span>-c<span class="w"> </span>main.f90<span class="w"> </span>-o<span class="w"> </span>main.o
+
+<span class="nf">pcg.o</span><span class="o">:</span><span class="w"> </span><span class="n">pcg</span>.<span class="n">f</span>90
+<span class="w">    </span><span class="k">$(</span>CF<span class="k">)</span><span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span>-c<span class="w"> </span>pcg.f90<span class="w"> </span>-o<span class="w"> </span>pcg.o
+
+<span class="nf">clean</span><span class="o">:</span>
+<span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span>judge.o<span class="w"> </span>main.o<span class="w"> </span>pcg.o<span class="w"> </span>pcg
+</code></pre></div></td></tr></table></div>
+<p>使用的 Fortran 编译器为 Intel 提供的 <code>mpiifort</code> 。</p>
+<p>将 <code>pcg.f90</code> 、 <code>main.f90</code> 、 <code>judge.c</code> 分别编译汇编为 <code>.o</code> 文件后，再进行链接形成可执行文件 <code>pcg</code> 。</p>
+</div>
+<p>以使用 4 节点 8 任务对三组输入进行测试，使用 <code>sbatch</code> 提交如下脚本：</p>
+<div class="highlight"><span class="filename">job.sh</span><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -o out.txt</span>
+<span class="c1">#SBATCH -N 4</span>
+<span class="c1">#SBATCH -n 8</span>
+<span class="c1">#SBATCH --exclusive</span>
+<span class="c1">#SBATCH --cpus-per-task 12</span>
+<span class="nb">source</span><span class="w"> </span>/opt/intel/oneapi/setvars.sh
+<span class="nb">ulimit</span><span class="w"> </span>-s<span class="w"> </span>unlimited
+mpirun<span class="w"> </span>./pcg<span class="w"> </span>input_2.bin<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;mpool&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;ib_md&#39;</span>
+</code></pre></div>
+<p>以 <code>input_2.bin</code> 为例，Fortran 用时 45.75 s ，C 用时 17.48 s 。（还没弄清楚为什么相差这么多）</p>
+<p>使用 C 实现参与排名计算分数。</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://mpitutorial.com/tutorials/">MPI Tutorials</a></li>
+<li><a href="https://www.open-mpi.org/doc/">Open MPI Documentation</a></li>
+<li><a href="https://www.intel.com/content/www/us/en/docs/trace-analyzer-collector/get-started-guide/2021-10/overview.html">Get Started with Intel® Trace Analyzer and Collector</a></li>
+<li><a href="https://fortran-lang.org/zh_CN/learn/quickstart/">Fortran 快速入门教程</a></li>
+<li><a href="https://docs.oracle.com/cd/E19205-01/820-1206/index.html">Fortran 用户指南</a></li>
+<li><a href="https://curc.readthedocs.io/en/latest/programming/OpenMP-Fortran.html">Using OpenMP with Fortran</a></li>
+</ul>
 
 
 
@@ -1404,44 +1599,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Math">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                Math
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="chapter1/" class="md-footer__link md-footer__link--next" aria-label="下一页: 事件及其概率">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                事件及其概率
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">

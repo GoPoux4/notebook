@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://GoPoux4.github.io/</loc>
+         <loc>https://note.gopoux.cc/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/cs/</loc>
+         <loc>https://note.gopoux.cc/CS/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/cs/computer_logic/</loc>
+         <loc>https://note.gopoux.cc/CS/computer_logic/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/cs/computer_logic/chapter1/</loc>
+         <loc>https://note.gopoux.cc/CS/computer_logic/chapter1/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/cs/computer_logic/chapter2/</loc>
+         <loc>https://note.gopoux.cc/CS/computer_logic/chapter2/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/cs/intro_to_ai/ai/</loc>
+         <loc>https://note.gopoux.cc/CS/intro_to_ai/ai/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/cs/quantum/introduction/</loc>
+         <loc>https://note.gopoux.cc/CS/quantum/introduction/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/hpc/</loc>
+         <loc>https://note.gopoux.cc/HPC/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/hpc/cute/</loc>
+         <loc>https://note.gopoux.cc/HPC/cute/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/hpc/cute/layout/</loc>
+         <loc>https://note.gopoux.cc/HPC/cute/layout/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/hpc/cute/tensor/</loc>
+         <loc>https://note.gopoux.cc/HPC/cute/tensor/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/hpc/hpc101/</loc>
+         <loc>https://note.gopoux.cc/HPC/hpc101/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/hpc/hpc101/cuda/</loc>
+         <loc>https://note.gopoux.cc/HPC/hpc101/cuda/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/labs/cnn/</loc>
+         <loc>https://note.gopoux.cc/Labs/cnn/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/labs/cuda/</loc>
+         <loc>https://note.gopoux.cc/Labs/cuda/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/labs/numpy/</loc>
+         <loc>https://note.gopoux.cc/Labs/numpy/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/labs/pcg/</loc>
+         <loc>https://note.gopoux.cc/Labs/pcg/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/labs/simd/</loc>
+         <loc>https://note.gopoux.cc/Labs/simd/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/math/</loc>
+         <loc>https://note.gopoux.cc/math/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/math/prob_theory/</loc>
+         <loc>https://note.gopoux.cc/math/prob_theory/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/math/prob_theory/chapter1/</loc>
+         <loc>https://note.gopoux.cc/math/prob_theory/chapter1/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/math/prob_theory/chapter2/</loc>
+         <loc>https://note.gopoux.cc/math/prob_theory/chapter2/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://GoPoux4.github.io/math/prob_theory/chapter3/</loc>
+         <loc>https://note.gopoux.cc/math/prob_theory/chapter3/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
