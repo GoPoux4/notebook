@@ -2490,6 +2490,53 @@ p_{UV}(u, v) = p_{XY}(x, y)|J|
 </li>
 </ul>
 <h3 id="_18">极值随机变量<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(X_1, X_2, \cdots, X_n\)</span> 是独立随机变量，有相同的分布函数 <span class="arithmatex">\(F(x)\)</span>，记</p>
+<div class="arithmatex">\[
+X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}
+\]</div>
+<p>即 <span class="arithmatex">\(X_{(k)}\)</span> 为第 k 小值。<span class="arithmatex">\(X_{(1)} = \min\{X_1, X_2, \cdots, X_n\}\)</span>，<span class="arithmatex">\(X_{(n)} = \max\{X_1, X_2, \cdots, X_n\}\)</span>。</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(X_{(n)}\)</span> 的分布</p>
+<div class="arithmatex">\[
+\begin{align*}
+F_{X_{(n)}}(x) =&amp; P(X_{(n)} \leq x) \\
+    =&amp; P(X_1 \leq x, X_2 \leq x, \cdots, X_n \leq x) \\
+    =&amp; P(X_1 \leq x)P(X_2 \leq x)\cdots P(X_n \leq x) \\
+    =&amp; F^n(x)
+\end{align*}
+\]</div>
+<p>密度函数</p>
+<div class="arithmatex">\[
+p_{X_{(n)}}(x) = \frac{\text{d}F_{X_{(n)}}}{\text{d}x} = nF^{n-1}(x)F'(x)
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(X_{(1)}\)</span> 的分布</p>
+<div class="arithmatex">\[
+\begin{align*}
+F_{X_{(1)}}(x) =&amp; P(X_{(1)} \leq x) \\
+    =&amp; 1 - P(X_{(1)} &gt; x) \\
+    =&amp; 1 - P(X_1 &gt; x, X_2 &gt; x, \cdots, X_n &gt; x) \\
+    =&amp; 1 - P(X_1 &gt; x)P(X_2 &gt; x)\cdots P(X_n &gt; x) \\
+    =&amp; 1 - (1 - F(x))^n
+\end{align*}
+\]</div>
+<p>密度函数</p>
+<div class="arithmatex">\[
+p_{X_{(1)}}(x) = \frac{\text{d}F_{X_{(1)}}}{\text{d}x} = n(1 - F(x))^{n-1}F'(x)
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(X_{(k)}\)</span> 的分布</p>
+<div class="arithmatex">\[
+\begin{align*}
+F_{X_{(k)}}(x) =&amp; P(X_{(k)} \leq x) \\
+    =&amp; {n \choose k} F^k(x)(1 - F(x))^{n-k}
+\end{align*}
+\]</div>
+</li>
+</ul>
 <h2 id="_19">总结<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
