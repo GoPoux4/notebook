@@ -466,16 +466,68 @@ Constraints on cost and performance have a major role in making tradeoffs.
 
 ### Other Gate Types
 
-Why need other gate types?
+- Buffer 缓冲器 $F = X$
 
-* Implementation feasibility and low cost
-* Power in implementing Boolean functions
-* Convenient conceptual representation
+    作用：扩大扇出系数，减少传输延迟，提高负载能力。
+
+- NAND gate 与非门 $F = \overline{XY}$
+
+    作用：实现任意逻辑函数，减少门输入成本。
+
+- NOR gate 或非门 $F = \overline{X + Y}$
+
+    对偶关系
+
+- Exclusive-OR gate 异或门 $F = X \oplus Y$
+
+    Exclusive-NOR gate 异或非门（同或门） $F = \overline{X \oplus Y}$
+
+    $X \oplus Y = X \bar{Y} + \bar{X}Y$, $\overline{X \oplus Y} = XY + \bar{X}\bar{Y}$
 
 ### Exclusive-OR Operator and Gates
 
+- XOR identities
+  
+    $$
+    X \oplus Y \oplus Z = \bar X \bar Y Z + \bar X Y \bar Z + X \bar Y \bar Z + XYZ
+    $$
 
+    $$
+    X \oplus \bar Y = \overline{X \oplus Y}
+    $$
+
+    $$
+    X \oplus 0 = X, X \oplus 1 = \bar X \text{（可控非门）}
+    $$
+
+- XOR implementation
+    
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/xor1.png" width = 60%/></div>
+
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/xor2.png" width = 60%/></div>
+
+- Odd and Even Functions
+  
+    Odd Function: $F = 1$ if and only if the index of the minterm has an odd number of 1s
+
+    Even Function: $F = 1$ if and only if the index of the minterm has an even number of 1s
+
+    The not of an odd function is an even function, and vice versa.
+
+- Parity Generators and Checkers 奇偶校验
+
+    Parity Generator: $P = X \oplus Y \oplus Z$
+
+    Parity Checker: $F = X \oplus Y \oplus Z \oplus P$
 
 ### High-Impedance Outputs
 
-### Propagation Delay
+到 VCC 和 GND 的电阻都很大，相当于断路。简称 `Hi-Z`。
+
+The 3-State Buffer 真值表：
+
+| Enable | Input | Output | 
+| :----: | :---: | :----: |
+|   0    |   X   |   Hi-Z    |
+|   1    |   0   |   0    |
+|   1    |   1   |   1    |

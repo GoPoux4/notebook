@@ -103,6 +103,7 @@ nav:
       - cs/computer_logic/index.md
       - 数字系统和信息: cs/computer_logic/chapter1.md
       - 组合逻辑电路: cs/computer_logic/chapter2.md
+      - 组合逻辑电路的设计: cs/computer_logic/chapter3.md
     - 量子计算:
       - Basic Definition: cs/quantum/introduction.md
   - Math:
