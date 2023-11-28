@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/cs/computer_logic/">
+        <link rel="canonical" href="https://note.gopoux.cc/cs/computer_logic/chapter3/">
       
       
-        <link rel="prev" href="../intro_to_ai/ai/">
+        <link rel="prev" href="../chapter2/">
       
       
-        <link rel="next" href="chapter1/">
+        <link rel="next" href="../../quantum/introduction/">
       
       
-      <link rel="icon" href="../../assert/ico/favicon.png">
+      <link rel="icon" href="../../../assert/ico/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
     
       
-        <title>Index - GoPoux 的笔记本</title>
+        <title>组合逻辑电路的设计 - GoPoux 的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -48,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../../css/counter.css">
+      <link rel="stylesheet" href="../../../css/counter.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,6 +78,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#combinational-logic-design" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -88,7 +93,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -108,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              组合逻辑电路的设计
             
           </span>
         </div>
@@ -214,7 +219,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
     
@@ -236,7 +241,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
     
@@ -256,7 +261,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../math/" class="md-tabs__link">
+        <a href="../../../math/" class="md-tabs__link">
           
   
     
@@ -276,7 +281,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../hpc/" class="md-tabs__link">
+        <a href="../../../hpc/" class="md-tabs__link">
           
   
     
@@ -296,7 +301,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../labs/numpy/" class="md-tabs__link">
+        <a href="../../../labs/numpy/" class="md-tabs__link">
           
   
     
@@ -331,7 +336,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -384,7 +389,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -450,7 +455,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -483,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro_to_ai/ai/" class="md-nav__link">
+      <a href="../../intro_to_ai/ai/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -532,7 +537,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -543,7 +548,7 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -565,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter1/" class="md-nav__link">
+      <a href="../chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,7 +591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter2/" class="md-nav__link">
+      <a href="../chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -604,10 +609,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="chapter3/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    组合逻辑电路的设计
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -616,6 +641,128 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#combinational-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combinational Logic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Combinational Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions-and-functional-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions and Functional Blocks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-bit-rudiementary-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple-bit Rudiementary Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logic-functions-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logic Functions Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Procedure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#combinational-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combinational Circuits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beginning-hierarchical-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beginning Hierarchical Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-procedure_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Procedure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -677,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quantum/introduction/" class="md-nav__link">
+      <a href="../../quantum/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -738,7 +885,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../math/" class="md-nav__link ">
+            <a href="../../../math/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -797,7 +944,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../math/prob_theory/" class="md-nav__link ">
+            <a href="../../../math/prob_theory/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -830,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../math/prob_theory/chapter1/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -851,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../math/prob_theory/chapter2/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../math/prob_theory/chapter3/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -935,7 +1082,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hpc/" class="md-nav__link ">
+            <a href="../../../hpc/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -992,7 +1139,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hpc/cute/" class="md-nav__link ">
+            <a href="../../../hpc/cute/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1025,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hpc/cute/layout/" class="md-nav__link">
+      <a href="../../../hpc/cute/layout/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1046,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hpc/cute/tensor/" class="md-nav__link">
+      <a href="../../../hpc/cute/tensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1097,7 +1244,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hpc/hpc101/" class="md-nav__link ">
+            <a href="../../../hpc/hpc101/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1130,7 +1277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hpc/hpc101/cuda/" class="md-nav__link">
+      <a href="../../../hpc/hpc101/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1218,7 +1365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/numpy/" class="md-nav__link">
+      <a href="../../../labs/numpy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1239,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/simd/" class="md-nav__link">
+      <a href="../../../labs/simd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1260,7 +1407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/cuda/" class="md-nav__link">
+      <a href="../../../labs/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1281,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/pcg/" class="md-nav__link">
+      <a href="../../../labs/pcg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1302,7 +1449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/cnn/" class="md-nav__link">
+      <a href="../../../labs/cnn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1340,6 +1487,118 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#combinational-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combinational Logic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Combinational Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functions-and-functional-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions and Functional Blocks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-bit-rudiementary-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple-bit Rudiementary Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logic-functions-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logic Functions Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Procedure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#combinational-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combinational Circuits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beginning-hierarchical-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beginning Hierarchical Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-procedure_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Procedure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1357,9 +1616,56 @@
   
 
 
-  <h1>Index</h1>
+<h1 id="combinational-logic-design">Combinational Logic Design<a class="headerlink" href="#combinational-logic-design" title="Permanent link">&para;</a></h1>
+<h2 id="combinational-logic">Combinational Logic<a class="headerlink" href="#combinational-logic" title="Permanent link">&para;</a></h2>
+<h3 id="functions-and-functional-blocks">Functions and Functional Blocks<a class="headerlink" href="#functions-and-functional-blocks" title="Permanent link">&para;</a></h3>
+<p>verilog 中，调用模块会在电路中增加实例，会增加开销。</p>
+<p>verilog 中并行运行。</p>
+<h3 id="multiple-bit-rudiementary-functions">Multiple-bit Rudiementary Functions<a class="headerlink" href="#multiple-bit-rudiementary-functions" title="Permanent link">&para;</a></h3>
+<p>A wide line is used to represent a bus (总线). The bus can be split into individual lines.</p>
+<h3 id="enable-function">Enable Function<a class="headerlink" href="#enable-function" title="Permanent link">&para;</a></h3>
+<p>与门 + 非门</p>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter3/control.png" width = 60%/></div>
 
-
+<h3 id="decoding">Decoding<a class="headerlink" href="#decoding" title="Permanent link">&para;</a></h3>
+<p>the conversion of an n-bit input code to an m-bit output code with <span class="arithmatex">\(n \leq m \leq 2^n\)</span> such that each valid code word produces a unique output code</p>
+<p>Example:</p>
+<ul>
+<li>
+<p>1-to-2-line decoder</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/1-to-2.png" width = 60%/></div></p>
+</li>
+<li>
+<p>2-to-4-line decoder</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/2-to-4.png" width = 80%/></div></p>
+</li>
+</ul>
+<p>行列译码器：将输入不断二分，例如 4-to-16 拆成 2-to4 和 2-to-4，再将 2-to-4 拆成 1-to-2 和 1-to-2。</p>
+<h3 id="logic-functions-implementation">Logic Functions Implementation<a class="headerlink" href="#logic-functions-implementation" title="Permanent link">&para;</a></h3>
+<p>实现任意逻辑函数：译码器 + 或门</p>
+<p>译码器输出是所有最小项，通过或门实现逻辑函数。</p>
+<h2 id="design-procedure">Design Procedure<a class="headerlink" href="#design-procedure" title="Permanent link">&para;</a></h2>
+<h3 id="combinational-circuits">Combinational Circuits<a class="headerlink" href="#combinational-circuits" title="Permanent link">&para;</a></h3>
+<p>输入与输出严格对应</p>
+<h3 id="beginning-hierarchical-design">Beginning Hierarchical Design<a class="headerlink" href="#beginning-hierarchical-design" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Top-Down: 从顶层开始设计，逐步细化</li>
+<li>Bottom-Up: 从最底层开始设计，逐步合并</li>
+</ul>
+<h3 id="design-procedure_1">Design Procedure<a class="headerlink" href="#design-procedure_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Specification</li>
+<li>
+<p>Formulation</p>
+<p>Derive a truth table or initial Boolean equations for each output function.</p>
+<p>Apply hierarchical design to the output functions.</p>
+</li>
+<li>
+<p>Optimization</p>
+<p>Apply multiple-level logic optimization to the output functions.</p>
+<p>Draw logic diagrams.</p>
+</li>
+</ul>
 
 
 
@@ -1387,7 +1693,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../intro_to_ai/ai/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 人工智能引论">
+          <a href="../chapter2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 组合逻辑电路">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1397,20 +1703,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                人工智能引论
+                组合逻辑电路
               </div>
             </div>
           </a>
         
         
           
-          <a href="chapter1/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数字系统和信息">
+          <a href="../../quantum/introduction/" class="md-footer__link md-footer__link--next" aria-label="下一页: Basic Definition">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                数字系统和信息
+                Basic Definition
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1468,12 +1774,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

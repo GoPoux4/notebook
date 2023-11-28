@@ -14,7 +14,7 @@
         <link rel="prev" href="../chapter1/">
       
       
-        <link rel="next" href="../../quantum/introduction/">
+        <link rel="next" href="../chapter3/">
       
       
       <link rel="icon" href="../../../assert/ico/favicon.png">
@@ -521,6 +521,8 @@
       
         
       
+        
+      
     
     
     
@@ -950,15 +952,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#propagation-delay_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Propagation Delay
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -968,6 +961,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    组合逻辑电路的设计
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2017,15 +2031,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#propagation-delay_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Propagation Delay
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2448,15 +2453,85 @@ t_{pd} = 0.07 + 0.021 SL \text{ns}
 <p>Tradeoffs can also be accomplished much higher in the design hierarchy.</p>
 <p>Constraints on cost and performance have a major role in making tradeoffs.</p>
 <h3 id="other-gate-types">Other Gate Types<a class="headerlink" href="#other-gate-types" title="Permanent link">&para;</a></h3>
-<p>Why need other gate types?</p>
 <ul>
-<li>Implementation feasibility and low cost</li>
-<li>Power in implementing Boolean functions</li>
-<li>Convenient conceptual representation</li>
+<li>
+<p>Buffer 缓冲器 <span class="arithmatex">\(F = X\)</span></p>
+<p>作用：扩大扇出系数，减少传输延迟，提高负载能力。</p>
+</li>
+<li>
+<p>NAND gate 与非门 <span class="arithmatex">\(F = \overline{XY}\)</span></p>
+<p>作用：实现任意逻辑函数，减少门输入成本。</p>
+</li>
+<li>
+<p>NOR gate 或非门 <span class="arithmatex">\(F = \overline{X + Y}\)</span></p>
+<p>对偶关系</p>
+</li>
+<li>
+<p>Exclusive-OR gate 异或门 <span class="arithmatex">\(F = X \oplus Y\)</span></p>
+<p>Exclusive-NOR gate 异或非门（同或门） <span class="arithmatex">\(F = \overline{X \oplus Y}\)</span></p>
+<p><span class="arithmatex">\(X \oplus Y = X \bar{Y} + \bar{X}Y\)</span>, <span class="arithmatex">\(\overline{X \oplus Y} = XY + \bar{X}\bar{Y}\)</span></p>
+</li>
 </ul>
 <h3 id="exclusive-or-operator-and-gates">Exclusive-OR Operator and Gates<a class="headerlink" href="#exclusive-or-operator-and-gates" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>XOR identities</p>
+<div class="arithmatex">\[
+X \oplus Y \oplus Z = \bar X \bar Y Z + \bar X Y \bar Z + X \bar Y \bar Z + XYZ
+\]</div>
+<div class="arithmatex">\[
+X \oplus \bar Y = \overline{X \oplus Y}
+\]</div>
+<div class="arithmatex">\[
+X \oplus 0 = X, X \oplus 1 = \bar X \text{（可控非门）}
+\]</div>
+</li>
+<li>
+<p>XOR implementation</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/xor1.png" width = 60%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/xor2.png" width = 60%/></div></p>
+</li>
+<li>
+<p>Odd and Even Functions</p>
+<p>Odd Function: <span class="arithmatex">\(F = 1\)</span> if and only if the index of the minterm has an odd number of 1s</p>
+<p>Even Function: <span class="arithmatex">\(F = 1\)</span> if and only if the index of the minterm has an even number of 1s</p>
+<p>The not of an odd function is an even function, and vice versa.</p>
+</li>
+<li>
+<p>Parity Generators and Checkers 奇偶校验</p>
+<p>Parity Generator: <span class="arithmatex">\(P = X \oplus Y \oplus Z\)</span></p>
+<p>Parity Checker: <span class="arithmatex">\(F = X \oplus Y \oplus Z \oplus P\)</span></p>
+</li>
+</ul>
 <h3 id="high-impedance-outputs">High-Impedance Outputs<a class="headerlink" href="#high-impedance-outputs" title="Permanent link">&para;</a></h3>
-<h3 id="propagation-delay_1">Propagation Delay<a class="headerlink" href="#propagation-delay_1" title="Permanent link">&para;</a></h3>
+<p>到 VCC 和 GND 的电阻都很大，相当于断路。简称 <code>Hi-Z</code>。</p>
+<p>The 3-State Buffer 真值表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Enable</th>
+<th style="text-align: center;">Input</th>
+<th style="text-align: center;">Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">Hi-Z</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -2501,13 +2576,13 @@ t_{pd} = 0.07 + 0.021 SL \text{ns}
         
         
           
-          <a href="../../quantum/introduction/" class="md-footer__link md-footer__link--next" aria-label="下一页: Basic Definition">
+          <a href="../chapter3/" class="md-footer__link md-footer__link--next" aria-label="下一页: 组合逻辑电路的设计">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Basic Definition
+                组合逻辑电路的设计
               </div>
             </div>
             <div class="md-footer__button md-icon">
