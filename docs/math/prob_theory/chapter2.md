@@ -754,6 +754,58 @@ $$
 
 ### 极值随机变量
 
+$X_1, X_2, \cdots, X_n$ 是独立随机变量，有相同的分布函数 $F(x)$，记
+
+$$
+X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}
+$$
+
+即 $X_{(k)}$ 为第 k 小值。$X_{(1)} = \min\{X_1, X_2, \cdots, X_n\}$，$X_{(n)} = \max\{X_1, X_2, \cdots, X_n\}$。
+
+- $X_{(n)}$ 的分布
+
+    $$
+    \begin{align*}
+    F_{X_{(n)}}(x) =& P(X_{(n)} \leq x) \\
+        =& P(X_1 \leq x, X_2 \leq x, \cdots, X_n \leq x) \\
+        =& P(X_1 \leq x)P(X_2 \leq x)\cdots P(X_n \leq x) \\
+        =& F^n(x)
+    \end{align*}
+    $$
+
+    密度函数
+
+    $$
+    p_{X_{(n)}}(x) = \frac{\text{d}F_{X_{(n)}}}{\text{d}x} = nF^{n-1}(x)F'(x)
+    $$
+
+- $X_{(1)}$ 的分布
+
+    $$
+    \begin{align*}
+    F_{X_{(1)}}(x) =& P(X_{(1)} \leq x) \\
+        =& 1 - P(X_{(1)} > x) \\
+        =& 1 - P(X_1 > x, X_2 > x, \cdots, X_n > x) \\
+        =& 1 - P(X_1 > x)P(X_2 > x)\cdots P(X_n > x) \\
+        =& 1 - (1 - F(x))^n
+    \end{align*}
+    $$
+
+    密度函数
+
+    $$
+    p_{X_{(1)}}(x) = \frac{\text{d}F_{X_{(1)}}}{\text{d}x} = n(1 - F(x))^{n-1}F'(x)
+    $$
+
+- $X_{(k)}$ 的分布
+
+    $$
+    \begin{align*}
+    F_{X_{(k)}}(x) =& P(X_{(k)} \leq x) \\
+        =& {n \choose k} F^k(x)(1 - F(x))^{n-k}
+    \end{align*}
+    $$
+
 ## 总结
 
 - 二项 Bernoulli 分布
