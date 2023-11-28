@@ -1,0 +1,2581 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://GoPoux4.github.io/cs/computer_logic/chapter2/">
+      
+      
+        <link rel="prev" href="../chapter1/">
+      
+      
+        <link rel="next" href="../../quantum/introduction/">
+      
+      
+      <link rel="icon" href="../../../assert/ico/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>组合逻辑电路 - GoPoux 的笔记本</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/counter.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-2-combinational-logic-circuits" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GoPoux 的笔记本
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              组合逻辑电路
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GoPoux4/notebook/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GoPoux4/notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
+          
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../hpc/" class="md-tabs__link">
+          
+  
+    
+  
+  HPC
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../labs/numpy/" class="md-tabs__link">
+          
+  
+    
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    GoPoux 的笔记本
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GoPoux4/notebook/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GoPoux4/notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Computer Science
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro_to_ai/ai/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能引论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机逻辑设计基础
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机逻辑设计基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数字系统和信息
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    组合逻辑电路
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    组合逻辑电路
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gate-circuits-and-boolean-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Circuits and Boolean Equations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gate Circuits and Boolean Equations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-logic-and-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Logic and Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bool Algebra
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Forms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standard Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minterms-and-maxterms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minterms and Maxterms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canonical-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canonical Forms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Circuit Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-level-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Level Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two-Level Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#literal-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Literal Cost
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate-input-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Input Cost
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map Manipulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Map Manipulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-variable-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Variable Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-variable-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three Variable Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#four-variable-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Four Variable Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#five-variable-or-more-k-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Five Variable or More K-Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-cares-in-k-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don't Cares in K-Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systematic-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systematic Simplification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-level-circuit-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Level Circuit Optimization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-gates-and-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Gates and Circuits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Gates and Circuits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrated-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrated Circuits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integrated Circuits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technology Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fan-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fan-out
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagation-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propagation Delay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delay-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Delay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fan-out-and-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fan-out and Delay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#costperformance-tradeoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost/Performance Tradeoffs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-gate-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Gate Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclusive-or-operator-and-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclusive-OR Operator and Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-impedance-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Impedance Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagation-delay_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propagation Delay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    量子计算
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            量子计算
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quantum/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../math/prob_theory/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    概率论
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            概率论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/prob_theory/chapter1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    事件及其概率
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/prob_theory/chapter2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    随机变量与分布函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/prob_theory/chapter3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学期望
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../hpc/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    HPC
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            HPC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../hpc/cute/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    cute
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            cute
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hpc/cute/layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Layout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hpc/cute/tensor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tensor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../hpc/hpc101/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    HPC 101
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            HPC 101
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hpc/hpc101/cuda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课堂实验 NVIDIA CUDA C
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Labs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPC lab2 向量化计算
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/simd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPC lab2.5 手写 SIMD 向量化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/cuda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPC lab3 CUDA 使用基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/pcg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPC lab4 PCG Solver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/cnn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPC lab5 简单神经网络训练与加速
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gate-circuits-and-boolean-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Circuits and Boolean Equations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gate Circuits and Boolean Equations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-logic-and-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Logic and Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bool Algebra
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Forms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standard Forms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minterms-and-maxterms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minterms and Maxterms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canonical-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canonical Forms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Circuit Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-level-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Level Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two-Level Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#literal-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Literal Cost
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gate-input-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Input Cost
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map Manipulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Map Manipulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-variable-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Variable Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-variable-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three Variable Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#four-variable-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Four Variable Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#five-variable-or-more-k-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Five Variable or More K-Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-cares-in-k-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don't Cares in K-Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systematic-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systematic Simplification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-level-circuit-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Level Circuit Optimization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-gates-and-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Gates and Circuits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Gates and Circuits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrated-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrated Circuits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integrated Circuits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technology Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fan-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fan-out
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagation-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propagation Delay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delay-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Delay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fan-out-and-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fan-out and Delay
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#costperformance-tradeoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost/Performance Tradeoffs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-gate-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Gate Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclusive-or-operator-and-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exclusive-OR Operator and Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-impedance-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Impedance Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagation-delay_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propagation Delay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chapter-2-combinational-logic-circuits">Chapter 2 Combinational Logic Circuits 组合逻辑电路<a class="headerlink" href="#chapter-2-combinational-logic-circuits" title="Permanent link">&para;</a></h1>
+<h2 id="gate-circuits-and-boolean-equations">Gate Circuits and Boolean Equations<a class="headerlink" href="#gate-circuits-and-boolean-equations" title="Permanent link">&para;</a></h2>
+<h3 id="binary-logic-and-gates">Binary Logic and Gates<a class="headerlink" href="#binary-logic-and-gates" title="Permanent link">&para;</a></h3>
+<p><strong>Binary Variables</strong> 1/0, true/false, on/off</p>
+<p><strong>Logical Operations</strong></p>
+<ul>
+<li><code>AND</code> (<span class="arithmatex">\(\cdot\)</span>)</li>
+<li><code>OR</code> (+)</li>
+<li><code>NOT</code> (<span class="arithmatex">\(\bar A\)</span> or <span class="arithmatex">\(A'\)</span> or ~<span class="arithmatex">\(A\)</span>)</li>
+<li><code>XOR</code> </li>
+</ul>
+<p>Truth tables a tabular listing of the values of a function for all possible combinations of values on its arguments.</p>
+<p><strong>Logic Function Implementation</strong></p>
+<p>Using Switches 开关电路</p>
+<div align=center><img src="/assert/img/CS/computer_logic/switches.png" width = 70%/></div>
+
+<p><strong>Logic Gates</strong></p>
+<p>继电器 (relay) 实现开关。不可靠，寿命有限，体积大</p>
+<p>电子管 (vacuum rube) 实现开关。需要预热，体积大，寿命有限</p>
+<p>半导体 (transistor) 实现开关。</p>
+<details class="半导体">
+<summary>半导体</summary>
+<p>导电特性处于导体和绝缘体之间。</p>
+<p><strong>分类</strong></p>
+<ul>
+<li>
+<p>本征半导体</p>
+<p>不含杂质且具有晶体结构的半导体</p>
+<p>T = 0K 时，不导电</p>
+</li>
+<li>
+<p>杂质半导体</p>
+<ul>
+<li>
+<p>N 型半导体 (Negative)</p>
+<p>掺入 5 价原子，存在自由电子</p>
+</li>
+<li>
+<p>P 型半导体 (Positive)</p>
+<p>掺入 3 价原子，存在电子空缺</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>PN 结</strong></p>
+<p>一侧 P 型，一侧 N 型，交界处形成 PN 结，中间电子和空穴结合。</p>
+<ul>
+<li>外加正向电压（和内部电压相反），PN 结被耗尽后电流导通</li>
+<li>外加反向电压，PN 结扩大，电流更小。饱和电流随温度升高而变化。</li>
+</ul>
+<p>伏安特性曲线：</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/pn.png" width = 40%/></div></p>
+</details>
+<details class="三极管">
+<summary>三极管</summary>
+<p>半导体三极管、晶体三极管。</p>
+<p><strong>分类</strong></p>
+<ul>
+<li>
+<p>NPN 型</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/npn.png" width = 50%/></div></p>
+<p>放大特性：<span class="arithmatex">\(I_b = \beta I_c\)</span></p>
+<p>可看为又基极控制的开关，基极电流很小看作断开，电流很大看作闭合。</p>
+</li>
+<li>
+<p>PNP 型</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/pnp.png" width = 50%/></div></p>
+</li>
+</ul>
+</details>
+<p>CMOS Circuits 电压控制</p>
+<div align=center><img src="/assert/img/CS/computer_logic/cmos.png" width = 20%/></div>
+
+<p>上面 PMOS 管，常闭；下面 NMOS 管，常开。</p>
+<p>与非(NAND)和或非(NOR)门（能够构造出所有逻辑关系）</p>
+<div align=center><img src="/assert/img/CS/computer_logic/nor_nand.png" width = 70%/></div>
+
+<p>输入段可接在一起，输出端不能接在一起，可能短路。</p>
+<p><strong>Logical Gate Symbols</strong></p>
+<div align=center><img src="/assert/img/CS/computer_logic/gates.png" width = 70%/></div>
+
+<p><strong>Waveform Behavior in Time</strong></p>
+<div align=center><img src="/assert/img/CS/computer_logic/time_diagram.png" width = 40%/></div>
+
+<p><strong>Gate Delay</strong></p>
+<div align="center"><img src="/assert/img/CS/computer_logic/delay.png" width=50%/></div>
+
+<p>限制最高工作频率。</p>
+<p><strong>Logic Diagrams and Expressions</strong></p>
+<p>真值表唯一，逻辑函数和逻辑电路图有很多变形。</p>
+<h3 id="bool-algebra">Bool Algebra<a class="headerlink" href="#bool-algebra" title="Permanent link">&para;</a></h3>
+<div align="center"><img src="/assert/img/CS/computer_logic/algebra.png" width=70%/></div>
+
+<p>重点：<span class="arithmatex">\(X + YZ = (X + Y)(X + Z)\)</span></p>
+<p>对偶：与变或，或变与，0 变 1 ，优先级不变，非不变。</p>
+<details class="example">
+<summary>Boolean Algebraic Proof 1</summary>
+<p><div align="center"><img src="/assert/img/CS/computer_logic/proof1.png" width=70%/></div></p>
+</details>
+<details class="example">
+<summary>Boolean Algebraic Proof 2</summary>
+<div class="arithmatex">\[
+AB + \bar A C + BC = AB + \bar A C
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+    AB + \bar A C + BC &amp;= AB + \bar A C + BC(A + \bar A) \\
+                       &amp;= A(B+BC) + \bar A(C+BC) \\
+                       &amp;= AB + \bar A C
+\end{align}
+\]</div>
+</details>
+<details class="example">
+<summary>Boolean Algebraic Proof 3</summary>
+<div class="arithmatex">\[
+\bar{(X+Y)}Z +X\bar Y = \bar Y(X+Z)
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+    \bar{(X+Y)}Z +X\bar Y &amp;= \bar X \bar Y Z + X \bar Y \\
+                          &amp;= \bar Y (\bar X Z + X) \\
+                          &amp;= \bar Y (X + \bar X)(X + Z) \\
+                          &amp;= \bar Y(X+Z)
+\end{align}
+\]</div>
+</details>
+<div class="admonition node">
+<p class="admonition-title">Useful Theorems</p>
+<ul>
+<li>Minimization: <span class="arithmatex">\(x \cdot y + \bar x \cdot y = y, (x + y)(\bar x + y) = y\)</span></li>
+<li>Absorption: <span class="arithmatex">\(x + xy = x, x(x+y) = x\)</span> </li>
+<li>Simplification: <span class="arithmatex">\(x + \bar x y = x + y, x(\bar x + y) = xy\)</span></li>
+<li>Consensus: <span class="arithmatex">\(xy + \bar xz + yz = xy + \bar xz\)</span>
+  <span class="arithmatex">\((x+y)(\bar x+z)(y+z) = (x+y)(\bar x+z)\)</span></li>
+<li>DeMorgan's Law: <span class="arithmatex">\(\overline{x + y} = \bar x\bar y, \overline{xy} = \bar x + \bar y\)</span></li>
+</ul>
+</div>
+<p><strong>Expression Simplification</strong> 减少延迟，降低成本</p>
+<h3 id="standard-forms">Standard Forms<a class="headerlink" href="#standard-forms" title="Permanent link">&para;</a></h3>
+<p>Canonical Forms in common usage:</p>
+<ul>
+<li>SOM: Sum of Minterms</li>
+<li>POM: Product of Maxterm</li>
+</ul>
+<h4 id="minterms-and-maxterms">Minterms and Maxterms<a class="headerlink" href="#minterms-and-maxterms" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Minterm: <code>AND</code> terms with every variable present in either true or complemented form.</li>
+<li>Maxterm: <code>OR</code> terms with every variable in true or complemented form.</li>
+</ul>
+<p><strong>Index of minterms and maxterms</strong></p>
+<div align=center><img src="/assert/img/CS/computer_logic/terms.png" width = 50%/></div>
+
+<p>The index for the minterm or maxterm, expressed as a binary number, is used to determine whether the variable is shown in the true form or complemented form.</p>
+<p>For Minterms:</p>
+<ul>
+<li>"1" means the variable is "Not Complemented" (<span class="arithmatex">\(x\)</span>)</li>
+<li>"0" means the variable is "Complemented" (<span class="arithmatex">\(\bar x\)</span>)</li>
+</ul>
+<p>For Maxterms, the situation is opposite.</p>
+<p>Use subscript to show index and "m" for Minterm, "M" for Maxterm. <span class="arithmatex">\(M_i = \bar m_i\)</span>.</p>
+<p><strong>Function Tables for both</strong></p>
+<div align=center><img src="/assert/img/CS/computer_logic/functable.png" width = 70%/></div>
+
+<h4 id="canonical-forms">Canonical Forms<a class="headerlink" href="#canonical-forms" title="Permanent link">&para;</a></h4>
+<p><strong>Canonical Sum of Minterms</strong></p>
+<ul>
+<li>For the function table, the minterms used are the terms corresponding to the 1's</li>
+<li>For expressions, expand all terms first to explicitly list all minterms. Do this by "ANDing" any term missing a variable v with a term <span class="arithmatex">\(v + \bar v\)</span></li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Implement <span class="arithmatex">\(f = x + \bar x \bar y\)</span> as a SOM.</p>
+<ul>
+<li><span class="arithmatex">\(f = x (y + \bar y) + \bar x \bar y\)</span></li>
+<li><span class="arithmatex">\(f = xy + x \bar y + \bar x \bar y\)</span></li>
+<li><span class="arithmatex">\(f = m_3 + m_2 + m_0\)</span> or <span class="arithmatex">\(f(x, y, z) = \sum_m(0, 2, 3)\)</span></li>
+</ul>
+</div>
+<p><strong>Canonical Product of Maxterms</strong></p>
+<ul>
+<li>For the function table, the maxterms used are the terms corresponding to the 0's</li>
+<li>For expressions, expand all terms first to explicitly list all maxterms. Do this by "ORing" any term missing a variable v with a term <span class="arithmatex">\(v \bar v\)</span></li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Implement <span class="arithmatex">\(f = x + \bar x \bar y\)</span> as a POM.</p>
+<ul>
+<li><span class="arithmatex">\(f(x, y, z) = (x + bar x)(x + \bar y) = x + \bar y\)</span></li>
+<li><span class="arithmatex">\(f = x + \bar y + 0 = x + \bar y + z \bar z\)</span></li>
+<li><span class="arithmatex">\(f = (x + \bar y + z)(x + \bar y + \bar z)\)</span></li>
+<li><span class="arithmatex">\(f = M_2 M_3 = \prod_M (2, 3)\)</span></li>
+</ul>
+</div>
+<p><strong>Function Complements</strong></p>
+<p>The complement of a function expressed as a sum of minterms is constructed by selecting the minterms missing in the sum-of-minterms canonical forms.</p>
+<p>Minterm 和 Maxterm 在真值表中选择的项互补，可以通过 SOM 推算出 POM。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Method to get maxterm.</p>
+<p>先化成 SOM，再选取互补的项算出 POM。</p>
+<ul>
+<li><span class="arithmatex">\(F(x, y, z) = \sum_m(1,3,5,7)\)</span></li>
+<li><span class="arithmatex">\(F(x,y,z) = \prod_M(0,2,4,6)\)</span></li>
+</ul>
+</div>
+<p><strong>Standard Forms</strong></p>
+<ul>
+<li>Standard Sum-of-Products (SOP) form: equations are written as an OR of AND terms</li>
+<li>Standard Product-of-Sums (POS) form: equations are written as an AND of OR terms</li>
+</ul>
+<p>SOP and POS are two-level network of gates. 一级或门再一级与门（或者相反），最少层次的电路实现方法。</p>
+<p>目的：减少延迟、成本。</p>
+<h2 id="circuit-optimization">Circuit Optimization<a class="headerlink" href="#circuit-optimization" title="Permanent link">&para;</a></h2>
+<p>Goal: To obtain the simplest implementation for a given function.</p>
+<p>Requires a cost criterion to measure the simplicity of a circuit.</p>
+<h3 id="two-level-optimization">Two-Level Optimization<a class="headerlink" href="#two-level-optimization" title="Permanent link">&para;</a></h3>
+<p>Cost criteria:</p>
+<ul>
+<li><span class="arithmatex">\(L\)</span> - Literal cost</li>
+<li><span class="arithmatex">\(G\)</span> - Gate input cost</li>
+<li><span class="arithmatex">\(GN\)</span> - Gate input cost with NOTs</li>
+</ul>
+<h4 id="literal-cost">Literal Cost<a class="headerlink" href="#literal-cost" title="Permanent link">&para;</a></h4>
+<p>The number of literal appearances in a Boolean expression corresponding to the logic circuit diagram.</p>
+<p>式中变量总个数即为 Literal Cost.</p>
+<h4 id="gate-input-cost">Gate Input Cost<a class="headerlink" href="#gate-input-cost" title="Permanent link">&para;</a></h4>
+<p>The number of inputs to the gates in the implementation corresponding exactly to the given equation or equations.</p>
+<p>Consist of:</p>
+<ul>
+<li>All literal appearances</li>
+<li>The number of terms excluding single literal terms (G)</li>
+<li>Optionally, the number of distinct complemented single literals (GN)</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ul>
+<li><span class="arithmatex">\(F = BD + A\bar BC + A\bar C \bar D \qquad L = 8, G = 11, GN = 14\)</span></li>
+<li><span class="arithmatex">\(F = (A +\bar B)(A + D)(B + C + \bar D)(\bar B + \bar C + D) \qquad L = 10, G = 14, GN = 18\)</span></li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Cost Criteria</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/cost.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/cost2.png" width = 70%/></div></p>
+</div>
+<h3 id="map-manipulation">Map Manipulation<a class="headerlink" href="#map-manipulation" title="Permanent link">&para;</a></h3>
+<p><strong>Karnaugh Maps(K-map)</strong></p>
+<p>A K-map is a collection of squares</p>
+<ul>
+<li>Each square represents a minterm</li>
+<li>The collection of squares is a graphical representation of a Boolean function</li>
+<li>Adjacent squares differ in the value of one variable</li>
+<li>Alternative algebraic expressions for the same function are derived by recognizing patterns of squares</li>
+</ul>
+<h4 id="two-variable-maps">Two Variable Maps<a class="headerlink" href="#two-variable-maps" title="Permanent link">&para;</a></h4>
+<div align=center><img src="/assert/img/CS/computer_logic/two_map.png" width = 30%/></div>
+
+<div class="admonition example">
+<p class="admonition-title">K-Map Function Representation</p>
+<p><span class="arithmatex">\(F(x,y) = x\bar y + xy\)</span></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/two_rep.png" width = 30%/></div></p>
+<p>Then <span class="arithmatex">\(F(x,y) = x\bar y + xy = x\)</span></p>
+</div>
+<h4 id="three-variable-maps">Three Variable Maps<a class="headerlink" href="#three-variable-maps" title="Permanent link">&para;</a></h4>
+<div align=center><img src="/assert/img/CS/computer_logic/three_map.png" width = 30%/></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Topological warps of 3-variable K-maps that show all adjacencies:</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/cylinder.png" width = 20%/></div></p>
+</div>
+<h4 id="four-variable-maps">Four Variable Maps<a class="headerlink" href="#four-variable-maps" title="Permanent link">&para;</a></h4>
+<p>Example Shapes of Rectangles (WXYZ)</p>
+<div align=center><img src="/assert/img/CS/computer_logic/four_map.png" width = 50%/></div>
+
+<h4 id="five-variable-or-more-k-maps">Five Variable or More K-Maps<a class="headerlink" href="#five-variable-or-more-k-maps" title="Permanent link">&para;</a></h4>
+<p>For five variable problems, we use two adjacent K-maps.(VWXYZ)</p>
+<div align=center><img src="/assert/img/CS/computer_logic/five_map.png" width = 50%/></div>
+
+<h4 id="dont-cares-in-k-maps">Don't Cares in K-Maps<a class="headerlink" href="#dont-cares-in-k-maps" title="Permanent link">&para;</a></h4>
+<p>可能有无关项，输入无关输入组合时，输出是 0 是 1 都无所谓。在 K-map 中用 <code>x</code> 表示，可画入也可不画入卡诺圈中（取决于是否能化到最简）</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><span class="arithmatex">\(F(A,B,C,D) = \sum_m(3,9,11,12,13,14,15) + \sum_d(1,4,6)\)</span></p>
+<ul>
+<li>Find the optimum SOP solution
+  <div align=center><img src="/assert/img/CS/computer_logic/kmapsop.png" width = 30%/></div>
+  <span class="arithmatex">\(F = AB + \bar BD\)</span></li>
+<li>Find the optimum POS solution
+  <div align=center><img src="/assert/img/CS/computer_logic/kmappos.png" width = 30%/></div>
+  <span class="arithmatex">\(F = (B + D)(A + \bar B)\)</span></li>
+</ul>
+</div>
+<h4 id="systematic-simplification">Systematic Simplification<a class="headerlink" href="#systematic-simplification" title="Permanent link">&para;</a></h4>
+<p>A <em>Prime Implicant</em> (质蕴涵项) is a product term obtained by combining the maximum possible number of adjacent squares in the map into a rectangle with the number of squares a power of 2.</p>
+<p>A prime implicant is called an <em>Essential Prime Implicant</em> if it is the only prime implicant that covers (includes) one or more minterms.</p>
+<p>质蕴涵项是能够框住某个 <code>1</code> 的最大卡诺圈。对某个 <code>1</code> 而言如果它的质蕴涵项只有一个，那么它是必要的。</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/prime.png" width = 70%/></div></p>
+</div>
+<h3 id="multi-level-circuit-optimization">Multi-Level Circuit Optimization<a class="headerlink" href="#multi-level-circuit-optimization" title="Permanent link">&para;</a></h3>
+<p>二级门传输延迟最小，但门输入成本高。</p>
+<p>多级门传输延迟较高，但门输入成本低。</p>
+<p>如何设计，取决于需要降低传输延迟还是门输入成本。</p>
+<div class="admonition example">
+<p class="admonition-title">Transformation Examples</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/multi.png" width = 70%/></div>
+最后化为三级门电路，门输入成本降低。</p>
+</div>
+<h2 id="additional-gates-and-circuits">Additional Gates and Circuits<a class="headerlink" href="#additional-gates-and-circuits" title="Permanent link">&para;</a></h2>
+<h3 id="integrated-circuits">Integrated Circuits<a class="headerlink" href="#integrated-circuits" title="Permanent link">&para;</a></h3>
+<p>集成电路</p>
+<p>Integrated circuit (informally, a “chip”) is a semiconductor crystal (most often silicon) containing the electronic components for the digital gates and storage elements which are interconnected on the chip.</p>
+<p>分类：</p>
+<div align=center><img src="/assert/img/CS/computer_logic/intcir.png" width = 70%/></div>
+
+<h4 id="technology-parameters">Technology Parameters<a class="headerlink" href="#technology-parameters" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Fan-in</strong> The number of inputs available on a gate</li>
+<li><strong>Fan-out</strong> The number of standard loads driven by a gate output</li>
+<li><strong>Logic Levels</strong> The signal value ranges for 1 and 0 on the inputs and 1 and 0 on the outputs</li>
+<li><strong>Noise Margin</strong> the maximum external noise voltage superimposed on a normal input value that will not cause an undesirable change in the circuit output</li>
+<li><strong>Cost for a gate</strong> a measure of the contribution by the gate to the cost of the integrated circuit</li>
+<li><strong>Propagation Delay</strong> The time required for a change in the value of a signal to propagate from an input to an output</li>
+<li><strong>Power Dissipation</strong> The amount of power drawn from the power supply and consumed by the gate</li>
+</ul>
+<h4 id="fan-out">Fan-out<a class="headerlink" href="#fan-out" title="Permanent link">&para;</a></h4>
+<p>The number of standard loads driven by a gate output</p>
+<p>一个门的输出能带动多少门的输入</p>
+<p>衡量扇出系数：</p>
+<p>Transition time - the time required for the gate output to change from H to L, <span class="arithmatex">\(t_{HL}\)</span>, or from L to H, <span class="arithmatex">\(t_{LH}\)</span></p>
+<p>带的门越多，上升事件就越长。规定上升下降最大时间，从而得出 maximum fan-out 最大扇出系数。</p>
+<h4 id="cost">Cost<a class="headerlink" href="#cost" title="Permanent link">&para;</a></h4>
+<p>In integrated circuits, chip area, number and size of the transistors, amount of wiring, <em>gate input count</em></p>
+<p>主要由门输入成本决定。</p>
+<h4 id="propagation-delay">Propagation Delay<a class="headerlink" href="#propagation-delay" title="Permanent link">&para;</a></h4>
+<p>Delay is usually measured at the 50% point with respect to the H and L output voltage levels</p>
+<p>输入变化到输出变化的时间。通常从上升或下降 50% 处开始计算。</p>
+<ul>
+<li>High-to-Low <span class="arithmatex">\(t_{PHL}\)</span> <strong>输出</strong> 从高电平到低电平的时间</li>
+<li>Low-to-High <span class="arithmatex">\(t_{PLH}\)</span> <strong>输出</strong> 从低电平到高电平的时间</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Propagation Delay of <code>NOT</code></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/tp.png" width = 70%/></div></p>
+</div>
+<h4 id="delay-models">Delay Models<a class="headerlink" href="#delay-models" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Transport delay 传输延迟</strong> change in the output in response to a change on the inputs occurs after a fixed specified delay</li>
+<li>
+<p><strong>Inertial delay 惯性延迟</strong> similar to transport delay, except that if the input changes such that the output is to change twice in a time interval less than the  rejection time, the output changes do not occur. Models typical electronic circuit behavior, namely, rejects narrow “pulses” on the outputs</p>
+<p>很小的脉冲跳变会被消除。</p>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/delaymodel.png" width = 70%/></div></p>
+</div>
+<h4 id="circuit-delay">Circuit Delay<a class="headerlink" href="#circuit-delay" title="Permanent link">&para;</a></h4>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/cirdelay1.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/cirdelay2.png" width = 70%/></div>
+考虑传输延迟，输出波形改变。</p>
+<p><span class="arithmatex">\(S\)</span> 的两条路径延迟不同，<span class="arithmatex">\(Y\)</span> 处产生尖峰，称为电路进行的 <strong>竞争冒险</strong></p>
+</div>
+<h4 id="fan-out-and-delay">Fan-out and Delay<a class="headerlink" href="#fan-out-and-delay" title="Permanent link">&para;</a></h4>
+<p>The fan-out loading a gate’s output affects the gate’s propagation delay</p>
+<p>standard load: 带一个非门所需要的负载。</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>One realistic equation for <span class="arithmatex">\(t_{pd}\)</span> for a NAND gate with 4 inputs is</p>
+<div class="arithmatex">\[
+t_{pd} = 0.07 + 0.021 SL \text{ns}
+\]</div>
+<p><span class="arithmatex">\(SL\)</span>: the number of standard loads the gate is driving.</p>
+</div>
+<h4 id="costperformance-tradeoffs">Cost/Performance Tradeoffs<a class="headerlink" href="#costperformance-tradeoffs" title="Permanent link">&para;</a></h4>
+<div class="admonition example">
+<p class="admonition-title">Gate-Level Example</p>
+<p>NAND gate G with 20 standard loads on its output has a delay of 0.45 ns and has a normalized cost of 2.0.</p>
+<p>A buffer H has a normalized cost of 1.5. The NAND gate driving the buffer with 20 standard loads gives a total delay of 0.33 ns.</p>
+<p>In which if the following cases should the buffer be added?</p>
+<ol>
+<li>The cost of this portion of the circuit cannot be more than 2.5</li>
+<li>The delay of this portion of the circuit cannot be more than 0.40 ns</li>
+<li>The delay of this portion of the circuit must be less than 0.40 ns and the cost less than 3.0</li>
+</ol>
+<p>Answer:</p>
+<ol>
+<li>No buffer</li>
+<li>Need buffer</li>
+<li>Cannot achieve by using buffer or not</li>
+</ol>
+</div>
+<p>Tradeoffs can also be accomplished much higher in the design hierarchy.</p>
+<p>Constraints on cost and performance have a major role in making tradeoffs.</p>
+<h3 id="other-gate-types">Other Gate Types<a class="headerlink" href="#other-gate-types" title="Permanent link">&para;</a></h3>
+<p>Why need other gate types?</p>
+<ul>
+<li>Implementation feasibility and low cost</li>
+<li>Power in implementing Boolean functions</li>
+<li>Convenient conceptual representation</li>
+</ul>
+<h3 id="exclusive-or-operator-and-gates">Exclusive-OR Operator and Gates<a class="headerlink" href="#exclusive-or-operator-and-gates" title="Permanent link">&para;</a></h3>
+<h3 id="high-impedance-outputs">High-Impedance Outputs<a class="headerlink" href="#high-impedance-outputs" title="Permanent link">&para;</a></h3>
+<h3 id="propagation-delay_1">Propagation Delay<a class="headerlink" href="#propagation-delay_1" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../chapter1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 数字系统和信息">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                数字系统和信息
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../quantum/introduction/" class="md-footer__link md-footer__link--next" aria-label="下一页: Basic Definition">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Basic Definition
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2024 GoPoux <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2023017648号</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/GoPoux4" target="_blank" rel="noopener" title="My Github Page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.cnblogs.com/syc233/" target="_blank" rel="noopener" title="My Cnblog Page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 64c0-17.7 14.3-32 32-32 229.8 0 416 186.2 416 416 0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96 14.3 96 0 81.7 0 64zm0 352a64 64 0 1 1 128 0 64 64 0 1 1-128 0zm32-256c159.1 0 288 128.9 288 288 0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
