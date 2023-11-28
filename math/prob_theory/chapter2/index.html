@@ -2537,6 +2537,20 @@ F_{X_{(k)}}(x) =&amp; P(X_{(k)} \leq x) \\
 \]</div>
 </li>
 </ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(X_1, X_2, \cdots, X_n\)</span> 相互独立且服从 <span class="arithmatex">\([0, a]\)</span> 上的均匀分布，求 <span class="arithmatex">\(Y = \max\{X_1, X_2, \cdots, X_n\}, Z = \min\{X_1, X_2, \cdots, X_n\}\)</span> 的联合分布。</p>
+<p>解：</p>
+<div class="arithmatex">\[
+\begin{align*}
+F_{YZ}(y, z) =&amp; P(Y \leq y, Z \leq z) \\
+    =&amp; P(Y \leq y) - P(Y \leq y, Z &gt; z) \\
+    =&amp; F_X^n(y) - \prod_{i=1}^{n}P(z &lt; X_i \leq y) \\
+    =&amp; F_X^n(y) - (F_X(y) - F_X(z))^n \\
+    =&amp; (\frac{y}{a})^n - (\frac{y-z}{a})^n, \quad 0 \leq z \leq y \leq a
+\end{align*}
+\]</div>
+</div>
 <h2 id="_19">总结<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
