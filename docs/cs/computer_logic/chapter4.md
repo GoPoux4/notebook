@@ -325,4 +325,195 @@ A state is an abstraction of the history of the past applied inputs to the circu
 
     <div align=center><img src="/assert/img/CS/computer_logic/chapter4/recognizetable2.png" width = 50%/></div>
 
-## State Machine Design
+#### Simplification of State Diagrams
+
+一般情况下，原始状态图和原始状态表中存在着多余的状态。状态个数越多，电路中所需的触发器的数目也越多，制造成本就越高。为降低制造成本，需要去掉多余的状态。
+
+所谓状态简化，就是要获得一个最小化的状态表。这个表不仅能正确地反映设计的全部要求，而且状态的数目最少。
+
+状态等效：对于所有可能的输入序列，两个状态的输出序列相同，且下一个状态相同或等效，则两个状态等效，可以合并。
+
+状态等效判别：
+
+首先输出相同，同时满足以下三个条件之一：
+
+- 次态相同
+- 次态交错
+- 次态循环
+
+!!! example
+
+    - 次态相同
+
+        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentcheck1.png" width = 50%/></div>
+
+    - 次态相同或交错
+
+        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentcheck2.png" width = 50%/></div>
+
+    - 次态相同或等效（$S_k, S_l$ 等效）
+
+        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentcheck3.png" width = 50%/></div>
+
+    - 次态交错或相同或循环
+
+        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentcheck4.png" width = 50%/></div>
+
+化简方法：
+
+1. 观察法化简
+
+    从状态图/状态表中观察出等效状态，然后合并。
+
+2. 隐含表法化简
+
+    状态 $S_1, \dots, S_n$，作 $(n-1) \times (n-1)$ 的梯形图，列分布代表 $S_1, \dots, S_{n-1}$，行分别代表 $S_2, \dots, S_n$, 每个格子代表 $S_i, S_j$ 的次态是否相同，若无法确定，则写上依赖的状态对。可以容易地看出依赖关系，从而进行化简。
+
+    !!! example
+        
+        化简：
+
+        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/simplifyexampletable.png" width = 50%/></div>
+
+        画出隐含表：
+
+        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/simplifyexamplepic.png" width = 40%/></div>
+
+        可以看出：
+
+        - $AB \rightarrow CF \rightarrow equivalent$
+        - $AE \leftrightarrows BE \rightarrow CF \rightarrow equivalent \Rightarrow ABE \rightarrow equivalent$
+
+        确定最大等效类，作最小化状态表：
+        
+        - 四个等效对 $(A,B), (A,E), (B,E), (C,F)$
+        - 最大等效类 $(A,B,E)$
+        - 四个状态 $(A,B,E), (C,F), (D), (G)$
+
+        令以上四个状态依次为 $a, b, c, d$，画出最小化状态表：
+
+        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/simplifyexampletable2.png" width = 50%/></div>
+
+### State Assignment
+
+If the number of states is $m$, then $n = \lceil \log_2 m \rceil$ bits are required to represent the states.
+
+There are $(2^n)!/m!$ assignments of codes with a minimum number of bits.
+
+### Find Flip-Flop Input and Output Equations
+
+Use K-maps to compute the equations of $D_i, X_{output}$ with respect to $X_{input}, Q_i$.
+
+通常情况下，状态分配的方案不一样，所得到的输出函数和激励函数的表达式也不同，由此而设计出来的电路复杂度也不同。
+
+实际应用时都是采用工程近似的方法，依据以下四条件原则来进行状态分配：
+
+- 在相同输入条件下具有相同次态的现态，应尽可能分配相邻的二进制代码
+- 在相邻输入条件，同一现态的次态应尽可能分配相邻的二进制代码
+- 输出 **完全相同** 的现态应尽可能分配相邻的二进制代码
+- 最小化状态表中出现次数最多的状态或初始状态应分配逻辑 `0`
+
+一般情况下，第一条原则较为重要，需优先考虑，其次要考虑由前三条原则得到的应分配相邻代码的状态对出现的次数，次数多的状态对应优先分配相邻的二进制代码。
+
+!!! example
+    对下列状态表进行状态分配：
+
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/optimizetable.png" width = 30%/></div>
+
+    - 在相同输入条件下具有相同次态的现态，应尽可能分配相邻的二进制代码：A 和 B，A 和 C 应相邻
+    - 在相邻输入条件，同一现态的次态应尽可能分配相邻的二进制代码：C 和 D，C 和 A，B 和 D，A 和 B 应相邻
+    - 输出完全相同的现态应尽可能分配相邻的二进制代码： A，B，C 三者应相邻，即 A 和 B，A 和 C，B 和 C应相邻
+    - 最小化状态表中出现次数最多的状态或初始状态应分配逻辑 0：A 分配为逻辑 0
+
+    由此得到状态分配方案：
+
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/optimizetable2.png" width = 50%/></div>
+
+### Sequential Design Example
+
+Design a sequential modulo 3 accumulator for 2-bit operands.
+
+- Modulo n adder: an adder that gives the result of the addition as the remainder of the sum divided by n.
+- Accumulator: a circuit that "accumulates" the sum of its input operands over time - it adds each input operand to the stored sum, which is initially 0. 
+
+Stored sum: $(Y_1, Y_0)$. Input: $(X_1, X_0)$. Output: $(Z_1, Z_0)$
+
+State diagram:
+
+<div align=center><img src="/assert/img/CS/computer_logic/chapter4/examplediagram.png" width = 50%/></div>
+
+State table:
+
+<div align=center><img src="/assert/img/CS/computer_logic/chapter4/exampletable.png" width = 60%/></div>
+
+State assignment $\to$ Flip-flop input equations.
+
+## Other Flip-Flop Types
+
+### J-K Flip-flop
+
+Similar to SR flip-flop, but without the invalid state.
+
+$J = K = 1$ 时，状态求反。
+
+主从触发器实现，有 1s catching 问题。
+
+用 D 触发器实现，避免 1s catching 问题：
+
+<div align=center><img src="/assert/img/CS/computer_logic/chapter4/jkd.png" width = 50%/></div>
+
+上升沿触发。
+
+### T Flip-flop
+
+- For $T = 0$, no change in state
+- For $T = 1$, changes to opposite state
+
+Same as a J-K flip-flop with $J = K = T$
+
+一般会强制设置初态。
+
+用 D 触发器实现：
+
+<div align=center><img src="/assert/img/CS/computer_logic/chapter4/tff.png" width = 50%/></div>
+
+### Basic Flip-Flop Descriptors
+
+Used in analysis:
+
+- characteristic table 特征表: defines the next state of the flip-flop in terms of flip-flop inputs and current state
+- characteristic equation 特征方程: defines the next state of the flip-flop as a Boolean function of flip-flop inputs and current state
+
+Used in design:
+
+- excitation table 激励表: defines the flip-flop input variable values as function of the current state and next state
+
+!!! example "D Flip-Flop Descriptors"
+    Characteristic table:
+
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/dffdes.png" width = 40%/></div>
+
+    Characteristic equation:
+
+    \[
+        Q(t + 1) = D
+    \]
+
+    Excitation table:
+
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/dffdes2.png" width = 40%/></div>
+
+!!! example "S-R Flip-Flop Descriptors"
+    Characteristic table:
+
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/srffdes.png" width = 40%/></div>
+
+    Characteristic equation:
+
+    \[
+        Q(t + 1) = S + \bar R \cdot Q(t), S \cdot R = 0
+    \]
+
+    Excitation table:
+
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/srffdes2.png" width = 40%/></div>
