@@ -2091,7 +2091,7 @@
 <p>Truth tables a tabular listing of the values of a function for all possible combinations of values on its arguments.</p>
 <p><strong>Logic Function Implementation</strong></p>
 <p>Using Switches 开关电路</p>
-<div align=center><img src="/assert/img/CS/computer_logic/switches.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/switches.png" width = 70%/></div>
 
 <p><strong>Logic Gates</strong></p>
 <p>继电器 (relay) 实现开关。不可靠，寿命有限，体积大</p>
@@ -2128,7 +2128,7 @@
 <li>外加反向电压，PN 结扩大，电流更小。饱和电流随温度升高而变化。</li>
 </ul>
 <p>伏安特性曲线：</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/pn.png" width = 40%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/pn.png" width = 40%/></div></p>
 </details>
 <details class="三极管">
 <summary>三极管</summary>
@@ -2137,44 +2137,44 @@
 <ul>
 <li>
 <p>NPN 型</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/npn.png" width = 50%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/npn.png" width = 50%/></div></p>
 <p>放大特性：<span class="arithmatex">\(I_b = \beta I_c\)</span></p>
 <p>可看为又基极控制的开关，基极电流很小看作断开，电流很大看作闭合。</p>
 </li>
 <li>
 <p>PNP 型</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/pnp.png" width = 50%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/pnp.png" width = 50%/></div></p>
 </li>
 </ul>
 </details>
 <p>CMOS Circuits 电压控制</p>
-<div align=center><img src="/assert/img/CS/computer_logic/cmos.png" width = 20%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/cmos.png" width = 20%/></div>
 
 <p>上面 PMOS 管，常闭；下面 NMOS 管，常开。</p>
 <p>与非(NAND)和或非(NOR)门（能够构造出所有逻辑关系）</p>
-<div align=center><img src="/assert/img/CS/computer_logic/nor_nand.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/nor_nand.png" width = 70%/></div>
 
 <p>输入段可接在一起，输出端不能接在一起，可能短路。</p>
 <p><strong>Logical Gate Symbols</strong></p>
-<div align=center><img src="/assert/img/CS/computer_logic/gates.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/gates.png" width = 70%/></div>
 
 <p><strong>Waveform Behavior in Time</strong></p>
-<div align=center><img src="/assert/img/CS/computer_logic/time_diagram.png" width = 40%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/time_diagram.png" width = 40%/></div>
 
 <p><strong>Gate Delay</strong></p>
-<div align="center"><img src="/assert/img/CS/computer_logic/delay.png" width=50%/></div>
+<div align="center"><img src="/assert/img/CS/computer_logic/chapter2/delay.png" width=50%/></div>
 
 <p>限制最高工作频率。</p>
 <p><strong>Logic Diagrams and Expressions</strong></p>
 <p>真值表唯一，逻辑函数和逻辑电路图有很多变形。</p>
 <h3 id="bool-algebra">Bool Algebra<a class="headerlink" href="#bool-algebra" title="Permanent link">&para;</a></h3>
-<div align="center"><img src="/assert/img/CS/computer_logic/algebra.png" width=70%/></div>
+<div align="center"><img src="/assert/img/CS/computer_logic/chapter2/algebra.png" width=70%/></div>
 
 <p>重点：<span class="arithmatex">\(X + YZ = (X + Y)(X + Z)\)</span></p>
 <p>对偶：与变或，或变与，0 变 1 ，优先级不变，非不变。</p>
 <details class="example">
 <summary>Boolean Algebraic Proof 1</summary>
-<p><div align="center"><img src="/assert/img/CS/computer_logic/proof1.png" width=70%/></div></p>
+<p><div align="center"><img src="/assert/img/CS/computer_logic/chapter2/proof1.png" width=70%/></div></p>
 </details>
 <details class="example">
 <summary>Boolean Algebraic Proof 2</summary>
@@ -2227,7 +2227,7 @@ AB + \bar A C + BC = AB + \bar A C
 <li>Maxterm: <code>OR</code> terms with every variable in true or complemented form.</li>
 </ul>
 <p><strong>Index of minterms and maxterms</strong></p>
-<div align=center><img src="/assert/img/CS/computer_logic/terms.png" width = 50%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/terms.png" width = 50%/></div>
 
 <p>The index for the minterm or maxterm, expressed as a binary number, is used to determine whether the variable is shown in the true form or complemented form.</p>
 <p>For Minterms:</p>
@@ -2238,7 +2238,7 @@ AB + \bar A C + BC = AB + \bar A C
 <p>For Maxterms, the situation is opposite.</p>
 <p>Use subscript to show index and "m" for Minterm, "M" for Maxterm. <span class="arithmatex">\(M_i = \bar m_i\)</span>.</p>
 <p><strong>Function Tables for both</strong></p>
-<div align=center><img src="/assert/img/CS/computer_logic/functable.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/functable.png" width = 70%/></div>
 
 <h4 id="canonical-forms">Canonical Forms<a class="headerlink" href="#canonical-forms" title="Permanent link">&para;</a></h4>
 <p><strong>Canonical Sum of Minterms</strong></p>
@@ -2319,8 +2319,8 @@ AB + \bar A C + BC = AB + \bar A C
 </div>
 <div class="admonition example">
 <p class="admonition-title">Cost Criteria</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/cost.png" width = 70%/></div>
-<div align=center><img src="/assert/img/CS/computer_logic/cost2.png" width = 70%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/cost.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/cost2.png" width = 70%/></div></p>
 </div>
 <h3 id="map-manipulation">Map Manipulation<a class="headerlink" href="#map-manipulation" title="Permanent link">&para;</a></h3>
 <p><strong>Karnaugh Maps(K-map)</strong></p>
@@ -2332,29 +2332,29 @@ AB + \bar A C + BC = AB + \bar A C
 <li>Alternative algebraic expressions for the same function are derived by recognizing patterns of squares</li>
 </ul>
 <h4 id="two-variable-maps">Two Variable Maps<a class="headerlink" href="#two-variable-maps" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/two_map.png" width = 30%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/two_map.png" width = 30%/></div>
 
 <div class="admonition example">
 <p class="admonition-title">K-Map Function Representation</p>
 <p><span class="arithmatex">\(F(x,y) = x\bar y + xy\)</span></p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/two_rep.png" width = 30%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/two_rep.png" width = 30%/></div></p>
 <p>Then <span class="arithmatex">\(F(x,y) = x\bar y + xy = x\)</span></p>
 </div>
 <h4 id="three-variable-maps">Three Variable Maps<a class="headerlink" href="#three-variable-maps" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/three_map.png" width = 30%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/three_map.png" width = 30%/></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Topological warps of 3-variable K-maps that show all adjacencies:</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/cylinder.png" width = 20%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/cylinder.png" width = 20%/></div></p>
 </div>
 <h4 id="four-variable-maps">Four Variable Maps<a class="headerlink" href="#four-variable-maps" title="Permanent link">&para;</a></h4>
 <p>Example Shapes of Rectangles (WXYZ)</p>
-<div align=center><img src="/assert/img/CS/computer_logic/four_map.png" width = 50%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/four_map.png" width = 50%/></div>
 
 <h4 id="five-variable-or-more-k-maps">Five Variable or More K-Maps<a class="headerlink" href="#five-variable-or-more-k-maps" title="Permanent link">&para;</a></h4>
 <p>For five variable problems, we use two adjacent K-maps.(VWXYZ)</p>
-<div align=center><img src="/assert/img/CS/computer_logic/five_map.png" width = 50%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/five_map.png" width = 50%/></div>
 
 <h4 id="dont-cares-in-k-maps">Don't Cares in K-Maps<a class="headerlink" href="#dont-cares-in-k-maps" title="Permanent link">&para;</a></h4>
 <p>可能有无关项，输入无关输入组合时，输出是 0 是 1 都无所谓。在 K-map 中用 <code>x</code> 表示，可画入也可不画入卡诺圈中（取决于是否能化到最简）</p>
@@ -2363,10 +2363,10 @@ AB + \bar A C + BC = AB + \bar A C
 <p><span class="arithmatex">\(F(A,B,C,D) = \sum_m(3,9,11,12,13,14,15) + \sum_d(1,4,6)\)</span></p>
 <ul>
 <li>Find the optimum SOP solution
-  <div align=center><img src="/assert/img/CS/computer_logic/kmapsop.png" width = 30%/></div>
+  <div align=center><img src="/assert/img/CS/computer_logic/chapter2/kmapsop.png" width = 30%/></div>
   <span class="arithmatex">\(F = AB + \bar BD\)</span></li>
 <li>Find the optimum POS solution
-  <div align=center><img src="/assert/img/CS/computer_logic/kmappos.png" width = 30%/></div>
+  <div align=center><img src="/assert/img/CS/computer_logic/chapter2/kmappos.png" width = 30%/></div>
   <span class="arithmatex">\(F = (B + D)(A + \bar B)\)</span></li>
 </ul>
 </div>
@@ -2376,7 +2376,7 @@ AB + \bar A C + BC = AB + \bar A C
 <p>质蕴涵项是能够框住某个 <code>1</code> 的最大卡诺圈。对某个 <code>1</code> 而言如果它的质蕴涵项只有一个，那么它是必要的。</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/prime.png" width = 70%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/prime.png" width = 70%/></div></p>
 </div>
 <h3 id="multi-level-circuit-optimization">Multi-Level Circuit Optimization<a class="headerlink" href="#multi-level-circuit-optimization" title="Permanent link">&para;</a></h3>
 <p>二级门传输延迟最小，但门输入成本高。</p>
@@ -2384,7 +2384,7 @@ AB + \bar A C + BC = AB + \bar A C
 <p>如何设计，取决于需要降低传输延迟还是门输入成本。</p>
 <div class="admonition example">
 <p class="admonition-title">Transformation Examples</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/multi.png" width = 70%/></div>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/multi.png" width = 70%/></div>
 最后化为三级门电路，门输入成本降低。</p>
 </div>
 <h2 id="additional-gates-and-circuits">Additional Gates and Circuits<a class="headerlink" href="#additional-gates-and-circuits" title="Permanent link">&para;</a></h2>
@@ -2392,7 +2392,7 @@ AB + \bar A C + BC = AB + \bar A C
 <p>集成电路</p>
 <p>Integrated circuit (informally, a “chip”) is a semiconductor crystal (most often silicon) containing the electronic components for the digital gates and storage elements which are interconnected on the chip.</p>
 <p>分类：</p>
-<div align=center><img src="/assert/img/CS/computer_logic/intcir.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/intcir.png" width = 70%/></div>
 
 <h4 id="technology-parameters">Technology Parameters<a class="headerlink" href="#technology-parameters" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2422,7 +2422,7 @@ AB + \bar A C + BC = AB + \bar A C
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Propagation Delay of <code>NOT</code></p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/tp.png" width = 70%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/tp.png" width = 70%/></div></p>
 </div>
 <h4 id="delay-models">Delay Models<a class="headerlink" href="#delay-models" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2434,13 +2434,13 @@ AB + \bar A C + BC = AB + \bar A C
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/delaymodel.png" width = 70%/></div></p>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/delaymodel.png" width = 70%/></div></p>
 </div>
 <h4 id="circuit-delay">Circuit Delay<a class="headerlink" href="#circuit-delay" title="Permanent link">&para;</a></h4>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/cirdelay1.png" width = 70%/></div>
-<div align=center><img src="/assert/img/CS/computer_logic/cirdelay2.png" width = 70%/></div>
+<p><div align=center><img src="/assert/img/CS/computer_logic/chapter2/cirdelay1.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/cirdelay2.png" width = 70%/></div>
 考虑传输延迟，输出波形改变。</p>
 <p><span class="arithmatex">\(S\)</span> 的两条路径延迟不同，<span class="arithmatex">\(Y\)</span> 处产生尖峰，称为电路进行的 <strong>竞争冒险</strong></p>
 </div>
