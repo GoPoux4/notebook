@@ -19,7 +19,7 @@ Truth tables a tabular listing of the values of a function for all possible comb
 
 Using Switches 开关电路
 
-  <div align=center><img src="/assert/img/CS/computer_logic/switches.png" width = 70%/></div>
+  <div align=center><img src="/assert/img/CS/computer_logic/chapter2/switches.png" width = 70%/></div>
 
 **Logic Gates**
 
@@ -59,7 +59,7 @@ Using Switches 开关电路
 
     伏安特性曲线：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/pn.png" width = 40%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/pn.png" width = 40%/></div>
 
 ??? 三极管
     半导体三极管、晶体三极管。
@@ -68,7 +68,7 @@ Using Switches 开关电路
 
     - NPN 型
     
-        <div align=center><img src="/assert/img/CS/computer_logic/npn.png" width = 50%/></div>
+        <div align=center><img src="/assert/img/CS/computer_logic/chapter2/npn.png" width = 50%/></div>
 
         放大特性：$I_b = \beta I_c$
 
@@ -76,31 +76,31 @@ Using Switches 开关电路
     
     - PNP 型
 
-        <div align=center><img src="/assert/img/CS/computer_logic/pnp.png" width = 50%/></div>
+        <div align=center><img src="/assert/img/CS/computer_logic/chapter2/pnp.png" width = 50%/></div>
 
 CMOS Circuits 电压控制
 
-<div align=center><img src="/assert/img/CS/computer_logic/cmos.png" width = 20%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/cmos.png" width = 20%/></div>
 
 上面 PMOS 管，常闭；下面 NMOS 管，常开。
 
 与非(NAND)和或非(NOR)门（能够构造出所有逻辑关系）
 
-<div align=center><img src="/assert/img/CS/computer_logic/nor_nand.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/nor_nand.png" width = 70%/></div>
 
 输入段可接在一起，输出端不能接在一起，可能短路。
 
 **Logical Gate Symbols**
 
-<div align=center><img src="/assert/img/CS/computer_logic/gates.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/gates.png" width = 70%/></div>
 
 **Waveform Behavior in Time**
 
-<div align=center><img src="/assert/img/CS/computer_logic/time_diagram.png" width = 40%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/time_diagram.png" width = 40%/></div>
 
 **Gate Delay**
 
-<div align="center"><img src="/assert/img/CS/computer_logic/delay.png" width=50%/></div>
+<div align="center"><img src="/assert/img/CS/computer_logic/chapter2/delay.png" width=50%/></div>
 
 限制最高工作频率。
 
@@ -110,14 +110,14 @@ CMOS Circuits 电压控制
 
 ### Bool Algebra
 
-<div align="center"><img src="/assert/img/CS/computer_logic/algebra.png" width=70%/></div>
+<div align="center"><img src="/assert/img/CS/computer_logic/chapter2/algebra.png" width=70%/></div>
 
 重点：$X + YZ = (X + Y)(X + Z)$
 
 对偶：与变或，或变与，0 变 1 ，优先级不变，非不变。
 
 ??? example "Boolean Algebraic Proof 1"
-    <div align="center"><img src="/assert/img/CS/computer_logic/proof1.png" width=70%/></div>
+    <div align="center"><img src="/assert/img/CS/computer_logic/chapter2/proof1.png" width=70%/></div>
 
 ??? example "Boolean Algebraic Proof 2"
     $$
@@ -170,7 +170,7 @@ Canonical Forms in common usage:
 
 **Index of minterms and maxterms**
 
-<div align=center><img src="/assert/img/CS/computer_logic/terms.png" width = 50%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/terms.png" width = 50%/></div>
 
 The index for the minterm or maxterm, expressed as a binary number, is used to determine whether the variable is shown in the true form or complemented form.
 
@@ -185,7 +185,7 @@ Use subscript to show index and "m" for Minterm, "M" for Maxterm. $M_i = \bar m_
 
 **Function Tables for both**
 
-<div align=center><img src="/assert/img/CS/computer_logic/functable.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/functable.png" width = 70%/></div>
 
 #### Canonical Forms
 
@@ -272,8 +272,8 @@ Consist of:
     * $F = (A +\bar B)(A + D)(B + C + \bar D)(\bar B + \bar C + D) \qquad L = 10, G = 14, GN = 18$
 
 !!! example "Cost Criteria"
-    <div align=center><img src="/assert/img/CS/computer_logic/cost.png" width = 70%/></div>
-    <div align=center><img src="/assert/img/CS/computer_logic/cost2.png" width = 70%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/cost.png" width = 70%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/cost2.png" width = 70%/></div>
 
 ### Map Manipulation
 
@@ -288,35 +288,35 @@ A K-map is a collection of squares
 
 #### Two Variable Maps
 
-<div align=center><img src="/assert/img/CS/computer_logic/two_map.png" width = 30%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/two_map.png" width = 30%/></div>
 
 !!! example "K-Map Function Representation"
     $F(x,y) = x\bar y + xy$
 
-    <div align=center><img src="/assert/img/CS/computer_logic/two_rep.png" width = 30%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/two_rep.png" width = 30%/></div>
 
     Then $F(x,y) = x\bar y + xy = x$
 
 #### Three Variable Maps
 
-<div align=center><img src="/assert/img/CS/computer_logic/three_map.png" width = 30%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/three_map.png" width = 30%/></div>
 
 !!! note
     Topological warps of 3-variable K-maps that show all adjacencies:
 
-    <div align=center><img src="/assert/img/CS/computer_logic/cylinder.png" width = 20%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/cylinder.png" width = 20%/></div>
 
 #### Four Variable Maps
 
 Example Shapes of Rectangles (WXYZ)
 
-<div align=center><img src="/assert/img/CS/computer_logic/four_map.png" width = 50%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/four_map.png" width = 50%/></div>
 
 #### Five Variable or More K-Maps
 
 For five variable problems, we use two adjacent K-maps.(VWXYZ)
 
-<div align=center><img src="/assert/img/CS/computer_logic/five_map.png" width = 50%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/five_map.png" width = 50%/></div>
 
 #### Don't Cares in K-Maps
 
@@ -326,10 +326,10 @@ For five variable problems, we use two adjacent K-maps.(VWXYZ)
     $F(A,B,C,D) = \sum_m(3,9,11,12,13,14,15) + \sum_d(1,4,6)$
 
     * Find the optimum SOP solution
-      <div align=center><img src="/assert/img/CS/computer_logic/kmapsop.png" width = 30%/></div>
+      <div align=center><img src="/assert/img/CS/computer_logic/chapter2/kmapsop.png" width = 30%/></div>
       $F = AB + \bar BD$
     * Find the optimum POS solution
-      <div align=center><img src="/assert/img/CS/computer_logic/kmappos.png" width = 30%/></div>
+      <div align=center><img src="/assert/img/CS/computer_logic/chapter2/kmappos.png" width = 30%/></div>
       $F = (B + D)(A + \bar B)$
 
 #### Systematic Simplification
@@ -341,7 +341,7 @@ A prime implicant is called an *Essential Prime Implicant* if it is the only pri
 质蕴涵项是能够框住某个 `1` 的最大卡诺圈。对某个 `1` 而言如果它的质蕴涵项只有一个，那么它是必要的。
 
 !!! example
-    <div align=center><img src="/assert/img/CS/computer_logic/prime.png" width = 70%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/prime.png" width = 70%/></div>
 
 ### Multi-Level Circuit Optimization
 
@@ -352,7 +352,7 @@ A prime implicant is called an *Essential Prime Implicant* if it is the only pri
 如何设计，取决于需要降低传输延迟还是门输入成本。
 
 !!! example "Transformation Examples"
-    <div align=center><img src="/assert/img/CS/computer_logic/multi.png" width = 70%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/multi.png" width = 70%/></div>
     最后化为三级门电路，门输入成本降低。
 
 ## Additional Gates and Circuits
@@ -365,7 +365,7 @@ Integrated circuit (informally, a “chip”) is a semiconductor crystal (most o
 
 分类：
 
-<div align=center><img src="/assert/img/CS/computer_logic/intcir.png" width = 70%/></div>
+<div align=center><img src="/assert/img/CS/computer_logic/chapter2/intcir.png" width = 70%/></div>
 
 #### Technology Parameters
 
@@ -405,7 +405,7 @@ Delay is usually measured at the 50% point with respect to the H and L output vo
 * Low-to-High $t_{PLH}$ **输出** 从低电平到高电平的时间
 
 !!! example "Propagation Delay of `NOT`"
-    <div align=center><img src="/assert/img/CS/computer_logic/tp.png" width = 70%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/tp.png" width = 70%/></div>
 
 #### Delay Models
 
@@ -415,13 +415,13 @@ Delay is usually measured at the 50% point with respect to the H and L output vo
     很小的脉冲跳变会被消除。
 
 !!! example
-    <div align=center><img src="/assert/img/CS/computer_logic/delaymodel.png" width = 70%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/delaymodel.png" width = 70%/></div>
 
 #### Circuit Delay
 
 !!! example
-    <div align=center><img src="/assert/img/CS/computer_logic/cirdelay1.png" width = 70%/></div>
-    <div align=center><img src="/assert/img/CS/computer_logic/cirdelay2.png" width = 70%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/cirdelay1.png" width = 70%/></div>
+    <div align=center><img src="/assert/img/CS/computer_logic/chapter2/cirdelay2.png" width = 70%/></div>
     考虑传输延迟，输出波形改变。
 
     $S$ 的两条路径延迟不同，$Y$ 处产生尖峰，称为电路进行的 **竞争冒险**
