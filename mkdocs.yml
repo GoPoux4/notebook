@@ -37,6 +37,12 @@ theme:
 
 plugins:
   - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+      repository: GoPoux4/notebook
+      branch: master
+  - git-authors
 
 markdown_extensions:
   - admonition
@@ -44,7 +50,6 @@ markdown_extensions:
   - pymdownx.superfences
 
 markdown_extensions:
-
   # Python Markdown
   - abbr
   - admonition
@@ -54,7 +59,6 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: true
-
   # Python Markdown Extensions
   - pymdownx.arithmatex:
       generic: true
@@ -75,6 +79,7 @@ markdown_extensions:
   - pymdownx.tilde
   - pymdownx.arithmatex:
       generic: true
+  - neoteroi.cards # install using `pip install neoteroi-mkdocs`
 
 extra:
   social:
@@ -86,6 +91,7 @@ extra:
       name: My Cnblog Page
 
 extra_css:
+  - css/neoteroi-mkdocs.css
   - css/counter.css
 
 extra_javascript:
@@ -96,6 +102,7 @@ extra_javascript:
 nav:
   - Home:
     - index.md
+    - 友链: links.md
   - Computer Science:
     - Computer Science: cs/index.md
     - 人工智能引论: cs/intro_to_ai/ai.md
