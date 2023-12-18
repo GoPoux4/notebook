@@ -1,17 +1,6 @@
-# 计算机逻辑设计基础
+# Digital Systems and Information
 
-- 数学基础
-  - 布尔代数
-  - 逻辑代数基础
-- 单元电路
-  - 逻辑门电路、触发器
-  - 性能分析和应用
-- 组合逻辑电路的分析、设计与应用
-- 时序逻辑电路的分析、设计与应用
-
-## Chapter 1 Digital Systems and Information
-
-### 数字系统
+## Digital Systems 数字系统
 
 Discrete Information Processing System 离散信息处理系统
 
@@ -19,7 +8,7 @@ Discrete Information Processing System 离散信息处理系统
 
 System State 保存状态（内存）
 
-#### Type of Digital Systems
+### Type of Digital Systems
 
 - No state present 没有状态的系统
   
@@ -61,7 +50,7 @@ System State 保存状态（内存）
 
   Threshold Region 噪声容限：增加传输过程抗干扰能力
 
-### Binary Arithmetic
+## Binary Arithmetic
 
 - Addition
   Carries
@@ -74,7 +63,7 @@ System State 保存状态（内存）
 - Convert
   除以 base 取整
 
-### Binary Coding
+## Binary Coding
 
 二进制编码
 
@@ -101,7 +90,7 @@ System State 保存状态（内存）
   'A'->0x41
   'a'->0x61
 
-### Parity Bit Error-Detection Codes
+## Parity Bit Error-Detection Codes
 
 检测传输信息正确性 Error Detection.
 
@@ -109,16 +98,16 @@ System State 保存状态（内存）
 
 奇偶校检码，在末尾增加一个二进制位，保证整体 1 的个数奇偶性一致。接收端判断 1 的奇偶。(odd parity and even parity)
 
-### Gray Code 格雷码
+## Gray Code 格雷码
 
 相邻两数之间一位不同。
 
 旋转编码器
 
-![gray](../../assert/img/CS/computer_logic/chapter1/gray.png)
+<div align=center><img src="/assert/img/CS/computer_logic/chapter1/gray.png" width = 50%/></div>
 
 光传感器接收，避免出现中间结果，每次到达下一个状态只会变一位。
 
-### UNICODE
+## UNICODE
 
 16-bit (2-byte)

@@ -1,4 +1,4 @@
-# Chapter 2 Combinational Logic Circuits 组合逻辑电路
+# Combinational Logic Circuits
 
 ## Gate Circuits and Boolean Equations
 
