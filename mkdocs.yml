@@ -120,7 +120,7 @@ nav:
       - math/prob_theory/index.md
       - 事件及其概率: math/prob_theory/chapter1.md
       - 随机变量与分布函数: math/prob_theory/chapter2.md
-      - 数学期望: math/prob_theory/chapter3.md
+      - 数字特征: math/prob_theory/chapter3.md
   - HPC:
     - HPC: hpc/index.md
     - cute:
