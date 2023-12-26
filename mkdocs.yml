@@ -31,9 +31,7 @@ theme:
     - navigation.top
     - navigation.footer
     - content.code.copy
-  font:
-    text: Fira Sans
-    code: Fira Mono
+  font: false
 
 plugins:
   - search
@@ -93,6 +91,10 @@ extra:
 extra_css:
   - css/neoteroi-mkdocs.css
   - css/counter.css
+  - css/stylesheet.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -110,8 +112,10 @@ nav:
       - cs/computer_logic/index.md
       - 数字系统和信息: cs/computer_logic/chapter1.md
       - 组合逻辑电路: cs/computer_logic/chapter2.md
-      - 组合逻辑电路的设计: cs/computer_logic/chapter3.md
+      - 组合逻辑电路设计: cs/computer_logic/chapter3.md
       - 时序逻辑电路: cs/computer_logic/chapter4.md
+      - 数字硬件实现: cs/computer_logic/chapter5.md
+      - 寄存器和寄存器传输: cs/computer_logic/chapter6.md
     - 量子计算:
       - Basic Definition: cs/quantum/introduction.md
   - Math:
