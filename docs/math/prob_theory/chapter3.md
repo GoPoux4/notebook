@@ -219,7 +219,7 @@ P(|X - EX| > \varepsilon) \leq \frac{VarX}{\varepsilon^2}
         对于 $\forall \varepsilon > 0$，有
 
         \[
-        P(|X - EX| > 0) \leq \frac{VarX}{\varepsilon^2} = 0
+        P(|X - EX| > \varepsilon) \leq \frac{VarX}{\varepsilon^2} = 0
         \]
 
         因此
