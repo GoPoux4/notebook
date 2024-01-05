@@ -649,7 +649,7 @@ k 阶中心矩：$E[(X - EX)^k]$
         |\varphi(t)| &= |E(e^{itX})| \\
         &= |\int_{-\infty}^{\infty} e^{itx} \ \mathrm{d}F(x)| \\
         &\leq \int_{-\infty}^{\infty} |e^{itx}| \ \mathrm{d}F(x) \\
-        &= 1, \qquad \text{欧拉公式}
+        &= 1
         \end{aligned}
         \]
 
