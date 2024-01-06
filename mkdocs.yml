@@ -125,6 +125,7 @@ nav:
       - 事件及其概率: math/prob_theory/chapter1.md
       - 随机变量与分布函数: math/prob_theory/chapter2.md
       - 数字特征: math/prob_theory/chapter3.md
+      - 概率极限定理: math/prob_theory/chapter4.md
   - HPC:
     - HPC: hpc/index.md
     - cute:
