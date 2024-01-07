@@ -107,7 +107,9 @@ nav:
     - 友链: links.md
   - Computer Science:
     - Computer Science: cs/index.md
-    - 人工智能引论: cs/intro_to_ai/ai.md
+    - 人工智能引论:
+      - cs/intro_to_ai/index.md
+      - 知识表达和推理: cs/intro_to_ai/chapter1.md
     - 计算机逻辑设计基础:
       - cs/computer_logic/index.md
       - 数字系统和信息: cs/computer_logic/chapter1.md
@@ -116,6 +118,7 @@ nav:
       - 时序逻辑电路: cs/computer_logic/chapter4.md
       - 数字硬件实现: cs/computer_logic/chapter5.md
       - 寄存器和寄存器传输: cs/computer_logic/chapter6.md
+      - 内存基础: cs/computer_logic/chapter7.md
     - 量子计算:
       - Basic Definition: cs/quantum/introduction.md
   - Math:
