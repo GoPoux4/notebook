@@ -102,10 +102,15 @@ Types of random access memory:
     - Charge "leaks" off: 电容会漏电
     - Periodic refresh  of charge required: 需要定期刷新
 
-Dependence on Power Supply:
+**Dependence on Power Supply**:
 
 - **Volatile**: loses stored information when power turned off. 掉电后会丢失数据。
 - **Non-volatile**: retains information when power turned off. 掉电后不会丢失数据。
+
+**Address bus and Data bus**: 数据总线和地址总线
+
+- Address bus: 传输地址，$存储容量=2^{地址总线位数}$
+- Data bus: 传输数据，$一次处理数据的位宽=数据总线位数$
 
 ### Static RAM
 
