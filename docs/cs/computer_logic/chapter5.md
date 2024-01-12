@@ -45,7 +45,7 @@
 - Read Only Memory (ROM): a fixed array of AND gates and a programmable array of OR gates
 - Programmable Array Logic (PAL): a programmable array of AND gates feeding a fixed array of OR gates.
 - Programmable Logic Array (PLA): a programmable array of AND gates feeding a programmable array of OR gates.
-- Complex Programmable Logic Device (CPLD) / Field-Programmable Gate Array (FPGA): complex enough to be called "architectures"
+- Complex Programmable Logic Device (CPLD) / Field-Programmable Gate Array (FPGA): complex enough to be called "architectures", use lookup tables.
 
 <div align=center><img src="/assert/img/CS/computer_logic/chapter5/programmable.png" width = 70%/></div>
 
