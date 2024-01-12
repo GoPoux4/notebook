@@ -471,14 +471,13 @@ E(\mathbf{Y}) = \mathbf{A} E(\mathbf{X}) = 0 \\
         Cov(X, Y) = \sqrt{VarX} \sqrt{VarY}
         \]
 
-        有
+        取 $t_0 = \sqrt{\dfrac{VarX}{VarY}}$，有
 
         \[
         \begin{aligned}
-        E(X - EX - t_0(Y - EY)) &= 0 \\
         E(X - EX - t_0(Y - EY))^2 &= E(X - EX)^2 + t_0^2 E(Y - EY)^2 - 2t_0 E(X - EX)(Y - EY) \\
         &= VarX + t_0^2 VarY - 2t_0 Cov(X, Y) \\
-        &= 2VarX - 2\frac{VarX}{VarY} (\sqrt{VarX} \sqrt{VarY}) \\
+        &= 2VarX - 2\sqrt{\frac{VarX}{VarY}} (\sqrt{VarX} \sqrt{VarY}) \\
         &= 0
         \end{aligned}
         \]
