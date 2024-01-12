@@ -836,13 +836,6 @@ $$
     P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}, \quad k = 0, 1, \cdots
     $$
 
-    !!! note "Poisson 极限定理"
-        $S_n \sim B(n, p), X \sim \mathcal{P}(\lambda)$
-
-        $$
-        P(S_n = k) = {n \choose k}p^k(1-p)^{n-k} \to \frac{\lambda^k}{k!}e^{-\lambda} = P(X = k), \quad n \to \infty
-        $$
-
     几何分布：不断重复直到事件发生
 
     $$

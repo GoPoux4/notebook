@@ -256,7 +256,7 @@ S_n = \sum_{k=1}^nX_k, B_n = \sum_{k=1}^n\sigma_k^2
 
 \[
 \begin{aligned}
-B_n &\rightarrow 0, \\
+B_n &\rightarrow \infty, \\
 E|X_k|^3 &< \infty, \quad \forall k \\
 \frac{\sum_{k=1}^nE|X_k|^3}{B_n^{3/2}} &\rightarrow 0, \quad n \rightarrow \infty
 \end{aligned}
