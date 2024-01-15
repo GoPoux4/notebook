@@ -133,6 +133,8 @@ VarX = E(X^2) - (EX)^2
         \end{aligned}
         \]
 
+7. $Var(\sum_{i=1}^n X_i) = \sum_{i=1}^n Var(X_i) + 2 \sum_{i<j} Cov(X_i, X_j)$
+
 ### Chebyshev 不等式
 
 设 $X$ 是一个随机变量，$\forall \varepsilon > 0$，有
@@ -247,6 +249,16 @@ P(|X - EX| > \varepsilon) \leq \frac{VarX}{\varepsilon^2}
     表示 $X$ 和 $Y$ 的协方差。
 
     计算公式：$Cov(X, Y) = EXY - EXEY$
+
+- 运算性质：
+
+    \[
+    \begin{aligned}
+    Cov(aX + b, cY + d) &= E[(aX + b)(cY + d)] - E(aX + b)E(cY + d) \\
+    &= acE(XY) - acEXEY \\
+    &= acCov(X, Y)
+    \end{aligned}
+    \]
 
 ### Cauchy-Schwarz 不等式
 
@@ -754,7 +766,7 @@ k 阶中心矩：$E[(X - EX)^k]$
     类似，如果 $E|X|^k < \infty$，则
 
     \[
-    \varphi^{(k)}(0) = i^k \int_{-\infty}^{\infty} x^k e^{itx} \ \mathrm{d}F(x)
+    \varphi^{(k)}(t) = i^k \int_{-\infty}^{\infty} x^k e^{itx} \ \mathrm{d}F(x)
     \]
 
     $\varphi(t)$ 在 0 处可以进行 k 次展开：
@@ -1029,7 +1041,12 @@ k 阶中心矩：$E[(X - EX)^k]$
 
 !!! example "退化分布"
     \[
-    X \sim \delta(x - c), P(X = c) = 1
+    X \sim
+    \begin{pmatrix}
+        c \\
+        1
+    \end{pmatrix}
+    , P(X = c) = 1
     \]
 
     - **期望**
