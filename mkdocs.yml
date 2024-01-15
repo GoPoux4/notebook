@@ -107,9 +107,6 @@ nav:
     - 友链: links.md
   - Computer Science:
     - Computer Science: cs/index.md
-    - 人工智能引论:
-      - cs/intro_to_ai/index.md
-      - 知识表达和推理: cs/intro_to_ai/chapter1.md
     - 计算机逻辑设计基础:
       - cs/computer_logic/index.md
       - 数字系统和信息: cs/computer_logic/chapter1.md
