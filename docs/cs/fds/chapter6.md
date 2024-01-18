@@ -4,7 +4,7 @@
 
 Define an increment sequence \(1 = h_1 < h_2 < \cdots < h_t\).
 
-Define \(h\)-sort: 用插入排序排序原数组的子序列 \(a_0, a_h, a_{2h}, \cdots\)。
+Define \(h\)-sort: 用插入排序排序原数组的子序列 \((a_0, a_h, a_{2h}, \cdots), (a_1, a_{1+h}, a_{1+2h}, \cdots), \cdots\)
 
 Shell sort: 按照 $k = t, t-1, \cdots, 1$ 的顺序，对每个 $k$ 进行 $h_k$-sort。
 

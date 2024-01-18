@@ -144,9 +144,9 @@ Sort all edges by weight. Then add the edge to the tree if it doesn't form a cyc
 
 ### Biconnectivity
 
-- **Biconnectivity** 双联通：任意两点之间至少存在两条不相交的路径。
-- **Articulation point** 割点：删除该点后，图不再双联通。
-- **Bi-connected component** 双连通分量：最大的双联通子图。
+- **Biconnectivity** 双连通：任意两点之间至少存在两条不相交的路径。
+- **Articulation point** 割点：删除该点后，图不再连通分量数量增加了。
+- **Bi-connected component** 双连通分量：最大的双连通子图。
 
 #### Tarjan's Algorithm
 
