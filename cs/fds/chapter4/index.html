@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/hpc/">
+        <link rel="canonical" href="https://note.gopoux.cc/cs/fds/chapter4/">
       
       
-        <link rel="prev" href="../math/prob_theory/chapter4/">
+        <link rel="prev" href="../chapter3/">
       
       
-        <link rel="next" href="cute/">
+        <link rel="next" href="../chapter5/">
       
       
-      <link rel="icon" href="../assert/ico/favicon.png">
+      <link rel="icon" href="../../../assert/ico/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
     
     
       
-        <title>HPC - GoPoux 的笔记本</title>
+        <title>Union and Find - GoPoux 的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,11 +42,11 @@
       
     
     
-      <link rel="stylesheet" href="../css/neoteroi-mkdocs.css">
+      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
     
-      <link rel="stylesheet" href="../css/counter.css">
+      <link rel="stylesheet" href="../../../css/counter.css">
     
-      <link rel="stylesheet" href="../css/stylesheet.css">
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
     
@@ -54,7 +54,7 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#union-and-find" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -89,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HPC
+              Union and Find
             
           </span>
         </div>
@@ -218,7 +223,7 @@
     
     
       <li class="md-tabs__item">
-        <a href=".." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
     
@@ -234,11 +239,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../cs/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
     
@@ -258,7 +265,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../math/" class="md-tabs__link">
+        <a href="../../../math/" class="md-tabs__link">
           
   
     
@@ -274,13 +281,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../hpc/" class="md-tabs__link">
           
   
     
@@ -300,7 +305,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../labs/numpy/" class="md-tabs__link">
+        <a href="../../../labs/numpy/" class="md-tabs__link">
           
   
     
@@ -335,7 +340,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -390,7 +395,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href=".." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -423,7 +428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../links/" class="md-nav__link">
+      <a href="../../../links/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -448,6 +453,8 @@
       
   
   
+    
+  
   
   
     
@@ -470,17 +477,17 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../cs/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -497,7 +504,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Computer Science
@@ -510,8 +517,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -521,12 +530,12 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -540,7 +549,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             数据结构
@@ -551,6 +560,8 @@
                 
   
   
+    
+  
   
   
     
@@ -578,17 +589,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../cs/fds/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -605,7 +616,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2_1">
             <span class="md-nav__icon md-icon"></span>
             数据结构基础
@@ -621,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/fds/chapter1/" class="md-nav__link">
+      <a href="../chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -642,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/fds/chapter2/" class="md-nav__link">
+      <a href="../chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -663,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/fds/chapter3/" class="md-nav__link">
+      <a href="../chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -681,10 +692,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../cs/fds/chapter4/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Union and Find
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -693,6 +724,134 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-disjoint-set-adt" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Disjoint Set ADT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Disjoint Set ADT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smart-union-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smart Union Algorithms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Smart Union Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#union-by-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Union by Size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#union-by-height" class="md-nav__link">
+    <span class="md-ellipsis">
+      Union by Height
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path Compression
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Complexity
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -705,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/fds/chapter5/" class="md-nav__link">
+      <a href="../chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -726,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/fds/chapter6/" class="md-nav__link">
+      <a href="../chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -747,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/fds/chapter7/" class="md-nav__link">
+      <a href="../chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -818,7 +977,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../cs/computer_logic/" class="md-nav__link ">
+            <a href="../../computer_logic/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -851,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/computer_logic/chapter1/" class="md-nav__link">
+      <a href="../../computer_logic/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -872,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/computer_logic/chapter2/" class="md-nav__link">
+      <a href="../../computer_logic/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/computer_logic/chapter3/" class="md-nav__link">
+      <a href="../../computer_logic/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -914,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/computer_logic/chapter4/" class="md-nav__link">
+      <a href="../../computer_logic/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -935,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/computer_logic/chapter5/" class="md-nav__link">
+      <a href="../../computer_logic/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -956,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/computer_logic/chapter6/" class="md-nav__link">
+      <a href="../../computer_logic/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -977,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/computer_logic/chapter7/" class="md-nav__link">
+      <a href="../../computer_logic/chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1047,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cs/quantum/introduction/" class="md-nav__link">
+      <a href="../../quantum/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1108,7 +1267,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../math/" class="md-nav__link ">
+            <a href="../../../math/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1169,7 +1328,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../math/prob_theory/" class="md-nav__link ">
+            <a href="../../../math/prob_theory/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1202,7 +1361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../math/prob_theory/chapter1/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1223,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../math/prob_theory/chapter2/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1244,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../math/prob_theory/chapter3/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1265,7 +1424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../math/prob_theory/chapter4/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1298,8 +1457,6 @@
       
   
   
-    
-  
   
   
     
@@ -1320,17 +1477,17 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../../hpc/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1341,13 +1498,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             HPC
@@ -1387,7 +1544,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="cute/" class="md-nav__link ">
+            <a href="../../../hpc/cute/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1420,7 +1577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cute/layout/" class="md-nav__link">
+      <a href="../../../hpc/cute/layout/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1441,7 +1598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cute/tensor/" class="md-nav__link">
+      <a href="../../../hpc/cute/tensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1492,7 +1649,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="hpc101/" class="md-nav__link ">
+            <a href="../../../hpc/hpc101/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1525,7 +1682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hpc101/cuda/" class="md-nav__link">
+      <a href="../../../hpc/hpc101/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1613,7 +1770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../labs/numpy/" class="md-nav__link">
+      <a href="../../../labs/numpy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1634,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../labs/simd/" class="md-nav__link">
+      <a href="../../../labs/simd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1655,7 +1812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../labs/cuda/" class="md-nav__link">
+      <a href="../../../labs/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1676,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../labs/pcg/" class="md-nav__link">
+      <a href="../../../labs/pcg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1697,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../labs/cnn/" class="md-nav__link">
+      <a href="../../../labs/cnn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1735,6 +1892,124 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-disjoint-set-adt" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Disjoint Set ADT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Disjoint Set ADT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smart-union-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smart Union Algorithms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Smart Union Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#union-by-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Union by Size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#union-by-height" class="md-nav__link">
+    <span class="md-ellipsis">
+      Union by Height
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path Compression
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Complexity
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1752,12 +2027,37 @@
   
 
 
-  <h1>HPC</h1>
-
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>归档 HPC 的一些学习笔记</p>
-</div>
+<h1 id="union-and-find">Union and Find<a class="headerlink" href="#union-and-find" title="Permanent link">&para;</a></h1>
+<h2 id="the-disjoint-set-adt">The Disjoint Set ADT<a class="headerlink" href="#the-disjoint-set-adt" title="Permanent link">&para;</a></h2>
+<p>Relation <span class="arithmatex">\(\sim\)</span> is an equivalence relation iff its <strong>symmetric</strong>(对称), <strong>reflexive</strong>(自反) and <strong>transitive</strong>(传递).</p>
+<p>Two members <span class="arithmatex">\(x, y\)</span> are said to be in the same equivalence class iff <span class="arithmatex">\(x \sim y\)</span>.</p>
+<h3 id="operations">Operations<a class="headerlink" href="#operations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Union</strong>: combine two equivalence classes into one</li>
+<li><strong>Find</strong>: determine which equivalence class a given element belongs to</li>
+</ul>
+<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h2>
+<p><code>S[u]</code> 代表节点 <code>u</code> 的父节点。</p>
+<h3 id="implementation-1">Implementation 1<a class="headerlink" href="#implementation-1" title="Permanent link">&para;</a></h3>
+<p>每个集合的根节点与一个集合的编号建立双向链表。</p>
+<h3 id="implementation-2">Implementation 2<a class="headerlink" href="#implementation-2" title="Permanent link">&para;</a></h3>
+<p><code>S[root] = 0</code>，集合编号为根节点编号。</p>
+<h2 id="smart-union-algorithms">Smart Union Algorithms<a class="headerlink" href="#smart-union-algorithms" title="Permanent link">&para;</a></h2>
+<h3 id="union-by-size">Union by Size<a class="headerlink" href="#union-by-size" title="Permanent link">&para;</a></h3>
+<p>Let <code>S[root] = -size</code>，<code>size</code> 为集合大小。</p>
+<p>每次 Union 时，将小集合的根节点指向大集合的根节点。</p>
+<p>时间复杂度：<span class="arithmatex">\(n\)</span> 次 Union 操作，<span class="arithmatex">\(m\)</span> 次 Find 操作，复杂度 <span class="arithmatex">\(O(n + m \log n)\)</span>。</p>
+<h3 id="union-by-height">Union by Height<a class="headerlink" href="#union-by-height" title="Permanent link">&para;</a></h3>
+<p>每次 <code>Union</code> 时，将高度小的根节点指向高度大的根节点。</p>
+<h2 id="path-compression">Path Compression<a class="headerlink" href="#path-compression" title="Permanent link">&para;</a></h2>
+<p>路径压缩。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isroot</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="time-complexity">Time Complexity<a class="headerlink" href="#time-complexity" title="Permanent link">&para;</a></h2>
+<p><span class="arithmatex">\(O(\alpha(n))\)</span>，其中 <span class="arithmatex">\(\alpha(n)\)</span> 为 Ackermann 函数的反函数。</p>
 
 
 
@@ -1780,7 +2080,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 28, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 16, 2024</span>
   </span>
 
     
@@ -1790,7 +2090,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 4, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 16, 2024</span>
   </span>
 
     
@@ -1863,7 +2163,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../math/prob_theory/chapter4/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 概率极限定理">
+          <a href="../chapter3/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Trees">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1873,20 +2173,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                概率极限定理
+                Trees
               </div>
             </div>
           </a>
         
         
           
-          <a href="cute/" class="md-footer__link md-footer__link--next" aria-label="下一页: cute">
+          <a href="../chapter5/" class="md-footer__link md-footer__link--next" aria-label="下一页: Graphs">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                cute
+                Graphs
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1944,12 +2244,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
