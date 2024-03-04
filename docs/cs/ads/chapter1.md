@@ -663,5 +663,119 @@ void splay(SplayTree *tree, Node *p) {
     }
     ```
 
-## Amortized Analysis
+## Amortized Analysis 摊还分析
 
+由于程序不一定每次操作都达到最坏的复杂度，因此使用最坏复杂度估计复杂度上界可能会远远高于实际的复杂度，所以需要一种方法来更加精确地估计复杂度上界。
+
+\[
+\text{worst-case bound} \geq \text{amortized bound} \geq \text{average-case bound}
+\]
+
+### Aggregate Analysis 聚合分析
+
+考虑操作的整体，设 \(n\) 个操作的复杂度之和为 \(T(n)\)，则单个操作的均摊复杂度为 \(T(n)/n\)。
+
+### Accounting Method 核算法
+
+若某次操作的摊还代价 \(\hat{c}_i\) 超过了实际代价 \(c_i\)，则记多出来的部分为“信用分”（credit）。若之后的操作的摊还代价不足以支付实际代价，则使用信用分来支付。则单次操作的均摊复杂度为：
+
+\[
+T_{\text{amortized}} = \frac{\sum \hat{c}_i}{n} \geq \frac{\sum c_i}{n}
+\]
+
+### Potential Method 势能法
+
+设 \(D_i\) 为第 \(i\) 次操作之后数据整体的状态，构造函数 \(\Phi(D_i)\) 作为数据状态的“势能”，且满足：
+
+- \(\Phi(D_0) = 0\)
+- \(\Phi(D_i) \geq 0\)
+
+由此，摊还代价为：
+
+\[
+\hat{c}_i = c_i + \Phi(D_i) - \Phi(D_{i-1})
+\]
+
+\(n\) 次操作总代价为：
+
+\[
+\begin{aligned}
+\sum_{i=1}^n \hat{c}_i &= \sum_{i=1}^n (c_i + \Phi(D_i) - \Phi(D_{i-1})) \\
+                       &= \sum_{i=1}^n c_i + \Phi(D_n) - \Phi(D_0) \\
+\end{aligned}
+\]
+
+#### Splay 复杂度证明
+
+设 \(D_i\) 为第 \(i\) 次操作之后的 Splay 树，\(S(x)\) 为以节点 \(x\) 为根的子数大小，定义势能函数为：
+
+\[
+\Phi(T) = \sum_{x \in T} \log S(x)
+\]
+
+下面对三种操作进行分类讨论，设 \(R_1(x)\) 为操作前以 \(x\) 为根的子树大小的对数，\(R_2(x)\) 为操作后以 \(x\) 为根的子树大小的对数。
+
+!!! info "用到的不等式"
+
+    若 \( a+b \leq c \)，则有：
+
+    \[
+    \log a + \log b \leq 2\log c - 2
+    \]
+
+    ??? note "证明"
+
+        由 \( ab \leq \frac{1}{4} (a + b)^2 \)，得
+
+        \[
+        \begin{aligned}
+        \log a + \log b &= \log(ab) \\
+                        &\leq \log \frac{1}{4} + 2\log(a+b) \\
+                        &\leq 2\log c - 2
+        \end{aligned}
+        \]
+
+=== "Zig"
+
+    <div align="center"> <img src="/assert/img/CS/ads/chapter1/splay-zig.png" width=40% /> </div>
+
+    \[
+    \begin{aligned}
+    \hat{c}_i &= 1 + R_2(x) - R_1(x) + R_2(p) - R_1(p) \\
+              &\leq 1 + R_2(x) - R_1(x)
+    \end{aligned}
+    \]
+
+=== "Zig-Zag"
+
+    <div align="center"> <img src="/assert/img/CS/ads/chapter1/splay-zig-zag.png" width=40% /> </div>
+
+    \[
+    \begin{aligned}
+    \hat{c}_i &=    2 + R_2(x) - R_1(x) + R_2(p) - R_1(p) + R_2(g) - R_1(g) \\
+              &\leq 2 - R_1(x) + R_2(p) - R_1(p) + R_2(g) \\
+              &=    2 - R_1(x) - R_1(p) + (R_2(p) + R_2(g)) \\
+              &\leq - 2R_1(x) + 2R_2(x) \\
+              &=    2(R_2(x) - R_1(x)) \\
+              &\leq 3(R_2(x) - R_1(x))
+    \end{aligned}
+    \]
+
+=== "Zig-Zig"
+
+    <div align="center"> <img src="/assert/img/CS/ads/chapter1/splay-zig-zig.png" width=40% /> </div>
+
+    \[
+    \begin{aligned}
+    \hat{c}_i &=    2 + R_2(x) - R_1(x) + R_2(p) - R_1(p) + R_2(g) - R_1(g) \\
+              &\leq 2 - 2R_1(x) + R_2(p) - R_1(p) + (R_1(x) + R_2(g)) \\
+              &\leq - 2R_1(x) + R_2(x) - R_1(x) + 2R_2(x) \\
+              &=    3(R_2(x) - R_1(x))
+    \end{aligned}
+    \]
+
+由此可得，单次 AVL 操作（insert，delete，e.t.c）的均摊复杂度为
+
+\[
+T \leq 1 + 3(R_m(root) - R_0(x)) = O(\log n)
+\]
