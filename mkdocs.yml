@@ -117,6 +117,10 @@ nav:
         - Graphs: cs/fds/chapter5.md
         - Sorting: cs/fds/chapter6.md
         - Hashing: cs/fds/chapter7.md
+      - 高级数据结构与算法分析:
+        - cs/ads/index.md
+        - AVL, Splay and Amortized Analysis: cs/ads/chapter1.md
+        # - Red-black Trees and B+ Trees: cs/ads/chapter2.md
     - 计算机逻辑设计基础:
       - cs/computer_logic/index.md
       - 数字系统和信息: cs/computer_logic/chapter1.md
