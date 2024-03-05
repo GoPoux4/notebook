@@ -175,5 +175,3 @@ Query Processor includes DDL interpreter, DML compiler, and query processing. æŸ
 ### Database System Internals
 
 <div align="center"> <img src="/assert/img/CS/database/chapter1/system-internals.png" width=60% /> </div>
-
-## Summary 
