@@ -130,6 +130,9 @@ nav:
       - 数字硬件实现: cs/computer_logic/chapter5.md
       - 寄存器和寄存器传输: cs/computer_logic/chapter6.md
       - 内存基础: cs/computer_logic/chapter7.md
+    - 数据库系统:
+      - cs/database/index.md
+      - 数据库系统概述: cs/database/chapter1.md
   - Math:
     - Math: math/index.md
     - 概率论:
