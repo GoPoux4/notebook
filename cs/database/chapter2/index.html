@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/cs/database/chapter1/">
+        <link rel="canonical" href="https://note.gopoux.cc/cs/database/chapter2/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../chapter1/">
       
       
-        <link rel="next" href="../chapter2/">
+        <link rel="next" href="../../../math/">
       
       
       <link rel="icon" href="../../../assert/ico/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>数据库系统概述 - GoPoux 的笔记本</title>
+        <title>关系模型 - GoPoux 的笔记本</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#relational-model" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数据库系统概述
+              关系模型
             
           </span>
         </div>
@@ -1159,6 +1159,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据库系统概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1175,7 +1196,7 @@
           
   
   <span class="md-ellipsis">
-    数据库系统概述
+    关系模型
   </span>
   
 
@@ -1186,7 +1207,7 @@
         
   
   <span class="md-ellipsis">
-    数据库系统概述
+    关系模型
   </span>
   
 
@@ -1208,28 +1229,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose-of-database-systems" class="md-nav__link">
+  <a href="#structure-of-relational-databases" class="md-nav__link">
     <span class="md-ellipsis">
-      Purpose of Database Systems
+      Structure of Relational Databases
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Purpose of Database Systems">
+    <nav class="md-nav" aria-label="Structure of Relational Databases">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#database-applications" class="md-nav__link">
+  <a href="#basic-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Applications
+      Basic Structure
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dbms-vs-file-processing-systems" class="md-nav__link">
+  <a href="#attribute-types" class="md-nav__link">
     <span class="md-ellipsis">
-      DBMS vs. File-processing Systems
+      Attribute Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concepts-about-relation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts about Relation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-properties-of-relation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Properties of Relation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Language
     </span>
   </a>
   
@@ -1241,46 +1307,64 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#view-of-data" class="md-nav__link">
+  <a href="#fundamental-relational-algebra-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      View of Data
+      Fundamental Relational-Algebra Operations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="View of Data">
+    <nav class="md-nav" aria-label="Fundamental Relational-Algebra Operations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#levels-of-data-abstraction" class="md-nav__link">
+  <a href="#selection" class="md-nav__link">
     <span class="md-ellipsis">
-      Levels of Data Abstraction
+      Selection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#schemas-and-instances" class="md-nav__link">
+  <a href="#projection" class="md-nav__link">
     <span class="md-ellipsis">
-      Schemas and Instances
+      Projection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#independence" class="md-nav__link">
+  <a href="#union" class="md-nav__link">
     <span class="md-ellipsis">
-      Independence
+      Union
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-models" class="md-nav__link">
+  <a href="#set-difference" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Models
+      Set Difference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cartesian-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartesian Product
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rename
     </span>
   </a>
   
@@ -1292,37 +1376,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-language" class="md-nav__link">
+  <a href="#additional-relational-algebra-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Language
+      Additional Relational-Algebra Operations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Language">
+    <nav class="md-nav" aria-label="Additional Relational-Algebra Operations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ddl" class="md-nav__link">
+  <a href="#set-intersection" class="md-nav__link">
     <span class="md-ellipsis">
-      DDL
+      Set Intersection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dml" class="md-nav__link">
+  <a href="#natural-join" class="md-nav__link">
     <span class="md-ellipsis">
-      DML
+      Natural Join
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sql" class="md-nav__link">
+  <a href="#division" class="md-nav__link">
     <span class="md-ellipsis">
-      SQL
+      Division
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assignment
     </span>
   </a>
   
@@ -1334,28 +1427,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-design" class="md-nav__link">
+  <a href="#extended-relational-algebra-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Design
+      Extended Relational-Algebra Operations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Design">
+    <nav class="md-nav" aria-label="Extended Relational-Algebra Operations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#e-r-model" class="md-nav__link">
+  <a href="#generalized-projection" class="md-nav__link">
     <span class="md-ellipsis">
-      E-R Model
+      Generalized Projection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#relational-model" class="md-nav__link">
+  <a href="#aggregation-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Relational Model
+      Aggregation Functions
     </span>
   </a>
   
@@ -1367,70 +1460,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-users-and-administrators" class="md-nav__link">
+  <a href="#modification-of-the-database" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Users and Administrators
+      Modification of the Database
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Users and Administrators">
+    <nav class="md-nav" aria-label="Modification of the Database">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#users" class="md-nav__link">
+  <a href="#deletion" class="md-nav__link">
     <span class="md-ellipsis">
-      Users
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transaction-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transaction Management
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#database-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Database Architecture
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Database Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#storage-manager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Storage Manager
+      Deletion
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#query-processor" class="md-nav__link">
+  <a href="#insertion" class="md-nav__link">
     <span class="md-ellipsis">
-      Query Processor
+      Insertion
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#database-system-internals" class="md-nav__link">
+  <a href="#updating" class="md-nav__link">
     <span class="md-ellipsis">
-      Database System Internals
+      Updating
     </span>
   </a>
   
@@ -1445,27 +1505,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chapter2/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    关系模型
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -2150,28 +2189,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose-of-database-systems" class="md-nav__link">
+  <a href="#structure-of-relational-databases" class="md-nav__link">
     <span class="md-ellipsis">
-      Purpose of Database Systems
+      Structure of Relational Databases
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Purpose of Database Systems">
+    <nav class="md-nav" aria-label="Structure of Relational Databases">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#database-applications" class="md-nav__link">
+  <a href="#basic-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Applications
+      Basic Structure
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dbms-vs-file-processing-systems" class="md-nav__link">
+  <a href="#attribute-types" class="md-nav__link">
     <span class="md-ellipsis">
-      DBMS vs. File-processing Systems
+      Attribute Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concepts-about-relation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts about Relation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-properties-of-relation" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Properties of Relation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Language
     </span>
   </a>
   
@@ -2183,46 +2267,64 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#view-of-data" class="md-nav__link">
+  <a href="#fundamental-relational-algebra-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      View of Data
+      Fundamental Relational-Algebra Operations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="View of Data">
+    <nav class="md-nav" aria-label="Fundamental Relational-Algebra Operations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#levels-of-data-abstraction" class="md-nav__link">
+  <a href="#selection" class="md-nav__link">
     <span class="md-ellipsis">
-      Levels of Data Abstraction
+      Selection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#schemas-and-instances" class="md-nav__link">
+  <a href="#projection" class="md-nav__link">
     <span class="md-ellipsis">
-      Schemas and Instances
+      Projection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#independence" class="md-nav__link">
+  <a href="#union" class="md-nav__link">
     <span class="md-ellipsis">
-      Independence
+      Union
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-models" class="md-nav__link">
+  <a href="#set-difference" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Models
+      Set Difference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cartesian-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartesian Product
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rename
     </span>
   </a>
   
@@ -2234,37 +2336,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-language" class="md-nav__link">
+  <a href="#additional-relational-algebra-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Language
+      Additional Relational-Algebra Operations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Language">
+    <nav class="md-nav" aria-label="Additional Relational-Algebra Operations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ddl" class="md-nav__link">
+  <a href="#set-intersection" class="md-nav__link">
     <span class="md-ellipsis">
-      DDL
+      Set Intersection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dml" class="md-nav__link">
+  <a href="#natural-join" class="md-nav__link">
     <span class="md-ellipsis">
-      DML
+      Natural Join
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sql" class="md-nav__link">
+  <a href="#division" class="md-nav__link">
     <span class="md-ellipsis">
-      SQL
+      Division
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assignment
     </span>
   </a>
   
@@ -2276,28 +2387,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-design" class="md-nav__link">
+  <a href="#extended-relational-algebra-operations" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Design
+      Extended Relational-Algebra Operations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Design">
+    <nav class="md-nav" aria-label="Extended Relational-Algebra Operations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#e-r-model" class="md-nav__link">
+  <a href="#generalized-projection" class="md-nav__link">
     <span class="md-ellipsis">
-      E-R Model
+      Generalized Projection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#relational-model" class="md-nav__link">
+  <a href="#aggregation-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Relational Model
+      Aggregation Functions
     </span>
   </a>
   
@@ -2309,70 +2420,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-users-and-administrators" class="md-nav__link">
+  <a href="#modification-of-the-database" class="md-nav__link">
     <span class="md-ellipsis">
-      Database Users and Administrators
+      Modification of the Database
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Users and Administrators">
+    <nav class="md-nav" aria-label="Modification of the Database">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#users" class="md-nav__link">
+  <a href="#deletion" class="md-nav__link">
     <span class="md-ellipsis">
-      Users
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#transaction-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transaction Management
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#database-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Database Architecture
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Database Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#storage-manager" class="md-nav__link">
-    <span class="md-ellipsis">
-      Storage Manager
+      Deletion
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#query-processor" class="md-nav__link">
+  <a href="#insertion" class="md-nav__link">
     <span class="md-ellipsis">
-      Query Processor
+      Insertion
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#database-system-internals" class="md-nav__link">
+  <a href="#updating" class="md-nav__link">
     <span class="md-ellipsis">
-      Database System Internals
+      Updating
     </span>
   </a>
   
@@ -2401,171 +2479,249 @@
   
 
 
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<h1 id="relational-model">Relational Model<a class="headerlink" href="#relational-model" title="Permanent link">&para;</a></h1>
+<p>A relational database is a collection of one or more relations, which are based on the relational model.</p>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/relational-example.png" title="A relation of instructors" width=40%> </div></p>
+</div>
+<h2 id="structure-of-relational-databases">Structure of Relational Databases<a class="headerlink" href="#structure-of-relational-databases" title="Permanent link">&para;</a></h2>
+<h3 id="basic-structure">Basic Structure<a class="headerlink" href="#basic-structure" title="Permanent link">&para;</a></h3>
+<p>设集合 <span class="arithmatex">\( D_1, D_2, \ldots, D_n \)</span>，关系 <span class="arithmatex">\(r\)</span> 是笛卡尔积 <span class="arithmatex">\(D_1 \times D_2 \times \ldots \times D_n\)</span> 的一个子集。</p>
+<h3 id="attribute-types">Attribute Types<a class="headerlink" href="#attribute-types" title="Permanent link">&para;</a></h3>
+<p>设关系 <span class="arithmatex">\(r\)</span> 为元组 <span class="arithmatex">\( (a_1, a_2, \ldots, a_n) \)</span>，其中 <span class="arithmatex">\(a_i\)</span> 是属性，<span class="arithmatex">\(D_i\)</span> 是属性的域。每个属性都有名称。</p>
+<div class="admonition note">
+<p class="admonition-title">关系理论第一范式</p>
+<p>Attribute values are (normally) required to be atomic. 属性值是原子的，即无法分割。例如复合属性或者多值属性都不能成为关系的属性。</p>
+</div>
+<p><span class="arithmatex">\( \mathsf{null} \)</span> 属于每个域。</p>
+<h3 id="concepts-about-relation">Concepts about Relation<a class="headerlink" href="#concepts-about-relation" title="Permanent link">&para;</a></h3>
+<p>A relation is concerned with two concepts: relation schema and  relation instance. 关系包含两个概念：关系模式和关系实例。</p>
+<ul>
+<li>
+<p><strong>Relation Schema</strong>: describes the structure of the relation.</p>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code>Student_schema = (sid: string, name: string, sex: string, age: int, dept: string)
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code>Student_schema = (sid, name, sex, age, dept)
+</code></pre></div>
+</div>
+</li>
+<li>
+<p><strong>Relation Instance</strong>: corresponds to the snapshot of the data in the relation at a given instant in time.</p>
+</li>
+</ul>
+<h3 id="the-properties-of-relation">The Properties of Relation<a class="headerlink" href="#the-properties-of-relation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The order of tuples is irrelevant. 无序</li>
+<li>No duplicated tuples in a relation. 无重复</li>
+<li>Attribute values are atomic. 属性是原子的</li>
+</ul>
+<h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h3>
+<p>A database consists of a collection of relations.</p>
+<h3 id="key">Key<a class="headerlink" href="#key" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(K \subseteq R\)</span></p>
+<ul>
+<li><strong>Superkey</strong>: <span class="arithmatex">\(K\)</span> is a superkey of <span class="arithmatex">\(R\)</span> if the values of <span class="arithmatex">\(K\)</span> are sufficient to identify a unique tuple in <span class="arithmatex">\(R\)</span>. <span class="arithmatex">\(K\)</span> 是 <span class="arithmatex">\(R\)</span> 的超键，如果 <span class="arithmatex">\(K\)</span> 的值足以唯一标识 <span class="arithmatex">\(R\)</span> 中的一个元组。</li>
+<li><strong>Candidate Key</strong>: <span class="arithmatex">\(K\)</span> is a candidate key of <span class="arithmatex">\(R\)</span> if <span class="arithmatex">\(K\)</span> is a minimal <strong>superkey</strong> of <span class="arithmatex">\(R\)</span>. <span class="arithmatex">\(K\)</span> 是 <span class="arithmatex">\(R\)</span> 的候选键，如果 <span class="arithmatex">\(K\)</span> 是 <span class="arithmatex">\(R\)</span> 的最小超键。</li>
+<li><strong>Primary Key</strong>: A candidate key defined by the database designer. 主键是数据库设计者定义的候选键，通常用下划线标识。</li>
+</ul>
+<h3 id="query-language">Query Language<a class="headerlink" href="#query-language" title="Permanent link">&para;</a></h3>
+<p>Pure languages:</p>
+<ul>
+<li><strong>Relational Algebra</strong>: a procedural query language. 过程式查询语言，SQL 的基础。</li>
+<li><strong>Tuple Relational Calculus</strong>: 元组关系演算</li>
+<li><strong>Domain Relational Calculus</strong>: 域关系演算</li>
+</ul>
+<h2 id="fundamental-relational-algebra-operations">Fundamental Relational-Algebra Operations<a class="headerlink" href="#fundamental-relational-algebra-operations" title="Permanent link">&para;</a></h2>
+<p>Six basic operators:</p>
+<ul>
+<li><strong>Selection</strong>: <span class="arithmatex">\( \sigma \)</span> 选择</li>
+<li><strong>Projection</strong>: <span class="arithmatex">\( \Pi \)</span> 投影</li>
+<li><strong>Union</strong>: <span class="arithmatex">\( \cup \)</span> 并</li>
+<li><strong>Set Difference</strong>: <span class="arithmatex">\( - \)</span> 差</li>
+<li><strong>Cartesian product</strong>: <span class="arithmatex">\( \times \)</span> 笛卡尔积</li>
+<li><strong>Rename</strong>: <span class="arithmatex">\( \rho \)</span> 重命名</li>
+</ul>
+<h3 id="selection">Selection<a class="headerlink" href="#selection" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( \sigma_{p} (r) = \{ t \mid t \in r \land p(t) \} \)</span></p>
+<ul>
+<li><span class="arithmatex">\( r \)</span> is a relation</li>
+<li><span class="arithmatex">\( p \)</span> is a predicate in the form of <code>&lt;attribute&gt; op &lt;attribute&gt; or &lt;constant&gt;</code>, where <code>op</code> is a comparison operator.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/selection-example.png" title="Selection example" width=40%> </div></p>
+</div>
+<h3 id="projection">Projection<a class="headerlink" href="#projection" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( \Pi_{A_1, A_2, \ldots, A_k} (r) \)</span></p>
+<ul>
+<li><span class="arithmatex">\( r \)</span> is a relation</li>
+<li><span class="arithmatex">\( A_i \)</span> is an attribute of <span class="arithmatex">\( r \)</span></li>
+</ul>
+<p>The result is defined as the relation of <span class="arithmatex">\(k\)</span> columns obtained by erasing the columns that are not listed. 结果是通过删除未列出的列而获得的 <span class="arithmatex">\(k\)</span> 列关系。并且进行 <strong>去重</strong>。</p>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/projection-example.png" title="Projection example" width=40%> </div></p>
+</div>
+<h3 id="union">Union<a class="headerlink" href="#union" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( r \cup s = \{ t \mid t \in r \lor t \in s \} \)</span></p>
+<ul>
+<li><span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> are relations</li>
+<li><span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> must have the same number of attributes. <span class="arithmatex">\( r \)</span> 和 <span class="arithmatex">\( s \)</span> 必须有相同数量的属性。</li>
+<li>The attribute domains must be compatible. 属性域必须兼容。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/union-example.png" title="Union example" width=40%> </div></p>
+</div>
+<h3 id="set-difference">Set Difference<a class="headerlink" href="#set-difference" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( r - s = \{ t \mid t \in r \land t \notin s \} \)</span></p>
+<ul>
+<li><span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> are relations</li>
+<li>Similar to <strong>Union</strong>, <span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> must have the same number of attributes and the attribute domains must be compatible.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/set-difference-example.png" title="Set difference example" width=40%> </div></p>
+</div>
+<h3 id="cartesian-product">Cartesian Product<a class="headerlink" href="#cartesian-product" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( r \times s = \{ (t_1, t_2) \mid t_1 \in r \land t_2 \in s \} \)</span></p>
+<ul>
+<li><span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> are relations</li>
+<li>If <span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> are not disjoint, then <strong>rename</strong> will be used to avoid ambiguity between the attributes with the same name. 如果 <span class="arithmatex">\( r \)</span> 和 <span class="arithmatex">\( s \)</span> 有相同名称的属性，则将使用 <strong>重命名</strong> 来避免具有相同名称的属性之间的歧义。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><span class="arithmatex">\( r \)</span> 和 <span class="arithmatex">\( s \)</span> 不相交：</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/cartesian-product-example1.png" title="Cartesian product example" width=40%> </div></p>
+<p><span class="arithmatex">\( r \)</span> 和 <span class="arithmatex">\( s \)</span> 相交：</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/cartesian-product-example2.png" title="Cartesian product example" width=40%> </div></p>
+</div>
+<h3 id="rename">Rename<a class="headerlink" href="#rename" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="arithmatex">\( \rho_X (E) \)</span>: rename the expression <span class="arithmatex">\(E\)</span> as <span class="arithmatex">\(X\)</span>.</li>
+<li><span class="arithmatex">\( \rho_{X(A_1, A_2, \ldots, A_n)} (E) \)</span>: rename the expression <span class="arithmatex">\(E\)</span> as <span class="arithmatex">\(X\)</span> and the attributes as <span class="arithmatex">\(A_1, A_2, \ldots, A_n\)</span>.</li>
+</ul>
+<p><span class="arithmatex">\( \rho \)</span> returns a relation that is identical to <span class="arithmatex">\(E\)</span> except that the relation is renamed as <span class="arithmatex">\(X\)</span>. <span class="arithmatex">\( \rho \)</span> 返回一个与 <span class="arithmatex">\(E\)</span> 相同的关系，只是关系被重命名为 <span class="arithmatex">\(X\)</span>。</p>
+<h2 id="additional-relational-algebra-operations">Additional Relational-Algebra Operations<a class="headerlink" href="#additional-relational-algebra-operations" title="Permanent link">&para;</a></h2>
+<p>Four additional operators:</p>
+<ul>
+<li><strong>Set Intersection</strong>: <span class="arithmatex">\( \cap \)</span> 交</li>
+<li><strong>Natural Join</strong>: <span class="arithmatex">\( \bowtie \)</span> 自然连接</li>
+<li><strong>Division</strong>: <span class="arithmatex">\( \div \)</span> 除</li>
+<li><strong>Assignment</strong>: <span class="arithmatex">\( \leftarrow \)</span> 赋值</li>
+</ul>
+<h3 id="set-intersection">Set Intersection<a class="headerlink" href="#set-intersection" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( r \cap s = \{ t \mid t \in r \land t \in s \} = r - (r - s) \)</span></p>
+<ul>
+<li><span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> are relations</li>
+<li><span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> must have the same number of attributes and the attribute domains must be compatible.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/set-intersection-example.png" title="Set intersection example" width=40%> </div></p>
+</div>
+<h3 id="natural-join">Natural Join<a class="headerlink" href="#natural-join" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( r \bowtie s \)</span></p>
+<ul>
+<li><span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> are relations</li>
+<li>Consider each pair of tuples <span class="arithmatex">\( t_1 \in r \)</span> and <span class="arithmatex">\( t_2 \in s \)</span>, if <span class="arithmatex">\( t_1 \)</span> and <span class="arithmatex">\( t_2 \)</span> have the same value on each attribute in <span class="arithmatex">\( R \cap S \)</span>, then add a tuple to the result relation with the remaining attributes from <span class="arithmatex">\( t_1 \)</span> and <span class="arithmatex">\( t_2 \)</span>. 如果 <span class="arithmatex">\( t_1 \)</span> 和 <span class="arithmatex">\( t_2 \)</span> 在 <span class="arithmatex">\( R \cap S \)</span> 上的每个属性上具有相同的值，则将一个元组添加到结果关系中，该元组具有来自 <span class="arithmatex">\( t_1 \)</span> 和 <span class="arithmatex">\( t_2 \)</span> 的剩余属性。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/natural-join-example.png" title="Natural join example" width=40%> </div></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Theta Join Operation</p>
+<p><span class="arithmatex">\( r \bowtie_{\theta} s = \sigma_{\theta} (r \times s) \)</span></p>
+</div>
+<h3 id="division">Division<a class="headerlink" href="#division" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( r \div s = \{ t \mid t \in \Pi_{R - S} (r) \land \forall u \in s, t \times u \in r \} \)</span></p>
+<ul>
+<li><span class="arithmatex">\( r \)</span> and <span class="arithmatex">\( s \)</span> are relations on schema <span class="arithmatex">\( R and S \)</span></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/division-example.png" title="Division example" width=40%> </div></p>
+</div>
+<h3 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( X \leftarrow E \)</span></p>
+<p>Assignment is always made to a temporary relation.</p>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p>Write <span class="arithmatex">\( r \div s \)</span> as:</p>
+<div class="arithmatex">\[
+\begin{align*}
+temp1 &amp;\leftarrow \Pi_{R - S} (r) \\
+temp2 &amp;\leftarrow \Pi_{R - S} (temp1 \times s - \Pi_{R - S, S} (r)) \\
+result &amp;\leftarrow temp1 - temp2
+\end{align*}
+\]</div>
+</div>
+<h2 id="extended-relational-algebra-operations">Extended Relational-Algebra Operations<a class="headerlink" href="#extended-relational-algebra-operations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Generalized Projection</strong>: <span class="arithmatex">\( \Pi_{A_1, A_2, \ldots, A_n} (r) \)</span> where <span class="arithmatex">\( A_i \)</span> is an expression. 广义投影</li>
+<li><strong>Aggregation Functions</strong>: 聚合函数</li>
+</ul>
+<h3 id="generalized-projection">Generalized Projection<a class="headerlink" href="#generalized-projection" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( \Pi_{A_1, A_2, \ldots, A_n} (r) \)</span> where <span class="arithmatex">\( A_i \)</span> is an expression.</p>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p>Given a relation <span class="arithmatex">\( \text{credit_info}(\text{customer_name}, \text{limit}, \text{current_balance}) \)</span>, we can use the following expression to calculate the available credit for each customer:</p>
+<div class="arithmatex">\[
+\Pi_{\text{customer_name}, \text{limit} - \text{current_balance}} (\text{credit_info})
+\]</div>
+</div>
+<h3 id="aggregation-functions">Aggregation Functions<a class="headerlink" href="#aggregation-functions" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( _{G_1, G_2, \ldots, G_n}g_{F_1(A_1), F_2(A_2), \ldots, F_n(A_n)} (r) \)</span></p>
+<ul>
+<li><span class="arithmatex">\( r \)</span> is a relation</li>
+<li><span class="arithmatex">\( A_i \)</span> is an attribute of <span class="arithmatex">\( r \)</span></li>
+<li><span class="arithmatex">\( F_i \)</span> is an aggregation function, such as<ul>
+<li><strong>avg</strong>: average value</li>
+<li><strong>sum</strong>: sum of values</li>
+<li><strong>count</strong>: number of tuples</li>
+<li><strong>max</strong>: maximum value</li>
+<li><strong>min</strong>: minimum value</li>
+</ul>
+</li>
+<li><span class="arithmatex">\( G_i \)</span> is a grouping attribute(can be empty)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Example</p>
+<p><div align="center"> <img src="/assert/img/CS/database/chapter2/aggregation-functions-example.png" title="Aggregation functions example" width=50%> </div></p>
+</div>
 <div class="admonition info">
-<p class="admonition-title">What is a database?</p>
-<ul>
-<li><strong>Database</strong>: A very large, integrated collection of data. 数据集合。</li>
-<li>
-<p><strong>Database Management System (DBMS)</strong>: A software system designed to store, manage, and facilitate access to databases. 数据库管理系统。</p>
-<p>DBMS = ( Database ) + A set of programs used to access, update and manage the data in database. </p>
-</li>
-</ul>
+<p class="admonition-title">Info</p>
+<p>Result of aggregation does not have a name. 聚合的结果没有名称，需要重命名或者在聚合操作中指定名称。</p>
+<p>Example:</p>
+<div class="arithmatex">\[
+_\text{branch-name} g_{\text{sum}(\text{balance}) \ as \ \text{sum-balance}} (\text{account})
+\]</div>
 </div>
-<h2 id="purpose-of-database-systems">Purpose of Database Systems<a class="headerlink" href="#purpose-of-database-systems" title="Permanent link">&para;</a></h2>
-<h3 id="database-applications">Database Applications<a class="headerlink" href="#database-applications" title="Permanent link">&para;</a></h3>
-<p>Data processing and management. 主要用于数据处理和管理。</p>
-<h3 id="dbms-vs-file-processing-systems">DBMS vs. File-processing Systems<a class="headerlink" href="#dbms-vs-file-processing-systems" title="Permanent link">&para;</a></h3>
+<h2 id="modification-of-the-database">Modification of the Database<a class="headerlink" href="#modification-of-the-database" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><strong>DBMS</strong>:</p>
-<ol>
-<li>Efficiency and scalability in data access. 数据访问效率高，可扩展性强。</li>
-<li>Reduced application development time. 缩短应用开发时间。</li>
-<li>Data independence. 数据独立性。</li>
-<li>Data integrity and security. 数据完整性和安全性。</li>
-<li>Concurrent access and robustness. 并发访问和数据健壮性（可靠性）。</li>
-</ol>
-</li>
-<li>
-<p><strong>File-processing Systems</strong>:</p>
-<ol>
-<li>Data redundancy and inconsistency. 数据冗余和不一致。可能存在同一数据的多个副本，且这些副本可能不同步。</li>
-<li>Difficulty in accessing data. 数据访问困难。访问数据需要编写专门的程序。</li>
-<li>Data isolation. 数据隔离。难以检索和共享数据。</li>
-<li>Integrity problems. 完整性问题。难以添加新的约束或者更改已有的约束。</li>
-<li>Atomicity problems. 原子性问题。数据访问失败可能会导致整体数据不同步。</li>
-<li>Concurrent access anomalies. 并发访问异常。</li>
-<li>Security problems. 安全性问题。</li>
-</ol>
-</li>
+<li><strong>Deletion</strong></li>
+<li><strong>Insertion</strong></li>
+<li><strong>Updating</strong></li>
 </ul>
-<h2 id="view-of-data">View of Data<a class="headerlink" href="#view-of-data" title="Permanent link">&para;</a></h2>
-<h3 id="levels-of-data-abstraction">Levels of Data Abstraction<a class="headerlink" href="#levels-of-data-abstraction" title="Permanent link">&para;</a></h3>
-<div align="center"> <img src="/assert/img/CS/database/chapter1/arch.png" width=50% /> </div>
-
+<h3 id="deletion">Deletion<a class="headerlink" href="#deletion" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( r \leftarrow r - E \)</span></p>
 <ul>
-<li><strong>Physical level</strong>: describes how a record is stored. 数据的物理存储方式</li>
-<li><strong>Logical level</strong>: describes data stored in database, and the relationships among the data on upper level. 描述数据库中的数据，和数据之间的关系。</li>
-<li><strong>View level</strong>: application programs hide details of data types. Note that views can also hide information (e.g., employee’s salary) for security purposes. 选择性向用户展示数据。</li>
+<li><span class="arithmatex">\( r \)</span> is a relation</li>
+<li><span class="arithmatex">\( E \)</span> is a relational-algebra expression</li>
 </ul>
-<h3 id="schemas-and-instances">Schemas and Instances<a class="headerlink" href="#schemas-and-instances" title="Permanent link">&para;</a></h3>
+<h3 id="insertion">Insertion<a class="headerlink" href="#insertion" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( r \leftarrow r \cup E \)</span></p>
+<h3 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\( r \leftarrow \Pi_{F_1, F_2, \ldots, F_n} (r) \)</span></p>
 <ul>
-<li>
-<p><strong>Schemas 架构</strong>: the structure of the database on different levels. 数据库的结构。</p>
-<ol>
-<li><strong>Physical schema</strong>: database structure design at the physical level.</li>
-<li><strong>Logical schema</strong>: database structure design at the logical level.</li>
-<li><strong>Subschema</strong>: schema at view level.</li>
-</ol>
-</li>
-<li>
-<p><strong>Instances 实例</strong>: the actual content of the database at a particular point in time. 数据库的实际内容。</p>
-</li>
+<li><span class="arithmatex">\( r \)</span> is a relation</li>
+<li><span class="arithmatex">\( F_i \)</span> is an attribute of <span class="arithmatex">\( r \)</span> or an expression which gives the new value of the attribute</li>
 </ul>
-<div align="center"> <img src="/assert/img/CS/database/chapter1/schema_structure.png" width=50% /> </div>
-
-<div class="admonition note">
-<p class="admonition-title">类比</p>
-<ul>
-<li><strong>Schema</strong>: 类比为数据类型（type）。</li>
-<li><strong>Instance</strong>: 类比为实例化后的变量（variable）。</li>
-</ul>
-</div>
-<h3 id="independence">Independence<a class="headerlink" href="#independence" title="Permanent link">&para;</a></h3>
-<p>Ability to modify a schema definition at one level without affecting a schema definition at a higher level. 在不影响更高层次的数据的情况下修改底层数据。</p>
-<ul>
-<li><strong>Physical Data Independence</strong>: the ability to modify the physical schema without changing the logical schema. 可以修改物理架构而不影响逻辑架构。<strong>DBMS 的主要优势</strong></li>
-<li><strong>Logical Data Independence</strong>: protection from changes in the logical schema. 保护逻辑架构不受应用程序的影响。比较难以实现，因为大部分应用程序都依赖于逻辑架构。</li>
-</ul>
-<h3 id="data-models">Data Models<a class="headerlink" href="#data-models" title="Permanent link">&para;</a></h3>
-<p>A collection of conceptual tools for describing data, data relationships, data semantics, and consistency constraints. 描述数据、数据关系、数据语义和一致性约束的概念工具集合。</p>
-<ul>
-<li><strong>Entity-Relationship model 实体关系模型</strong>: 描述实体的属性和实体之间的关系。</li>
-<li><strong>Relational model 关系模型</strong>: 描述数据的逻辑结构。</li>
-<li>Others: Object-oriented, Semi-structured data models(XML), etc.</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Database design step</p>
-<ul>
-<li>Requirements analysis</li>
-<li>Conceptual design: 使用 ER 模型</li>
-<li>Logical design: 使用关系模型</li>
-<li>...</li>
-</ul>
-</div>
-<h2 id="database-language">Database Language<a class="headerlink" href="#database-language" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Data Definition Language (DDL)</strong>: Specification notation for defining the database schema. 用于定义数据库架构的规范符号。</li>
-<li><strong>Data Manipulation Language (DML)</strong>: Language for accessing and manipulating the data organized by appropriate data model. 用于访问和操作数据的语言。</li>
-<li><strong>Data Control Language (DCL)</strong></li>
-</ul>
-<h3 id="ddl">DDL<a class="headerlink" href="#ddl" title="Permanent link">&para;</a></h3>
-<p>Specify a database schema by a set of definitions expressed by a data-definition language (DDL). The DDL is also used to specify additional properties of the data. DDL 用于定义关系模式、删除关系、修改关系模式以及创建数据库中的各种对象。</p>
-<p>DDL 编译后生成一张包含元数据（metadata）的表，称作 data dictionary。</p>
-<h3 id="dml">DML<a class="headerlink" href="#dml" title="Permanent link">&para;</a></h3>
-<p>用于操纵数据库中的数据，其中涉及数据查询到部分称为查询语言（query language）。</p>
-<p>Two classes of DMLs:</p>
-<ul>
-<li><strong>Procedural DMLs 过程式</strong>: 用户需要指定如何获取数据。例如 C、Java 等语言。</li>
-<li><strong>Nonprocedural DMLs 非过程式（陈述式）</strong>: 用户只需要指定需要获取的数据。例如 SQL。</li>
-</ul>
-<h3 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
-<p>SQL = DDL + DML + DCL</p>
-<h2 id="database-design">Database Design<a class="headerlink" href="#database-design" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Requirement Analysis</strong>: What data, applications, and operations needed.</li>
-<li><strong>Conceptual Design</strong>: High-level description of data to be stored, using ER model. 高层次描述数据的存储，使用 ER 模型。</li>
-<li><strong>Logical Design</strong>: Translate ER model to DB schema. 将 ER 模型转换为数据库架构。</li>
-<li><strong>Schema Refinement</strong>: Improve the logical schema. 改进逻辑架构。</li>
-<li><strong>Physical Database Design</strong>: Design the internal storage structure. 设计内部存储结构。</li>
-<li><strong>Creating and Initializing the Database</strong>: 创建和初始化数据库。</li>
-</ul>
-<h3 id="e-r-model">E-R Model<a class="headerlink" href="#e-r-model" title="Permanent link">&para;</a></h3>
-<p><strong>ER Model of Real World</strong>:
-- Entities: Entities are described by a set of attributes. 实体由一组属性描述。
-- Relationships: Relationships among entities. 实体之间的关系。</p>
-<div class="admonition note">
-<p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter1/er-model-example.png" width=60% /> </div></p>
-</div>
-<h3 id="relational-model">Relational Model<a class="headerlink" href="#relational-model" title="Permanent link">&para;</a></h3>
-<p>Transfer E-R diagrams into relational schema.</p>
-<p>转换后的表格第一行为实体的属性，随后每一行为一个元组，代表一个实例。</p>
-<div class="admonition note">
-<p class="admonition-title">Example</p>
-<p>将 customer 实体转换为关系模型：</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter1/relational-model-example.png" width=60% /> </div></p>
-</div>
-<h2 id="database-users-and-administrators">Database Users and Administrators<a class="headerlink" href="#database-users-and-administrators" title="Permanent link">&para;</a></h2>
-<h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h3>
-<p>由其与系统交互的方式进行划分：</p>
-<ul>
-<li><strong>Naive users</strong>: 调用预定义的程序访问数据库，普通用户。</li>
-<li><strong>Application programmers</strong>: 开发应用程序的程序员，通过 SQL calls 访问数据库。</li>
-<li><strong>Sophisticated users</strong>: 通过 SQL 查询数据库。</li>
-<li><strong>Specialized users</strong>: write specialized database applications that do not fit into the traditional data processing framework. 编写专门的数据库应用程序。</li>
-</ul>
-<div align="center"> <img src="/assert/img/CS/database/chapter1/users.png" width=60% /> </div>
-
-<h2 id="transaction-management">Transaction Management<a class="headerlink" href="#transaction-management" title="Permanent link">&para;</a></h2>
-<p>A transaction is a collection of operations that performs a single logical function in a database application. 事务是数据库应用程序中执行单个逻辑功能的一组操作。</p>
-<p>Transaction requirements include atomicity, consistence, isolation, durability. 事务要求包括原子性、一致性、隔离性、持久性。</p>
-<h2 id="database-architecture">Database Architecture<a class="headerlink" href="#database-architecture" title="Permanent link">&para;</a></h2>
-<h3 id="storage-manager">Storage Manager<a class="headerlink" href="#storage-manager" title="Permanent link">&para;</a></h3>
-<p>为应用程序提供访问底层数据的接口。分为：</p>
-<ul>
-<li><strong>Transaction manager</strong>: 事务管理。</li>
-<li><strong>Authorization and integrity manger</strong>: 授权和完整性管理。</li>
-<li><strong>File manager</strong>: interaction with the file system to process data files, data dictionary, and index files. 与文件系统交互处理数据文件、数据字典和索引文件。</li>
-<li><strong>Buffer manager</strong>: 数据缓存管理。</li>
-</ul>
-<h3 id="query-processor">Query Processor<a class="headerlink" href="#query-processor" title="Permanent link">&para;</a></h3>
-<p>Query Processor includes DDL interpreter, DML compiler, and query processing. 查询处理器包括 DDL 解释器、DML 编译器和查询处理。</p>
-<div align="center"> <img src="/assert/img/CS/database/chapter1/query-processor.png" width=60% /> </div>
-
-<h3 id="database-system-internals">Database System Internals<a class="headerlink" href="#database-system-internals" title="Permanent link">&para;</a></h3>
-<div align="center"> <img src="/assert/img/CS/database/chapter1/system-internals.png" width=60% /> </div>
 
 
 
@@ -2588,7 +2744,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 5, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 10, 2024</span>
   </span>
 
     
@@ -2598,7 +2754,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 5, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 10, 2024</span>
   </span>
 
     
@@ -2671,7 +2827,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 数据库系统">
+          <a href="../chapter1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 数据库系统概述">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2681,20 +2837,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                数据库系统
+                数据库系统概述
               </div>
             </div>
           </a>
         
         
           
-          <a href="../chapter2/" class="md-footer__link md-footer__link--next" aria-label="下一页: 关系模型">
+          <a href="../../../math/" class="md-footer__link md-footer__link--next" aria-label="下一页: Math">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                关系模型
+                Math
               </div>
             </div>
             <div class="md-footer__button md-icon">
