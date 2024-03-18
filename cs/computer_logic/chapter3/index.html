@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assert/ico/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.10ba22f1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -2686,7 +2686,7 @@
 <p>A wide line is used to represent a bus (总线). The bus can be split into individual lines.</p>
 <h3 id="enable-function">Enable Function<a class="headerlink" href="#enable-function" title="Permanent link">&para;</a></h3>
 <p>与门 + 非门</p>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/control.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/control.png" width = 60%/></div>
 
 <h3 id="decoding">Decoding 译码<a class="headerlink" href="#decoding" title="Permanent link">&para;</a></h3>
 <p>the conversion of an n-bit input code to an m-bit output code with <span class="arithmatex">\(n \leq m \leq 2^n\)</span> such that each valid code word produces a unique output code</p>
@@ -2694,11 +2694,11 @@
 <ul>
 <li>
 <p>1-to-2-line decoder</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/1-to-2.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/1-to-2.png" width = 60%/></div></p>
 </li>
 <li>
 <p>2-to-4-line decoder</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/2-to-4.png" width = 80%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/2-to-4.png" width = 80%/></div></p>
 </li>
 </ul>
 <p>行列译码器：将输入不断二分，例如 4-to-16 拆成 2-to4 和 2-to-4，再将 2-to-4 拆成 1-to-2 和 1-to-2。</p>
@@ -2741,7 +2741,7 @@ A_3 &amp;= D_8 + D_9
 \end{align}\]</div>
 <h4 id="priority-encoder">Priority Encoder<a class="headerlink" href="#priority-encoder" title="Permanent link">&para;</a></h4>
 <p>Accepts multiple inputs and use the highest priority input.</p>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/priority_encoder.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/priority_encoder.png" width = 60%/></div>
 
 <p>where <span class="arithmatex">\(V\)</span> indicates at least one 1 present.</p>
 <p>Use K-map to get equations:</p>
@@ -2756,18 +2756,18 @@ V &amp;= D_4 + F_1 + D_1 + D_0
 <p>A multiplexer selects information from an input line and directs the information to an output line.</p>
 <p>Decoder + Enable.</p>
 <h4 id="2-to-1-line-multiplexer">2-to-1-line Multiplexer<a class="headerlink" href="#2-to-1-line-multiplexer" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/2-to-1.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/2-to-1.png" width = 60%/></div>
 
 <h4 id="4-to-1-line-multiplexer">4-to-1-line Multiplexer<a class="headerlink" href="#4-to-1-line-multiplexer" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/4-to-1.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/4-to-1.png" width = 60%/></div>
 
 <h4 id="multiplexer-width-expansion">Multiplexer Width Expansion<a class="headerlink" href="#multiplexer-width-expansion" title="Permanent link">&para;</a></h4>
 <p>Select "vector bits" instead of "bits".</p>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/width_expansion.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/width_expansion.png" width = 60%/></div>
 
 <h4 id="other-multiplexers">Other Multiplexers<a class="headerlink" href="#other-multiplexers" title="Permanent link">&para;</a></h4>
 <p>Use three-state drivers.</p>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/other_mux.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/other_mux.png" width = 60%/></div>
 
 <h3 id="combinational-logic-implementation">Combinational Logic Implementation<a class="headerlink" href="#combinational-logic-implementation" title="Permanent link">&para;</a></h3>
 <h4 id="multiplexer-approach-1">Multiplexer Approach 1<a class="headerlink" href="#multiplexer-approach-1" title="Permanent link">&para;</a></h4>
@@ -2778,11 +2778,11 @@ V &amp;= D_4 + F_1 + D_1 + D_0
 <ul>
 <li>
 <p>Truth table:</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/gray_to_binary.png" width = 30%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/gray_to_binary.png" width = 30%/></div></p>
 </li>
 <li>
 <p>Mux:</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/gray_to_binary_mux.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/gray_to_binary_mux.png" width = 60%/></div></p>
 </li>
 </ul>
 </div>
@@ -2801,11 +2801,11 @@ V &amp;= D_4 + F_1 + D_1 + D_0
 <ul>
 <li>
 <p>Truth table:</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/gray_to_binary2.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/gray_to_binary2.png" width = 60%/></div></p>
 </li>
 <li>
 <p>Mux:</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/gray_to_binary_mux2.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/gray_to_binary_mux2.png" width = 60%/></div></p>
 </li>
 </ul>
 </div>
@@ -2914,7 +2914,7 @@ Z &amp;= \bar D, G &amp;&amp;= 0
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Cell Library</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/celllib.png" width = 80%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/celllib.png" width = 80%/></div></p>
 </div>
 <h3 id="mapping-to-nand-gate">Mapping to NAND gate<a class="headerlink" href="#mapping-to-nand-gate" title="Permanent link">&para;</a></h3>
 <p>Convert any circuits to NAND gates.</p>
@@ -2961,7 +2961,7 @@ Z &amp;= \bar D, G &amp;&amp;= 0
 <p>Use blocked diagram to process each bit.</p>
 <h4 id="half-adder">Half Adder<a class="headerlink" href="#half-adder" title="Permanent link">&para;</a></h4>
 <p>inputs: <span class="arithmatex">\(X, Y\)</span>; outputs: <span class="arithmatex">\(S, C\)</span> (sum, carry)</p>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/half_adder_table.png" width = 30%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/half_adder_table.png" width = 30%/></div>
 
 <div class="arithmatex">\[\begin{align}
 S &amp;= A \oplus B \\
@@ -2969,7 +2969,7 @@ C &amp;= AB
 \end{align}\]</div>
 <h4 id="full-adder">Full Adder<a class="headerlink" href="#full-adder" title="Permanent link">&para;</a></h4>
 <p>inputs: <span class="arithmatex">\(X, Y, Z\)</span> (<span class="arithmatex">\(Z\)</span>: carry); outputs: <span class="arithmatex">\(S, C\)</span></p>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/full_adder_table.png" width = 30%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/full_adder_table.png" width = 30%/></div>
 
 <div class="arithmatex">\[\begin{align}
 S &amp;= X \oplus Y \oplus Z \\
@@ -2980,10 +2980,10 @@ C &amp;= XY + XZ + YZ = XY + (X \oplus Y)Z
 G = XY, P = X \oplus Y \\
 S = P \oplus Z, C = G + PZ
 \end{align}\]</div>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/full_adder.png" width = 30%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/full_adder.png" width = 30%/></div>
 
 <h4 id="4-bit-ripple-carry-adder">4-bit Ripple-Carry Adder<a class="headerlink" href="#4-bit-ripple-carry-adder" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/4-bit_adder.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/4-bit_adder.png" width = 60%/></div>
 
 <p>缺点：延迟高（Carry 需要传递）</p>
 <div class="admonition note">
@@ -2999,9 +2999,9 @@ S = P \oplus Z, C = G + PZ
 G_{0\sim 3} &amp;= G_3 + P_3G_2 + P_3P_2G_1 + P_3P_2P_1G_0 \\
 P_{0\sim 3} &amp;= P_3P_2P_1P_0
 \end{align}\]</div>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/group_carry.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/group_carry.png" width = 60%/></div></p>
 <p>CLA: input <span class="arithmatex">\(G_0, P_0, G_1, P_1, G_2, P_2, G_3, P_3\)</span>, output <span class="arithmatex">\(G_{0\sim 3}, P_{0\sim 3}\)</span></p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/16-bit_group_carry.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/16-bit_group_carry.png" width = 60%/></div></p>
 <p>第一层最右 CLA: input <span class="arithmatex">\(G_0, P_0, G_1, P_1, G_2, P_2, G_3, P_3\)</span>, output <span class="arithmatex">\(G_{0\sim 3}, P_{0\sim 3}\)</span></p>
 <p>第二层 CLA: input <span class="arithmatex">\(C_0, G_{0\sim 3}, P_{0\sim 3}, G_{4\sim 7}, P_{4\sim 7}, G_{8\sim 11}, P_{8\sim 11}, G_{12\sim 15}, P_{12\sim 15}\)</span>, output <span class="arithmatex">\(C_4, C_8, C_{12}, C_{16}\)</span></p>
 <p>Longest Delays:</p>
@@ -3036,18 +3036,18 @@ P_{0\sim 3} &amp;= P_3P_2P_1P_0
 <li>加法：直接相加</li>
 <li>减法：将减数取反加一（变为减数取反之后的补码），再与被减数相加</li>
 </ul>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/addsub.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/addsub.png" width = 60%/></div></p>
 </div>
 <h4 id="overflow-detection">Overflow Detection<a class="headerlink" href="#overflow-detection" title="Permanent link">&para;</a></h4>
 <p>通过符号位判断溢出，有 8 种情况：</p>
 <ul>
 <li>
 <p>无溢出</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/overflow1.png" width = 30%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/overflow1.png" width = 30%/></div></p>
 </li>
 <li>
 <p>有溢出</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/overflow2.png" width = 30%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/overflow2.png" width = 30%/></div></p>
 </li>
 </ul>
 <p>（注：减负数相当于加正数，<span class="arithmatex">\(C_{n-1}\)</span> 为 0；加负数相当于减正数，<span class="arithmatex">\(C_{n-1}\)</span> 为 1）</p>
@@ -3084,7 +3084,7 @@ P_{0\sim 3} &amp;= P_3P_2P_1P_0
 </ul>
 <div class="admonition note">
 <p class="admonition-title">A + 1 Incrementer</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter3/incrementer.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter3/incrementer.png" width = 60%/></div></p>
 </div>
 <h4 id="arithmetic-logic-unit-alu">Arithmetic Logic Unit (ALU)<a class="headerlink" href="#arithmetic-logic-unit-alu" title="Permanent link">&para;</a></h4>
 <p>Decompose the arithmetic circuit into:</p>
@@ -3114,7 +3114,7 @@ P_{0\sim 3} &amp;= P_3P_2P_1P_0
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 6, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2024</span>
   </span>
 
     
@@ -3281,7 +3281,7 @@ P_{0\sim 3} &amp;= P_3P_2P_1P_0
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       

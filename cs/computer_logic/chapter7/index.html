@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assert/ico/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.10ba22f1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -2317,7 +2317,7 @@
 <div class="admonition example">
 <p class="admonition-title">Memory Block Diagram</p>
 <p>A basic memory system is shown here 基础的内存系统：</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter7/memoryblock.png" width = 40%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/memoryblock.png" width = 40%/></div></p>
 <ul>
 <li>k address lines are decoded to address <span class="arithmatex">\(2^k\)</span> words of memory.</li>
 <li>Each word is n bits.</li>
@@ -2361,12 +2361,12 @@
 <ul>
 <li>
 <p>Read Timing</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter7/readtiming.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/readtiming.png" width = 60%/></div></p>
 <p><code>data valid</code> 之前需要等待一段时间，因为内存需要一定的时间读取数据。这个时间取决于内存的速度。</p>
 </li>
 <li>
 <p>Write Timing</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter7/writetiming.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/writetiming.png" width = 60%/></div></p>
 <p>在 R/W 信号下降时要将 addr 锁存起来，上升时要预先把数据准备好。</p>
 </li>
 </ul>
@@ -2398,7 +2398,7 @@
 </ul>
 <h3 id="static-ram">Static RAM<a class="headerlink" href="#static-ram" title="Permanent link">&para;</a></h3>
 <h4 id="storage-cell">Storage Cell<a class="headerlink" href="#storage-cell" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramcell.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramcell.png" width = 60%/></div>
 
 <ul>
 <li>
@@ -2415,7 +2415,7 @@
 <li><strong>Dual Rail Data Outputs <span class="arithmatex">\(C\)</span> and <span class="arithmatex">\(\bar C\)</span></strong>: dual rail 数据输出</li>
 </ul>
 <h4 id="bit-slice">Bit Slice<a class="headerlink" href="#bit-slice" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/srambitslice.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/srambitslice.png" width = 60%/></div>
 
 <p><strong>Bit Select</strong>: 控制整个 bit slice 的工作，当 Bit Select 为 0 时，整个 bit slice 不工作；当 Bit Select 为 1 时，bit slice 的读写收 Read/Write 控制。</p>
 <p>当 Bit Select 为 1 时：</p>
@@ -2424,26 +2424,26 @@
 <li>Write Operation: Read/Write 为 0，此时 Data in 处与门工作，根据 Word Select 选择写入的数据。</li>
 </ul>
 <h4 id="cell-arrays-and-coincident-selection">Cell Arrays and Coincident Selection<a class="headerlink" href="#cell-arrays-and-coincident-selection" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramcellarray.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramcellarray.png" width = 60%/></div>
 
 <ul>
 <li>Decoder: 译码器，将地址译码为控制信号，将对应地址上 RAM cell 的 Select 置为 1。</li>
 <li>三态门：使得 RAM chip 的输出可以与总线连接。</li>
 </ul>
 <p><strong>行列译码</strong></p>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramrowcoldecode.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramrowcoldecode.png" width = 60%/></div>
 
 <div class="admonition example">
 <p class="admonition-title"><span class="arithmatex">\(8\times 2\)</span> RAM</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter7/82ram.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/82ram.png" width = 60%/></div></p>
 <p>RAM slice 0 和 2、1 和 3 作为数据的高低位。</p>
 </div>
 <h4 id="making-larger-memories">Making Larger Memories<a class="headerlink" href="#making-larger-memories" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramlargermem.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramlargermem.png" width = 40%/></div>
 
 <p>高两位接入译码器，低两位接入 RAM chip，减少复杂度。</p>
 <h4 id="making-wider-memories">Making Wider Memories<a class="headerlink" href="#making-wider-memories" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramwidermem.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramwidermem.png" width = 40%/></div>
 
 <p>增加位宽，每块 RAM chip 就代表最后输出的某一位。</p>
 <h3 id="dynamic-ram">Dynamic RAM<a class="headerlink" href="#dynamic-ram" title="Permanent link">&para;</a></h3>
@@ -2453,7 +2453,7 @@
 <li>Capacitor: 电容</li>
 <li>Switch: 开关</li>
 </ul>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramcell.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramcell.png" width = 40%/></div>
 
 <p>基本功能：</p>
 <ul>
@@ -2462,10 +2462,10 @@
 <li>Read: 读取电容的电压。</li>
 </ul>
 <h4 id="dram-slice">DRAM Slice<a class="headerlink" href="#dram-slice" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramslice.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramslice.png" width = 60%/></div>
 
 <h4 id="block-diagram">Block Diagram<a class="headerlink" href="#block-diagram" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramblock.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramblock.png" width = 60%/></div>
 
 <p>Read and Write Operations: 分开读取行列地址，CPU 提供信号告诉 DRAM 当前读取的是行地址还是列地址。</p>
 <ul>
@@ -2482,11 +2482,11 @@
 <ol>
 <li>
 <p>Read Timing</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramreadtiming.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramreadtiming.png" width = 60%/></div></p>
 </li>
 <li>
 <p>Write Timing</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramwritetiming.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramwritetiming.png" width = 60%/></div></p>
 </li>
 </ol>
 <h4 id="dram-types">DRAM Types<a class="headerlink" href="#dram-types" title="Permanent link">&para;</a></h4>
@@ -2500,7 +2500,7 @@
 <p>有时钟，一次可以读出多个数据。</p>
 <div class="admonition example">
 <p class="admonition-title">Synchronous DRAM - burst size=4</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter7/sdramex.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/sdramex.png" width = 60%/></div></p>
 </div>
 <p><strong>Double Data Rate SDRAM</strong>:</p>
 <p>Transfers data on both edges of the clock. 在时钟的上升沿和下降沿都可以读出数据。</p>
@@ -2536,7 +2536,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 10, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2024</span>
   </span>
 
     
@@ -2703,7 +2703,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       

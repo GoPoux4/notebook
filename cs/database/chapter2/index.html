@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assert/ico/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.10ba22f1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1290,6 +1290,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreign-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foreign Key
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2250,6 +2265,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#foreign-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foreign Key
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2483,7 +2513,7 @@
 <p>A relational database is a collection of one or more relations, which are based on the relational model.</p>
 <div class="admonition note">
 <p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/relational-example.png" title="A relation of instructors" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/relational-example.png" title="A relation of instructors" width=40%> </div></p>
 </div>
 <h2 id="structure-of-relational-databases">Structure of Relational Databases<a class="headerlink" href="#structure-of-relational-databases" title="Permanent link">&para;</a></h2>
 <h3 id="basic-structure">Basic Structure<a class="headerlink" href="#basic-structure" title="Permanent link">&para;</a></h3>
@@ -2528,6 +2558,11 @@
 <li><strong>Candidate Key</strong>: <span class="arithmatex">\(K\)</span> is a candidate key of <span class="arithmatex">\(R\)</span> if <span class="arithmatex">\(K\)</span> is a minimal <strong>superkey</strong> of <span class="arithmatex">\(R\)</span>. <span class="arithmatex">\(K\)</span> 是 <span class="arithmatex">\(R\)</span> 的候选键，如果 <span class="arithmatex">\(K\)</span> 是 <span class="arithmatex">\(R\)</span> 的最小超键。</li>
 <li><strong>Primary Key</strong>: A candidate key defined by the database designer. 主键是数据库设计者定义的候选键，通常用下划线标识。</li>
 </ul>
+<h4 id="foreign-key">Foreign Key<a class="headerlink" href="#foreign-key" title="Permanent link">&para;</a></h4>
+<!-- Assume there exists relations r and s: r(A, B, C), s(B, D), we can say that attribute B in relation r is foreign key referencing s, and r is a referencing relation (参照关系), and s is a referenced relation (被参照关系) -->
+
+<p>Assume relations <span class="arithmatex">\(r\)</span> and <span class="arithmatex">\(s\)</span>: <span class="arithmatex">\(r(\underline{A}, B, C)\)</span>, <span class="arithmatex">\(s(\underline{B}, D)\)</span>. <span class="arithmatex">\(B\)</span> in relation <span class="arithmatex">\(r\)</span> is a foreign key referencing <span class="arithmatex">\(s\)</span>, and <span class="arithmatex">\(r\)</span> is a referencing relation, and <span class="arithmatex">\(s\)</span> is a referenced relation.</p>
+<p>参照关系中外码的值必须在被参照关系中实际存在, 或为 <span class="arithmatex">\( \mathsf{null} \)</span>。</p>
 <h3 id="query-language">Query Language<a class="headerlink" href="#query-language" title="Permanent link">&para;</a></h3>
 <p>Pure languages:</p>
 <ul>
@@ -2553,7 +2588,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/selection-example.png" title="Selection example" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/selection-example.png" title="Selection example" width=40%> </div></p>
 </div>
 <h3 id="projection">Projection<a class="headerlink" href="#projection" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\( \Pi_{A_1, A_2, \ldots, A_k} (r) \)</span></p>
@@ -2564,7 +2599,7 @@
 <p>The result is defined as the relation of <span class="arithmatex">\(k\)</span> columns obtained by erasing the columns that are not listed. 结果是通过删除未列出的列而获得的 <span class="arithmatex">\(k\)</span> 列关系。并且进行 <strong>去重</strong>。</p>
 <div class="admonition note">
 <p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/projection-example.png" title="Projection example" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/projection-example.png" title="Projection example" width=40%> </div></p>
 </div>
 <h3 id="union">Union<a class="headerlink" href="#union" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\( r \cup s = \{ t \mid t \in r \lor t \in s \} \)</span></p>
@@ -2575,7 +2610,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/union-example.png" title="Union example" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/union-example.png" title="Union example" width=40%> </div></p>
 </div>
 <h3 id="set-difference">Set Difference<a class="headerlink" href="#set-difference" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\( r - s = \{ t \mid t \in r \land t \notin s \} \)</span></p>
@@ -2585,7 +2620,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/set-difference-example.png" title="Set difference example" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/set-difference-example.png" title="Set difference example" width=40%> </div></p>
 </div>
 <h3 id="cartesian-product">Cartesian Product<a class="headerlink" href="#cartesian-product" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\( r \times s = \{ (t_1, t_2) \mid t_1 \in r \land t_2 \in s \} \)</span></p>
@@ -2596,9 +2631,9 @@
 <div class="admonition note">
 <p class="admonition-title">Example</p>
 <p><span class="arithmatex">\( r \)</span> 和 <span class="arithmatex">\( s \)</span> 不相交：</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/cartesian-product-example1.png" title="Cartesian product example" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/cartesian-product-example1.png" title="Cartesian product example" width=40%> </div></p>
 <p><span class="arithmatex">\( r \)</span> 和 <span class="arithmatex">\( s \)</span> 相交：</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/cartesian-product-example2.png" title="Cartesian product example" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/cartesian-product-example2.png" title="Cartesian product example" width=40%> </div></p>
 </div>
 <h3 id="rename">Rename<a class="headerlink" href="#rename" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2622,7 +2657,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/set-intersection-example.png" title="Set intersection example" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/set-intersection-example.png" title="Set intersection example" width=40%> </div></p>
 </div>
 <h3 id="natural-join">Natural Join<a class="headerlink" href="#natural-join" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\( r \bowtie s \)</span></p>
@@ -2632,7 +2667,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/natural-join-example.png" title="Natural join example" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/natural-join-example.png" title="Natural join example" width=40%> </div></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Theta Join Operation</p>
@@ -2645,7 +2680,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/division-example.png" title="Division example" width=40%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/division-example.png" title="Division example" width=40%> </div></p>
 </div>
 <h3 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\( X \leftarrow E \)</span></p>
@@ -2692,7 +2727,7 @@ result &amp;\leftarrow temp1 - temp2
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Example</p>
-<p><div align="center"> <img src="/assert/img/CS/database/chapter2/aggregation-functions-example.png" title="Aggregation functions example" width=50%> </div></p>
+<p><div align="center"> <img src="/assets/img/CS/database/chapter2/aggregation-functions-example.png" title="Aggregation functions example" width=50%> </div></p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -2744,7 +2779,7 @@ _\text{branch-name} g_{\text{sum}(\text{balance}) \ as \ \text{sum-balance}} (\t
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 10, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2024</span>
   </span>
 
     
@@ -2911,7 +2946,7 @@ _\text{branch-name} g_{\text{sum}(\text{balance}) \ as \ \text{sum-balance}} (\t
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       

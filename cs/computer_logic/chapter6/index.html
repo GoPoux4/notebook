@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../assert/ico/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.10ba22f1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -2311,9 +2311,9 @@
 <p>In theory, a register is a sequential logic which can be defined by a state table。</p>
 <div class="admonition example">
 <p class="admonition-title">2-bit Register</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/2breg.png" width = 40%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/2breg.png" width = 40%/></div></p>
 <p>State table:</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/2bregtable.png" width = 50%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/2bregtable.png" width = 50%/></div></p>
 <p>当位数增加时，状态表会变得非常大，因此需要一种更好的方式来描述寄存器。</p>
 </div>
 <p>设计寄存器的方法：</p>
@@ -2342,13 +2342,13 @@
 <ol>
 <li>
 <p>Registers with Clock Gating</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/rgclock.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/rgclock.png" width = 60%/></div></p>
 <p><span class="arithmatex">\(clk_G = \overline{Load} + clk\)</span></p>
 <p>缺点：出现时钟歪斜。不应出现在同步电路中。</p>
 </li>
 <li>
 <p>Registers with Load-Controlled Feedback</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/rgfeedback.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/rgfeedback.png" width = 60%/></div></p>
 <p>使用多路复用器实现 load 控制的数据保持。</p>
 </li>
 </ol>
@@ -2371,21 +2371,21 @@
 </ul>
 <h4 id="conditional-transfer">Conditional Transfer<a class="headerlink" href="#conditional-transfer" title="Permanent link">&para;</a></h4>
 <p>K 控制传输的条件，当 K 为 1 时，传输发生。</p>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/regdenote.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/regdenote.png" width = 40%/></div>
 
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>If (K1=1) then (<span class="arithmatex">\(R_2 \leftarrow R_1\)</span>) 写成 K1: <span class="arithmatex">\(R_2 \leftarrow R_1\)</span>。</p>
 <p>即 K1 控制 R2 的接受，R1 的内容始终已经准备好，当 K1 为 1 时，R2 接受 R1 的内容。</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/conditionaltrans.png" width = 40%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/conditionaltrans.png" width = 40%/></div></p>
 </div>
 <h4 id="arithmetic-microoperations">Arithmetic Microoperations<a class="headerlink" href="#arithmetic-microoperations" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/arithmetic.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/arithmetic.png" width = 60%/></div>
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/arithmetic1.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/arithmetic1.png" width = 60%/></div>
 
 <p>Shift Microoperations:</p>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/arithmetic2.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/arithmetic2.png" width = 40%/></div>
 
 <h3 id="register-cell-design">Register Cell Design<a class="headerlink" href="#register-cell-design" title="Permanent link">&para;</a></h3>
 <p>Assume that a register consists of identical cells.</p>
@@ -2418,37 +2418,37 @@
 <div class="admonition example">
 <p class="admonition-title">续</p>
 <p>State Table:</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/cellexample.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/cellexample.png" width = 60%/></div></p>
 </div>
 <h3 id="register-transfer-structures">Register Transfer Structures<a class="headerlink" href="#register-transfer-structures" title="Permanent link">&para;</a></h3>
 <h4 id="multiplexer-based-transfers">Multiplexer-Based Transfers<a class="headerlink" href="#multiplexer-based-transfers" title="Permanent link">&para;</a></h4>
 <p>Multiplexers connected to register inputs produce flexible transfer structures.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/muxtrans.png" width = 60%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/muxtrans.png" width = 60%/></div></p>
 <p>R0 load 信号为 <span class="arithmatex">\(K_1 + K_2 \overline{K_1} = K_1 + K_2\)</span></p>
 </div>
 <h4 id="multiplexer-and-bus-based-transfers-for-multiple-registers">Multiplexer and Bus-Based Transfers for Multiple Registers<a class="headerlink" href="#multiplexer-and-bus-based-transfers-for-multiple-registers" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Dedicated MUX-Based Transfers</strong></p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/delicatemux.png" width = 30%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/delicatemux.png" width = 30%/></div></p>
 <p>开销太大。</p>
 </li>
 <li>
 <p><strong>Multiplexer Bus</strong></p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/muxbus.png" width = 30%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/muxbus.png" width = 30%/></div></p>
 <p>通过总线连接多个寄存器，通过控制总线的传输来控制寄存器的传输。</p>
 <p>优点：灵活，开销小。</p>
 </li>
 <li>
 <p><strong>Three-State Bus</strong></p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/threestatebus.png" width = 15%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/threestatebus.png" width = 15%/></div></p>
 <p>通过三态门控制总线的传输。</p>
 </li>
 </ul>
 <h3 id="shift-registers">Shift Registers<a class="headerlink" href="#shift-registers" title="Permanent link">&para;</a></h3>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/shiftreg.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/shiftreg.png" width = 60%/></div>
 
 <ul>
 <li>Data input, <span class="arithmatex">\(In\)</span>, is called a serial input or the shift right input.</li>
@@ -2462,19 +2462,19 @@
 <li>Synchronous Counters: Logic is used to implement the desired state sequencing. 同步电路。</li>
 </ul>
 <h3 id="ripple-counters">Ripple Counters<a class="headerlink" href="#ripple-counters" title="Permanent link">&para;</a></h3>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/ripplecnt.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/ripplecnt.png" width = 40%/></div>
 
 <p>每个触发器的时钟，没有接在同一个系统时钟上，是一个异步时序电路。</p>
 <h3 id="synchronous-counters">Synchronous Counters<a class="headerlink" href="#synchronous-counters" title="Permanent link">&para;</a></h3>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/synccnt.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/synccnt.png" width = 40%/></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>使用与门信号链控制计数：</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/ena.png" width = 40%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/ena.png" width = 40%/></div></p>
 <p>当低位全为 1 且使能信号为 1 时，高位求反。</p>
 <p>当位数增加时候，使用 look ahead 简化电路：每隔若干位，将输出使用与门接在一起。</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/lookahead.png" width = 20%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/lookahead.png" width = 20%/></div></p>
 </div>
 <h3 id="other-counters">Other Counters<a class="headerlink" href="#other-counters" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2484,20 +2484,20 @@
 <li><strong>Modulo n Counter</strong>: n 进位计数器，当计数到 n 时，回到 0，重新开始计数。</li>
 </ul>
 <h3 id="counter-with-parallel-load">Counter with Parallel Load<a class="headerlink" href="#counter-with-parallel-load" title="Permanent link">&para;</a></h3>
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/paraload.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/paraload.png" width = 40%/></div>
 
 <h3 id="modulo-n-counter">Modulo n Counter<a class="headerlink" href="#modulo-n-counter" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>使用异步清零实现：</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/asynmodn.png" width = 40%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/asynmodn.png" width = 40%/></div></p>
 <p>缺点：会产生很短的脉冲，可能会导致错误。</p>
 </li>
 <li>
 <p>使用同步清零实现：提前准备好清零。</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/synmodn.png" width = 40%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/synmodn.png" width = 40%/></div></p>
 <p>自定义初值：</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/synmodn1.png" width = 40%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/synmodn1.png" width = 40%/></div></p>
 <p>从 9 开始计数到 15。</p>
 </li>
 </ul>
@@ -2506,7 +2506,7 @@
 <p>可以使用更简单的电路实现 microoperations: By using two shift registers for operands, a full adder, and a flip flop (for the carry), we can add two numbers serially, starting at the least significant bit.</p>
 <div class="admonition example">
 <p class="admonition-title">Serial Adder</p>
-<p><div align=center><img src="/assert/img/CS/computer_logic/chapter6/serialadder.png" width = 40%/></div></p>
+<p><div align=center><img src="/assets/img/CS/computer_logic/chapter6/serialadder.png" width = 40%/></div></p>
 </div>
 
 
@@ -2530,7 +2530,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 7, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2024</span>
   </span>
 
     
@@ -2697,7 +2697,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
