@@ -3,7 +3,7 @@
 !!! info
     本文档为计算机逻辑设计基础的学习笔记，授课教师为 **董亚波** 。
 
-    [实验报告](https://github.com/GoPoux4/notebook/tree/master/docs/assert/files/labs/computer_logic)
+    [实验报告](https://github.com/GoPoux4/notebook/tree/master/docs/assets/files/labs/computer_logic)
 
 - 数学基础
     - 布尔代数
@@ -19,18 +19,18 @@
 
 ??? question "Quiz 1"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/quiz1.jpg" width = 90%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/quiz1.jpg" width = 90%/></div>
 
 ??? question "Quiz 2"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/quiz2.jpg" width = 90%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/quiz2.jpg" width = 90%/></div>
 
 ??? question "Quiz 3"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/quiz3.jpg" width = 90%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/quiz3.jpg" width = 90%/></div>
 
 ??? question "Quiz 4"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/quiz4.jpg" width = 90%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/quiz4.jpg" width = 90%/></div>
 
-    <div align=center><img src="/assert/img/CS/computer_logic/quiz4pic.png" width = 90%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/quiz4pic.png" width = 90%/></div>
