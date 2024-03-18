@@ -41,7 +41,7 @@ struct TreeNode {
 
 #### First-Child Next-Sibling Representation
 
-<div align=center><img src="/assert/img/CS/fds/chap3-firstchild.png" width=60%></div>
+<div align=center><img src="/assets/img/CS/fds/chap3-firstchild.png" width=60%></div>
 
 ```c
 struct TreeNode {

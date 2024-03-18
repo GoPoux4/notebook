@@ -23,7 +23,7 @@
 
 #### 树旋转（Tree Rotation）
 
-<div align="center"> <img src="/assert/img/CS/ads/chapter1/tree-rotation.png" width=60% /> </div>
+<div align="center"> <img src="/assets/img/CS/ads/chapter1/tree-rotation.png" width=60% /> </div>
 
 树旋转分为左旋和右旋。旋转操作后，被旋转的边的两端一端的子树高度减小 1，另一端的子树高度增加 1。
 
@@ -392,15 +392,15 @@ Splay 操作是将节点通过旋转操作旋转到根节点。
 
 - **Zig**：p 是根节点，直接旋转 x。
 
-    <div align="center"> <img src="/assert/img/CS/ads/chapter1/splay-zig.png" width=40% /> </div>
+    <div align="center"> <img src="/assets/img/CS/ads/chapter1/splay-zig.png" width=40% /> </div>
 
 - **Zig-Zig**：p 和 x 在同一侧，先旋转 p，再旋转 x。
 
-    <div align="center"> <img src="/assert/img/CS/ads/chapter1/splay-zig-zig.png" width=40% /> </div>
+    <div align="center"> <img src="/assets/img/CS/ads/chapter1/splay-zig-zig.png" width=40% /> </div>
 
 - **Zig-Zag**：p 和 x 在不同侧，旋转两次 x。
 
-    <div align="center"> <img src="/assert/img/CS/ads/chapter1/splay-zig-zag.png" width=40% /> </div>
+    <div align="center"> <img src="/assets/img/CS/ads/chapter1/splay-zig-zag.png" width=40% /> </div>
 
 参考代码：
 
@@ -744,7 +744,7 @@ T_{\text{amortized}} = \frac{\sum \hat{c}_i}{n} \geq \frac{\sum c_i}{n}
 
 === "Zig"
 
-    <div align="center"> <img src="/assert/img/CS/ads/chapter1/splay-zig.png" width=40% /> </div>
+    <div align="center"> <img src="/assets/img/CS/ads/chapter1/splay-zig.png" width=40% /> </div>
 
     \[
     \begin{aligned}
@@ -755,7 +755,7 @@ T_{\text{amortized}} = \frac{\sum \hat{c}_i}{n} \geq \frac{\sum c_i}{n}
 
 === "Zig-Zag"
 
-    <div align="center"> <img src="/assert/img/CS/ads/chapter1/splay-zig-zag.png" width=40% /> </div>
+    <div align="center"> <img src="/assets/img/CS/ads/chapter1/splay-zig-zag.png" width=40% /> </div>
 
     \[
     \begin{aligned}
@@ -770,7 +770,7 @@ T_{\text{amortized}} = \frac{\sum \hat{c}_i}{n} \geq \frac{\sum c_i}{n}
 
 === "Zig-Zig"
 
-    <div align="center"> <img src="/assert/img/CS/ads/chapter1/splay-zig-zig.png" width=40% /> </div>
+    <div align="center"> <img src="/assets/img/CS/ads/chapter1/splay-zig-zig.png" width=40% /> </div>
 
     \[
     \begin{aligned}

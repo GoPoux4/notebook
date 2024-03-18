@@ -8,11 +8,11 @@ In theory, a register is a sequential logic which can be defined by a state tabl
 
 !!! example "2-bit Register"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/2breg.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/2breg.png" width = 40%/></div>
 
     State table:
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/2bregtable.png" width = 50%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/2bregtable.png" width = 50%/></div>
 
     当位数增加时，状态表会变得非常大，因此需要一种更好的方式来描述寄存器。
 
@@ -39,7 +39,7 @@ Solution:
 
 1. Registers with Clock Gating
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/rgclock.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/rgclock.png" width = 60%/></div>
 
     $clk_G = \overline{Load} + clk$
 
@@ -47,7 +47,7 @@ Solution:
 
 2. Registers with Load-Controlled Feedback
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/rgfeedback.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/rgfeedback.png" width = 60%/></div>
 
     使用多路复用器实现 load 控制的数据保持。
 
@@ -76,7 +76,7 @@ The movement and processing of data stored in registers.
 
 K 控制传输的条件，当 K 为 1 时，传输发生。
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/regdenote.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/regdenote.png" width = 40%/></div>
 
 !!! example
 
@@ -84,17 +84,17 @@ K 控制传输的条件，当 K 为 1 时，传输发生。
 
     即 K1 控制 R2 的接受，R1 的内容始终已经准备好，当 K1 为 1 时，R2 接受 R1 的内容。
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/conditionaltrans.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/conditionaltrans.png" width = 40%/></div>
 
 #### Arithmetic Microoperations
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/arithmetic.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/arithmetic.png" width = 60%/></div>
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/arithmetic1.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/arithmetic1.png" width = 60%/></div>
 
 Shift Microoperations:
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/arithmetic2.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/arithmetic2.png" width = 40%/></div>
 
 ### Register Cell Design
 
@@ -129,7 +129,7 @@ Find a state diagram or state table 现态、输入、控制信号共同决定�
 
     State Table:
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/cellexample.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/cellexample.png" width = 60%/></div>
 
 ### Register Transfer Structures
 
@@ -139,7 +139,7 @@ Multiplexers connected to register inputs produce flexible transfer structures.
 
 !!! example
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/muxtrans.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/muxtrans.png" width = 60%/></div>
 
     R0 load 信号为 $K_1 + K_2 \overline{K_1} = K_1 + K_2$
 
@@ -147,13 +147,13 @@ Multiplexers connected to register inputs produce flexible transfer structures.
 
 - **Dedicated MUX-Based Transfers**
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/delicatemux.png" width = 30%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/delicatemux.png" width = 30%/></div>
 
     开销太大。
 
 - **Multiplexer Bus**
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/muxbus.png" width = 30%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/muxbus.png" width = 30%/></div>
 
     通过总线连接多个寄存器，通过控制总线的传输来控制寄存器的传输。
 
@@ -161,13 +161,13 @@ Multiplexers connected to register inputs produce flexible transfer structures.
 
 - **Three-State Bus**
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/threestatebus.png" width = 15%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/threestatebus.png" width = 15%/></div>
 
     通过三态门控制总线的传输。
 
 ### Shift Registers
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/shiftreg.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/shiftreg.png" width = 60%/></div>
 
 - Data input, $In$, is called a serial input or the shift right input.
 - Data output, $Out$, is often called the serial output.
@@ -182,25 +182,25 @@ Counters are sequential circuits which "count" through a specific state sequence
 
 ### Ripple Counters
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/ripplecnt.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/ripplecnt.png" width = 40%/></div>
 
 每个触发器的时钟，没有接在同一个系统时钟上，是一个异步时序电路。
 
 ### Synchronous Counters
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/synccnt.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/synccnt.png" width = 40%/></div>
 
 !!! note
 
     使用与门信号链控制计数：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/ena.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/ena.png" width = 40%/></div>
 
     当低位全为 1 且使能信号为 1 时，高位求反。
 
     当位数增加时候，使用 look ahead 简化电路：每隔若干位，将输出使用与门接在一起。
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/lookahead.png" width = 20%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/lookahead.png" width = 20%/></div>
 
 ### Other Counters
 
@@ -211,23 +211,23 @@ Counters are sequential circuits which "count" through a specific state sequence
 
 ### Counter with Parallel Load
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter6/paraload.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter6/paraload.png" width = 40%/></div>
 
 ### Modulo n Counter
 
 - 使用异步清零实现：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/asynmodn.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/asynmodn.png" width = 40%/></div>
 
     缺点：会产生很短的脉冲，可能会导致错误。
 
 - 使用同步清零实现：提前准备好清零。
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/synmodn.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/synmodn.png" width = 40%/></div>
 
     自定义初值：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/synmodn1.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/synmodn1.png" width = 40%/></div>
 
     从 9 开始计数到 15。
 
@@ -239,4 +239,4 @@ Counters are sequential circuits which "count" through a specific state sequence
 
 !!! example "Serial Adder"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter6/serialadder.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter6/serialadder.png" width = 40%/></div>

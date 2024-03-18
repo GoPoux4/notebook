@@ -104,7 +104,7 @@ System State 保存状态（内存）
 
 旋转编码器
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter1/gray.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter1/gray.png" width = 50%/></div>
 
 光传感器接收，避免出现中间结果，每次到达下一个状态只会变一位。
 

@@ -4,7 +4,7 @@ A relational database is a collection of one or more relations, which are based 
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/relational-example.png" title="A relation of instructors" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/relational-example.png" title="A relation of instructors" width=40%> </div>
 
 ## Structure of Relational Databases
 
@@ -60,6 +60,14 @@ A database consists of a collection of relations.
 - **Candidate Key**: \(K\) is a candidate key of \(R\) if \(K\) is a minimal **superkey** of \(R\). \(K\) 是 \(R\) 的候选键，如果 \(K\) 是 \(R\) 的最小超键。
 - **Primary Key**: A candidate key defined by the database designer. 主键是数据库设计者定义的候选键，通常用下划线标识。
 
+#### Foreign Key
+
+<!-- Assume there exists relations r and s: r(A, B, C), s(B, D), we can say that attribute B in relation r is foreign key referencing s, and r is a referencing relation (参照关系), and s is a referenced relation (被参照关系) -->
+
+Assume relations \(r\) and \(s\): \(r(\underline{A}, B, C)\), \(s(\underline{B}, D)\). \(B\) in relation \(r\) is a foreign key referencing \(s\), and \(r\) is a referencing relation, and \(s\) is a referenced relation.
+
+参照关系中外码的值必须在被参照关系中实际存在, 或为 \( \mathsf{null} \)。
+
 ### Query Language
 
 Pure languages:
@@ -88,7 +96,7 @@ Six basic operators:
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/selection-example.png" title="Selection example" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/selection-example.png" title="Selection example" width=40%> </div>
 
 ### Projection
 
@@ -101,7 +109,7 @@ The result is defined as the relation of \(k\) columns obtained by erasing the c
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/projection-example.png" title="Projection example" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/projection-example.png" title="Projection example" width=40%> </div>
 
 ### Union
 
@@ -113,7 +121,7 @@ The result is defined as the relation of \(k\) columns obtained by erasing the c
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/union-example.png" title="Union example" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/union-example.png" title="Union example" width=40%> </div>
 
 ### Set Difference
 
@@ -124,7 +132,7 @@ The result is defined as the relation of \(k\) columns obtained by erasing the c
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/set-difference-example.png" title="Set difference example" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/set-difference-example.png" title="Set difference example" width=40%> </div>
 
 ### Cartesian Product
 
@@ -137,11 +145,11 @@ The result is defined as the relation of \(k\) columns obtained by erasing the c
 
     \( r \) 和 \( s \) 不相交：
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/cartesian-product-example1.png" title="Cartesian product example" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/cartesian-product-example1.png" title="Cartesian product example" width=40%> </div>
 
     \( r \) 和 \( s \) 相交：
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/cartesian-product-example2.png" title="Cartesian product example" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/cartesian-product-example2.png" title="Cartesian product example" width=40%> </div>
 
 ### Rename
 
@@ -168,7 +176,7 @@ Four additional operators:
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/set-intersection-example.png" title="Set intersection example" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/set-intersection-example.png" title="Set intersection example" width=40%> </div>
 
 ### Natural Join
 
@@ -179,7 +187,7 @@ Four additional operators:
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/natural-join-example.png" title="Natural join example" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/natural-join-example.png" title="Natural join example" width=40%> </div>
 
 !!! note "Theta Join Operation"
 
@@ -193,7 +201,7 @@ Four additional operators:
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/division-example.png" title="Division example" width=40%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/division-example.png" title="Division example" width=40%> </div>
 
 ### Assignment
 
@@ -246,7 +254,7 @@ Assignment is always made to a temporary relation.
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter2/aggregation-functions-example.png" title="Aggregation functions example" width=50%> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter2/aggregation-functions-example.png" title="Aggregation functions example" width=50%> </div>
 
 !!! info
 

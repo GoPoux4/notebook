@@ -161,17 +161,17 @@ cuBLAS: 11489.1 milliseconds
 
 当每行元素在内存中连续时，bank 的分配如下图（其中绿色数字为元素所在 bank 编号），
 
-![](../assert/img/Labs/img1.png)
+![](../assets/img/Labs/img1.png)
 
 若 `a_shared` 采用如上的数据排布，则每个线程块对 `a_shared` 的访问如下图。
 
-![](../assert/img/Labs/img2.png)
+![](../assets/img/Labs/img2.png)
 
 由于计算 c(x, 0~7) 时各个线程均访问相同的地址，通过广播则不会产生 bank conflict 。故主要产生 bank conflict 的原因是不同行的线程访问了同一 bank 的不同位置。
 
 通过对内存进行重新配布，使得每一列的元素在内存中连续。如图，此时不同行的线程不会产生 bank conflict 。
 
-![](../assert/img/Labs/img3.png)
+![](../assets/img/Labs/img3.png)
 
 对于 `b_shared` 矩阵，同理可知让其每行元素在内存中连续，即可避免 bank conflict 。
 

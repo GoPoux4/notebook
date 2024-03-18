@@ -47,7 +47,7 @@
 - Programmable Logic Array (PLA): a programmable array of AND gates feeding a programmable array of OR gates.
 - Complex Programmable Logic Device (CPLD) / Field-Programmable Gate Array (FPGA): complex enough to be called "architectures", use lookup tables.
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter5/programmable.png" width = 70%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter5/programmable.png" width = 70%/></div>
 
 #### Read Only Memory
 
@@ -55,7 +55,7 @@
 - M output lines,
 - 2N decoded minterms.
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter5/rom.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter5/rom.png" width = 40%/></div>
 
 交叉点画 X，表示该交叉点连接。可编程。
 
@@ -63,21 +63,21 @@
 
     实现输入 $x$，输出 $x^2$。
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter5/square.png" width = 50%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter5/square.png" width = 50%/></div>
 
     由于 $B_0 = A_0, B_1 = 0$，故只需要 $8\times 4$ ROM。
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter5/square1.png" width = 30%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter5/square1.png" width = 30%/></div>
 
     根据真值表编程 ROM：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter5/squaretable.png" width = 30%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter5/squaretable.png" width = 30%/></div>
 
 #### Programmable Array Logic
 
 Having a programmable set of ANDs combined with fixed ORs.
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter5/pal.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter5/pal.png" width = 40%/></div>
 
 （F1 返回到输入：缓解了输入的限制）
 
@@ -85,14 +85,14 @@ Having a programmable set of ANDs combined with fixed ORs.
 
 Having a programmable set of ANDs combined with a programmable set of ORs.
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter5/pla.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter5/pla.png" width = 60%/></div>
 
 异或门：重用与项，缓解与门数量的限制。
 
 !!! example
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter5/plaexample.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter5/plaexample.png" width = 60%/></div>
 
     （求整体取反之后的化简结果：将 k-map 反转）
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter5/plaexample1.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter5/plaexample1.png" width = 60%/></div>

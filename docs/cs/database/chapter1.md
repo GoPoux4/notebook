@@ -35,7 +35,7 @@ Data processing and management. 主要用于数据处理和管理。
 
 ### Levels of Data Abstraction
 
-<div align="center"> <img src="/assert/img/CS/database/chapter1/arch.png" width=50% /> </div>
+<div align="center"> <img src="/assets/img/CS/database/chapter1/arch.png" width=50% /> </div>
 
 - **Physical level**: describes how a record is stored. 数据的物理存储方式
 - **Logical level**: describes data stored in database, and the relationships among the data on upper level. 描述数据库中的数据，和数据之间的关系。
@@ -51,7 +51,7 @@ Data processing and management. 主要用于数据处理和管理。
 
 - **Instances 实例**: the actual content of the database at a particular point in time. 数据库的实际内容。
 
-<div align="center"> <img src="/assert/img/CS/database/chapter1/schema_structure.png" width=50% /> </div>
+<div align="center"> <img src="/assets/img/CS/database/chapter1/schema_structure.png" width=50% /> </div>
 
 !!! note "类比"
 
@@ -122,7 +122,7 @@ SQL = DDL + DML + DCL
 
 !!! note "Example"
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter1/er-model-example.png" width=60% /> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter1/er-model-example.png" width=60% /> </div>
 
 ### Relational Model
 
@@ -134,7 +134,7 @@ Transfer E-R diagrams into relational schema.
 
     将 customer 实体转换为关系模型：
 
-    <div align="center"> <img src="/assert/img/CS/database/chapter1/relational-model-example.png" width=60% /> </div>
+    <div align="center"> <img src="/assets/img/CS/database/chapter1/relational-model-example.png" width=60% /> </div>
 
 ## Database Users and Administrators
 
@@ -147,7 +147,7 @@ Transfer E-R diagrams into relational schema.
 - **Sophisticated users**: 通过 SQL 查询数据库。
 - **Specialized users**: write specialized database applications that do not fit into the traditional data processing framework. 编写专门的数据库应用程序。
 
-<div align="center"> <img src="/assert/img/CS/database/chapter1/users.png" width=60% /> </div>
+<div align="center"> <img src="/assets/img/CS/database/chapter1/users.png" width=60% /> </div>
 
 ## Transaction Management
 
@@ -170,8 +170,8 @@ Transaction requirements include atomicity, consistence, isolation, durability. 
 
 Query Processor includes DDL interpreter, DML compiler, and query processing. 查询处理器包括 DDL 解释器、DML 编译器和查询处理。
 
-<div align="center"> <img src="/assert/img/CS/database/chapter1/query-processor.png" width=60% /> </div>
+<div align="center"> <img src="/assets/img/CS/database/chapter1/query-processor.png" width=60% /> </div>
 
 ### Database System Internals
 
-<div align="center"> <img src="/assert/img/CS/database/chapter1/system-internals.png" width=60% /> </div>
+<div align="center"> <img src="/assets/img/CS/database/chapter1/system-internals.png" width=60% /> </div>

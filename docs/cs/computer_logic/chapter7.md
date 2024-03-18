@@ -37,7 +37,7 @@ Organized as an indexed array of words. Value of the index for each word is the 
 
     A basic memory system is shown here 基础的内存系统：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter7/memoryblock.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter7/memoryblock.png" width = 40%/></div>
 
     - k address lines are decoded to address $2^k$ words of memory.
     - Each word is n bits.
@@ -77,13 +77,13 @@ Most basic memories are **asynchronous**
 
 - Read Timing
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter7/readtiming.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter7/readtiming.png" width = 60%/></div>
 
     `data valid` 之前需要等待一段时间，因为内存需要一定的时间读取数据。这个时间取决于内存的速度。
 
 - Write Timing
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter7/writetiming.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter7/writetiming.png" width = 60%/></div>
 
     在 R/W 信号下降时要将 addr 锁存起来，上升时要预先把数据准备好。
 
@@ -116,7 +116,7 @@ Types of random access memory:
 
 #### Storage Cell
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramcell.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramcell.png" width = 60%/></div>
 
 - **SR Latch**: stores one bit of information
 
@@ -131,7 +131,7 @@ Types of random access memory:
 
 #### Bit Slice
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/srambitslice.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/srambitslice.png" width = 60%/></div>
 
 **Bit Select**: 控制整个 bit slice 的工作，当 Bit Select 为 0 时，整个 bit slice 不工作；当 Bit Select 为 1 时，bit slice 的读写收 Read/Write 控制。
 
@@ -142,30 +142,30 @@ Types of random access memory:
 
 #### Cell Arrays and Coincident Selection
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramcellarray.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramcellarray.png" width = 60%/></div>
 
 - Decoder: 译码器，将地址译码为控制信号，将对应地址上 RAM cell 的 Select 置为 1。
 - 三态门：使得 RAM chip 的输出可以与总线连接。
 
 **行列译码**
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramrowcoldecode.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramrowcoldecode.png" width = 60%/></div>
 
 !!! example "$8\times 2$ RAM"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter7/82ram.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter7/82ram.png" width = 60%/></div>
 
     RAM slice 0 和 2、1 和 3 作为数据的高低位。
 
 #### Making Larger Memories
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramlargermem.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramlargermem.png" width = 40%/></div>
 
 高两位接入译码器，低两位接入 RAM chip，减少复杂度。
 
 #### Making Wider Memories
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/sramwidermem.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramwidermem.png" width = 40%/></div>
 
 增加位宽，每块 RAM chip 就代表最后输出的某一位。
 
@@ -178,7 +178,7 @@ Basic Principle: Storage of information on capacitors. 信息存储在电容上�
 - Capacitor: 电容
 - Switch: 开关
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramcell.png" width = 40%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramcell.png" width = 40%/></div>
 
 基本功能：
 
@@ -188,11 +188,11 @@ Basic Principle: Storage of information on capacitors. 信息存储在电容上�
 
 #### DRAM Slice
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramslice.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramslice.png" width = 60%/></div>
 
 #### Block Diagram
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramblock.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramblock.png" width = 60%/></div>
 
 Read and Write Operations: 分开读取行列地址，CPU 提供信号告诉 DRAM 当前读取的是行地址还是列地址。
 
@@ -208,11 +208,11 @@ Read and Write Operations: 分开读取行列地址，CPU 提供信号告诉 DRA
 
 1. Read Timing
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramreadtiming.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramreadtiming.png" width = 60%/></div>
 
 2. Write Timing
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter7/dramwritetiming.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramwritetiming.png" width = 60%/></div>
 
 #### DRAM Types
 
@@ -228,7 +228,7 @@ Transfers to and from the DRAM are synchronize with a clock。
 
 !!! example "Synchronous DRAM - burst size=4"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter7/sdramex.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter7/sdramex.png" width = 60%/></div>
 
 **Double Data Rate SDRAM**:
 

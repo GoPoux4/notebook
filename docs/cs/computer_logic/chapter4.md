@@ -4,7 +4,7 @@
 
 ### Introduction to Sequential Circuits
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/sequential_circuit.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/sequential_circuit.png" width = 60%/></div>
 
 A Sequential circuit contains:
 
@@ -51,9 +51,9 @@ Gates modeled by an ideal (instantaneous) function and a fixed gate delay. 所�
 
 #### Basic (NAND) SR Latch
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/nandsr.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/nandsr.png" width = 50%/></div>
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/nandsrtable.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/nandsrtable.png" width = 50%/></div>
 
 当 $S = R = 1$ 时，锁存器将保持原来的状态。
 
@@ -65,15 +65,15 @@ Gates modeled by an ideal (instantaneous) function and a fixed gate delay. 所�
 
 #### Basic (NOR) SR Latch
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/norsr.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/norsr.png" width = 50%/></div>
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/norsrtable.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/norsrtable.png" width = 50%/></div>
 
 和 NAND SR Latch 相反。
 
 #### Clocked SR Latch
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/clockedsr.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/clockedsr.png" width = 50%/></div>
 
 当 $C = 0$ 时，锁存器保持原来的状态，即后面的 $\bar S-\bar R$ latch 处于锁定状态。
 
@@ -81,7 +81,7 @@ Gates modeled by an ideal (instantaneous) function and a fixed gate delay. 所�
 
 #### D Latch
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/dlatch.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/dlatch.png" width = 50%/></div>
 
 消除了不确定状态，$C$ 控制锁存，$D$ 控制输出。$C = 1$ 时 $Q = D$。
 
@@ -99,7 +99,7 @@ Gates modeled by an ideal (instantaneous) function and a fixed gate delay. 所�
 
 #### SR Master-Slave Flip-Flop
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/msff.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/msff.png" width = 50%/></div>
 
 前面的锁存器称为 Master，后面的锁存器称为 Slave。
 
@@ -116,7 +116,7 @@ Gates modeled by an ideal (instantaneous) function and a fixed gate delay. 所�
 
 #### Edge-Triggered D Flip-Flop
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/edgedff.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/edgedff.png" width = 50%/></div>
 
 The delay of the S-R master-slave flip-flop can be avoided since the 1s-catching behavior is not present with D replacing S and R inputs.
 
@@ -124,25 +124,25 @@ It is called a negative-edge triggered flip-flop, 负边沿触发器。
 
 同样有正边沿触发器：
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/posd.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/posd.png" width = 50%/></div>
 
 #### Actual Circuit of Edge-Triggered D Flip-Flop:
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/edgedffac.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/edgedffac.png" width = 50%/></div>
 
 ### Standard Symbols for Storage Elements
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/standard.png" width = 80%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/standard.png" width = 80%/></div>
 
 !!! note "Direct Inputs"
 
     Direct R and/or S inputs that control the state of the latches within the flip-flops are used for initialization. 直接输入的 R 和/或 S 用于初始化触发器状态，这一操作一般是异步的。
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/directinput.png" width = 20%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/directinput.png" width = 20%/></div>
 
 ### Sequential Circuit Analysis
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/analysis.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/analysis.png" width = 50%/></div>
 
 General Model:
 
@@ -152,7 +152,7 @@ General Model:
 
 !!! example
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/analysisex.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/analysisex.png" width = 40%/></div>
 
     - Current State: $A, B$
     - Next State: $A(t+1) = AX + BX, B(t+1) = \bar AX$
@@ -170,11 +170,11 @@ A multiple variable table with the following four sections:
 !!! example
     上一例中的电路图的状态表：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/analysistable.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/analysistable.png" width = 60%/></div>
 
     或者写成：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/analysistable2.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/analysistable2.png" width = 60%/></div>
 
 #### State Diagrams
 
@@ -191,7 +191,7 @@ Label form:
 
 !!! example
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/statediagram.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/statediagram.png" width = 60%/></div>
 
 !!! note "Equivalent State Definitions"
     Two states are equivalent if their outputs produced for each input symbol is identical and their next states for each input symbol are the same or equivalent.
@@ -199,11 +199,11 @@ Label form:
     若两个状态接受相同输入后输出相同，且下一个状态相同或等价，则两个状态等价。
 
     ??? example
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentstate.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/equivalentstate.png" width = 50%/></div>
 
         图中 S1、S2、S3 等价，可以写成一个状态：
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentstate2.png" width = 40%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/equivalentstate2.png" width = 40%/></div>
 
 #### Moore and Mealy Models
 
@@ -219,7 +219,7 @@ Sequential Circuits or Sequential Machines are also called Finite State Machines
 
 #### Flip-Flop Timing Parameters
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/timingparameters.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/timingparameters.png" width = 60%/></div>
 
 - $t_s$: setup time 准备时间，在状态进行更新之前需要准备好
 - $t_h$: hold time 一般为 0，保持时间，在状态更新之后需要保持一段时间
@@ -231,7 +231,7 @@ Sequential Circuits or Sequential Machines are also called Finite State Machines
 
 #### Circuit and System Level Timing
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/circuitandsystem.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/circuitandsystem.png" width = 60%/></div>
 
 计算触发器从输出到输入的延迟，可以将出发器的输出和输入拆开，更加直观地计算延迟。
 
@@ -239,7 +239,7 @@ If the clock period is too short, some data changes will not propagate through t
 
 New timing components:
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/newtimingcomp.png" width = 70%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/newtimingcomp.png" width = 70%/></div>
 
 - $t_p$: clock period 时钟周期
 - $t_{pd,COMB}$: total delay of combinational logic along the path from flip-flop output to flip-flop input
@@ -309,21 +309,21 @@ A state is an abstraction of the history of the past applied inputs to the circu
 
     - 识别 1101:
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/recog1101.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/recog1101.png" width = 50%/></div>
 
     - 考虑所有可能的输入序列：
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/recognizeseq.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/recognizeseq.png" width = 50%/></div>
 
     - 得到状态表
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/recognizetable.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/recognizetable.png" width = 50%/></div>
 
     上述过程是 Mealy Model，如果是 Moore Model，则还需要增加一个状态：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/recognizeseq2.png" width = 50%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/recognizeseq2.png" width = 50%/></div>
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/recognizetable2.png" width = 50%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/recognizetable2.png" width = 50%/></div>
 
 #### Simplification of State Diagrams
 
@@ -345,19 +345,19 @@ A state is an abstraction of the history of the past applied inputs to the circu
 
     - 次态相同
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentcheck1.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/equivalentcheck1.png" width = 50%/></div>
 
     - 次态相同或交错
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentcheck2.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/equivalentcheck2.png" width = 50%/></div>
 
     - 次态相同或等效（$S_k, S_l$ 等效）
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentcheck3.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/equivalentcheck3.png" width = 50%/></div>
 
     - 次态交错或相同或循环
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/equivalentcheck4.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/equivalentcheck4.png" width = 50%/></div>
 
 化简方法：
 
@@ -373,11 +373,11 @@ A state is an abstraction of the history of the past applied inputs to the circu
         
         化简：
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/simplifyexampletable.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/simplifyexampletable.png" width = 50%/></div>
 
         画出隐含表：
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/simplifyexamplepic.png" width = 40%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/simplifyexamplepic.png" width = 40%/></div>
 
         可以看出：
 
@@ -392,7 +392,7 @@ A state is an abstraction of the history of the past applied inputs to the circu
 
         令以上四个状态依次为 $a, b, c, d$，画出最小化状态表：
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter4/simplifyexampletable2.png" width = 50%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter4/simplifyexampletable2.png" width = 50%/></div>
 
 ### State Assignment
 
@@ -418,7 +418,7 @@ Use K-maps to compute the equations of $D_i, X_{output}$ with respect to $X_{inp
 !!! example
     对下列状态表进行状态分配：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/optimizetable.png" width = 30%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/optimizetable.png" width = 30%/></div>
 
     - 在相同输入条件下具有相同次态的现态，应尽可能分配相邻的二进制代码：A 和 B，A 和 C 应相邻
     - 在相邻输入条件，同一现态的次态应尽可能分配相邻的二进制代码：C 和 D，C 和 A，B 和 D，A 和 B 应相邻
@@ -427,7 +427,7 @@ Use K-maps to compute the equations of $D_i, X_{output}$ with respect to $X_{inp
 
     由此得到状态分配方案：
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/optimizetable2.png" width = 50%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/optimizetable2.png" width = 50%/></div>
 
 ### Sequential Design Example
 
@@ -440,11 +440,11 @@ Stored sum: $(Y_1, Y_0)$. Input: $(X_1, X_0)$. Output: $(Z_1, Z_0)$
 
 State diagram:
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/examplediagram.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/examplediagram.png" width = 50%/></div>
 
 State table:
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/exampletable.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/exampletable.png" width = 60%/></div>
 
 State assignment $\to$ Flip-flop input equations.
 
@@ -460,7 +460,7 @@ $J = K = 1$ 时，状态求反。
 
 用 D 触发器实现，避免 1s catching 问题：
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/jkd.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/jkd.png" width = 50%/></div>
 
 上升沿触发。
 
@@ -475,7 +475,7 @@ Same as a J-K flip-flop with $J = K = T$
 
 用 D 触发器实现：
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter4/tff.png" width = 50%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter4/tff.png" width = 50%/></div>
 
 ### Basic Flip-Flop Descriptors
 
@@ -491,7 +491,7 @@ Used in design:
 !!! example "D Flip-Flop Descriptors"
     Characteristic table:
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/dffdes.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/dffdes.png" width = 40%/></div>
 
     Characteristic equation:
 
@@ -501,12 +501,12 @@ Used in design:
 
     Excitation table:
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/dffdes2.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/dffdes2.png" width = 40%/></div>
 
 !!! example "S-R Flip-Flop Descriptors"
     Characteristic table:
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/srffdes.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/srffdes.png" width = 40%/></div>
 
     Characteristic equation:
 
@@ -516,4 +516,4 @@ Used in design:
 
     Excitation table:
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter4/srffdes2.png" width = 40%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter4/srffdes2.png" width = 40%/></div>

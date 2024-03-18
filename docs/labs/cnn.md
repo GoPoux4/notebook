@@ -148,7 +148,7 @@ with torch.no_grad():
 
 使用 `nvidia-smi` 查看 GPU 占用率如图。
 
-![](../assert/img/HPC/HPC%20101%20labs/CNN/img1.png)
+![](../assets/img/HPC/HPC%20101%20labs/CNN/img1.png)
 
 ## 使用 Tensorboard
 
@@ -186,11 +186,11 @@ $ tensorboard --logdir=./path/to/the/folder
 
 得到损失曲线：
 
-![](../assert/img/HPC/HPC%20101%20labs/CNN/img2.png)
+![](../assets/img/HPC/HPC%20101%20labs/CNN/img2.png)
 
 准确率曲线：
 
-![](../assert/img/HPC/HPC%20101%20labs/CNN/img3.png)
+![](../assets/img/HPC/HPC%20101%20labs/CNN/img3.png)
 
 最终的识别正确率约为 98.90 % 。
 
@@ -365,7 +365,7 @@ class LeNet_5(nn.Module):
 ...
 ```
 
-![](../assert/img/HPC/HPC%20101%20labs/CNN/img4.png)
+![](../assets/img/HPC/HPC%20101%20labs/CNN/img4.png)
 
 能够正常工作。
 

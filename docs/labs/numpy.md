@@ -81,7 +81,7 @@ def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     # get axis size from ndarray shape
     N, H1, W1, C = a.shape
     N1, H2, W2, _ = b.shape
-    assert N == N1
+    assets N == N1
 
     # Do iteration
     b = b.transpose(0, 3, 1, 2)
@@ -148,7 +148,7 @@ def bilinear_interp_vectorized(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     # get axis size from ndarray shape
     N, _, _, C = a.shape
     N1, H2, W2, _ = b.shape
-    assert N == N1
+    assets N == N1
 
     # Do iteration
     res = np.empty((N, H2, W2, C), dtype=int64)

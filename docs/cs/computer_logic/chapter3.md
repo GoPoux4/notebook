@@ -16,7 +16,7 @@ A wide line is used to represent a bus (总线). The bus can be split into indiv
 
 与门 + 非门
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/control.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/control.png" width = 60%/></div>
 
 ### Decoding 译码
 
@@ -26,11 +26,11 @@ Example:
 
 - 1-to-2-line decoder
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter3/1-to-2.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter3/1-to-2.png" width = 60%/></div>
 
 - 2-to-4-line decoder
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter3/2-to-4.png" width = 80%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter3/2-to-4.png" width = 80%/></div>
 
 行列译码器：将输入不断二分，例如 4-to-16 拆成 2-to4 和 2-to-4，再将 2-to-4 拆成 1-to-2 和 1-to-2。
 
@@ -79,7 +79,7 @@ A_3 &= D_8 + D_9
 
 Accepts multiple inputs and use the highest priority input.
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/priority_encoder.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/priority_encoder.png" width = 60%/></div>
 
 where $V$ indicates at least one 1 present.
 
@@ -101,23 +101,23 @@ Decoder + Enable.
 
 #### 2-to-1-line Multiplexer
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/2-to-1.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/2-to-1.png" width = 60%/></div>
 
 #### 4-to-1-line Multiplexer
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/4-to-1.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/4-to-1.png" width = 60%/></div>
 
 #### Multiplexer Width Expansion
 
 Select "vector bits" instead of "bits".
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/width_expansion.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/width_expansion.png" width = 60%/></div>
 
 #### Other Multiplexers
 
 Use three-state drivers.
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/other_mux.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/other_mux.png" width = 60%/></div>
 
 ### Combinational Logic Implementation
 
@@ -131,11 +131,11 @@ Use m-width $2^n$-to-1-line multiplexer
 
     - Truth table:
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter3/gray_to_binary.png" width = 30%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter3/gray_to_binary.png" width = 30%/></div>
 
     - Mux:
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter3/gray_to_binary_mux.png" width = 60%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter3/gray_to_binary_mux.png" width = 60%/></div>
 
 #### Multiplexer Approach 2
 
@@ -154,11 +154,11 @@ Design:
 
     - Truth table:
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter3/gray_to_binary2.png" width = 60%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter3/gray_to_binary2.png" width = 60%/></div>
     
     - Mux:
 
-        <div align=center><img src="/assert/img/CS/computer_logic/chapter3/gray_to_binary_mux2.png" width = 60%/></div>
+        <div align=center><img src="/assets/img/CS/computer_logic/chapter3/gray_to_binary_mux2.png" width = 60%/></div>
 
 ## Design Procedure
 
@@ -266,7 +266,7 @@ Design:
 
 !!! example "Cell Library"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter3/celllib.png" width = 80%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter3/celllib.png" width = 80%/></div>
 
 ### Mapping to NAND gate
 
@@ -310,7 +310,7 @@ Use blocked diagram to process each bit.
 
 inputs: $X, Y$; outputs: $S, C$ (sum, carry)
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/half_adder_table.png" width = 30%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/half_adder_table.png" width = 30%/></div>
 
 \begin{align}
 S &= A \oplus B \\
@@ -321,7 +321,7 @@ C &= AB
 
 inputs: $X, Y, Z$ ($Z$: carry); outputs: $S, C$
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/full_adder_table.png" width = 30%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/full_adder_table.png" width = 30%/></div>
 
 \begin{align}
 S &= X \oplus Y \oplus Z \\
@@ -335,11 +335,11 @@ G = XY, P = X \oplus Y \\
 S = P \oplus Z, C = G + PZ
 \end{align}
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/full_adder.png" width = 30%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/full_adder.png" width = 30%/></div>
 
 #### 4-bit Ripple-Carry Adder
 
-<div align=center><img src="/assert/img/CS/computer_logic/chapter3/4-bit_adder.png" width = 60%/></div>
+<div align=center><img src="/assets/img/CS/computer_logic/chapter3/4-bit_adder.png" width = 60%/></div>
 
 缺点：延迟高（Carry 需要传递）
 
@@ -360,11 +360,11 @@ S = P \oplus Z, C = G + PZ
     P_{0\sim 3} &= P_3P_2P_1P_0
     \end{align}
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter3/group_carry.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter3/group_carry.png" width = 60%/></div>
 
     CLA: input $G_0, P_0, G_1, P_1, G_2, P_2, G_3, P_3$, output $G_{0\sim 3}, P_{0\sim 3}$
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter3/16-bit_group_carry.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter3/16-bit_group_carry.png" width = 60%/></div>
 
     第一层最右 CLA: input $G_0, P_0, G_1, P_1, G_2, P_2, G_3, P_3$, output $G_{0\sim 3}, P_{0\sim 3}$
 
@@ -404,7 +404,7 @@ $M - N = M + (2^n - N)$ (n-bit)
     - 加法：直接相加
     - 减法：将减数取反加一（变为减数取反之后的补码），再与被减数相加
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter3/addsub.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter3/addsub.png" width = 60%/></div>
 
 #### Overflow Detection
 
@@ -412,11 +412,11 @@ $M - N = M + (2^n - N)$ (n-bit)
 
 - 无溢出
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter3/overflow1.png" width = 30%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter3/overflow1.png" width = 30%/></div>
 
 - 有溢出
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter3/overflow2.png" width = 30%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter3/overflow2.png" width = 30%/></div>
 
 （注：减负数相当于加正数，$C_{n-1}$ 为 0；加负数相当于减正数，$C_{n-1}$ 为 1）
 
@@ -445,7 +445,7 @@ $M - N = M + (2^n - N)$ (n-bit)
 
 !!! note "A + 1 Incrementer"
 
-    <div align=center><img src="/assert/img/CS/computer_logic/chapter3/incrementer.png" width = 60%/></div>
+    <div align=center><img src="/assets/img/CS/computer_logic/chapter3/incrementer.png" width = 60%/></div>
 
 #### Arithmetic Logic Unit (ALU)
 

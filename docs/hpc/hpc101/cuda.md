@@ -21,7 +21,7 @@ GPU ：
 
 ### CUDA 编程模型 vs. 硬件执行模型
 
-![](../../assert/img/HPC/HPC%20101%20labs/CUDA/img3.png)
+![](../../assets/img/HPC/HPC%20101%20labs/CUDA/img3.png)
 
 ### 体系结构类别和编程模型
 
@@ -51,7 +51,7 @@ $ nvidia-smi
 
 一个简单的 GPU 加速应用程序执行过程：
 
-![](../../assert/img/HPC/HPC%20101%20labs/CUDA/img1.png)
+![](../../assets/img/HPC/HPC%20101%20labs/CUDA/img1.png)
 
 + `(1)` 段：数据由 `cudaMallocManaged()` 函数分配，并能由 CPU 访问处理。
 + `(2)` 段：数据可被迁移至可执行并行工作的 GPU ，并由 GPU 核函数访问，同时 CPU 可继续执行工作（异步执行）。
@@ -115,7 +115,7 @@ int main()
 
 #### CUDA 线性层次结构
 
-![](../../assert/img/HPC/HPC%20101%20labs/CUDA/img2.png)
+![](../../assets/img/HPC/HPC%20101%20labs/CUDA/img2.png)
 
 启动核函数时，核函数代码由每个已配置的线程块中的每个线程执行。
 
@@ -226,7 +226,7 @@ inline cudaError_t checkCuda(cudaError_t result)
 {
   if (result != cudaSuccess) {
     fprintf(stderr, "CUDA Runtime Error: %s\n", cudaGetErrorString(result));
-    assert(result == cudaSuccess);
+    assets(result == cudaSuccess);
   }
   return result;
 }
@@ -315,7 +315,7 @@ cudaMemPrefetchAsync(pointerToSomeUMData, size, cudaCpuDeviceId);
 
 默认流会阻止其他流中的所有核函数。当其他流中的所有核函数执行完毕之后，默认流中的核函数才开始执行；当默认流中的核函数执行完毕，其他流中的核函数才可以开始执行。
 
-![](../../assert/img/HPC/HPC%20101%20labs/CUDA/img4.png)
+![](../../assets/img/HPC/HPC%20101%20labs/CUDA/img4.png)
 
 创建非默认流，并在非默认流中启动核函数：
 
