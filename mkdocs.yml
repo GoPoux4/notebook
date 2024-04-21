@@ -120,7 +120,11 @@ nav:
       - 高级数据结构与算法分析:
         - cs/ads/index.md
         - AVL, Splay and Amortized Analysis: cs/ads/chapter1.md
-        # - Red-black Trees and B+ Trees: cs/ads/chapter2.md
+        - Red-black Trees and B+ Trees: cs/ads/chapter2.md
+        - Inverted File Index: cs/ads/chapter3.md
+        - Leftist Heaps and Skew Heaps: cs/ads/chapter4.md
+        - Binomial Queue: cs/ads/chapter5.md
+        - Backtracking: cs/ads/chapter6.md
     - 计算机逻辑设计基础:
       - cs/computer_logic/index.md
       - 数字系统和信息: cs/computer_logic/chapter1.md
