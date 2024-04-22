@@ -49,6 +49,22 @@
 
 查询时，将查询词出现的次数视为权重，根据权重高的查询词优先检索。
 
+### Measures of the Search Engine
+
+分为以下指标：
+
+- 检索速度（index）：检索到文档的数量/时间
+- 搜索速度（search）：以检索大小为自变量的延迟
+- Expressiveness of query language：查询语言的表达能力
+
+    - 复杂查询需求
+    - 复杂查询的速度
+
+不同的评判类别：
+
+- Data retrieval 数据检索：主要看响应时间和检索大小
+- Information retrieval 信息检索：主要看检索结果的准确性
+
 ### Relevence Measurement
 
 计算查询词与文档的相关性，

@@ -51,9 +51,55 @@
 
     将上层红色节点染黑，上层黑色节点染红，此时子树左边的黑高度比右边多 1，进行一次旋转。
 
+整个插入操作最多进行两次旋转：case 2 -> case 3。
+
 #### Deletion
 
-:TODO:
+如果删除的节点有两个儿子，则将其键值和其前驱或后继节点的键值互换，删除其前驱或后继节点。
+
+如果删除的节点只有一个儿子，由于性质 5，其儿子节点必为叶子节点，转换为删除叶子节点的情况。
+
+如果删除的节点是红色节点，直接删除。
+
+如果删除的节点是黑色节点，可能破坏性质 5，分为以下情况：
+
+1. 如果是根节点，直接删除。
+
+2. 如果其父节点为黑色，兄弟节点为红色，则将兄弟节点染黑，父节点染红，进行一次旋转：
+
+    <div align="center"><img src="/assets/img/cs/ads/chapter2/rbtree-del-case1.png" width="50%"></div>
+
+    使得兄弟节点为黑色。
+
+3. 如果其兄弟节点为黑色，且其兄弟节点的两个儿子都为黑色，则将兄弟节点染红，父节点作为新的当前节点：
+
+    <div align="center"><img src="/assets/img/cs/ads/chapter2/rbtree-del-case2.png" width="50%"></div>
+
+    若父节点为红色，则将其染黑，否则递归检查。
+
+4. 如果其兄弟节点为黑色，且其兄弟离当前节点远的儿子为黑色，近的儿子为红色，则将兄弟节点染红，近的儿子染黑，进行一次旋转：
+
+    <div align="center"><img src="/assets/img/cs/ads/chapter2/rbtree-del-case3.png" width="50%"></div>
+
+    使得远的儿子为红色。
+
+5. 如果其兄弟节点为黑色，且其兄弟离当前节点远的儿子为红色，则将兄弟节点和父节点的颜色互换，兄弟节点的远的儿子染黑，进行一次旋转：
+
+    <div align="center"><img src="/assets/img/cs/ads/chapter2/rbtree-del-case4.png" width="50%"></div>
+
+    使得远的儿子为黑色。此时将当前节点的黑高度减 1（即删除最开始的黑色节点），整棵树的性质 5 仍然保持。
+
+整个删除操作最多进行三次旋转：case 1 -> case 2 -> case 4 或 case 3 -> case 4。
+
+!!! note
+
+    不会出现 case 1 -> case 2 -> case 1 的情况，因为 case 1 结束时父节点为红色，不会进入到 case 2 向上传递的情况。
+
+### Complexity Analysis
+
+有 \(n\) 个节点的红黑树的高度为 \(O(2\ln(n+1))\)。
+
+根为 \(x\) 的子树满足 \(\mathrm{size}(x) \geq 2^{\mathrm{bh}(x)} - 1\)。
 
 ## B+ Trees
 
