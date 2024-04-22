@@ -1067,6 +1067,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Complexity Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amortized Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2198,6 +2213,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Complexity Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amortized Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2245,7 +2275,18 @@
 <p>找到根节点键值最小的二项树，删除根节点，然后将其子树作为一个新的二项队列，与原二项队列合并。</p>
 <h2 id="complexity-analysis">Complexity Analysis<a class="headerlink" href="#complexity-analysis" title="Permanent link">&para;</a></h2>
 <p>二项树合并的时间复杂度为 <span class="arithmatex">\(O(1)\)</span>，单次二项队列合并的时间复杂度为 <span class="arithmatex">\(O(\log n)\)</span>。</p>
-<p>插入的均摊时间复杂度为 <span class="arithmatex">\(O(1)\)</span>。</p>
+<h3 id="amortized-analysis">Amortized Analysis<a class="headerlink" href="#amortized-analysis" title="Permanent link">&para;</a></h3>
+<p>对于一个空的二项队列，插入 <span class="arithmatex">\(n\)</span> 个节点。</p>
+<p>设 <span class="arithmatex">\(c_i, c'_i\)</span> 分别表示插入 <span class="arithmatex">\(i\)</span> 个节点的实际代价和均摊代价，势能函数 <span class="arithmatex">\(\Phi_i\)</span> 定义为第 <span class="arithmatex">\(i\)</span> 次插入后二项队列中二项树的个数。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>实际代价为 <span class="arithmatex">\(c\)</span> 的一次插入会导致势能增加 <span class="arithmatex">\(2-c\)</span>。分类讨论：</p>
+<ul>
+<li>若插入不产生进位，实际代价为 <span class="arithmatex">\(1\)</span>，势能增加 <span class="arithmatex">\(1\)</span>。</li>
+<li>若插入产生进位，进位次数为 <span class="arithmatex">\(k\)</span>，实际代价为 <span class="arithmatex">\(k+1\)</span>，势能增加 <span class="arithmatex">\(1-k\)</span>。</li>
+</ul>
+</div>
+<p>有 <span class="arithmatex">\(c'_i = c_i + \Phi_{i+1} - \Phi_i = 2\)</span>，即总代价为 <span class="arithmatex">\(T(n) = 2n\)</span>，均摊代价为 <span class="arithmatex">\(O(1)\)</span>。</p>
 
 
 
@@ -2268,7 +2309,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 22, 2024</span>
   </span>
 
     

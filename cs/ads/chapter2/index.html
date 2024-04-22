@@ -974,6 +974,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#complexity-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexity Analysis
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1041,7 +1050,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#complexity-analysis" class="md-nav__link">
+  <a href="#complexity-analysis_1" class="md-nav__link">
     <span class="md-ellipsis">
       Complexity Analysis
     </span>
@@ -2216,6 +2225,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#complexity-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexity Analysis
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2283,7 +2301,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#complexity-analysis" class="md-nav__link">
+  <a href="#complexity-analysis_1" class="md-nav__link">
     <span class="md-ellipsis">
       Complexity Analysis
     </span>
@@ -2357,8 +2375,45 @@
 <p>将上层红色节点染黑，上层黑色节点染红，此时子树左边的黑高度比右边多 1，进行一次旋转。</p>
 </li>
 </ol>
+<p>整个插入操作最多进行两次旋转：case 2 -&gt; case 3。</p>
 <h4 id="deletion">Deletion<a class="headerlink" href="#deletion" title="Permanent link">&para;</a></h4>
-<p>:TODO:</p>
+<p>如果删除的节点有两个儿子，则将其键值和其前驱或后继节点的键值互换，删除其前驱或后继节点。</p>
+<p>如果删除的节点只有一个儿子，由于性质 5，其儿子节点必为叶子节点，转换为删除叶子节点的情况。</p>
+<p>如果删除的节点是红色节点，直接删除。</p>
+<p>如果删除的节点是黑色节点，可能破坏性质 5，分为以下情况：</p>
+<ol>
+<li>
+<p>如果是根节点，直接删除。</p>
+</li>
+<li>
+<p>如果其父节点为黑色，兄弟节点为红色，则将兄弟节点染黑，父节点染红，进行一次旋转：</p>
+<p><div align="center"><img src="/assets/img/cs/ads/chapter2/rbtree-del-case1.png" width="50%"></div></p>
+<p>使得兄弟节点为黑色。</p>
+</li>
+<li>
+<p>如果其兄弟节点为黑色，且其兄弟节点的两个儿子都为黑色，则将兄弟节点染红，父节点作为新的当前节点：</p>
+<p><div align="center"><img src="/assets/img/cs/ads/chapter2/rbtree-del-case2.png" width="50%"></div></p>
+<p>若父节点为红色，则将其染黑，否则递归检查。</p>
+</li>
+<li>
+<p>如果其兄弟节点为黑色，且其兄弟离当前节点远的儿子为黑色，近的儿子为红色，则将兄弟节点染红，近的儿子染黑，进行一次旋转：</p>
+<p><div align="center"><img src="/assets/img/cs/ads/chapter2/rbtree-del-case3.png" width="50%"></div></p>
+<p>使得远的儿子为红色。</p>
+</li>
+<li>
+<p>如果其兄弟节点为黑色，且其兄弟离当前节点远的儿子为红色，则将兄弟节点和父节点的颜色互换，兄弟节点的远的儿子染黑，进行一次旋转：</p>
+<p><div align="center"><img src="/assets/img/cs/ads/chapter2/rbtree-del-case4.png" width="50%"></div></p>
+<p>使得远的儿子为黑色。此时将当前节点的黑高度减 1（即删除最开始的黑色节点），整棵树的性质 5 仍然保持。</p>
+</li>
+</ol>
+<p>整个删除操作最多进行三次旋转：case 1 -&gt; case 2 -&gt; case 4 或 case 3 -&gt; case 4。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>不会出现 case 1 -&gt; case 2 -&gt; case 1 的情况，因为 case 1 结束时父节点为红色，不会进入到 case 2 向上传递的情况。</p>
+</div>
+<h3 id="complexity-analysis">Complexity Analysis<a class="headerlink" href="#complexity-analysis" title="Permanent link">&para;</a></h3>
+<p>有 <span class="arithmatex">\(n\)</span> 个节点的红黑树的高度为 <span class="arithmatex">\(O(2\ln(n+1))\)</span>。</p>
+<p>根为 <span class="arithmatex">\(x\)</span> 的子树满足 <span class="arithmatex">\(\mathrm{size}(x) \geq 2^{\mathrm{bh}(x)} - 1\)</span>。</p>
 <h2 id="b-trees">B+ Trees<a class="headerlink" href="#b-trees" title="Permanent link">&para;</a></h2>
 <p>度（degree）为 <span class="arithmatex">\(m\)</span> 的 B+ 树满足以下条件：</p>
 <ol>
@@ -2385,7 +2440,7 @@
 <p>找到插入位置，插入新节点，回溯检查进行 Split 操作。</p>
 <h4 id="deletion_1">Deletion<a class="headerlink" href="#deletion_1" title="Permanent link">&para;</a></h4>
 <p>找到删除位置，删除节点，回溯检查进行 Merge 操作。</p>
-<h3 id="complexity-analysis">Complexity Analysis<a class="headerlink" href="#complexity-analysis" title="Permanent link">&para;</a></h3>
+<h3 id="complexity-analysis_1">Complexity Analysis<a class="headerlink" href="#complexity-analysis_1" title="Permanent link">&para;</a></h3>
 <p>度为 <span class="arithmatex">\(m\)</span> 且有 <span class="arithmatex">\(n\)</span> 个节点的 B+ 树的高度为 <span class="arithmatex">\(O(\log_{\lceil m/2 \rceil} n)\)</span>（每个节点的儿子数目取 <span class="arithmatex">\(\lceil m/2 \rceil\)</span> 时高度最大）。</p>
 <p>插入和删除操作的时间复杂度为 <span class="arithmatex">\(O(\log_{\lceil m/2 \rceil} n)\)</span>。</p>
 
@@ -2410,7 +2465,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 22, 2024</span>
   </span>
 
     
