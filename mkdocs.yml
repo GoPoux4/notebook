@@ -155,6 +155,10 @@ nav:
     - HPC 101:
       - HPC 101: hpc/hpc101/index.md
       - 课堂实验 NVIDIA CUDA C: hpc/hpc101/cuda.md
+  - Others:
+    - Others: others/index.md
+    - 视唱练耳: others/sight_singing.md
+    - 打开艺术之门——钢琴: others/piano.md
   - Labs:
     - HPC lab2 向量化计算: labs/numpy.md
     - HPC lab2.5 手写 SIMD 向量化: labs/simd.md
