@@ -138,6 +138,7 @@ nav:
       - cs/database/index.md
       - 数据库系统概述: cs/database/chapter1.md
       - 关系模型: cs/database/chapter2.md
+      - 复习: cs/database/review.md
   - Math:
     - Math: math/index.md
     - 概率论:
