@@ -371,7 +371,7 @@ end
 
 ### Functional Dependency 函数依赖
 
-\(A \rightarrow B\) 表示 A 唯一确定 B
+\(A \rightarrow B\) 表示 \(A\)唯一确定 \(B\)
 
 - trival: 全集决定子集，对于所有关系模式都成立
 - 闭包：属性集合能推导出来的所有属性构成的集合。\(A\) 的属性闭包表示为 \(A^+\)
@@ -379,25 +379,29 @@ end
 ### Normal Form 范式
 
 - 1NF：属性是原子的，不可再分
-- BCNF：对于任意一个函数依赖 \(X \rightarrow Y\)，要么是平凡的，要么 X 是 super key
-    计算 X 的属性闭包，如果闭包包含了所有属性，那么满足 BCNF
+- BCNF：对于任意一个函数依赖 \(X \rightarrow Y\)，要么是平凡的，要么 \(X\)是 super key
+    计算 \(X\)的属性闭包，如果闭包包含了所有属性，那么满足 BCNF
+    - Decomposing a Schema into BCNF
+        1. 选择一个不满足 BCNF 的函数依赖，将其单独作为一个关系
+        2. 重复这个过程，直到所有关系都满足 BCNF
+        3. 将可合并的关系进行合并
 - 3NF：对于任意一个函数依赖 \(X \rightarrow Y\)，满足以下条件之一
     - 依赖是平凡的
-    - X 是 super key
+    - \(X\)是 super key
     - 对于每个 \(Y - X\) 中的属性，都包含在一个 candidate key 中
 
 ### Canonical Cover 正则覆盖
 
-- 无关属性：对于 F 中的函数依赖 \(\alpha \rightarrow \beta\)
-    - \(\alpha\) 中的属性 A 是多余的，如果 \(\alpha - A\) 也能推导出 \(\beta\)
-        如果 \((\alpha - A)^+\) 包含 \(\beta\)，那么 A 是多余的
-    - \(\beta\) 中的属性 B 是多余的，如果 \(\alpha \rightarrow \beta - B\) 也成立
-        将 \(\alpha \rightarrow \beta\) 替换为 \(\alpha \rightarrow \beta - B\)，如果 \(\alpha^+\) 包含 \(B\)，那么 B 是多余的
+- 无关属性：对于 \(F\) 中的函数依赖 \(\alpha \rightarrow \beta\)
+    - \(\alpha\) 中的属性 \(A\) 是多余的，如果 \(\alpha - A\) 也能推导出 \(\beta\)
+        如果 \((\alpha - A)^+\) 包含 \(\beta\)，那么 \(A\) 是多余的
+    - \(\beta\) 中的属性 \(B\) 是多余的，如果 \(\alpha \rightarrow \beta - B\) 也成立
+        将 \(\alpha \rightarrow \beta\) 替换为 \(\alpha \rightarrow \beta - B\)，如果 \(\alpha^+\) 包含 \(B\)，那么 \(B\) 是多余的
 
 - 计算最小覆盖
     1. 用 union rule 将满足 \(\alpha \rightarrow \beta_1 \land \alpha \rightarrow \beta_2\) 的函数依赖合并为 \(\alpha \rightarrow \beta_1 \beta_2\)
     2. 去除重复属性
-    3. 重复 a,b 两步，直到不能合并为止
+    3. 重复 a, b 两步，直到不能合并为止
 
 ## 数据库设计理论
 
@@ -425,6 +429,9 @@ end
 见 minisql
 
 ### Index 索引
+
+- primary index 主索引，索引的 key 是 primary key，在文件中按照 key 的顺序存储
+- secondary index 辅助索引，索引顺序和文件中的顺序不一定相同，不一定是唯一的
 
 衡量指标：
 
@@ -460,27 +467,406 @@ LSM 树：将索引结构分为若干层，越底层的索引越大。
 - 插入：当上层的索引满了之后，将数据合并到下层。
 - 查找：从上往下查找，如果上层没有找到，就去下层查找。
 
-### Query Processing 查询处理
+## Query Processing 查询处理
 
-#### 基础步骤
+### 基础步骤
 
 - parsing and translation 将查询语句转换为关系代数表达式
 - optimization 优化查询计划，转换为执行计划
 - evaluation 执行计划，获取结果
 
-#### 代价估算
+### 代价估算
 
 估算指标：
 
 - number of seeks：磁盘寻找次数
 - number of block transfers：磁盘读写次数
 
-**Select Operation**
+#### Select Operation
 
-- A1（linear search）：扫描所有记录，找到满足条件的记录
+1. A1（linear search）：扫描所有记录，找到满足条件的记录
     - worst cost: \(t_{seek} + b_r \times t_{trans}\)，\(t_s\) 为 seek time，\(b_r\) 为要传输的块数，\(t_t\) 为传输一块的时间
     - average cost: \(t_s + (b_r / 2) \times t_t\)
-- A2（B+ index search, on key）：通过 B+ 树索引找到记录，B+ 树中的 key 唯一。
+2. A2（B+ index search, on key）：通过 B+ 树索引找到记录，B+ 树中的 key 唯一。
     - cost: \((h_i + 1) \times (t_s + t_t)\)，\(h_i\) 为 B+ 树的高度，对于树上查找路径的每一块和最后实际存放记录的块都要进行 seek 和 transfer
-- A3（B+ index search, on non-key）：通过 B+ 树索引找到记录，B+ 树中的 key 不唯一。
+3. A3（B+ index search, on non-key）：通过 B+ 树索引找到记录，B+ 树中的 key 不唯一。
     - cost: \(h_i \times (t_s + t_t) + t_s + b \times t_t\)，B+ 树中存放的是每个 key 首次出现的位置，通过叶节点的指针找到实际存放记录的块，然后扫描块找到满足条件的记录
+4. A4（secondary index search, equality on key）：建立在 key 上的辅助索引，和主索引类似
+    - cost: \((h_i + 1) \times (t_s + t_t)\)
+5. A4'（secondary index search, equality on non-key）：建立在非 key 上的辅助索引
+    - 叶节点存放的是指向存放指向实际记录的指针块的指针，找到叶节点后，要在指针块中找到指针，再找到实际记录
+    - cost: \((h_i + m + n) \times (t_s + t_t)\)，m 为指针块的数量，n 为实际记录的数量，最坏情况下每个记录都在不同的块中
+6. A5（primary B+ index, comparison）：主索引上的比较查找，需要找到第一个满足条件的记录，往后扫描
+    - cost: \(h_i \times (t_s + t_t) + t_s + b \times t_t\)
+7. A6（secondary index, comparison）：辅助索引上的比较查找
+    - 一般用线性扫描
+
+#### Complex Selection
+
+1. Conjunctive Selection：多个条件的 and \(\sigma_{\theta_1 \land \theta_2 \land \cdots \land \theta_n}(r)\)
+    - 如果其中一个条件有索引，就用索引找到记录，然后再进行其他条件的判断
+    - 有联合索引的情况下，可以直接用联合索引找到记录
+    - 分别用索引找到记录，然后取交集
+2. Disjunctive Selection：多个条件的 or \(\sigma_{\theta_1 \lor \theta_2 \lor \cdots \lor \theta_n}(r)\)
+    - 用索引找到记录，然后取并集
+    - 线性扫描
+3. Not Selection：\(\sigma_{\lnot \theta}(r)\)
+    - 直接使用索引
+    - 线性扫描
+
+#### External Sorting
+
+假设有 M 个内存块
+
+1. 创建初始归并段 run
+    - 读取 M 个块到内存中
+    - 对这些块进行排序
+    - 写回到磁盘中，得到一个 run
+    - 重复这个过程，直到所有记录都被读取，总共的 run 数为 \(N = \lceil b_r / M \rceil\)
+2. 归并
+    - 如果 \(N < M\)，那么只需要一次 N 路归并，将内存中 N 块作为输入缓冲，1 块作为输出缓冲
+        - 每次将输入缓冲中最小的记录写入输出缓冲
+        - 若输出缓冲满，写入磁盘，清空输出缓冲
+        - 若输入缓冲中有块读完，读取对应 run 的下一块
+    - 如果 \(N \geq M\)，则需要多次 \(M-1\) 路归并，每次将 \(M-1\) 个 run 归并为一个 run，直到所有 run 归并为一个 run
+        - 每次 run 的个数会减少到原来的 \(\frac{1}{M-1}\)，总共需要 \(\lceil \log_{M-1} N \rceil\) 次归并
+
+**Cost Analysis**
+
+- runs 个数：\(N = \lceil b_r / M \rceil\)
+- 归并轮数：\(\lceil \log_{M-1} \lceil b_r / M \rceil \rceil\)
+- transfer 次数
+    - 创建初始归并段和每次归并需要 \(2 \times b_r\) 次 transfer，读和写各一次
+    - 最后一次归并的结果不一定需要写入磁盘，这种情况总共需要 \(2 b_r (\lceil \log_{M-1} \lceil b_r / M \rceil \rceil + 1) - b_r = b_r \times (2 \times \lceil \log_{M-1} \lceil b_r / M \rceil \rceil + 1)\) 次 transfer
+- seek 次数
+    - 创建初始归并段需要 \(2 \times N\) 次 seek，每个 run 读和写各一次
+    - 每次归并需要 \(2 \times b_r\) 次 seek，因为数据是按照块读取写回的
+    - 最后一次归并的结果不一定需要写入磁盘，这种情况总共需要 \(b_r (2 \lceil \log_{M-1} \lceil b_r / M \rceil \rceil - 1) + 2 \lceil b_r / M \rceil\) 次 seek
+
+假如内存中给每一路分配了 \(b_b\) 个输入缓冲块，同时输出缓冲块也是 \(b_b\) 个，那么
+
+- 归并轮数：\(\lceil \log_{M/b_b - 1} \lceil b_r / M \rceil \rceil\)
+- transfer 次数：
+    - 创建初始归并段和每次归并需要的 transfer 次数不变，为 \(2 \times b_r\) 次
+    - 最后一次归并的结果不一定需要写入磁盘，这种情况总共需要 \(b_r (2 \lceil \log_{M/b_b - 1} \lceil b_r / M \rceil \rceil + 1)\) 次 transfer
+- seek 次数：
+    - 创建初始归并段需要 \(2 \times N\) 次 seek
+    - 每次归并需要 \(2 \times \lceil b_r / b_b \rceil\) 次 seek
+    - 最后一次归并的结果不一定需要写入磁盘，这种情况总共需要 \(\lceil b_r / b_b \rceil (2 \lceil \log_{M/b_b - 1} \lceil b_r / M \rceil \rceil - 1) + 2 \lceil b_r / M \rceil\) 次 seek
+
+#### Join Operation
+
+1. Nested-loop join：两重循环，外循环 r，内循环 s
+    - transfer 次数：\(b_r + n_r \times b_s\)
+    - seek 次数：\(n_r + b_r\)
+2. Block nested-loop join：外循环 r 的块，内循环 s 的块，每次对两个块做 nested-loop join
+    - transfer 次数：\(b_r + b_r \times b_s\)
+    - seek 次数：\(2 \times b_r\)
+    - 将较小的关系作为外关系能减少代价。
+    - 如果分配 \(M - 2\) 块给 r，\(1\) 块给 s，那么
+        - transfer 次数：\(b_r + \lceil b_r / (M - 2) \rceil \times b_s\)
+        - seek 次数：\(2\lceil b_r / (M - 2) \rceil\)
+3. Index nested-loop join：如果 s 上有索引，可以用索引找到满足条件的记录
+    - 时间花费：\(b_r(t_s + t_t) + n_r \times c\)，\(c\) 为每次索引查找花费的时间
+4. Merge join：两个关系都有序，可以直接进行归并
+    - transfer 次数：\(b_r + b_s\)
+    - seek 次数：\(b_r + b_s\) 最坏情况是在两个关系中切换
+    - 将 M 块内存分为 \(x_r + x_s\) 块，\(x_r\) 块用来存储 r，\(x_s\) 块用来存储 s，那么
+        - transfer 次数：\(b_r + b_s\)
+        - seek 次数：\(\lceil b_r / x_r \rceil + \lceil b_s / x_s \rceil\)
+        - 选择 \(x_r = \frac{\sqrt{b_r}}{\sqrt{b_r} + \sqrt{b_s}} \times M\) 和 \(x_s = \frac{\sqrt{b_s}}{\sqrt{b_r} + \sqrt{b_s}} \times M\) 可以最小化 seek 次数
+5. Hash join: 将两个关系用相同的 hash 函数进行划分，hash 后将原数据分为 \(n\) 个域，然后对每个域进行 join
+    - 需要满足 \(n \geq \lceil b_s / M \rceil\)，即每个域能一次性放入内存中。如果放不下，可以进行二次划分
+    - s 称为 build relation，r 称为 probe relation
+    - 过程：
+        1. 对 s 进行 hash 划分，对于每个划分，为其在内存中分配一个块用于写回
+        2. 对 r 进行 hash 划分
+        3. 对于每个划分：
+           1. 读取 s 的一个划分到内存中，在内存中建立 hash 索引
+           2. 将 r 的划分一块一块读取到内存中，对于每个块中每条记录，查找 hash 索引，找到满足条件的记录进行输出
+    - recursive partitioning：如果一个域不能放入内存中，可以进行二次划分，直到可以放入内存中，此时 \(M > \lceil b_s / n \rceil + 1\)，近似为 \(M > \sqrt{b_s}\)
+    - 代价估算：
+        - 如果不需要 recursive partitioning
+            - transfer 次数：\(2(b_r + b_s) + b_r + b_s = 3(b_r + b_s)\)，划分时读取写入各一次，join 时读取一次（实际可能比这个值大，因为可能有些块不满）
+            - seek 次数：\(2 (\lceil b_r / b_b \rceil + \lceil b_s / b_b \rceil)\)，划分时 seek 一次，join 时 seek 一次
+        - 如果需要 recursive partitioning，会进行 \(\lceil \log_{M/b_b - 1}\lceil b_s / M \rceil \rceil\) 次划分
+            - transfer 次数：\(2(b_r+b_s)\times \lceil \log_{M/b_b - 1}\lceil b_s / M \rceil \rceil + b_r + b_s\)
+            - seek 次数 \(2 (\lceil b_r / b_b \rceil + \lceil b_s / b_b \rceil) \times \lceil \log_{M/b_b - 1}\lceil b_s / M \rceil \rceil\)
+
+### Query Optimization 查询优化
+
+#### Equivalence Rules
+
+- Conjunctive Selection deconstruct：\(\sigma_{\theta_1 \land \theta_2}(r) \equiv \sigma_{\theta_1}(\sigma_{\theta_2}(r))\)
+- Selection commutativity：\(\sigma_{\theta_1}(\sigma_{\theta_2}(r)) \equiv \sigma_{\theta_2}(\sigma_{\theta_1}(r))\)
+- Projection omission：\(\Pi_{L_1}(\Pi_{L_2}(...(\Pi_{L_n}(r))...)) \equiv \Pi_{L_1}(r)\)，只保留最后一个 projection
+- 选择操作和笛卡尔积嵌套：
+    - \(\sigma_{\theta}(r \times s) \equiv r \bowtie_{\theta} s\)
+    - \(\sigma_{\theta_1}(r \bowtie_{\theta_2} s) \equiv r \bowtie_{\theta_2 \land \theta_1} s\)
+- Theta join commutativity：\(r \bowtie_{\theta} s \equiv s \bowtie_{\theta} r\)
+- associativity：
+    - Natural join associativity：\(r \bowtie s \bowtie t \equiv r \bowtie (s \bowtie t) \equiv (r \bowtie s) \bowtie t\)
+    - Theata join 在特定情况下可结合：\((r \bowtie_{\theta_1} s) \bowtie_{\theta_2 \land \theta_3} t \equiv r \bowtie_{\theta_1 \land \theta_3} (s \bowtie_{\theta_2} t)\)，其中 \(\theta_2\) 只和 s 和 t 有关
+- 投影在 theta join 中的分配
+    - 如果 \(\theta\) 只包含了 \(L_1 \cup L_2\) 中的属性
+        \(\Pi_{L_1 \cup L_2}(r \bowtie_{\theta} s) \equiv \Pi_{L_1}(r) \bowtie_{\theta} \Pi_{L_2}(s)\)
+    - 否则，设 \(\theta\) 包含了 \(r\) 中的属性 \(L_1 \cup L_3\)，\(s\) 中的属性 \(L_2 \cup L_4\)，那么
+        \(\Pi_{L_1 \cup L_2}(r \bowtie_{\theta} s) \equiv \Pi_{L_1 \cup L_2}(\Pi_{L_1 \cup L_3}(r) \bowtie_{\theta} \Pi_{L_2 \cup L_4}(s))\)
+
+#### Cost Estimation
+
+Statics:
+
+- \(n_r\)：r 中的记录数
+- \(b_r\)：存储 r 的块数
+- \(l_r\)：r 每条记录的大小
+- \(f_r\)：blocking factor of r，每个块中的记录数
+- \(V(A, r)\)：r 中属性 A 的不同值的数量
+
+1. \(\sigma_{A = V}(r)\)
+    - 估计选中的记录数：\(n_r / V(A, r)\)
+2. \(\sigma_{A \leq V}(r)\)
+    - 如果可以获得 \(\min(A, r)\) 和 \(\max(A, r)\)，那么可以估计选中的记录数
+        - 如果 \(V < \min(A, r)\)，那么选中的记录数为 \(0\)
+        - 如果 \(V > \max(A, r)\)，那么选中的记录数为 \(n_r\)
+        - 否则，选中的记录数为 \(\frac{V - \min(A, r)}{\max(A, r) - \min(A, r)} \times n_r\)
+    - 如果无法获得，那么估计选中的记录数为 \(n_r / 2\)
+3. 设条件 \(\theta_i\) 的选率为 \(s_i/n_r\)，假设条件直接相互独立
+    - \(\sigma_{\theta_1 \land \cdots \land \theta_n}(r)\)，选中的记录数为 \(n_r \times \prod_{i=1}^n s_i/n_r\)
+    - \(\sigma_{\theta_1 \lor \cdots \lor \theta_n}(r)\)，选中的记录数为 \(n_r \times (1 - \prod_{i=1}^n (1 - s_i/n_r))\)
+4. \(r \bowtie_\theta s\)
+    - 如果 \(r \cap s = \emptyset\)，那么选中的记录数为 \(n_r \times n_s\)
+    - 如果连接属性是 r 的 key，那么选中的记录数 \(n \leq n_s\)
+    - 如果连接属性是 s 指向 r 的外键，那么选中的记录数 \(n = n_s\)
+    - 否则估计为 \(\min(\frac{n_r}{V(A, r)}\times n_s, \frac{n_s}{V(A, s)}\times n_r)\)
+5. \(\Pi_{A}(r)\)
+    - 选中的记录数为 \(V(A, r)\)
+6. 聚合 \(_G \mathcal{G}_{f(A)}(r)\)
+    - 选中的记录数为 \(V(A, r)\)
+
+## 事务
+
+简化为只有 read 和 write 操作的事务。
+
+### Transaction State
+
+- active：事务正在执行
+- partially committed：事务执行完成，但是还没有提交
+- committed：事务执行完成并且提交
+- failed：事务执行失败
+- aborted：事务执行失败并且回滚
+
+### Concurrency Execution
+
+#### 典型错误
+
+1. Lost update: 两个事务同时读取一个值，然后修改，然后写回，会导致一个事务的修改被另一个事务覆盖。
+2. Dirty read: 一个事务读取了另一个事务未提交的数据，然后另一个事务回滚，导致读取的数据是脏数据。
+3. Unrepeatable read: 一个事务读取了一个值，然后另一个事务修改了这个值，导致第一个事务再次读取时值不同。
+4. Phantom read: 一个事务读取了一个范围内的值，然后另一个事务插入了一个新的值，导致第一个事务再次读取时范围内的值不同。
+
+#### Schedule
+
+调度，事务执行顺序。
+
+- 串行调度：事务按照顺序执行，一个事务执行完后另一个事务再执行，一定是隔离的
+- 非串行调度：事务并发执行，交叉调度。如果能够交换单个不冲突的操作的执行顺序使得结果和串行调度一致，那么执行结果和串行调度一致。
+
+#### Serializability
+
+如果一个交叉调度如果等价于一个串行调度，那么这个交叉调度是可串行化的。
+
+一对冲突的操作的顺序决定可串行化的交叉调度等价的串行调度的顺序：如果 \(T_1\) 先执行 \(\mathrm{read}(Q)\)，然后 \(T_2\) 执行 \(\mathrm{write}(Q)\)，那么等价的串行调度中，\(T_1\) 在 \(T_2\) 之前执行。
+
+#### Test for Serializability
+
+precedence graph 前驱图：如果 \(T_i\) 中能够找到一个操作需要先于 \(T_j\) 中的操作执行，那么在图中添加一条边 \(T_i \rightarrow T_j\)。
+
+如果找到一个环，那么这个调度是不可串行化的。
+
+#### Different Forms
+
+- conflict serializability：如上
+- view serializability：对于非串行化调度和串行化调度，如果初始值由同一个事务读取，中间值由同一个事务写入，再由同一个事务读取，最终值由同一个事务写入，那么这个调度是 view serializable 的。
+    冲突可串行化都是视图可串行化的，反之不一定。
+
+### Recoverable Schedule
+
+如果事务 \(T_i\) 读取了事务 \(T_j\) 的脏数据，那么 \(T_j\) 必须在 \(T_i\) 之前提交。
+
+#### Cascading Rollback
+
+如果事务 \(T_i\) 读取了事务 \(T_j\) 的脏数据，然后 \(T_k\) 读取了 \(T_i\) 的脏数据，那么 \(T_j\) 回滚，\(T_i, T_k\) 需要级联回滚。
+
+要避免发生级联回滚，否则开销会很大。
+
+### Transaction Isoaltion Level
+
+1. Serializable：默认级别，最高级别，保证事务串行执行
+2. Repeatable read：保证没有重复读
+3. Read committed：保证不读取脏数据
+4. Read uncommitted：允许读取脏数据
+
+## Concurrent Control
+
+并发控制协议
+
+- Lock-based protocol：加锁
+- Timestamp-based protocol：时间戳，事务按照时间戳顺序执行
+- Validation-based protocol：事务执行完后验证是否可串行化
+
+### Lock-based Protocol
+
+#### Lock
+
+- exclusive lock (X)：排他锁，可以读写
+- shared lock (S)：共享锁，用于读操作
+
+S 与 S 兼容，S 与 X 不兼容，X 与 X 不兼容。
+
+#### Two-phase Locking Protocol
+
+一个事务分为两个阶段：
+
+1. growing phase：事务可以获取锁，但是不能释放锁
+2. shrinking phase：事务可以释放锁，但是不能获取锁
+
+获得最后一个锁的时间点称为事务的 lock point。按照 lock point 的顺序执行事务，可以保证可串行化。
+
+基本两阶段封锁不能保证可恢复性和避免级联回滚。
+
+- Strict two-phase locking protocol 严格两阶段封锁协议：在事务提交之前不能释放 X 锁，保证可串行化和可恢复性
+- Rigorous two-phase locking protocol 强两阶段封锁协议：在事务提交之前不能释放任何锁。
+
+#### Lock Conversion
+
+- First phase: lock upgrade，第一阶段可以申请锁或者升级锁
+- Second phase: lock downgrade，第二阶段可以降级锁或者释放锁
+
+### Implementation of Lock-based Protocol
+
+lock table：用 hash 表的形式，对记录 id 建立 hash 表，每个记录下有一个锁队列。
+
+### Deadlock
+
+解决死锁的方法：
+
+- 一次性分配所有锁
+- Impose partial order：对数据访问顺序进行限制
+- Timeout-based scheme：超时回滚
+
+#### Deadlock Detection
+
+定期检测死锁，然后回滚一个事务。
+
+建立等待图，如果事务 \(T_i\) 等待事务 \(T_j\) 的锁，那么在图中添加一条边 \(T_i \rightarrow T_j\)。
+
+### Graph-based Protocol
+
+假如知道数据按照偏序访问，那么可以通过图来执行事务。
+
+#### Tree Protocol
+
+- 只有 X 锁
+- 第一个锁可以放在任意位置，后续的锁必须在父节点锁上时才能上锁
+- 可以在任意时刻释放锁
+- 释放锁后不能再上锁
+
+没有死锁，冲突可串行化。不能保证可恢复性。
+
+### Multiple Granularity
+
+可以对记录上锁，也可以对表上锁。锁可以加在：
+
+- database
+- area
+- table
+- record
+
+#### Intention Lock Mode
+
+意向锁
+
+- 如果记录上加 X 锁，那么在表上要加意向排他锁 IX
+- 如果记录上加 S 锁，那么在表上要加意向排他锁 IS
+- 如果表中记录有 X 锁，但是要对表上 S 锁，那么要加共享意向排他锁 SIX
+
+相容表：
+
+|     | IS | IX | S | SIX | X |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| IS  | T | T | T | T | F |
+| IX  | T | T | F | F | F |
+| S   | T | F | T | F | F |
+| SIX | T | F | F | F | F |
+| X   | F | F | F | F | F |
+
+## Recovery System
+
+### Failure Classification
+
+- Transaction failure：事务执行失败，常用方法 undo
+- System crash：系统崩溃，已经提交的事务要 redo，未提交的事务要 undo
+- Disk failure：介质故障，要进行备份
+
+要将日志写入 stable storage，保证即使系统崩溃，日志也不会丢失。
+
+### Log Records
+
+- `<Ti start>` 事务开始
+- `<Ti X V1 V2>` 事务 \(T_i\) 对 \(X\) 从 \(V_1\) 修改为 \(V_2\)
+- `<Ti commit>` 事务提交
+- `<Ti abort>` 事务回滚
+- `<Ti X V>` 事务 \(T_i\) 对 \(X\) 修改为 \(V\)，用于回滚
+
+### Write-ahead Logging
+
+先写日志原则。数据修改之前，和数据有关的记录要先写入日志。
+
+### Transaction Commit
+
+日志写入代表事务提交，具体数据不一定写入磁盘。
+
+### Checkpoint
+
+重演时，从最近的 checkpoint 开始重演。生成 checkpoint 过程：
+
+1. 日志从内存中写入 stable storage
+2. 把 buffer 中的数据全部写入磁盘
+3. 写一行日志 `<checkpoint L>`，L 为活跃事务表
+4. 生成 checkpoint 时所有其他事务都会暂停
+
+根据日志量决定何时生成 checkpoint。
+
+### Log Record Buffering
+
+将数据 buffer 中的块写入磁盘时，要先将对应的日志写入磁盘。
+
+- no-force policy: 事务 commit 了但不强制日志写入磁盘
+- steal policy: 事务未 commit 但是能将脏数据写入磁盘（同时对应日志也写入磁盘）
+
+### Fuzzy Checkpoint
+
+做 checkpoint 时，不一次将所有脏数据写入磁盘。而是记录脏数据位置，在之后慢慢写入，当脏数据全部写入后，再认定该 checkpoint 有效。
+
+### Failure with Loss of Nonvolatile Storage
+
+如果发生了介质故障，要进行恢复。基本操作是做 backup。
+
+发生故障时做快照，然后慢慢备份。
+
+### ARIES Recovery Algorithm
+
+- LSN：log sequence number，日志序列号。
+- Page LSN：每一个数据块记录一个 LSN，记录这个块反映了最近日志的修改结果
+- Dirty Page Table：记录 checkpoint 时的脏数据块
+    - 记录 PageLSN 和 RecLSN，RecLSN 代表从此 LSN 开始的日志记录都没有反映到磁盘上（即哪条日志记录导致了这个脏数据块）
+
+#### Recovery Process
+
+1. Analysis：分析日志，找到最近的 checkpoint
+    - undo-list：得到哪些事务需要回滚，根据活跃事务表，再根据日志找到哪些事务需要回滚
+    - dirty page table：得到最新的 dirty page table
+    - redoLSN：redo 需要从哪条日志开始，可能在 checkpoint 之前，dirty page table 中 RecLSN 的最小值
+2. Redo：重演日志：从 redoLSN 开始，重演日志
+3. Undo：回滚事务：根据 undo-list 回滚事务
