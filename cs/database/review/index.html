@@ -1643,6 +1643,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Functional Dependency 函数依赖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependency-preservation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Preservation 依赖保持
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1937,9 +1952,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#transaction-isoaltion-level" class="md-nav__link">
+  <a href="#transaction-isolation-level" class="md-nav__link">
     <span class="md-ellipsis">
-      Transaction Isoaltion Level
+      Transaction Isolation Level
     </span>
   </a>
   
@@ -3250,6 +3265,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Functional Dependency 函数依赖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependency-preservation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Preservation 依赖保持
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3544,9 +3574,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#transaction-isoaltion-level" class="md-nav__link">
+  <a href="#transaction-isolation-level" class="md-nav__link">
     <span class="md-ellipsis">
-      Transaction Isoaltion Level
+      Transaction Isolation Level
     </span>
   </a>
   
@@ -3867,12 +3897,12 @@
 <li>outer join 外部连接<ul>
 <li>左外连接 <span class="arithmatex">\(r \ltimes s\)</span>，左边的表全部保留，右边的表中没有的用 null 填充</li>
 <li>右外连接 <span class="arithmatex">\(r \rtimes s\)</span>，右边的表全部保留，左边的表中没有的用 null 填充</li>
-<li>全外连接 <span class="arithmatex">\(r \ltimes s \cup r \rtimes s\)</span>，左右两边的表全部保留，没有的用 null 填充</li>
+<li>全外连接 <span class="arithmatex">\(r \Join s\)</span>，两个表中的所有记录都保留，没有的用 null 填充</li>
 </ul>
 </li>
 <li>division 除法：<span class="arithmatex">\(r \div s\)</span>，设 <span class="arithmatex">\(R = (A_1, A_2, \cdots, A_n, B_1, B_2, \cdots, B_m)\)</span>，<span class="arithmatex">\(S = (B_1, B_2, \cdots, B_m)\)</span>，<span class="arithmatex">\(R \div S = (A_1, A_2, \cdots, A_n)\)</span>，表中保留的行 <span class="arithmatex">\(t\)</span> 满足 <span class="arithmatex">\(\forall u \in s, t \times u \in r\)</span></li>
 <li>assignment 赋值：<span class="arithmatex">\(\leftarrow\)</span>，将操作的结果进行命名。</li>
-<li>aggregation 聚合：<span class="arithmatex">\(_{G_1, G_2, \cdots, G_n}\gamma_{F_1(A_1), F_2(A_2), \cdots, F_m(A_m)}(r)\)</span>，对关系 r 中 <span class="arithmatex">\(G_i\)</span> 相同的元组进行聚合，然后在分别在属性 <span class="arithmatex">\(A_i\)</span> 上进行聚合操作 <span class="arithmatex">\(F_i\)</span>，如 count, sum, avg, max, min</li>
+<li>aggregation 聚合：<span class="arithmatex">\(_{G_1, G_2, \cdots, G_n}\mathcal{G}_{F_1(A_1), F_2(A_2), \cdots, F_m(A_m)}(r)\)</span>，对关系 r 中 <span class="arithmatex">\(G_i\)</span> 相同的元组进行聚合，然后在分别在属性 <span class="arithmatex">\(A_i\)</span> 上进行聚合操作 <span class="arithmatex">\(F_i\)</span>，如 count, sum, avg, max, min</li>
 </ul>
 <h2 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
 <h3 id="_5">数据类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -4186,6 +4216,8 @@
 <li>trival: 全集决定子集，对于所有关系模式都成立</li>
 <li>闭包：属性集合能推导出来的所有属性构成的集合。<span class="arithmatex">\(A\)</span> 的属性闭包表示为 <span class="arithmatex">\(A^+\)</span></li>
 </ul>
+<h4 id="dependency-preservation">Dependency Preservation 依赖保持<a class="headerlink" href="#dependency-preservation" title="Permanent link">&para;</a></h4>
+<p>一个关系 R 被分解为 R1 和 R2，如果 <span class="arithmatex">\(F_1\)</span> 和 <span class="arithmatex">\(F_2\)</span> 的闭包能推导出 <span class="arithmatex">\(F\)</span> 的闭包，那么称为依赖保持。</p>
 <h3 id="normal-form">Normal Form 范式<a class="headerlink" href="#normal-form" title="Permanent link">&para;</a></h3>
 <ul>
 <li>1NF：属性是原子的，不可再分</li>
@@ -4211,10 +4243,13 @@
 <li>
 <p>无关属性：对于 <span class="arithmatex">\(F\)</span> 中的函数依赖 <span class="arithmatex">\(\alpha \rightarrow \beta\)</span></p>
 <ul>
-<li><span class="arithmatex">\(\alpha\)</span> 中的属性 <span class="arithmatex">\(A\)</span> 是多余的，如果 <span class="arithmatex">\(\alpha - A\)</span> 也能推导出 <span class="arithmatex">\(\beta\)</span>
-    如果 <span class="arithmatex">\((\alpha - A)^+\)</span> 包含 <span class="arithmatex">\(\beta\)</span>，那么 <span class="arithmatex">\(A\)</span> 是多余的</li>
-<li><span class="arithmatex">\(\beta\)</span> 中的属性 <span class="arithmatex">\(B\)</span> 是多余的，如果 <span class="arithmatex">\(\alpha \rightarrow \beta - B\)</span> 也成立
-    将 <span class="arithmatex">\(\alpha \rightarrow \beta\)</span> 替换为 <span class="arithmatex">\(\alpha \rightarrow \beta - B\)</span>，如果 <span class="arithmatex">\(\alpha^+\)</span> 包含 <span class="arithmatex">\(B\)</span>，那么 <span class="arithmatex">\(B\)</span> 是多余的</li>
+<li>
+<p><span class="arithmatex">\(\alpha\)</span> 中的属性 <span class="arithmatex">\(A\)</span> 是多余的，如果 <span class="arithmatex">\(\alpha - A\)</span> 也能推导出 <span class="arithmatex">\(\beta\)</span></p>
+<p>如果 <span class="arithmatex">\((\alpha - A)^+\)</span> 包含 <span class="arithmatex">\(\beta\)</span>，那么 <span class="arithmatex">\(A\)</span> 是多余的</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\beta\)</span> 中的属性 <span class="arithmatex">\(B\)</span> 是多余的，如果将 <span class="arithmatex">\(\alpha \rightarrow \beta\)</span> 替换为 <span class="arithmatex">\(\alpha \rightarrow \beta - B\)</span>，<span class="arithmatex">\(\alpha^+\)</span> 包含 <span class="arithmatex">\(B\)</span></p>
+</li>
 </ul>
 </li>
 <li>
@@ -4453,9 +4488,11 @@ block size 为 4KB，共有 <span class="arithmatex">\(10^6\)</span> 条记录</
 <li>过程：<ol>
 <li>对 s 进行 hash 划分，对于每个划分，为其在内存中分配一个块用于写回</li>
 <li>对 r 进行 hash 划分</li>
-<li>对于每个划分：</li>
+<li>对于每个划分：<ol>
 <li>读取 s 的一个划分到内存中，在内存中建立 hash 索引</li>
 <li>将 r 的划分一块一块读取到内存中，对于每个块中每条记录，查找 hash 索引，找到满足条件的记录进行输出</li>
+</ol>
+</li>
 </ol>
 </li>
 <li>recursive partitioning：如果一个域不能放入内存中，可以进行二次划分，直到可以放入内存中，此时 <span class="arithmatex">\(M &gt; \lceil b_s / n \rceil + 1\)</span>，近似为 <span class="arithmatex">\(M &gt; \sqrt{b_s}\)</span></li>
@@ -4588,7 +4625,7 @@ block size 为 4KB，共有 <span class="arithmatex">\(10^6\)</span> 条记录</
 <h4 id="cascading-rollback">Cascading Rollback<a class="headerlink" href="#cascading-rollback" title="Permanent link">&para;</a></h4>
 <p>如果事务 <span class="arithmatex">\(T_i\)</span> 读取了事务 <span class="arithmatex">\(T_j\)</span> 的脏数据，然后 <span class="arithmatex">\(T_k\)</span> 读取了 <span class="arithmatex">\(T_i\)</span> 的脏数据，那么 <span class="arithmatex">\(T_j\)</span> 回滚，<span class="arithmatex">\(T_i, T_k\)</span> 需要级联回滚。</p>
 <p>要避免发生级联回滚，否则开销会很大。</p>
-<h3 id="transaction-isoaltion-level">Transaction Isoaltion Level<a class="headerlink" href="#transaction-isoaltion-level" title="Permanent link">&para;</a></h3>
+<h3 id="transaction-isolation-level">Transaction Isolation Level<a class="headerlink" href="#transaction-isolation-level" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Serializable：默认级别，最高级别，保证事务串行执行</li>
 <li>Repeatable read：保证没有重复读</li>
@@ -4800,7 +4837,7 @@ block size 为 4KB，共有 <span class="arithmatex">\(10^6\)</span> 条记录</
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 21, 2024</span>
   </span>
 
     
