@@ -37,10 +37,10 @@
 - outer join 外部连接
     - 左外连接 \(r \ltimes s\)，左边的表全部保留，右边的表中没有的用 null 填充
     - 右外连接 \(r \rtimes s\)，右边的表全部保留，左边的表中没有的用 null 填充
-    - 全外连接 \(r \ltimes s \cup r \rtimes s\)，左右两边的表全部保留，没有的用 null 填充
+    - 全外连接 \(r \Join s\)，两个表中的所有记录都保留，没有的用 null 填充
 - division 除法：\(r \div s\)，设 \(R = (A_1, A_2, \cdots, A_n, B_1, B_2, \cdots, B_m)\)，\(S = (B_1, B_2, \cdots, B_m)\)，\(R \div S = (A_1, A_2, \cdots, A_n)\)，表中保留的行 \(t\) 满足 \(\forall u \in s, t \times u \in r\)
 - assignment 赋值：\(\leftarrow\)，将操作的结果进行命名。
-- aggregation 聚合：\(_{G_1, G_2, \cdots, G_n}\gamma_{F_1(A_1), F_2(A_2), \cdots, F_m(A_m)}(r)\)，对关系 r 中 \(G_i\) 相同的元组进行聚合，然后在分别在属性 \(A_i\) 上进行聚合操作 \(F_i\)，如 count, sum, avg, max, min
+- aggregation 聚合：\(_{G_1, G_2, \cdots, G_n}\mathcal{G}_{F_1(A_1), F_2(A_2), \cdots, F_m(A_m)}(r)\)，对关系 r 中 \(G_i\) 相同的元组进行聚合，然后在分别在属性 \(A_i\) 上进行聚合操作 \(F_i\)，如 count, sum, avg, max, min
 
 ## SQL
 
@@ -376,6 +376,10 @@ end
 - trival: 全集决定子集，对于所有关系模式都成立
 - 闭包：属性集合能推导出来的所有属性构成的集合。\(A\) 的属性闭包表示为 \(A^+\)
 
+#### Dependency Preservation 依赖保持
+
+一个关系 R 被分解为 R1 和 R2，如果 \(F_1\) 和 \(F_2\) 的闭包能推导出 \(F\) 的闭包，那么称为依赖保持。
+
 ### Normal Form 范式
 
 - 1NF：属性是原子的，不可再分
@@ -394,9 +398,10 @@ end
 
 - 无关属性：对于 \(F\) 中的函数依赖 \(\alpha \rightarrow \beta\)
     - \(\alpha\) 中的属性 \(A\) 是多余的，如果 \(\alpha - A\) 也能推导出 \(\beta\)
+
         如果 \((\alpha - A)^+\) 包含 \(\beta\)，那么 \(A\) 是多余的
-    - \(\beta\) 中的属性 \(B\) 是多余的，如果 \(\alpha \rightarrow \beta - B\) 也成立
-        将 \(\alpha \rightarrow \beta\) 替换为 \(\alpha \rightarrow \beta - B\)，如果 \(\alpha^+\) 包含 \(B\)，那么 \(B\) 是多余的
+
+    - \(\beta\) 中的属性 \(B\) 是多余的，如果将 \(\alpha \rightarrow \beta\) 替换为 \(\alpha \rightarrow \beta - B\)，\(\alpha^+\) 包含 \(B\)
 
 - 计算最小覆盖
     1. 用 union rule 将满足 \(\alpha \rightarrow \beta_1 \land \alpha \rightarrow \beta_2\) 的函数依赖合并为 \(\alpha \rightarrow \beta_1 \beta_2\)
@@ -582,8 +587,8 @@ LSM 树：将索引结构分为若干层，越底层的索引越大。
         1. 对 s 进行 hash 划分，对于每个划分，为其在内存中分配一个块用于写回
         2. 对 r 进行 hash 划分
         3. 对于每个划分：
-           1. 读取 s 的一个划分到内存中，在内存中建立 hash 索引
-           2. 将 r 的划分一块一块读取到内存中，对于每个块中每条记录，查找 hash 索引，找到满足条件的记录进行输出
+            1. 读取 s 的一个划分到内存中，在内存中建立 hash 索引
+            2. 将 r 的划分一块一块读取到内存中，对于每个块中每条记录，查找 hash 索引，找到满足条件的记录进行输出
     - recursive partitioning：如果一个域不能放入内存中，可以进行二次划分，直到可以放入内存中，此时 \(M > \lceil b_s / n \rceil + 1\)，近似为 \(M > \sqrt{b_s}\)
     - 代价估算：
         - 如果不需要 recursive partitioning
@@ -700,7 +705,7 @@ precedence graph 前驱图：如果 \(T_i\) 中能够找到一个操作需要先
 
 要避免发生级联回滚，否则开销会很大。
 
-### Transaction Isoaltion Level
+### Transaction Isolation Level
 
 1. Serializable：默认级别，最高级别，保证事务串行执行
 2. Repeatable read：保证没有重复读
