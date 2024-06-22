@@ -139,6 +139,9 @@ nav:
       - 数据库系统概述: cs/database/chapter1.md
       - 关系模型: cs/database/chapter2.md
       - 复习: cs/database/review.md
+    - 计算机组成与设计:
+      - cs/co/index.md
+      - 复习: cs/co/review.md
   - Math:
     - Math: math/index.md
     - 概率论:
