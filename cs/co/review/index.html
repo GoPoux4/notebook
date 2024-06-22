@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/hpc/hpc101/">
+        <link rel="canonical" href="https://note.gopoux.cc/cs/co/review/">
       
       
-        <link rel="prev" href="../cute/tensor/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="cuda/">
+        <link rel="next" href="../../../math/">
       
       
-      <link rel="icon" href="../../assert/ico/favicon.png">
+      <link rel="icon" href="../../../assert/ico/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
-        <title>HPC 101 - GoPoux 的笔记本</title>
+        <title>复习 - GoPoux 的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,11 +42,11 @@
       
     
     
-      <link rel="stylesheet" href="../../css/neoteroi-mkdocs.css">
+      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
     
-      <link rel="stylesheet" href="../../css/counter.css">
+      <link rel="stylesheet" href="../../../css/counter.css">
     
-      <link rel="stylesheet" href="../../css/stylesheet.css">
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
     
@@ -54,7 +54,7 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -89,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -109,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HPC 101
+              复习
             
           </span>
         </div>
@@ -218,7 +223,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
     
@@ -234,11 +239,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../cs/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
     
@@ -258,7 +265,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../math/" class="md-tabs__link">
+        <a href="../../../math/" class="md-tabs__link">
           
   
     
@@ -274,13 +281,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../hpc/" class="md-tabs__link">
           
   
     
@@ -300,7 +305,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../others/" class="md-tabs__link">
+        <a href="../../../others/" class="md-tabs__link">
           
   
     
@@ -320,7 +325,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../labs/numpy/" class="md-tabs__link">
+        <a href="../../../labs/numpy/" class="md-tabs__link">
           
   
     
@@ -355,7 +360,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
@@ -408,7 +413,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -441,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../links/" class="md-nav__link">
+      <a href="../../../links/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -466,6 +471,8 @@
       
   
   
+    
+  
   
   
     
@@ -486,19 +493,22 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -509,13 +519,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Computer Science
@@ -610,7 +620,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/fds/" class="md-nav__link ">
+            <a href="../../fds/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -643,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter1/" class="md-nav__link">
+      <a href="../../fds/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -664,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter2/" class="md-nav__link">
+      <a href="../../fds/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -685,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter3/" class="md-nav__link">
+      <a href="../../fds/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -706,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter4/" class="md-nav__link">
+      <a href="../../fds/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -727,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter5/" class="md-nav__link">
+      <a href="../../fds/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -748,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter6/" class="md-nav__link">
+      <a href="../../fds/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -769,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter7/" class="md-nav__link">
+      <a href="../../fds/chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -831,7 +841,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/ads/" class="md-nav__link ">
+            <a href="../../ads/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -864,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter1/" class="md-nav__link">
+      <a href="../../ads/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -885,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter2/" class="md-nav__link">
+      <a href="../../ads/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -906,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter3/" class="md-nav__link">
+      <a href="../../ads/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -927,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter4/" class="md-nav__link">
+      <a href="../../ads/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -948,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter5/" class="md-nav__link">
+      <a href="../../ads/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter6/" class="md-nav__link">
+      <a href="../../ads/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1041,7 +1051,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/computer_logic/" class="md-nav__link ">
+            <a href="../../computer_logic/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1074,7 +1084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter1/" class="md-nav__link">
+      <a href="../../computer_logic/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1095,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter2/" class="md-nav__link">
+      <a href="../../computer_logic/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter3/" class="md-nav__link">
+      <a href="../../computer_logic/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1137,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter4/" class="md-nav__link">
+      <a href="../../computer_logic/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1158,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter5/" class="md-nav__link">
+      <a href="../../computer_logic/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1179,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter6/" class="md-nav__link">
+      <a href="../../computer_logic/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1200,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter7/" class="md-nav__link">
+      <a href="../../computer_logic/chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1256,7 +1266,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/database/" class="md-nav__link ">
+            <a href="../../database/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1289,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/database/chapter1/" class="md-nav__link">
+      <a href="../../database/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1310,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/database/chapter2/" class="md-nav__link">
+      <a href="../../database/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/database/review/" class="md-nav__link">
+      <a href="../../database/review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1357,6 +1367,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1374,16 +1386,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/co/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1400,7 +1412,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             计算机组成与设计
@@ -1413,10 +1425,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../cs/co/review/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    复习
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1425,6 +1457,251 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      内存层次架构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内存层次架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-technology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Technology
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#block-replacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Replacement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-system-to-support-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory System to Support Cache
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuring-and-improving-cache-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring and improving cache performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring and improving cache performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#measuring-cache-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring cache performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improving-cache-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improving Cache Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Memory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlb" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLB
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储和 I/O
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="存储和 I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amdahls-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amdahl's Law
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accesse-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accesse Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flash-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flash Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependablity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependablity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redundant-arrays-of-inexpensive-disks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redundant Arrays of Inexpensive Disks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#io_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I/O
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1475,7 +1752,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../math/" class="md-nav__link ">
+            <a href="../../../math/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1537,7 +1814,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../math/prob_theory/" class="md-nav__link ">
+            <a href="../../../math/prob_theory/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1570,7 +1847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../math/prob_theory/chapter1/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1591,7 +1868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../math/prob_theory/chapter2/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1612,7 +1889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../math/prob_theory/chapter3/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1633,7 +1910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../math/prob_theory/chapter4/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1666,8 +1943,6 @@
       
   
   
-    
-  
   
   
     
@@ -1684,22 +1959,19 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../hpc/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1710,13 +1982,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             HPC
@@ -1757,7 +2029,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../cute/" class="md-nav__link ">
+            <a href="../../../hpc/cute/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1790,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cute/layout/" class="md-nav__link">
+      <a href="../../../hpc/cute/layout/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1811,7 +2083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cute/tensor/" class="md-nav__link">
+      <a href="../../../hpc/cute/tensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1837,8 +2109,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1856,16 +2126,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../../hpc/hpc101/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1876,13 +2146,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             HPC 101
@@ -1898,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cuda/" class="md-nav__link">
+      <a href="../../../hpc/hpc101/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1959,7 +2229,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../others/" class="md-nav__link ">
+            <a href="../../../others/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1992,7 +2262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/sight_singing/" class="md-nav__link">
+      <a href="../../../others/sight_singing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2013,7 +2283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/piano/" class="md-nav__link">
+      <a href="../../../others/piano/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2091,7 +2361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/numpy/" class="md-nav__link">
+      <a href="../../../labs/numpy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2112,7 +2382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/simd/" class="md-nav__link">
+      <a href="../../../labs/simd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2133,7 +2403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/cuda/" class="md-nav__link">
+      <a href="../../../labs/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2154,7 +2424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/pcg/" class="md-nav__link">
+      <a href="../../../labs/pcg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2175,7 +2445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/cnn/" class="md-nav__link">
+      <a href="../../../labs/cnn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2213,6 +2483,241 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      内存层次架构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内存层次架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-technology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Technology
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#block-replacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Replacement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#write-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-system-to-support-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory System to Support Cache
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuring-and-improving-cache-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring and improving cache performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measuring and improving cache performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#measuring-cache-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measuring cache performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improving-cache-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improving Cache Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtual Memory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtual Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlb" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLB
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储和 I/O
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="存储和 I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amdahls-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amdahl's Law
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accesse-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accesse Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flash-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flash Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependablity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependablity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redundant-arrays-of-inexpensive-disks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redundant Arrays of Inexpensive Disks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#io_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      I/O
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2230,13 +2735,250 @@
   
 
 
-  <h1>HPC 101</h1>
-
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>大一暑假超算短学期 labs</p>
-<p><a href="https://zjusct.pages.zjusct.io/summer-course-2023/HPC101-Labs-2023/">实验手册</a></p>
+<h1 id="_1">复习<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">内存层次架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="memory-technology">Memory Technology<a class="headerlink" href="#memory-technology" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SRAM：静态随机存取存储器，数据存储在触发器中，速度快但是需要更大的面积</li>
+<li>DRAM：动态随机存取存储器，数据存储在电容中，速度慢但是面积小</li>
+</ul>
+<h3 id="memory-hierarchy">Memory Hierarchy<a class="headerlink" href="#memory-hierarchy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>block：转移数据的最小单位</li>
+<li>hit：上层存储器找到目标数据，不用访问下层存储器<ul>
+<li>hit rate：命中率 = hit / access</li>
+<li>hit time：访问时间 + 判断是否命中的时间</li>
+</ul>
+</li>
+<li>miss：上层存储器未找到目标数据，需要访问下层存储器<ul>
+<li>miss rate：失效率 = 1 - 命中率</li>
+<li>miss penalty：替换数据的时间 + 将数据返回给处理器的时间</li>
+</ul>
+</li>
+</ul>
+<p>两个问题：</p>
+<ol>
+<li>速度问题：使用 cache</li>
+<li>容量问题：使用虚拟内存 Virtual Memory</li>
+</ol>
+<h3 id="cache">Cache<a class="headerlink" href="#cache" title="Permanent link">&para;</a></h3>
+<p>地址都以字节为单位</p>
+<ul>
+<li>cache line：缓存行，cache 的最小单位，最少包括 valid bit、tag、data</li>
+<li>
+<p>地址划分：tag + index + offset</p>
+<ul>
+<li>offset：取决于 cache line 中 data 段的大小，如 data 为 64 字节，则 offset 为 6 位</li>
+<li>index：取决于 cache 的大小和组数</li>
+<li>tag：剩下的部分，用于比较是否命中</li>
+</ul>
+</li>
+<li>
+<p>Direct-Mapped Cache：直接映射缓存，每个 block 只能映射到一个 cache line</p>
+</li>
+<li>Fully Associative Cache：全相联缓存，每个 block 可以映射到任意一个 cache line</li>
+<li>Set Associative Cache：组相联缓存，cache 被划分为多个组，每个 block 可以映射到某个组中的任意一个 cache line，组内采用直接映射，组的大小称为 ways。地址中 index 为组号</li>
+</ul>
+<h4 id="block-replacement">Block Replacement<a class="headerlink" href="#block-replacement" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Random Replacement：随机替换</li>
+<li>LRU Replacement：最近最少使用替换，需要在每个 cache line 中维护 lru bits</li>
+<li>FIFO Replacement：先进先出替换</li>
+</ul>
+<h4 id="write-policy">Write Policy<a class="headerlink" href="#write-policy" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Write-Through：写直达，写入 cache 同时写入主存，cache 中的数据永远是最新的</li>
+<li>Write-Back：写回，写入 cache 后不写入主存，只有当 cache line 被替换时才写入主存，需要额外的 dirty bit</li>
+</ul>
+<p>写回需要时间，CPU 会进行 write stall 等待写直达完成，可以使用 write buffer 缓解。副作用：读的时候需要在 buffer 中也查找。</p>
+<p>当发生 write miss 时，有两种策略：</p>
+<ul>
+<li>Write Allocate：写分配，将 block 读入 cache 后再写入，常与 write-back 结合</li>
+<li>Write Around：写绕过，直接写入主存，不读入 cache</li>
+</ul>
+<h4 id="memory-system-to-support-cache">Memory System to Support Cache<a class="headerlink" href="#memory-system-to-support-cache" title="Permanent link">&para;</a></h4>
+<p>不同 memory 架构</p>
+<ol>
+<li>
+<p>Performance basic memory organization</p>
+<p>CPU - cache - memory</p>
+<ul>
+<li>假设<ul>
+<li>1 cycle send address to cache</li>
+<li>15 cycles for each DRAM access initiated by cache</li>
+<li>1 cycle to send data</li>
+<li>block size 4 words</li>
+</ul>
+</li>
+<li>那么<ul>
+<li>transfer 一个 block 的需要 <span class="arithmatex">\(1 + 15 + 1 = 17\)</span> cycles</li>
+<li>miss penalty 为 <span class="arithmatex">\(1 + 4 \times (15 + 1) = 65\)</span> cycles</li>
+<li>带宽 bandwidth 为 <span class="arithmatex">\(\frac{4 \times 4}{65} \approx 0.25\)</span> words/cycle</li>
+</ul>
+</li>
+<li>Performance in Wider Main Memory</li>
+</ul>
+<p>CPU - cache - multiple caches - memory</p>
+<ul>
+<li>一次可以读出两个 word<ul>
+<li>miss penalty 为 <span class="arithmatex">\(1 + 2 \times (15 + 1) = 33\)</span> cycles</li>
+<li>带宽 bandwidth 为 <span class="arithmatex">\(\frac{4 \times 4}{33} \approx 0.48\)</span> words/cycle</li>
+</ul>
+</li>
+<li>一次性读出 4 个 word<ul>
+<li>miss penalty 为 <span class="arithmatex">\(1 + 15 + 1 = 17\)</span> cycles</li>
+<li>带宽 bandwidth 为 <span class="arithmatex">\(\frac{4 \times 4}{17} \approx 0.98\)</span> words/cycle</li>
+</ul>
+</li>
+<li>Performance in Four-way interleaved memory</li>
+</ul>
+<p>CPU - cache - 4 memory banks</p>
+<p>4 个 memory bank，依次进行读取，并行访问</p>
+<ul>
+<li>miss penalty 为 <span class="arithmatex">\(1 + 15 + 4 \times 1 = 20\)</span> cycles</li>
+<li>带宽 bandwidth 为 <span class="arithmatex">\(\frac{4 \times 4}{20} = 0.8\)</span> words/cycle</li>
+</ul>
+</li>
+</ol>
+<h3 id="measuring-and-improving-cache-performance">Measuring and improving cache performance<a class="headerlink" href="#measuring-and-improving-cache-performance" title="Permanent link">&para;</a></h3>
+<h4 id="measuring-cache-performance">Measuring cache performance<a class="headerlink" href="#measuring-cache-performance" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Average memory access time</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathrm{AMAT} &amp;= \mathrm{hitTime} + \mathrm{missTime} \\
+&amp;= \mathrm{hitRate} \times \mathrm{cacheTime} + \mathrm{missRate} \times \mathrm{memoryTime}
+\end{aligned}
+\]</div>
+</li>
+<li>
+<p>CPU Time = (CPU execution clock cycles + Memory stall clock cycles) <span class="arithmatex">\(\times\)</span> clock cycle time</p>
+</li>
+<li>Memory stall clock cycles = Number of instructions <span class="arithmatex">\(\times\)</span> miss rate <span class="arithmatex">\(\times\)</span> miss penalty = read stall cycles + write stall cycles<ul>
+<li>Read stall cycles = <span class="arithmatex">\(\displaystyle\frac{\text{Reads}}{\text{Program}} \times\)</span> read miss rate <span class="arithmatex">\(\times\)</span> read miss penalty</li>
+<li>Write stall cycles = <span class="arithmatex">\(\displaystyle\frac{\text{Writes}}{\text{Program}} \times\)</span> write miss rate <span class="arithmatex">\(\times\)</span> write miss penalty + write buffer stall cycles<ul>
+<li>如果 cache block size 为一个 word，那么 write miss penalty 为 0</li>
+</ul>
+</li>
+<li>
+<p>忽略 write buffer stall cycles 有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Memory stall clock cycles} &amp;= \frac{\text{Memory accesses}}{\text{Program}} \times \text{miss rate} \times \text{miss penalty} \\
+&amp;= \frac{\text{Instructions}}{\text{Program}} \times \frac{\text{Misses}}{\text{Instruction}} \times \text{miss penalty}
+\end{aligned}
+\]</div>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="improving-cache-performance">Improving Cache Performance<a class="headerlink" href="#improving-cache-performance" title="Permanent link">&para;</a></h4>
+<p>提高 cache 命中率，减小 penalty.</p>
+<ul>
+<li>Reducing cache misses by more flexible placement of blocks 灵活的 block 放置<ul>
+<li>使用 set-associative cache 替代 direct-mapped cache</li>
+</ul>
+</li>
+<li>Reducing the miss penalty using multilevel caches 多级缓存<ul>
+<li>增加 L2 cache</li>
+</ul>
+</li>
+</ul>
+<h3 id="virtual-memory">Virtual Memory<a class="headerlink" href="#virtual-memory" title="Permanent link">&para;</a></h3>
+<p>把主存当作磁盘缓存。采用全相联 LRU 替换。</p>
+<p>Page Table：将虚拟地址映射到物理地址</p>
+<p>每一个 process 都有自己的 page table，和一个 page table base register 指向 page table。</p>
+<div class="admonition example">
+<p class="admonition-title">计算页表大小</p>
+<ul>
+<li>虚拟地址 32 位</li>
+<li>页大小 4 KB</li>
+<li>页表中每条 entry size 4 bytes</li>
+</ul>
+<p>页表中 entry 个数为 <span class="arithmatex">\(2^{32} / 2^{12} = 2^{20}\)</span>，页表大小为 <span class="arithmatex">\(2^{20} \times 4 = 4 MB\)</span></p>
 </div>
+<h4 id="tlb">TLB<a class="headerlink" href="#tlb" title="Permanent link">&para;</a></h4>
+<p>Translation Lookaside Buffer，缓存 page table entry。看作 Page table 的 cache，一般 16-512 entries.</p>
+<h2 id="io">存储和 I/O<a class="headerlink" href="#io" title="Permanent link">&para;</a></h2>
+<h3 id="amdahls-law">Amdahl's Law<a class="headerlink" href="#amdahls-law" title="Permanent link">&para;</a></h3>
+<p>串行部分的比例决定了加速的上限。</p>
+<div class="admonition example">
+<p class="admonition-title">多核加速</p>
+<p>100 个 CPU，要加速 90 倍，求串行部分比例。</p>
+<p><span class="arithmatex">\(T_{\text{new}} = \frac{T_{\text{parallelizable}}}{100} + T_{\text{serial}}\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{Speedup} &amp;= \frac{T_{\text{parallelizable}} + T_{\text{serial}}}{\frac{T_{\text{parallelizable}}}{100} + T_{\text{serial}}} \\
+&amp;= \frac{1}{\frac{f_{\text{parallelizable}}}{100} + (1 - f_{\text{parallelizable}})} = 90
+\end{aligned}
+\]</div>
+<p>解得 <span class="arithmatex">\(f_{\text{parallelizable}} = 0.999\)</span>，串行部分比例为 0.1%</p>
+</div>
+<h3 id="accesse-time">Accesse Time<a class="headerlink" href="#accesse-time" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Seek Time：寻道时间，磁头移动到目标磁道的时间</li>
+<li>Rotational Latency：旋转延迟，等待目标数据旋转到磁头下的时间</li>
+<li>Transfer Time：传输时间，读取数据的时间</li>
+<li>Controller Time：控制器时间，处理数据的时间</li>
+</ul>
+<p>总的访问时间为上述四者之和。</p>
+<h3 id="flash-memory">Flash Memory<a class="headerlink" href="#flash-memory" title="Permanent link">&para;</a></h3>
+<p>不易失性存储器，读取速度快</p>
+<ul>
+<li>NOR Flash：随机读取，作为指令存储</li>
+<li>NAND Flash：以块为单位读取，作为数据存储</li>
+</ul>
+<h3 id="dependablity">Dependablity<a class="headerlink" href="#dependablity" title="Permanent link">&para;</a></h3>
+<p>可靠性</p>
+<ul>
+<li>MTTF：Mean Time To Failure，平均无故障时间</li>
+<li>MTTR：Mean Time To Repair，平均修复时间</li>
+<li>MTBF：Mean Time Between Failure，平均故障间隔 = MTTF + MTTR</li>
+</ul>
+<p>可用时间为 <span class="arithmatex">\(\frac{MTTF}{MTTF + MTTR}\)</span></p>
+<h3 id="redundant-arrays-of-inexpensive-disks">Redundant Arrays of Inexpensive Disks<a class="headerlink" href="#redundant-arrays-of-inexpensive-disks" title="Permanent link">&para;</a></h3>
+<p>磁盘阵列，能够同时访问</p>
+<ul>
+<li>RAID 0：数据分块存储，提高读写速度</li>
+<li>RAID 1：每一个盘的数据都有备份，写的时候同时写入两个盘</li>
+<li>RAID 3：对数据盘上的数据位进行奇偶校验，存储在另一个盘上，但故障时不知道具体是哪一个盘出了问题</li>
+<li>RAID 4：每个盘的校验位没有依赖关系，出错时可以知道具体是哪一个盘出了问题</li>
+<li>RAID 5：将校验位分散存储在所有盘上，提高读写速度</li>
+<li>RAID 6：两个校验位，提高容错能力，但是写入速度慢</li>
+</ul>
+<h3 id="bus">Bus<a class="headerlink" href="#bus" title="Permanent link">&para;</a></h3>
+<p>Synchronous vs. Asynchronous</p>
+<ul>
+<li>Synchronous 同步总线：所有设备频率一致</li>
+<li>
+<p>Asynchronous 异步总线：使用 handshake 协议</p>
+<p>读数据时：</p>
+<ol>
+<li>CPU 拉起 read request，并将地址放在 data bus 上</li>
+<li>设备接收到 read request，读取 data bus 上的地址，拉起 ack 信号表示收到 read request</li>
+<li>CPU 收到 ack 信号，复位 read request，等待数据；内存看到 read request 复位，将 ack 信号拉低</li>
+<li>设备读出数据，放在 data bus 上，拉起 data ready 信号</li>
+<li>CPU 看到 data ready 信号，读取 data bus 上的数据，拉起 ack 信号表示收到数据</li>
+<li>设备收到 ack 信号，复位 data ready 信号；CPU 看到 data ready 信号复位，将 ack 信号拉低</li>
+</ol>
+</li>
+</ul>
+<h4 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h4>
+<p>带宽 bandwidth = 数据传输量 / 传输时间</p>
+<ul>
+<li>Increasing data bus width</li>
+<li>Use separate address and data lines</li>
+<li>transfer multiple words</li>
+</ul>
+<h3 id="io_1">I/O<a class="headerlink" href="#io_1" title="Permanent link">&para;</a></h3>
+<p>CPU 通过 I/O 地址访问设备（这个地址不能进入 cache，要保持最新）</p>
+<p>交互方式：</p>
+<ul>
+<li>Polling：CPU 不断查询设备状态</li>
+<li>Interrupts：设备完成后发送中断信号给 CPU</li>
+<li>DMA：直接内存访问，设备直接访问内存，不需要 CPU 参与</li>
+</ul>
 
 
 
@@ -2259,7 +3001,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 28, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 22, 2024</span>
   </span>
 
     
@@ -2269,7 +3011,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 9, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 22, 2024</span>
   </span>
 
     
@@ -2342,7 +3084,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../cute/tensor/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Tensor">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 计算机组成与设计">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2352,20 +3094,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Tensor
+                计算机组成与设计
               </div>
             </div>
           </a>
         
         
           
-          <a href="cuda/" class="md-footer__link md-footer__link--next" aria-label="下一页: 课堂实验 NVIDIA CUDA C">
+          <a href="../../../math/" class="md-footer__link md-footer__link--next" aria-label="下一页: Math">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                课堂实验 NVIDIA CUDA C
+                Math
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2423,12 +3165,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
