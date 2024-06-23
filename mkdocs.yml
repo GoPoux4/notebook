@@ -125,6 +125,15 @@ nav:
         - Leftist Heaps and Skew Heaps: cs/ads/chapter4.md
         - Binomial Queue: cs/ads/chapter5.md
         - Backtracking: cs/ads/chapter6.md
+        - Divide and Conquer: cs/ads/chapter7.md
+        - Dynamic Programming: cs/ads/chapter8.md
+        - Greedy Algorithm: cs/ads/chapter9.md
+        - NP Completeness: cs/ads/chapter10.md
+        - Approximation: cs/ads/chapter11.md
+        - Local Search: cs/ads/chapter12.md
+        - Randomized Algorithms: cs/ads/chapter13.md
+        - Parallel Algorithms: cs/ads/chapter14.md
+        - External Sorting: cs/ads/chapter15.md
     - 计算机逻辑设计基础:
       - cs/computer_logic/index.md
       - 数字系统和信息: cs/computer_logic/chapter1.md
