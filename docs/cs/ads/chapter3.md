@@ -27,6 +27,11 @@
 1. 搜索树：B+、B-、Trie 等
 2. 哈希表
 
+### Distributed Index
+
+- Term Partitioning：将不同段的倒排索引分别存储在不同的磁盘上
+- Document Partitioning：将不同文档的倒排索引分别存储在不同的磁盘上
+
 ### Not Enough Memory
 
 当内存不足时，将当前内存中的倒排索引写入磁盘，再读取下一部分。

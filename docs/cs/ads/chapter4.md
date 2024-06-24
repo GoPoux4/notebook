@@ -10,7 +10,7 @@
         \mathrm{NPL}(x) = \min(\mathrm{NPL}(\mathrm{left}(x)), \mathrm{NPL}(\mathrm{right}(x))) + 1
     \]
 
-    定义 \(\mathrm{NPL}(\text{null}) = 0\)。
+    定义 \(\mathrm{NPL}(\text{null}) = -1\)。
 
 左偏树（Leftist Heap）是一种二叉堆，它满足左偏性质：对于每个节点 \(x\)，其左子树的 npl 不小于右子树的 npl。
 
