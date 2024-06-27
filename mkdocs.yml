@@ -151,6 +151,9 @@ nav:
     - 计算机组成与设计:
       - cs/co/index.md
       - 复习: cs/co/review.md
+    - 面向对象程序设计:
+      - cs/oop/index.md
+      - 复习: cs/oop/review.md
   - Math:
     - Math: math/index.md
     - 概率论:
