@@ -78,7 +78,7 @@ cout << d << endl; // 123.456
 
 ## Polymorphism
 
-- `virtual` 根据指针指向的对象调用函数；`override` 明确重写基类函数，重写需要保证函数签名一致
+- `virtual` 根据指针指向的对象调用函数；`override` 明确重写基类函数，重写需要保证函数签名一致（返回类型必须要么相同，要么为协变）
 - 基类析构函数应该声明为虚函数，否则析构时会调用基类析构函数而不会调用派生类析构函数
 - 声明 `virtual` 函数后，会在类中生成一个指向虚函数表的指针，存放类中所有虚函数的地址。当进行继承时，如果派生类重写了基类的虚函数，会在虚函数表中将该函数的地址替换为派生类的函数地址。
 - 成员函数函数签名实际上为 `void foo(ClassName *this, ...)`
@@ -187,7 +187,7 @@ cout << d << endl; // 123.456
     ClassName operator++() {} // 前缀
 
     // Definition
-    ClassName ClassName::operator++() {
+    ClassName& ClassName::operator++() {
         // ...
         return *this;
     }
@@ -230,20 +230,24 @@ cout << d << endl; // 123.456
         ```
     2. 或者使用 conversion operator
         ```cpp
+        class B {
+        public:
+            B() {}
+        };
         class A {
         public:
             operator B() const { // 不写返回值类型，返回类型为 B
                 return B();
             }
         };
-        class B {
-        public:
-            B() {}
-        };
+
         void foo(B b) {}
-        A a;
-        foo(a); // OK，隐式调用 A 的 conversion operator
-        B b = a; // OK，显式调用 A 的 conversion operator，然后调用 B 的构造函数
+        int main() {
+            A a;
+            foo(a); // OK，隐式调用 A 的 conversion operator
+            B b0 = a; // OK，隐式调用 A 的 conversion operator
+            B b = static_cast<B>(a); // OK，显式调用 A 的 conversion operator，然后调用 B 的构造函数
+        }
         ```
 
     如果两种方法都存在，编译器会报错。一般使用自定义函数 `to_xxx` 来进行类型转换。
