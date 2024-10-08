@@ -154,6 +154,11 @@ nav:
     - 面向对象程序设计:
       - cs/oop/index.md
       - 复习: cs/oop/review.md
+    - 计算机视觉导论:
+      - cs/cv/index.md
+      - 线代知识回顾: cs/cv/chapter1.md
+      - 图像的形成: cs/cv/chapter2.md
+      - 图像的处理: cs/cv/chapter3.md
   - Math:
     - Math: math/index.md
     - 概率论:
