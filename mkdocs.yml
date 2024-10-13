@@ -159,6 +159,9 @@ nav:
       - 线代知识回顾: cs/cv/chapter1.md
       - 图像的形成: cs/cv/chapter2.md
       - 图像的处理: cs/cv/chapter3.md
+    - 量子计算理论基础与软件系统:
+      - cs/quantum/index.md
+      - 量子比特与量子门: cs/quantum/chapter1.md
   - Math:
     - Math: math/index.md
     - 概率论:
