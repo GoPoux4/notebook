@@ -2,12 +2,12 @@ site_name: GoPoux 的笔记本
 site_url: https://note.gopoux.cc/
 repo_name: GoPoux4/notebook
 repo_url: https://github.com/GoPoux4/notebook/
-copyright: Copyright &copy; 2023-2024 GoPoux <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2023017648号</a>
+copyright: Copyright &copy; 2023-2024 GoPoux # <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2023017648号</a>
 
 theme:
   name: material
   language: 'zh'
-  favicon: 'assert/ico/favicon.png'
+  favicon: 'assets/ico/favicon.png'
   icon:
     repo: fontawesome/brands/github
     logo: material/notebook-outline
