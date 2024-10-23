@@ -3122,6 +3122,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      锅里捞面
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3245,6 +3254,15 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      锅里捞面
+    </span>
+  </a>
   
 </li>
         
@@ -3396,6 +3414,155 @@
 <p>得到 <code>Flag Piece[8/9]:X2N1NXRP</code>。</p>
 <h4 id="obtain-the-flag">Obtain the Flag<a class="headerlink" href="#obtain-the-flag" title="Permanent link">&para;</a></h4>
 <p>将所有 flag piece 组合起来，得到 <code>WkpVQ1RGe01pTkVjcjRmNydzX20wXmVfRnVuX2xmX3kwdV9wSUF5X2lUX2N1NXRPbWl6RUR9</code>，base64 解码得到 flag <code>ZJUCTF{MiNEcr4f7's_m0^e_Fun_lf_y0u_pIAy_iT_cu5tOmizED}</code>。</p>
+<h3 id="_1">锅里捞面<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>给了一个四小时的 mp4，画面是 AAA logo，音频是噪声。</p>
+<blockquote>
+<p>据说来自 CCBC 的传奇电报员可以一口气发四个小时电报……</p>
+</blockquote>
+<p>那就是摩斯电码了，把音频丢进 audacity，看到波形，发现有规律的长短音。写个脚本解码：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">wave</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="k">def</span> <span class="nf">compress</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)),</span> <span class="n">values</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">decompress</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])]</span>
+
+<span class="n">audio</span> <span class="o">=</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;output.wav&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">getparams</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">nchannels</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">samplerate</span><span class="p">,</span> <span class="n">nframes</span> <span class="o">=</span> <span class="n">params</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="n">samples</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="n">nframes</span><span class="p">)</span>
+<span class="n">audio</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span> <span class="o">-</span> <span class="mi">15</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">15</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">15</span><span class="p">])</span>
+
+<span class="c1"># print(&quot;Start compressing...&quot;)</span>
+<span class="n">compressed</span> <span class="o">=</span> <span class="n">compress</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">compressed</span> <span class="o">=</span> <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">compressed</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">]</span>
+<span class="n">compressed</span> <span class="o">=</span> <span class="n">compress</span><span class="p">(</span><span class="n">decompress</span><span class="p">(</span><span class="n">compressed</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Decode morse code</span>
+<span class="kn">from</span> <span class="nn">morseutils.translator</span> <span class="kn">import</span> <span class="n">MorseCodeTranslator</span> <span class="k">as</span> <span class="n">mct</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">compressed</span>
+<span class="n">morse</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10000</span><span class="p">:</span>
+        <span class="n">morse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">:</span>
+            <span class="n">morse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">morse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+
+<span class="n">morse_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">morse</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">morse_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mct</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">morse_code</span><span class="p">))</span>
+</code></pre></div>
+<p>修改自打 CCBC 时队友写的脚本。得到 <code>AYICIKQXHR320E7CHW4Y84ZGM954UG061H9QV9X2360TJJ37H9ABL42ABJH5BB</code>。</p>
+<p>然后是视频，通过盯帧可以发现有些帧会有白色或者黑色的竖线，看着像条形码，写个脚本提取一下有竖线的帧，可以看到这些竖线从左到右扫描了三次（脚本代码找不到了，就不放了）。</p>
+<p>写个脚本组合一下竖线，可以看到条形码，但是扫不出来。</p>
+<p>文件名提示 <code>代号128</code>，说明是 <a href="https://en.wikipedia.org/wiki/Code_128">code128</a> 条形码，直接手动解码：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="k">def</span> <span class="nf">compress</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)),</span> <span class="n">values</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">slice</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    只提取一行，避免 AAA logo 影响</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">img</span><span class="p">[</span><span class="mi">75</span><span class="p">:</span><span class="mi">75</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># 打开视频文件</span>
+<span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s1">&#39;代号128.mp4&#39;</span><span class="p">)</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span> <span class="c1"># 记录</span>
+<span class="n">con</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 组合</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">ret</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>
+        <span class="k">break</span>
+
+    <span class="n">gray_frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+    <span class="n">slice0</span> <span class="o">=</span> <span class="n">gray_frame</span><span class="p">[</span><span class="mi">75</span><span class="p">,</span> <span class="p">:]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">slice0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="ow">or</span> <span class="n">slice0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">con</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">con</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="mi">29</span><span class="p">:</span><span class="mi">227</span><span class="p">]))</span>
+                <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
+            <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">slice0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="n">con</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">con</span><span class="p">,</span> <span class="n">L</span><span class="p">[</span><span class="mi">29</span><span class="p">:</span><span class="mi">227</span><span class="p">]))</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">compress</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+
+<span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+<span class="c1"># code128 table</span>
+<span class="n">code128_t</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;212222&quot;</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;222122&quot;</span><span class="p">:</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="s2">&quot;222221&quot;</span><span class="p">:</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;121223&quot;</span><span class="p">:</span> <span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;121322&quot;</span><span class="p">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span> <span class="s2">&quot;131222&quot;</span><span class="p">:</span> <span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="s2">&quot;122213&quot;</span><span class="p">:</span> <span class="s2">&quot;&amp;&quot;</span><span class="p">,</span> <span class="s2">&quot;122312&quot;</span><span class="p">:</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;132212&quot;</span><span class="p">:</span> <span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;221213&quot;</span><span class="p">:</span> <span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;221312&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;231212&quot;</span><span class="p">:</span> <span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="s2">&quot;112232&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;122132&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;122231&quot;</span><span class="p">:</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;113222&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;123122&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;123221&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;223211&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;221132&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;221231&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="s2">&quot;213212&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="s2">&quot;223112&quot;</span><span class="p">:</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span> <span class="s2">&quot;312131&quot;</span><span class="p">:</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span> <span class="s2">&quot;311222&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span> <span class="s2">&quot;321122&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span> <span class="s2">&quot;321221&quot;</span><span class="p">:</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot;312212&quot;</span><span class="p">:</span> <span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="s2">&quot;322112&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;322211&quot;</span><span class="p">:</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="s2">&quot;212123&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;212321&quot;</span><span class="p">:</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="s2">&quot;232121&quot;</span><span class="p">:</span> <span class="s2">&quot;@&quot;</span><span class="p">,</span> <span class="s2">&quot;111323&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;131123&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;131321&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;112313&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;132113&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;132311&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;211313&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;231113&quot;</span><span class="p">:</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;231311&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;112133&quot;</span><span class="p">:</span> <span class="s2">&quot;J&quot;</span><span class="p">,</span> <span class="s2">&quot;112331&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;132131&quot;</span><span class="p">:</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;113123&quot;</span><span class="p">:</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;113321&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;133121&quot;</span><span class="p">:</span> <span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="s2">&quot;313121&quot;</span><span class="p">:</span> <span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="s2">&quot;211331&quot;</span><span class="p">:</span> <span class="s2">&quot;Q&quot;</span><span class="p">,</span> <span class="s2">&quot;231131&quot;</span><span class="p">:</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;213113&quot;</span><span class="p">:</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;213311&quot;</span><span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;213131&quot;</span><span class="p">:</span> <span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="s2">&quot;311123&quot;</span><span class="p">:</span> <span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="s2">&quot;311321&quot;</span><span class="p">:</span> <span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="s2">&quot;331121&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;312113&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;312311&quot;</span><span class="p">:</span> <span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="s2">&quot;332111&quot;</span><span class="p">:</span> <span class="s2">&quot;[&quot;</span><span class="p">,</span> <span class="s2">&quot;314111&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;221411&quot;</span><span class="p">:</span> <span class="s2">&quot;]&quot;</span><span class="p">,</span> <span class="s2">&quot;431111&quot;</span><span class="p">:</span> <span class="s2">&quot;^&quot;</span><span class="p">,</span> <span class="s2">&quot;111224&quot;</span><span class="p">:</span> <span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;111422&quot;</span><span class="p">:</span> <span class="s2">&quot;`&quot;</span><span class="p">,</span> <span class="s2">&quot;121124&quot;</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;121421&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;141122&quot;</span><span class="p">:</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;141221&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;112214&quot;</span><span class="p">:</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;112412&quot;</span><span class="p">:</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;122114&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;122411&quot;</span><span class="p">:</span> <span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;142112&quot;</span><span class="p">:</span> <span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;142211&quot;</span><span class="p">:</span> <span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;241211&quot;</span><span class="p">:</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;221114&quot;</span><span class="p">:</span> <span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;413111&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;241112&quot;</span><span class="p">:</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;134111&quot;</span><span class="p">:</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;111242&quot;</span><span class="p">:</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;121142&quot;</span><span class="p">:</span> <span class="s2">&quot;q&quot;</span><span class="p">,</span> <span class="s2">&quot;121241&quot;</span><span class="p">:</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;114212&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;124112&quot;</span><span class="p">:</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;124211&quot;</span><span class="p">:</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;411212&quot;</span><span class="p">:</span> <span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;421112&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;421211&quot;</span><span class="p">:</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;212141&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;214121&quot;</span><span class="p">:</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;412121&quot;</span><span class="p">:</span> <span class="s2">&quot;{&quot;</span><span class="p">,</span> <span class="s2">&quot;111143&quot;</span><span class="p">:</span> <span class="s2">&quot;|&quot;</span><span class="p">,</span> <span class="s2">&quot;111341&quot;</span><span class="p">:</span> <span class="s2">&quot;}&quot;</span><span class="p">,</span> <span class="s2">&quot;131141&quot;</span><span class="p">:</span> <span class="s2">&quot;~&quot;</span><span class="p">}</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">con</span><span class="p">),</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">con</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">6</span><span class="p">]</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+        <span class="n">code</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">code128_t</span><span class="p">[</span><span class="n">code</span><span class="p">])</span>
+        <span class="n">res</span> <span class="o">+=</span> <span class="n">code128_t</span><span class="p">[</span><span class="n">code</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div>
+<p>得到 <code>BASE36ENCODETABLE:ZJUCTF24ABDEGHIKLMNOPQRSVWXY01356789</code>。</p>
+<p>意思是用自定义的 base36 编码表解码上面那串密文，写个脚本解码：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">base36</span>
+
+<span class="n">custom_alphabet</span> <span class="o">=</span> <span class="s2">&quot;ZJUCTF24ABDEGHIKLMNOPQRSVWXY01356789&quot;</span>
+<span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;AYICIKQXHR320E7CHW4Y84ZGM954UG061H9QV9X2360TJJ37H9ABL42ABJH5BB&quot;</span>
+
+<span class="k">def</span> <span class="nf">decode_custom_base36</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">):</span>
+    <span class="c1"># 创建字符到值的映射字典</span>
+    <span class="n">char_to_value</span> <span class="o">=</span> <span class="p">{</span><span class="n">char</span><span class="p">:</span> <span class="n">index</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">alphabet</span><span class="p">)}</span>
+
+    <span class="c1"># 初始化解码后的数值</span>
+    <span class="n">decoded_value</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 遍历编码字符串</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">code</span><span class="p">:</span>
+        <span class="n">decoded_value</span> <span class="o">=</span> <span class="n">decoded_value</span> <span class="o">*</span> <span class="mi">36</span> <span class="o">+</span> <span class="n">char_to_value</span><span class="p">[</span><span class="n">char</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">decoded_value</span>
+
+<span class="k">def</span> <span class="nf">base36_to_string</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">value</span> <span class="o">%</span> <span class="mi">256</span><span class="p">))</span>
+        <span class="n">value</span> <span class="o">//=</span> <span class="mi">256</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># 使用自定义字符集进行解码</span>
+<span class="n">decoded_value</span> <span class="o">=</span> <span class="n">decode_custom_base36</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">custom_alphabet</span><span class="p">)</span>
+<span class="n">decoded_string</span> <span class="o">=</span> <span class="n">base36_to_string</span><span class="p">(</span><span class="n">decoded_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decoded_string</span><span class="p">)</span>
+</code></pre></div>
+<p>得到 flag <code>ZJUCTF{A_13G3nd4Ry_4h0uR-T3l36r4Phls7XD}</code></p>
 
 
 
