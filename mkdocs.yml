@@ -200,3 +200,5 @@ nav:
         # - 内存虚拟化：分页: books/ostep/chapter2/paging.md
         # - 内存虚拟化：超越物理内存: books/ostep/chapter2/beyond.md
         # - VAX/VMS 虚拟内存系统: books/ostep/chapter2/vax_vms.md
+  - CTF:
+    - Writeups: ctf/writeups/zjuctf2024.md
