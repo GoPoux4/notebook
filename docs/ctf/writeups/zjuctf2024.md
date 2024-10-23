@@ -183,3 +183,167 @@ private void decrypt() {
 #### Obtain the Flag
 
 将所有 flag piece 组合起来，得到 `WkpVQ1RGe01pTkVjcjRmNydzX20wXmVfRnVuX2xmX3kwdV9wSUF5X2lUX2N1NXRPbWl6RUR9`，base64 解码得到 flag `ZJUCTF{MiNEcr4f7's_m0^e_Fun_lf_y0u_pIAy_iT_cu5tOmizED}`。
+
+### 锅里捞面
+
+给了一个四小时的 mp4，画面是 AAA logo，音频是噪声。
+
+> 据说来自 CCBC 的传奇电报员可以一口气发四个小时电报……
+
+那就是摩斯电码了，把音频丢进 audacity，看到波形，发现有规律的长短音。写个脚本解码：
+
+```python
+import wave
+import numpy as np
+import itertools
+
+def compress(L, v):
+    values = [int(i > v) for i in L]
+    return [(k, len(list(g))) for k, g in itertools.groupby(range(len(values)), values.__getitem__)]
+
+def decompress(L):
+    return [L[i][0] for i in range(len(L)) for _ in range(L[i][1])]
+
+audio = wave.open('output.wav', 'rb')
+params = audio.getparams()
+print(params)
+nchannels, _, samplerate, nframes = params[:4]
+
+samples = audio.readframes(nframes)
+audio.close()
+
+samples = np.abs(np.frombuffer(samples, dtype=np.int16))
+print(samples)
+
+for i in range(15, len(samples) - 15):
+    if samples[i] == 0:
+        samples[i] = np.average(samples[i - 15:i + 15])
+
+# print("Start compressing...")
+compressed = compress(samples, 10000)
+compressed = [(k, v) for k, v in compressed if v > 20]
+compressed = compress(decompress(compressed), 0)
+
+# Decode morse code
+from morseutils.translator import MorseCodeTranslator as mct
+
+L = compressed
+morse = []
+
+for i in range(len(L)):
+    if L[i][0] == 0 and L[i][1] > 10000:
+        morse.append(' ')
+    elif L[i][0] == 1:
+        if L[i][1] < 10000:
+            morse.append('.')
+        else:
+            morse.append('-')
+
+morse_code = "".join(morse)[1:-1]
+print(morse_code)
+print(mct.decode(morse_code))
+```
+
+修改自打 CCBC 时队友写的脚本。得到 `AYICIKQXHR320E7CHW4Y84ZGM954UG061H9QV9X2360TJJ37H9ABL42ABJH5BB`。
+
+然后是视频，通过盯帧可以发现有些帧会有白色或者黑色的竖线，看着像条形码，写个脚本提取一下有竖线的帧，可以看到这些竖线从左到右扫描了三次（脚本代码找不到了，就不放了）。
+
+写个脚本组合一下竖线，可以看到条形码，但是扫不出来。
+
+文件名提示 `代号128`，说明是 [code128](https://en.wikipedia.org/wiki/Code_128) 条形码，直接手动解码：
+
+```python
+import cv2
+import numpy as np
+import os
+import itertools
+
+def compress(L, v):
+    values = [int(i < v) for i in L]
+    return [(k, len(list(g))) for k, g in itertools.groupby(range(len(values)), values.__getitem__)]
+
+def slice(img):
+    """
+    只提取一行，避免 AAA logo 影响
+    """
+    return img[75:75+10, 0:-1]
+
+# 打开视频文件
+cap = cv2.VideoCapture('代号128.mp4')
+
+L = np.zeros(256) # 记录
+con = [] # 组合
+
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    slice0 = gray_frame[75, :]
+
+    for i in range(256):
+        if slice0[i] < 50 or slice0[i] > 200:
+            if L[i] != 0:
+                con = np.concatenate((con, L[29:227]))
+                L = np.zeros(256)
+            L[i] = slice0[i]
+
+con = np.concatenate((con, L[29:227]))
+con = compress(con, 128)
+
+cap.release()
+
+# code128 table
+code128_t = { "212222": " ", "222122": "!", "222221": '"', "121223": "#", "121322": "$", "131222": "%", "122213": "&", "122312": "'", "132212": "(", "221213": ")", "221312": "*", "231212": "+", "112232": ",", "122132": "-", "122231": ".", "113222": "/", "123122": "0", "123221": "1", "223211": "2", "221132": "3", "221231": "4", "213212": "5", "223112": "6", "312131": "7", "311222": "8", "321122": "9", "321221": ":", "312212": ";", "322112": "<", "322211": "=", "212123": ">", "212321": "?", "232121": "@", "111323": "A", "131123": "B", "131321": "C", "112313": "D", "132113": "E", "132311": "F", "211313": "G", "231113": "H", "231311": "I", "112133": "J", "112331": "K", "132131": "L", "113123": "M", "113321": "N", "133121": "O", "313121": "P", "211331": "Q", "231131": "R", "213113": "S", "213311": "T", "213131": "U", "311123": "V", "311321": "W", "331121": "X", "312113": "Y", "312311": "Z", "332111": "[", "314111": "\\", "221411": "]", "431111": "^", "111224": "_", "111422": "`", "121124": "a", "121421": "b", "141122": "c", "141221": "d", "112214": "e", "112412": "f", "122114": "g", "122411": "h", "142112": "i", "142211": "j", "241211": "k", "221114": "l", "413111": "m", "241112": "n", "134111": "o", "111242": "p", "121142": "q", "121241": "r", "114212": "s", "124112": "t", "124211": "u", "411212": "v", "421112": "w", "421211": "x", "212141": "y", "214121": "z", "412121": "{", "111143": "|", "111341": "}", "131141": "~"}
+
+res = ""
+
+for i in range(0, len(con), 6):
+    c = con[i : i + 6]
+    code = ""
+    for j in range(6):
+        code += str(c[j][1])
+        print(code, code128_t[code])
+        res += code128_t[code]
+
+print(res)
+```
+
+得到 `BASE36ENCODETABLE:ZJUCTF24ABDEGHIKLMNOPQRSVWXY01356789`。
+
+意思是用自定义的 base36 编码表解码上面那串密文，写个脚本解码：
+
+```python
+import base36
+
+custom_alphabet = "ZJUCTF24ABDEGHIKLMNOPQRSVWXY01356789"
+code = "AYICIKQXHR320E7CHW4Y84ZGM954UG061H9QV9X2360TJJ37H9ABL42ABJH5BB"
+
+def decode_custom_base36(code, alphabet):
+    # 创建字符到值的映射字典
+    char_to_value = {char: index for index, char in enumerate(alphabet)}
+    
+    # 初始化解码后的数值
+    decoded_value = 0
+    
+    # 遍历编码字符串
+    for char in code:
+        decoded_value = decoded_value * 36 + char_to_value[char]
+    
+    return decoded_value
+
+def base36_to_string(value):
+    result = []
+    while value > 0:
+        result.append(chr(value % 256))
+        value //= 256
+    return ''.join(result[::-1])
+
+# 使用自定义字符集进行解码
+decoded_value = decode_custom_base36(code, custom_alphabet)
+decoded_string = base36_to_string(decoded_value)
+print(decoded_string)
+```
+
+得到 flag `ZJUCTF{A_13G3nd4Ry_4h0uR-T3l36r4Phls7XD}`
