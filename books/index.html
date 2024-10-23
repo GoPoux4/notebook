@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/math/prob_theory/chapter2/">
+        <link rel="canonical" href="https://note.gopoux.cc/books/">
       
       
-        <link rel="prev" href="../chapter1/">
+        <link rel="prev" href="../labs/cnn/">
       
       
-        <link rel="next" href="../chapter3/">
+        <link rel="next" href="ostep/">
       
       
-      <link rel="icon" href="../../../assets/ico/favicon.png">
+      <link rel="icon" href="../assets/ico/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>随机变量与分布函数 - GoPoux 的笔记本</title>
+        <title>读书笔记 - GoPoux 的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,11 +42,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
+      <link rel="stylesheet" href="../css/neoteroi-mkdocs.css">
     
-      <link rel="stylesheet" href="../../../css/counter.css">
+      <link rel="stylesheet" href="../css/counter.css">
     
-      <link rel="stylesheet" href="../../../css/stylesheet.css">
+      <link rel="stylesheet" href="../css/stylesheet.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
     
@@ -54,7 +54,7 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -94,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href=".." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              随机变量与分布函数
+              读书笔记
             
           </span>
         </div>
@@ -223,7 +223,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href=".." class="md-tabs__link">
           
   
     
@@ -243,7 +243,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../cs/" class="md-tabs__link">
+        <a href="../cs/" class="md-tabs__link">
           
   
     
@@ -259,13 +259,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../math/" class="md-tabs__link">
           
   
     
@@ -285,7 +283,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../hpc/" class="md-tabs__link">
+        <a href="../hpc/" class="md-tabs__link">
           
   
     
@@ -305,7 +303,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../others/" class="md-tabs__link">
+        <a href="../others/" class="md-tabs__link">
           
   
     
@@ -325,7 +323,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../labs/numpy/" class="md-tabs__link">
+        <a href="../labs/numpy/" class="md-tabs__link">
           
   
     
@@ -341,11 +339,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../books/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
     
@@ -380,7 +380,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href=".." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"/></svg>
@@ -433,7 +433,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../.." class="md-nav__link ">
+            <a href=".." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -466,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../links/" class="md-nav__link">
+      <a href="../links/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,7 +529,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cs/" class="md-nav__link ">
+            <a href="../cs/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -641,7 +641,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cs/fds/" class="md-nav__link ">
+            <a href="../cs/fds/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -674,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/fds/chapter1/" class="md-nav__link">
+      <a href="../cs/fds/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -695,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/fds/chapter2/" class="md-nav__link">
+      <a href="../cs/fds/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -716,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/fds/chapter3/" class="md-nav__link">
+      <a href="../cs/fds/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -737,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/fds/chapter4/" class="md-nav__link">
+      <a href="../cs/fds/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -758,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/fds/chapter5/" class="md-nav__link">
+      <a href="../cs/fds/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -779,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/fds/chapter6/" class="md-nav__link">
+      <a href="../cs/fds/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -800,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/fds/chapter7/" class="md-nav__link">
+      <a href="../cs/fds/chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -880,7 +880,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cs/ads/" class="md-nav__link ">
+            <a href="../cs/ads/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -913,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter1/" class="md-nav__link">
+      <a href="../cs/ads/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -934,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter2/" class="md-nav__link">
+      <a href="../cs/ads/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -955,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter3/" class="md-nav__link">
+      <a href="../cs/ads/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -976,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter4/" class="md-nav__link">
+      <a href="../cs/ads/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -997,7 +997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter5/" class="md-nav__link">
+      <a href="../cs/ads/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1018,7 +1018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter6/" class="md-nav__link">
+      <a href="../cs/ads/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1039,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter7/" class="md-nav__link">
+      <a href="../cs/ads/chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1060,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter8/" class="md-nav__link">
+      <a href="../cs/ads/chapter8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1081,7 +1081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter9/" class="md-nav__link">
+      <a href="../cs/ads/chapter9/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1102,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter10/" class="md-nav__link">
+      <a href="../cs/ads/chapter10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1123,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter11/" class="md-nav__link">
+      <a href="../cs/ads/chapter11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1144,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter12/" class="md-nav__link">
+      <a href="../cs/ads/chapter12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1165,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter13/" class="md-nav__link">
+      <a href="../cs/ads/chapter13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1186,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter14/" class="md-nav__link">
+      <a href="../cs/ads/chapter14/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1207,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/ads/chapter15/" class="md-nav__link">
+      <a href="../cs/ads/chapter15/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1279,7 +1279,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cs/computer_logic/" class="md-nav__link ">
+            <a href="../cs/computer_logic/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1312,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/computer_logic/chapter1/" class="md-nav__link">
+      <a href="../cs/computer_logic/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1333,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/computer_logic/chapter2/" class="md-nav__link">
+      <a href="../cs/computer_logic/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1354,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/computer_logic/chapter3/" class="md-nav__link">
+      <a href="../cs/computer_logic/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1375,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/computer_logic/chapter4/" class="md-nav__link">
+      <a href="../cs/computer_logic/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1396,7 +1396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/computer_logic/chapter5/" class="md-nav__link">
+      <a href="../cs/computer_logic/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1417,7 +1417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/computer_logic/chapter6/" class="md-nav__link">
+      <a href="../cs/computer_logic/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1438,7 +1438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/computer_logic/chapter7/" class="md-nav__link">
+      <a href="../cs/computer_logic/chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1494,7 +1494,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cs/database/" class="md-nav__link ">
+            <a href="../cs/database/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1527,7 +1527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/database/chapter1/" class="md-nav__link">
+      <a href="../cs/database/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1548,7 +1548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/database/chapter2/" class="md-nav__link">
+      <a href="../cs/database/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1569,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/database/review/" class="md-nav__link">
+      <a href="../cs/database/review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1621,7 +1621,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cs/co/" class="md-nav__link ">
+            <a href="../cs/co/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1654,7 +1654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/co/review/" class="md-nav__link">
+      <a href="../cs/co/review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1706,7 +1706,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cs/oop/" class="md-nav__link ">
+            <a href="../cs/oop/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1739,7 +1739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/oop/review/" class="md-nav__link">
+      <a href="../cs/oop/review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1795,7 +1795,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cs/cv/" class="md-nav__link ">
+            <a href="../cs/cv/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1828,7 +1828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/cv/chapter1/" class="md-nav__link">
+      <a href="../cs/cv/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1849,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/cv/chapter2/" class="md-nav__link">
+      <a href="../cs/cv/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1870,7 +1870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/cv/chapter3/" class="md-nav__link">
+      <a href="../cs/cv/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1922,7 +1922,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cs/quantum/" class="md-nav__link ">
+            <a href="../cs/quantum/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1955,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cs/quantum/chapter1/" class="md-nav__link">
+      <a href="../cs/quantum/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1988,8 +1988,6 @@
       
   
   
-    
-  
   
   
     
@@ -2004,22 +2002,19 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../math/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2030,13 +2025,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Math
@@ -2049,8 +2044,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2074,16 +2067,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../math/prob_theory/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2100,7 +2093,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             概率论
@@ -2116,7 +2109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter1/" class="md-nav__link">
+      <a href="../math/prob_theory/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2134,30 +2127,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    随机变量与分布函数
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../math/prob_theory/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2166,218 +2139,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机变量与分布函数
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="随机变量与分布函数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      离散型随机变量与分布列
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="离散型随机变量与分布列">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      离散型随机变量的典型例子
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      连续型随机变量与密度函数
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="连续型随机变量与密度函数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      连续型随机变量的例子
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      一般型随机变量与分布函数
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机变量的函数
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量与联合分布函数
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="随机向量与联合分布函数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      离散型随机变量
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      连续型随机变量
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      一般型随机变量
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      多维随机向量
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量的运算
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="随机向量的运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量的加减
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量的乘除
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量的变换
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      极值随机变量
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2390,7 +2151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter3/" class="md-nav__link">
+      <a href="../math/prob_theory/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2411,7 +2172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter4/" class="md-nav__link">
+      <a href="../math/prob_theory/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2472,7 +2233,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hpc/" class="md-nav__link ">
+            <a href="../hpc/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2530,7 +2291,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hpc/cute/" class="md-nav__link ">
+            <a href="../hpc/cute/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2563,7 +2324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hpc/cute/layout/" class="md-nav__link">
+      <a href="../hpc/cute/layout/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2584,7 +2345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hpc/cute/tensor/" class="md-nav__link">
+      <a href="../hpc/cute/tensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2636,7 +2397,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hpc/hpc101/" class="md-nav__link ">
+            <a href="../hpc/hpc101/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2669,7 +2430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hpc/hpc101/cuda/" class="md-nav__link">
+      <a href="../hpc/hpc101/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2730,7 +2491,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../others/" class="md-nav__link ">
+            <a href="../others/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2763,7 +2524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/sight_singing/" class="md-nav__link">
+      <a href="../others/sight_singing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2784,7 +2545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/piano/" class="md-nav__link">
+      <a href="../others/piano/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2862,7 +2623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/numpy/" class="md-nav__link">
+      <a href="../labs/numpy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2883,7 +2644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/simd/" class="md-nav__link">
+      <a href="../labs/simd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2904,7 +2665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/cuda/" class="md-nav__link">
+      <a href="../labs/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2925,7 +2686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/pcg/" class="md-nav__link">
+      <a href="../labs/pcg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2946,7 +2707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/cnn/" class="md-nav__link">
+      <a href="../labs/cnn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2971,6 +2732,8 @@
       
   
   
+    
+  
   
   
     
@@ -2985,19 +2748,22 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../books/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   <span class="md-ellipsis">
@@ -3008,13 +2774,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_7" id="__nav_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Books
@@ -3053,7 +2819,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../books/ostep/" class="md-nav__link ">
+            <a href="ostep/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3128,7 +2894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../books/ostep/chapter1/process/" class="md-nav__link">
+      <a href="ostep/chapter1/process/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3185,206 +2951,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机变量与分布函数
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="随机变量与分布函数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      离散型随机变量与分布列
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="离散型随机变量与分布列">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      离散型随机变量的典型例子
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      连续型随机变量与密度函数
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="连续型随机变量与密度函数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      连续型随机变量的例子
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      一般型随机变量与分布函数
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机变量的函数
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量与联合分布函数
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="随机向量与联合分布函数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      离散型随机变量
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      连续型随机变量
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      一般型随机变量
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      多维随机向量
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量的运算
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="随机向量的运算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量的加减
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量的乘除
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      随机向量的变换
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      极值随机变量
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      总结
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3401,824 +2967,7 @@
   
 
 
-<h1 id="_1">随机变量与分布函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">随机变量与分布函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>随机变量是定义在概率空间上取实数值的可测函数</p>
-<div class="admonition example">
-<p class="admonition-title">随机变量</p>
-<ul>
-<li>掷骰子出现的点数</li>
-<li>测量灯泡的寿命</li>
-<li>测量物体的长度</li>
-</ul>
-</div>
-<h3 id="_3">离散型随机变量与分布列<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>取有限个或者可列个值的随机变量</p>
-<p>假设 <span class="arithmatex">\((\Omega, \mathcal{A}, P)\)</span> 是概率空间，定义 <span class="arithmatex">\(X:\Omega \mapsto \mathbb{R}\)</span> .</p>
-<p>取值 <span class="arithmatex">\(x_1, \cdots, x_N, N\leq\infty\)</span></p>
-<p>取每个值的概率大小</p>
-<div class="arithmatex">\[
-P(X=x_i)=p_i, \quad i = 1, 2, \cdots, N
-\]</div>
-<p>分布列：</p>
-<div class="arithmatex">\[
-X \sim
-\begin{pmatrix}
-x_1 &amp; x_2 &amp; \cdots &amp; x_i &amp; \cdots &amp; x_N\\
-p_1 &amp; p_2 &amp; \cdots &amp; p_i &amp; \cdots &amp; p_N
-\end{pmatrix}
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li>
-<p><span class="arithmatex">\(p_i\)</span></p>
-<div class="arithmatex">\[
-p_i &gt; 0, \sum_{i=1}^N p_i = 1
-\]</div>
-</li>
-<li>
-<p>对于任意 Borel 集 <span class="arithmatex">\(B\)</span> ，</p>
-<div class="arithmatex">\[
-P(X\in B) = \sum_{i:x_i\in B}p_i
-\]</div>
-<p>特别，</p>
-<div class="arithmatex">\[
-\begin{align}
-    P(X \leq x) &amp;= \sum_{i:x_i \leq x}p_i \\
-    P(X &gt; x) &amp;= \sum_{i:x_i &gt; x}p_i \\
-    P(a &lt; X \leq b) &amp;= \sum_{i:a&lt; x_i \leq b}p_i
-\end{align}
-\]</div>
-</li>
-</ul>
-</div>
-<h4 id="_4">离散型随机变量的典型例子<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<div class="admonition example">
-<p class="admonition-title">退化分布</p>
-<div class="arithmatex">\[
-X \sim
-\begin{pmatrix}
-    c \\
-    1
-\end{pmatrix}
-\]</div>
-<p>常数可以看作退化随机变量</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">两点分布</p>
-<div class="arithmatex">\[
-X \sim
-\begin{pmatrix}
-    1 &amp; 0\\
-    p &amp; 1 - p
-\end{pmatrix}
-\quad 0&lt;p&lt;1
-\]</div>
-<p>适用于描述“正面、反面”、“成功、失败”等随机现象</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">二项分布</p>
-<div class="arithmatex">\[
-X \sim
-\begin{pmatrix}
-    0 &amp; 1 &amp; \cdots &amp; k &amp; \cdots &amp; n\\
-    (1-p)^n &amp; np(1-p)^{n-1} &amp; \cdots &amp; {n \choose k}p^k(1-p)^{n-k} &amp; \cdots &amp; p^n
-\end{pmatrix}
-\quad 0&lt;p&lt;1
-\]</div>
-<p>简记 <span class="arithmatex">\(X \sim B(n, p)\)</span></p>
-<ul>
-<li>二项分布适用于 n 重 Bernoulli 试验</li>
-<li>
-<p>二项展开系数</p>
-<div class="arithmatex">\[
-(p+q)^n = \sum_{k = 0}^n{n \choose k}p^kq^{n-k}
-\]</div>
-</li>
-<li>
-<p><span class="arithmatex">\(X\)</span> 最可能的值</p>
-<div class="arithmatex">\[
-\begin{align}
-\frac{p_k}{p_{k+1}}
-=&amp; \frac{{n \choose k}p^k(1-p)^{n-k}}{{n \choose k + 1}p^{k+1}(1-p)^{n-k-1}} \\
-=&amp; \frac{(k+1)(1-p)}{(n-k)p} \\
-&amp;\begin{cases}
-    &lt;1, &amp;\quad k+1 &lt; (n + 1)p \\
-    &gt;1, &amp;\quad k+1 &gt; (n + 1)p
-\end{cases}
-\end{align}
-\]</div>
-</li>
-</ul>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Poisson 分布</p>
-<div class="arithmatex">\[
-X \sim
-\begin{pmatrix}
-    0 &amp; 1 &amp; \cdots &amp; k &amp; \cdots\\
-    e^{-\lambda} &amp; \lambda e^{-\lambda} &amp; \cdots &amp; \frac{\lambda^k}{k!}e^{-\lambda} &amp; \cdots
-\end{pmatrix}
-\quad \lambda &gt; 0
-\]</div>
-<p>简记 <span class="arithmatex">\(X \sim \mathcal{P}(\lambda)\)</span></p>
-<p><span class="arithmatex">\(X\)</span> 取非负整数值，</p>
-<div class="arithmatex">\[
-P(X=k) = \frac{\lambda^k}{k!}e^{-\lambda}, \quad k=0, 1, \cdots
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li><span class="arithmatex">\(\sum p_i = 1\)</span></li>
-<li>Poisson 分布是 Poisson 过程的基础，用于描述随机服务系统</li>
-<li>
-<p>当 <span class="arithmatex">\(k\)</span> 足够大</p>
-<div class="arithmatex">\[
-P(X\geq k) = \sum_{l = k}^\infty\frac{\lambda^l}{l!}e^{-\lambda} \asymp \frac{\lambda^k}{k!}e^{-\lambda}
-\]</div>
-<p><span class="arithmatex">\(X\)</span> 只集中在小值中。稀有事件。</p>
-</li>
-</ul>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Poisson 分布和二项分布之间的关系(Poisson 极限定理)</p>
-<p>假设 <span class="arithmatex">\(S_n \sim B(n, p_n)\)</span>。当 <span class="arithmatex">\(n \to \infty, np_n \to \lambda &gt; 0\)</span>。对于任意 <span class="arithmatex">\(k \leq 0\)</span></p>
-<div class="arithmatex">\[
-P(S_n = k) \to \frac{\lambda^k}{k!}e^{-\lambda} = P(X = k), \quad n \to \infty
-\]</div>
-<details class="proof" open="open">
-<summary>Proof</summary>
-<div class="arithmatex">\[
-\begin{align}
-P(S_n = k)
-=&amp; {n \choose k}p_n^k(1-p_n)^{n-k} \\
-=&amp; \frac{1}{k!} \cdot n(n-1)\cdots(n-k+1)\cdot \frac{1}{n^k}\cdot (np_k)^k \cdot (1 - \frac{\lambda}{n} + o(\frac{1}{n}))^{n-k} \\
-=&amp; \left[(1-\frac{1}{n})(1-\frac{2}{n})\cdots(1-\frac{k-1}{n})\right] \left[\frac{\lambda^k}{k!}\right] \left[(1-\frac{\lambda}{n})^{n-k}\right] \\
-\to &amp; \frac{\lambda^k}{k!} e^{-\lambda}, \quad n\to \infty
-\end{align}
-\]</div>
-</details>
-</div>
-</div>
-<div class="admonition example">
-<p class="admonition-title">几何分布</p>
-<p>随机试验 <span class="arithmatex">\(E\)</span> 和事件 <span class="arithmatex">\(A\)</span> ，<span class="arithmatex">\(P(A) = p, 0&lt;p&lt;1\)</span>。独立重复 <span class="arithmatex">\(E\)</span> 直到 <span class="arithmatex">\(A\)</span> 发生，记所做的试验次数记为 <span class="arithmatex">\(X\)</span></p>
-<div class="arithmatex">\[
-P(X=k) = p(1-p)^{k-1}
-\]</div>
-<p>其中</p>
-<div class="arithmatex">\[
-\sum_{k=1}^{\infty} p(1-p)^{k-1} = \frac{p}{1-(1-p)} = 1
-\]</div>
-<p>分布列：</p>
-<div class="arithmatex">\[
-X \sim
-\begin{pmatrix}
-1 &amp; 2 &amp; \cdots &amp; k &amp; \cdots \\
-p &amp; p(1-p) &amp; \cdots &amp; p(1-p)^{k-1} &amp; \cdots
-\end{pmatrix}
-\]</div>
-</div>
-<div class="admonition example">
-<p class="admonition-title">超几何分布</p>
-<p><span class="arithmatex">\(N\)</span> 件产品中有 <span class="arithmatex">\(M\)</span> 件次品，随机抽样 <span class="arithmatex">\(n&lt;N\)</span> 件，用 <span class="arithmatex">\(X\)</span> 表示 <span class="arithmatex">\(n\)</span> 件产品中次品数。</p>
-<p><span class="arithmatex">\(0\leq X \leq \min\{M,n\}\)</span></p>
-<div class="arithmatex">\[
-P(X=k) = \frac{{M \choose k}{N - M \choose n - k}}{{N \choose n}}
-\]</div>
-</div>
-<h3 id="_5">连续型随机变量与密度函数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>连续型随机变量特点：</p>
-<ul>
-<li>随机变量取值是一个或几个区间</li>
-<li>
-<p>存在函数 <span class="arithmatex">\(p(x)\)</span></p>
-<div class="arithmatex">\[
-p(x)\geq 0, \quad \int_{-\infty}^{\infty}p(x)\text{d}x = 1
-\]</div>
-<p>使得对任何 Borel 集 <span class="arithmatex">\(B\)</span>，</p>
-<div class="arithmatex">\[
-P(X\in B) = \int_{B} p(x)\text{d}x
-\]</div>
-<p>简记 <span class="arithmatex">\(X \sim p(x)\)</span></p>
-</li>
-</ul>
-<p>称 <span class="arithmatex">\(p(x)\)</span> 为 <span class="arithmatex">\(X\)</span> 的密度函数</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li><span class="arithmatex">\(P(X=x) = 0, \quad x\in \mathbb{R}\)</span></li>
-<li><span class="arithmatex">\(P(X\in(a,b]) = \int_{a}^{b} p(x)\text{d}x\)</span></li>
-</ul>
-</div>
-<h4 id="_6">连续型随机变量的例子<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<div class="admonition example">
-<p class="admonition-title">均匀分布</p>
-<p>向 <span class="arithmatex">\((a,b)\)</span> 上随机投点，记落点的位置为 <span class="arithmatex">\(X\)</span></p>
-<ul>
-<li><span class="arithmatex">\(X\)</span> 落在 <span class="arithmatex">\((a,b)\)</span> 上每一点等可能 <span class="arithmatex">\(P(X=x) = 0\)</span></li>
-<li><span class="arithmatex">\(P(X\in A) = \frac{|A|}{b-a}\)</span></li>
-</ul>
-<p>简记 <span class="arithmatex">\(X \sim U(a,b)\)</span></p>
-<div class="arithmatex">\[
-X \sim p(x) = 
-\begin{cases}
-\frac{1}{b-a}, &amp; x\in (a,b) \\
-0            , &amp; \text{其他}
-\end{cases}
-\]</div>
-</div>
-<div class="admonition example">
-<p class="admonition-title">指数分布</p>
-<p>如果 <span class="arithmatex">\(X\)</span> 取非负实数，且</p>
-<div class="arithmatex">\[
-p(x) =
-\begin{cases}
-\lambda e^{-\lambda x}, &amp; x\geq 0 \\
-0                     , &amp; \text{其他}
-\end{cases}
-\quad \lambda &gt; 0
-\]</div>
-<p>简记 <span class="arithmatex">\(X \sim \exp(\lambda)\)</span></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li>通常描述寿命</li>
-<li>和 Poisson 分布有密切联系：Poisson 过程</li>
-<li>
-<p><span class="arithmatex">\(X\)</span> 取大值的可能性迅速衰减</p>
-<div class="arithmatex">\[
-P(X&gt;x) = e^{-\lambda x}, \quad x \geq 0
-\]</div>
-</li>
-<li>
-<p>无记忆性。使用了 <span class="arithmatex">\(y\)</span> 小时之后还能使用 <span class="arithmatex">\(x\)</span> 的概率</p>
-<div class="arithmatex">\[
-\begin{align}
-P(X&gt;x+y | X&gt;y) =&amp; \frac{P(X &gt; x+y)}{P(X &gt; y)} \\
-               =&amp; \frac{e^{-\lambda(x+y)}}{e^{-\lambda y}} \\
-               =&amp; e^{-\lambda x} \\
-               =&amp; P(X&gt;x)
-\end{align}
-\]</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="admonition example">
-<p class="admonition-title">正态分布</p>
-<p>随机变量 <span class="arithmatex">\(X\)</span> 取所有实数值，密度</p>
-<div class="arithmatex">\[
-p(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},
-\quad -\infty &lt; x &lt; \infty
-\]</div>
-<p>称 <span class="arithmatex">\(X\)</span> 是服从正态分布的随机变量，简记 <span class="arithmatex">\(X \sim N(\mu,\sigma^2)\)</span></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li><span class="arithmatex">\(-\infty &lt; \mu &lt; \infty, \sigma &gt; 0\)</span></li>
-<li>标准正态分布 <span class="arithmatex">\(\mu = 0, \sigma^2 = 1\)</span>，称 <span class="arithmatex">\(X \sim N(0,1)\)</span></li>
-</ul>
-</div>
-<div class="admonition note">
-<p class="admonition-title">验证</p>
-<p>验证</p>
-<div class="arithmatex">\[
-\int_{-\infty}^{\infty}p(x)\text{d}x = 1
-\]</div>
-<p>令 <span class="arithmatex">\(t = \frac{x-\mu}{\sigma}\)</span> ，只需证明</p>
-<div class="arithmatex">\[
-\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\text{d}x = 1
-\]</div>
-<p>考虑</p>
-<div class="arithmatex">\[
-\left(\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\text{d}x\right)^2 = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\frac{1}{2\pi}e^{-\frac{x^2+y^2}{2}}\text{d}x\text{d}y
-\]</div>
-<p>极坐标变换：</p>
-<div class="arithmatex">\[
-\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\frac{1}{2\pi}e^{-\frac{x^2+y^2}{2}}\text{d}x\text{d}y = \int_{0}^\infty\int_{0}{2\pi}\frac{1}{2\pi}e^{-\frac{\rho^2}{2}}\rho\text{d}\rho\text{d}\theta = 1
-\]</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">正态分布的性质</p>
-<ul>
-<li>对称性：关于 <span class="arithmatex">\(x = \mu\)</span> 对称</li>
-<li>光滑性：<span class="arithmatex">\(p(x)\)</span> 任意次可微</li>
-<li>单调性</li>
-<li>渐近线 <span class="arithmatex">\(y = 0\)</span></li>
-<li>最大值：<span class="arithmatex">\(P(x)\)</span> 在 <span class="arithmatex">\(x=\mu\)</span> 初取最大值 <span class="arithmatex">\(\frac{1}{\sqrt{2\pi}\sigma}\)</span></li>
-<li><span class="arithmatex">\(\sigma\)</span> 变大，曲线变平坦；<span class="arithmatex">\(\sigma\)</span> 变小，曲线变陡峭</li>
-<li>
-<p>类似积分</p>
-<div class="arithmatex">\[
-\begin{align}
-P(X &gt; \mu + \sigma x) =&amp; \int_{\mu + \sigma x}^{\infty} \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(u - \mu)^2}{2\sigma^2}}\text{d}u \\
-\sim &amp; \frac{1}{\sqrt{2\pi}x}e^{-\frac{x^2}{2}}, \quad x\to \infty
-\end{align}
-\]</div>
-<p>同理</p>
-<div class="arithmatex">\[
-P(X &lt; \mu - \sigma x) \sim \frac{1}{\sqrt{2\pi}x}e^{-\frac{x^2}{2}}, \quad x\to \infty
-\]</div>
-</li>
-</ul>
-</div>
-</div>
-<h3 id="_7">一般型随机变量与分布函数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>分布函数</p>
-<div class="arithmatex">\[
-F(x) = P(\omega: X(\omega) \leq x), \quad -\infty &lt; x &lt; \infty
-\]</div>
-</li>
-<li>
-<p>分布函数的性质</p>
-<ul>
-<li><span class="arithmatex">\(\lim_{x\to -\infty}F(x) = 0, \lim_{x\to \infty}F(x) = 1\)</span></li>
-<li><span class="arithmatex">\(F(x_1) \leq F(x_2), \quad x_1 \leq x_2\)</span></li>
-<li>
-<p><span class="arithmatex">\(F(x)\)</span> 左极限和右极限存在</p>
-<div class="arithmatex">\[
-\lim_{x\to x_0-0}F(x) = F(x_0-0), \quad \lim_{x\to x_0+0}F(x) = F(x_0+0)
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li><span class="arithmatex">\(F(x_0-0) = P(X &lt; x_0)\)</span></li>
-<li><span class="arithmatex">\(P(x = x_0) = F(x_0) - F(x_0-0)\)</span></li>
-<li><span class="arithmatex">\(P(X \in (x_1, x_2]) = F(x_2) - F(x_1)\)</span></li>
-</ul>
-</div>
-</li>
-</ul>
-</li>
-<li>
-<p>连续性随机变量的分布函数</p>
-<div class="arithmatex">\[
-\begin{align*}
-F(x) =&amp; P(X \leq x) \\
-     =&amp; \int_{-\infty}^{x}p(u)\text{d}u
-\end{align*}
-\]</div>
-<p><span class="arithmatex">\(F(x)\)</span> 是连续函数，且 <span class="arithmatex">\(F'(x) = p(x)\)</span></p>
-<div class="admonition note">
-<p class="admonition-title">正态分布的分布函数</p>
-<p>假定 <span class="arithmatex">\(X \sim N(0, 1)\)</span></p>
-<div class="arithmatex">\[
-F(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{u^2}{2}}\text{d}u
-\]</div>
-<p>没有显性表达式，用 <span class="arithmatex">\(\Phi(x)\)</span> 表示分布函数（Probit 函数）</p>
-<p>误差函数</p>
-<div class="arithmatex">\[
-erf(x) = \frac{2}{\sqrt{\pi}}\int_{0}^{x}e^{-u^2}\text{d}u
-\]</div>
-<p>采用误差函数表示 <span class="arithmatex">\(\Phi(x)\)</span></p>
-<div class="arithmatex">\[
-\Phi(x) = \frac{1}{2}\left[1 + \frac{1}{\sqrt{2}}erf(x)\right]
-\]</div>
-<p><span class="arithmatex">\(\Phi(x)\)</span> 的值：查表。</p>
-</div>
-</li>
-</ul>
-<h2 id="_8">随机变量的函数<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<p>考虑</p>
-<div class="arithmatex">\[
-Y = f(X), Y(\omega) = f(X(\omega))
-\]</div>
-<div class="admonition note">
-<p class="admonition-title"><span class="arithmatex">\(Y\)</span> 是随机变量的条件</p>
-<p><span class="arithmatex">\(X\)</span> 是随机变量，<span class="arithmatex">\(f\)</span> 是可测函数</p>
-</div>
-<ul>
-<li>
-<p>当 <span class="arithmatex">\(X\)</span> 是离散型随机变量时，<span class="arithmatex">\(Y\)</span> 也是离散型随机变量</p>
-<div class="arithmatex">\[
-X \sim
-\begin{pmatrix}
-x_1 &amp; x_2 &amp; \cdots &amp; x_i &amp; \cdots &amp; x_N \\
-p_1 &amp; p_2 &amp; \cdots &amp; p_i &amp; \cdots &amp; p_N
-\end{pmatrix}
-\]</div>
-<div class="arithmatex">\[
-P(Y = y_i) = \sum_{x_j: f(x_j) = y_i}p_j
-\]</div>
-</li>
-<li>
-<p>当 <span class="arithmatex">\(X\)</span> 是连续型随机变量时，<span class="arithmatex">\(Y\)</span> 不一定是连续型随机变量。无统一公式。</p>
-<p>一般地，假设 <span class="arithmatex">\(X \sim p_X(x)\)</span>，<span class="arithmatex">\(f\)</span> 具有反函数 <span class="arithmatex">\(f^{-1}\)</span>，且 <span class="arithmatex">\(f^{-1}\)</span> 可导。则 <span class="arithmatex">\(Y\)</span> 是连续型随机变量，其密度函数为</p>
-<div class="arithmatex">\[
-Y \sim p_Y(y) = p_X(f^{-1}(y))\left|\frac{\text{d}f^{-1}(y)}{\text{d}y}\right|
-\]</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>假设 <span class="arithmatex">\(X\)</span> 具有连续的分布函数 <span class="arithmatex">\(F(x)\)</span>，求 <span class="arithmatex">\(Y = F(X)\)</span> 的分布</p>
-<div class="arithmatex">\[
-\begin{align}
-P(Y \leq y) =&amp; P(F(X) \leq y) \\
-            =&amp; P(X \leq F^{-1}(y)) \\
-            =&amp; F(F^{-1}(y)) \\
-            =&amp; y, \quad 0 \leq y \leq 1
-\end{align}
-\]</div>
-<p>则 <span class="arithmatex">\(Y \sim U(0,1)\)</span></p>
-</div>
-</li>
-</ul>
-<h2 id="_9">随机向量与联合分布函数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<h3 id="_10">离散型随机变量<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\((X,Y)\)</span> 是 2-随机向量。<span class="arithmatex">\(X\)</span> 取值 <span class="arithmatex">\(x_1, x_2, \cdots\)</span>，<span class="arithmatex">\(Y\)</span> 取值 <span class="arithmatex">\(y_1, y_2, \cdots\)</span>。称 <span class="arithmatex">\((X,Y)\)</span> 为离散型随机向量。</p>
-<div class="arithmatex">\[
-p_{ij} = P(X = x_i, Y = y_j), \quad i,j = 1,2,\cdots
-\]</div>
-<p>称</p>
-<div class="arithmatex">\[
-((x_i, y_j), p_{ij})_{i,j=1}^{\infty}
-\]</div>
-<p>为 <span class="arithmatex">\((X,Y)\)</span> 的联合分布。</p>
-<ul>
-<li>
-<p>边际分布</p>
-<div class="arithmatex">\[
-\begin{align}
-P(X = x_i) =&amp; \sum_{j=1}^{\infty}p_{ij} \\
-P(Y = y_j) =&amp; \sum_{i=1}^{\infty}p_{ij}
-\end{align}
-\]</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>边际分布由联合分布唯一确定，反之不成立。</p>
-</div>
-</li>
-<li>
-<p>条件分布</p>
-<div class="arithmatex">\[
-P(X = x_i | Y = y_j) = \frac{P(X = x_i, Y = y_j)}{P(Y = y_j)} = \frac{p_{ij}}{p_{\cdot j}}
-\]</div>
-<p>条件分布列</p>
-<div class="arithmatex">\[
-X|Y = y_j \sim
-\begin{pmatrix}
-x_1 &amp; x_2 &amp; \cdots &amp; x_i &amp; \cdots \\
-\frac{p_{1j}}{p_{\cdot j}} &amp; \frac{p_{2j}}{p_{\cdot j}} &amp; \cdots &amp; \frac{p_{ij}}{p_{\cdot j}} &amp; \cdots
-\end{pmatrix}
-\]</div>
-</li>
-<li>
-<p>独立离散型随机变量</p>
-<div class="arithmatex">\[
-P(X = x_i, Y = y_j) = P(X = x_i)P(Y = y_j), \forall i,j
-\]</div>
-<p>即</p>
-<div class="arithmatex">\[
-p_{ij} = p_{i\cdot}p_{\cdot j}, \quad \forall i,j
-\]</div>
-</li>
-</ul>
-<h3 id="_11">连续型随机变量<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p>联合密度函数 <span class="arithmatex">\(p(x,y)\)</span></p>
-<div class="arithmatex">\[
-p(x,y) \geq 0, \quad \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}p(x,y)\text{d}x\text{d}y = 1
-\]</div>
-<p>并且</p>
-<div class="arithmatex">\[
-P(X \in A, Y \in B) = \int_{A}\int_{B}p(x,y)\text{d}x\text{d}y
-\]</div>
-<p>称 <span class="arithmatex">\((X,Y)\)</span> 为连续型随机向量。</p>
-<ul>
-<li>
-<p>边际密度</p>
-<div class="arithmatex">\[
-X \sim p_X(x), \quad Y \sim p_Y(y)
-\]</div>
-<div class="arithmatex">\[
-p_X(x) = \int_{-\infty}^{\infty}p(x,y)\text{d}y, \quad p_Y(y) = \int_{-\infty}^{\infty}p(x,y)\text{d}x
-\]</div>
-</li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">联合正态分布</p>
-<div class="arithmatex">\[
-p(x,y) = \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left[\frac{(x-\mu_1)^2}{\sigma_1^2} - 2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2} + \frac{(y-\mu_2)^2}{\sigma_2^2}\right]}
-\]</div>
-<p>称 <span class="arithmatex">\((X,Y)\)</span> 服从二元正态分布，简记 <span class="arithmatex">\((X,Y) \sim N(\mu_1, \mu_2, \sigma_1^2, \sigma_2^2, \rho)\)</span></p>
-<ul>
-<li>
-<p>边际分布</p>
-<div class="arithmatex">\[
-X \sim N(\mu_1, \sigma_1^2), \quad Y \sim N(\mu_2, \sigma_2^2)
-\]</div>
-</li>
-</ul>
-</div>
-<ul>
-<li>
-<p>条件分布</p>
-<div class="arithmatex">\[
-p_{Y|X}(y|x) = \frac{p(x,y)}{p_X(x)}
-\]</div>
-<div class="arithmatex">\[
-P(Y \leq y | X = x) = \frac{\int_{-\infty}^{y}p(x,v)\text{d}v}{p_X(x)}
-\]</div>
-</li>
-<li>
-<p>独立连续型随机变量</p>
-<div class="arithmatex">\[
-p(x,y) = p_X(x)p_Y(y), \quad \forall x,y
-\]</div>
-</li>
-</ul>
-<h3 id="_12">一般型随机变量<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<p>一般利用分布函数</p>
-<div class="arithmatex">\[
-F(x,y) = P(X \leq x, Y \leq y)
-\]</div>
-<div class="admonition note">
-<p class="admonition-title"><span class="arithmatex">\(F(x)\)</span> 性质</p>
-<ul>
-<li><span class="arithmatex">\(F(-\infty, y) = F(x, -\infty) = 0, F(+\infty, +\infty) = 1\)</span></li>
-<li><span class="arithmatex">\(F(x, y)\)</span> 关于 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 都是非减函数</li>
-<li><span class="arithmatex">\(F(x, y)\)</span> 关于 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 左极限存在，右连续</li>
-<li><span class="arithmatex">\(P(a &lt; X \leq b, c &lt; Y \leq d) = F(b,d) - F(a,d) - F(b,c) + F(a,c)\)</span></li>
-</ul>
-</div>
-<ul>
-<li>
-<p>边际分布</p>
-<div class="arithmatex">\[
-F_X(x) = F(x, +\infty), \quad F_Y(y) = F(+\infty, y)
-\]</div>
-</li>
-<li>
-<p>条件分布</p>
-<div class="arithmatex">\[
-\begin{align}
-P(Y \leq y | X = x) =&amp; \lim_{\epsilon \to 0} P(Y \leq y | x - \epsilon &lt; X \leq x + \epsilon) \\
-                    =&amp; \lim_{\epsilon \to 0} \frac{F(x+\epsilon, y) - F(x-\epsilon, y)}{F_X(x+\epsilon) - F_X(x-\epsilon)}
-\end{align}
-\]</div>
-</li>
-<li>
-<p>独立一般型随机变量</p>
-<div class="arithmatex">\[
-F(x,y) = F_X(x)F_Y(y), \quad \forall x,y
-\]</div>
-<p>如果 <span class="arithmatex">\(X, Y\)</span> 相互独立，那么对于任意 Borel 函数 <span class="arithmatex">\(f,g\)</span>，<span class="arithmatex">\(f(X)\)</span> 和 <span class="arithmatex">\(g(Y)\)</span> 也相互独立。</p>
-<div class="admonition proof">
-<p class="admonition-title">Proof</p>
-<div class="arithmatex">\[
-\begin{align}
-P(f(X) \in A, g(Y) \in B) =&amp; P(X \in f^{-1}(A), Y \in g^{-1}(B)) \\
-                           =&amp; P(X \in f^{-1}(A))P(Y \in g^{-1}(B)) \\
-                           =&amp; P(f(X) \in A)P(g(Y) \in B)
-\end{align}
-\]</div>
-</div>
-</li>
-</ul>
-<h3 id="_13">多维随机向量<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\(\mathbf{X} = (X_1, X_2, \cdots, X_n)\)</span> 是 <span class="arithmatex">\(n\)</span>-维随机向量。</p>
-<ul>
-<li>
-<p><span class="arithmatex">\(n\)</span>-元联合分布函数</p>
-<div class="arithmatex">\[
-F_{\mathbf{X}}(\mathbf{x}) = P(X_1 \leq x_1, X_2 \leq x_2, \cdots, X_n \leq x_n)
-\]</div>
-</li>
-<li>
-<p>边际分布</p>
-<div class="arithmatex">\[
-F_{X_i}(x_i) = F_{\mathbf{X}}(\infty, \cdots, \infty, x_i, \infty, \cdots, \infty) = P(X_i \leq x_i)
-\]</div>
-</li>
-<li>
-<p>独立随机变量</p>
-<div class="arithmatex">\[
-F_{\mathbf{X}}(\mathbf{x}) = \prod_{i=1}^{n}F_{X_i}(x_i)
-\]</div>
-<p>则 <span class="arithmatex">\(X_1, X_2, \cdots, X_n\)</span> 相互独立。</p>
-</li>
-</ul>
-<h2 id="_14">随机向量的运算<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
-<h3 id="_15">随机向量的加减<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>离散型随机变量</p>
-<p>分布为</p>
-<div class="arithmatex">\[
-P(X = x_i, Y = y_j) = p_{ij}
-\]</div>
-<p>记 <span class="arithmatex">\(Z = X + Y\)</span>，则</p>
-<div class="arithmatex">\[
-P(Z = z_k) = \sum_{i,j: x_i + y_j = z_k}p_{ij}
-\]</div>
-</li>
-<li>
-<p>连续型随机变量</p>
-<div class="arithmatex">\[
-\begin{align*}
-F_Z(z) = P(X + Y \leq z) =&amp; \int_{-\infty}^{\infty}\int_{-\infty}^{z-x}p(x,y)\text{d}y\text{d}x \\
-                         =&amp; \int_{-\infty}^{z}\int_{-\infty}^{\infty}p(x, y - x)\text{d}y\text{d}x
-\end{align*}
-\]</div>
-<p>密度函数</p>
-<div class="arithmatex">\[
-p_Z(z) = \int_{-\infty}^{\infty}p(x, z - x)\text{d}x
-\]</div>
-<p>减法类似：<span class="arithmatex">\(Z = Y - X\)</span></p>
-<div class="arithmatex">\[
-p_Z(z) = \int_{-\infty}^{\infty}p(x, x + z)\text{d}x
-\]</div>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title"><span class="arithmatex">\(\Gamma(\alpha, \beta)\)</span> 分布</p>
-<p>令 <span class="arithmatex">\(\alpha, \beta &gt; 0\)</span>，定义</p>
-<div class="arithmatex">\[
-\Gamma(\alpha) = \int_{0}^{\infty}x^{\alpha - 1}e^{-x}\text{d}x
-\]</div>
-<p><span class="arithmatex">\(\Gamma(n) = (n - 1)!, \Gamma(\alpha + 1) = \alpha\Gamma(\alpha)\)</span></p>
-<p>分布密度函数</p>
-<div class="arithmatex">\[
-p(x; \alpha, \beta) = \frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha - 1}e^{-\beta x}, \quad x &gt; 0
-\]</div>
-</div>
-<h3 id="_16">随机向量的乘除<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>乘法</p>
-<p>假设 <span class="arithmatex">\((X,Y)\)</span> 是连续型随机向量，<span class="arithmatex">\(Z = XY\)</span>，则</p>
-<div class="arithmatex">\[
-\begin{align*}
-F_Z(z) =&amp; P(XY \leq z) \\
-    =&amp; \int_{xy \leq z}p(x, y)\text{d}x\text{d}y \\
-    =&amp; \int_{-\infty}^{0}\text{d}x\int_{z/x}^{\infty}p(x, y)\text{d}y + \int_{0}^{\infty}\text{d}x\int_{-\infty}^{z/x}p(x, y)\text{d}y \\
-    =&amp; -\int_{-\infty}^{0}\text{d}x\int_{-\infty}^{z}\frac{1}{x}p(x, \frac{y}{x})\text{d}y + \int_{0}^{\infty}\text{d}x\int_{-\infty}^{z}\frac{1}{x}p(x, \frac{y}{x})\text{d}y \\
-    =&amp; -\int_{-\infty}^{z}\int_{-\infty}^{0}\frac{1}{x}p(x, \frac{y}{x})\text{d}x\text{d}y + \int_{-\infty}^{z}\int_{0}^{\infty}\frac{1}{x}p(x, \frac{y}{x})\text{d}x\text{d}y
-\end{align*}
-\]</div>
-<p>密度函数</p>
-<div class="arithmatex">\[
-\begin{align*}
-p_Z(z) =&amp; -\int_{-\infty}^{0}\frac{1}{x}p(x, \frac{z}{x})\text{d}x + \int_{0}^{\infty}\frac{1}{x}p(x, \frac{z}{x})\text{d}x \\
-    =&amp; \int_{-\infty}^{\infty}\frac{1}{|x|}p(x, \frac{z}{x})\text{d}x
-\end{align*}
-\]</div>
-</li>
-<li>
-<p>除法</p>
-<p><span class="arithmatex">\(Z = \frac{Y}{X}\)</span> 的密度函数</p>
-<div class="arithmatex">\[
-p_Z(z) = \int_{-\infty}^{\infty}|x|p(x, xz)\text{d}x
-\]</div>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Cauchy 分布</p>
-<div class="arithmatex">\[
-p(x; x_0, \gamma) = \frac{1}{\pi}\frac{\gamma}{(x - x_0)^2 + \gamma^2}
-\]</div>
-</div>
-<h3 id="_17">随机向量的变换<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\((X, Y)\)</span> 为连续型随机向量，有联合密度函数 <span class="arithmatex">\(p_{XY}(x, y)\)</span>，变换如下</p>
-<div class="arithmatex">\[
-\begin{cases}
-U = f_1(X, Y) \\
-V = f_2(X, Y)
-\end{cases}
-\]</div>
-<ul>
-<li>
-<p>基本方法</p>
-<div class="arithmatex">\[
-\begin{align*}
-P(U \leq u, V \leq v) =&amp; P(f_1(X, Y) \leq u, f_2(X, Y) \leq v) \\
-    =&amp; \iint_{f_1(x, y) \leq u, f_2(x, y) \leq v}p_{XY}(x, y)\text{d}x\text{d}y
-\end{align*}
-\]</div>
-</li>
-<li>
-<p>特殊情形</p>
-<p>假设 <span class="arithmatex">\(f_1, f_2\)</span> 存在逆变换：</p>
-<div class="arithmatex">\[
-\begin{cases}
-X = g_1(u, v) \\
-Y = g_2(u, v)
-\end{cases}
-\]</div>
-<p>假设 <span class="arithmatex">\(g_1, g_2\)</span> 可微，且雅可比式</p>
-<div class="arithmatex">\[
-J = \frac{\partial(x, y)}{\partial(u, v)}
-\]</div>
-<p>那么 <span class="arithmatex">\((U, V)\)</span> 的为连续型随机向量，其密度函数为</p>
-<div class="arithmatex">\[
-p_{UV}(u, v) = p_{XY}(x, y)|J|
-\]</div>
-</li>
-</ul>
-<h3 id="_18">极值随机变量<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\(X_1, X_2, \cdots, X_n\)</span> 是独立随机变量，有相同的分布函数 <span class="arithmatex">\(F(x)\)</span>，记</p>
-<div class="arithmatex">\[
-X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}
-\]</div>
-<p>即 <span class="arithmatex">\(X_{(k)}\)</span> 为第 k 小值。<span class="arithmatex">\(X_{(1)} = \min\{X_1, X_2, \cdots, X_n\}\)</span>，<span class="arithmatex">\(X_{(n)} = \max\{X_1, X_2, \cdots, X_n\}\)</span>。</p>
-<ul>
-<li>
-<p><span class="arithmatex">\(X_{(n)}\)</span> 的分布</p>
-<div class="arithmatex">\[
-\begin{align*}
-F_{X_{(n)}}(x) =&amp; P(X_{(n)} \leq x) \\
-    =&amp; P(X_1 \leq x, X_2 \leq x, \cdots, X_n \leq x) \\
-    =&amp; P(X_1 \leq x)P(X_2 \leq x)\cdots P(X_n \leq x) \\
-    =&amp; F^n(x)
-\end{align*}
-\]</div>
-<p>密度函数</p>
-<div class="arithmatex">\[
-p_{X_{(n)}}(x) = \frac{\text{d}F_{X_{(n)}}}{\text{d}x} = nF^{n-1}(x)F'(x)
-\]</div>
-</li>
-<li>
-<p><span class="arithmatex">\(X_{(1)}\)</span> 的分布</p>
-<div class="arithmatex">\[
-\begin{align*}
-F_{X_{(1)}}(x) =&amp; P(X_{(1)} \leq x) \\
-    =&amp; 1 - P(X_{(1)} &gt; x) \\
-    =&amp; 1 - P(X_1 &gt; x, X_2 &gt; x, \cdots, X_n &gt; x) \\
-    =&amp; 1 - P(X_1 &gt; x)P(X_2 &gt; x)\cdots P(X_n &gt; x) \\
-    =&amp; 1 - (1 - F(x))^n
-\end{align*}
-\]</div>
-<p>密度函数</p>
-<div class="arithmatex">\[
-p_{X_{(1)}}(x) = \frac{\text{d}F_{X_{(1)}}}{\text{d}x} = n(1 - F(x))^{n-1}F'(x)
-\]</div>
-</li>
-<li>
-<p><span class="arithmatex">\(X_{(k)}\)</span> 的分布</p>
-<div class="arithmatex">\[
-\begin{align*}
-F_{X_{(k)}}(x) =&amp; P(X_{(k)} \leq x) \\
-    =&amp; {n \choose k} F^k(x)(1 - F(x))^{n-k}
-\end{align*}
-\]</div>
-</li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>设 <span class="arithmatex">\(X_1, X_2, \cdots, X_n\)</span> 相互独立且服从 <span class="arithmatex">\([0, a]\)</span> 上的均匀分布，求 <span class="arithmatex">\(Y = \max\{X_1, X_2, \cdots, X_n\}, Z = \min\{X_1, X_2, \cdots, X_n\}\)</span> 的联合分布。</p>
-<p>解：</p>
-<div class="arithmatex">\[
-\begin{align*}
-F_{YZ}(y, z) =&amp; P(Y \leq y, Z \leq z) \\
-    =&amp; P(Y \leq y) - P(Y \leq y, Z &gt; z) \\
-    =&amp; F_X^n(y) - \prod_{i=1}^{n}P(z &lt; X_i \leq y) \\
-    =&amp; F_X^n(y) - (F_X(y) - F_X(z))^n \\
-    =&amp; (\frac{y}{a})^n - (\frac{y-z}{a})^n, \quad 0 \leq z \leq y \leq a
-\end{align*}
-\]</div>
-</div>
-<h2 id="_19">总结<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p>二项 Bernoulli 分布</p>
-<div class="arithmatex">\[
-P(X = k) = {n \choose k}p^k(1-p)^{n-k}, \quad k = 0, 1, \cdots, n
-\]</div>
-<p>Poisson 分布：</p>
-<div class="arithmatex">\[
-P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}, \quad k = 0, 1, \cdots
-\]</div>
-<p>几何分布：不断重复直到事件发生</p>
-<div class="arithmatex">\[
-P(X = k) = p(1-p)^{k-1}, \quad k = 1, 2, \cdots
-\]</div>
-<p>超几何分布：<span class="arithmatex">\(N\)</span> 件产品 <span class="arithmatex">\(M\)</span> 件次品，随机抽样 <span class="arithmatex">\(n\)</span> 件，<span class="arithmatex">\(X\)</span> 表示 <span class="arithmatex">\(n\)</span> 件产品中次品数</p>
-<div class="arithmatex">\[
-P(X = k) = \frac{{M \choose k}{N - M \choose n - k}}{{N \choose n}}, \quad k = 0, 1, \cdots, \min\{M, n\}
-\]</div>
-<p>指数分布</p>
-<div class="arithmatex">\[
-p(x) =
-\begin{cases}
-\lambda e^{-\lambda x}, &amp; x\geq 0 \\
-0                     , &amp; \text{其他}
-\end{cases}
-\quad \lambda &gt; 0
-\]</div>
-</li>
-<li>
-<p>连续型随机变量</p>
-<p>密度函数 <span class="arithmatex">\(p(x)\)</span>，分布函数 <span class="arithmatex">\(F(x)\)</span></p>
-<div class="arithmatex">\[
-p(x) \geq 0, \int_{-\infty}^{\infty}p(x)\text{d}x = 1
-\]</div>
-<div class="arithmatex">\[
-F(x) = P(X \leq x) = \int_{-\infty}^{x}p(u)\text{d}u
-\]</div>
-</li>
-</ul>
+<h1 id="_1">读书笔记<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 
 
 
@@ -4241,7 +2990,7 @@ F(x) = P(X \leq x) = \int_{-\infty}^{x}p(u)\text{d}u
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年1月12日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年10月23日</span>
   </span>
 
     
@@ -4251,7 +3000,7 @@ F(x) = P(X \leq x) = \int_{-\infty}^{x}p(u)\text{d}u
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年10月30日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年10月23日</span>
   </span>
 
     
@@ -4261,13 +3010,12 @@ F(x) = P(X \leq x) = \int_{-\infty}^{x}p(u)\text{d}u
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:suyucheng5@gmail.com">GoPoux4</a>, 
-        <a href="mailto:gopoux@gopouxdemacbook-air.local">gopoux</a>
+        <a href="mailto:suyucheng5@gmail.com">GoPoux4</a>
     </nav>
   </span>
 
@@ -4325,7 +3073,7 @@ F(x) = P(X \leq x) = \int_{-\infty}^{x}p(u)\text{d}u
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../chapter1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 事件及其概率">
+          <a href="../labs/cnn/" class="md-footer__link md-footer__link--prev" aria-label="上一页: HPC lab5 简单神经网络训练与加速">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4335,20 +3083,20 @@ F(x) = P(X \leq x) = \int_{-\infty}^{x}p(u)\text{d}u
                 上一页
               </span>
               <div class="md-ellipsis">
-                事件及其概率
+                HPC lab5 简单神经网络训练与加速
               </div>
             </div>
           </a>
         
         
           
-          <a href="../chapter3/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数字特征">
+          <a href="ostep/" class="md-footer__link md-footer__link--next" aria-label="下一页: OSTEP">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                数字特征
+                OSTEP
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4406,12 +3154,12 @@ F(x) = P(X \leq x) = \int_{-\infty}^{x}p(u)\text{d}u
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
