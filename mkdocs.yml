@@ -189,3 +189,14 @@ nav:
     - HPC lab3 CUDA 使用基础: labs/cuda.md
     - HPC lab4 PCG Solver: labs/pcg.md
     - HPC lab5 简单神经网络训练与加速: labs/cnn.md
+  - Books:
+    - 读书笔记: books/index.md
+    - OSTEP:
+      - OSTEP: books/ostep/index.md
+      - Virtualization:
+        - CPU 虚拟化：进程: books/ostep/chapter1/process.md
+        # - CPU 虚拟化：进程调度: books/ostep/chapter1/scheduling.md
+        # - 内存虚拟化：地址空间: books/ostep/chapter2/memory.md
+        # - 内存虚拟化：分页: books/ostep/chapter2/paging.md
+        # - 内存虚拟化：超越物理内存: books/ostep/chapter2/beyond.md
+        # - VAX/VMS 虚拟内存系统: books/ostep/chapter2/vax_vms.md
