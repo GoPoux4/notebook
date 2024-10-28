@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/math/prob_theory/">
+        <link rel="canonical" href="https://note.gopoux.cc/cs/quantum/chapter2/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../chapter1/">
       
       
-        <link rel="next" href="chapter1/">
+        <link rel="next" href="../chapter3/">
       
       
-      <link rel="icon" href="../../assets/ico/favicon.png">
+      <link rel="icon" href="../../../assets/ico/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
-        <title>概率论 - GoPoux 的笔记本</title>
+        <title>量子测量与量子图灵机 - GoPoux 的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,11 +42,11 @@
       
     
     
-      <link rel="stylesheet" href="../../css/neoteroi-mkdocs.css">
+      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
     
-      <link rel="stylesheet" href="../../css/counter.css">
+      <link rel="stylesheet" href="../../../css/counter.css">
     
-      <link rel="stylesheet" href="../../css/stylesheet.css">
+      <link rel="stylesheet" href="../../../css/stylesheet.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
     
@@ -54,7 +54,7 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -94,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              概率论
+              量子测量与量子图灵机
             
           </span>
         </div>
@@ -223,32 +223,12 @@
     
     
       <li class="md-tabs__item">
-        <a href="../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
     
   
   Home
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../cs/" class="md-tabs__link">
-          
-  
-    
-  
-  Computer Science
 
         </a>
       </li>
@@ -265,7 +245,27 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../math/" class="md-tabs__link">
           
   
     
@@ -285,7 +285,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../hpc/" class="md-tabs__link">
+        <a href="../../../hpc/" class="md-tabs__link">
           
   
     
@@ -305,7 +305,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../others/" class="md-tabs__link">
+        <a href="../../../others/" class="md-tabs__link">
           
   
     
@@ -325,7 +325,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../labs/numpy/" class="md-tabs__link">
+        <a href="../../../labs/numpy/" class="md-tabs__link">
           
   
     
@@ -345,7 +345,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../books/" class="md-tabs__link">
+        <a href="../../../books/" class="md-tabs__link">
           
   
     
@@ -365,7 +365,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../ctf/writeups/zjuctf2024/" class="md-tabs__link">
+        <a href="../../../ctf/writeups/zjuctf2024/" class="md-tabs__link">
           
   
     
@@ -400,7 +400,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"/></svg>
@@ -453,7 +453,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -486,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../links/" class="md-nav__link">
+      <a href="../../../links/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -511,6 +511,8 @@
       
   
   
+    
+  
   
   
     
@@ -537,19 +539,22 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -560,13 +565,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Computer Science
@@ -661,7 +666,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/fds/" class="md-nav__link ">
+            <a href="../../fds/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -694,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter1/" class="md-nav__link">
+      <a href="../../fds/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -715,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter2/" class="md-nav__link">
+      <a href="../../fds/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -736,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter3/" class="md-nav__link">
+      <a href="../../fds/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -757,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter4/" class="md-nav__link">
+      <a href="../../fds/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -778,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter5/" class="md-nav__link">
+      <a href="../../fds/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -799,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter6/" class="md-nav__link">
+      <a href="../../fds/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/fds/chapter7/" class="md-nav__link">
+      <a href="../../fds/chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -900,7 +905,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/ads/" class="md-nav__link ">
+            <a href="../../ads/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -933,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter1/" class="md-nav__link">
+      <a href="../../ads/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -954,7 +959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter2/" class="md-nav__link">
+      <a href="../../ads/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -975,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter3/" class="md-nav__link">
+      <a href="../../ads/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -996,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter4/" class="md-nav__link">
+      <a href="../../ads/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1017,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter5/" class="md-nav__link">
+      <a href="../../ads/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter6/" class="md-nav__link">
+      <a href="../../ads/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1059,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter7/" class="md-nav__link">
+      <a href="../../ads/chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1080,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter8/" class="md-nav__link">
+      <a href="../../ads/chapter8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1101,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter9/" class="md-nav__link">
+      <a href="../../ads/chapter9/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1122,7 +1127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter10/" class="md-nav__link">
+      <a href="../../ads/chapter10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1143,7 +1148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter11/" class="md-nav__link">
+      <a href="../../ads/chapter11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1164,7 +1169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter12/" class="md-nav__link">
+      <a href="../../ads/chapter12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1185,7 +1190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter13/" class="md-nav__link">
+      <a href="../../ads/chapter13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1206,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter14/" class="md-nav__link">
+      <a href="../../ads/chapter14/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1227,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/ads/chapter15/" class="md-nav__link">
+      <a href="../../ads/chapter15/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1299,7 +1304,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/computer_logic/" class="md-nav__link ">
+            <a href="../../computer_logic/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1332,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter1/" class="md-nav__link">
+      <a href="../../computer_logic/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1353,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter2/" class="md-nav__link">
+      <a href="../../computer_logic/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1374,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter3/" class="md-nav__link">
+      <a href="../../computer_logic/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1395,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter4/" class="md-nav__link">
+      <a href="../../computer_logic/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1416,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter5/" class="md-nav__link">
+      <a href="../../computer_logic/chapter5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1437,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter6/" class="md-nav__link">
+      <a href="../../computer_logic/chapter6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1458,7 +1463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/computer_logic/chapter7/" class="md-nav__link">
+      <a href="../../computer_logic/chapter7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1514,7 +1519,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/database/" class="md-nav__link ">
+            <a href="../../database/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1547,7 +1552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/database/chapter1/" class="md-nav__link">
+      <a href="../../database/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1568,7 +1573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/database/chapter2/" class="md-nav__link">
+      <a href="../../database/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1589,7 +1594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/database/review/" class="md-nav__link">
+      <a href="../../database/review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1641,7 +1646,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/co/" class="md-nav__link ">
+            <a href="../../co/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1674,7 +1679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/co/review/" class="md-nav__link">
+      <a href="../../co/review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1726,7 +1731,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/oop/" class="md-nav__link ">
+            <a href="../../oop/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1759,7 +1764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/oop/review/" class="md-nav__link">
+      <a href="../../oop/review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1815,7 +1820,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/cv/" class="md-nav__link ">
+            <a href="../../cv/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1848,7 +1853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/cv/chapter1/" class="md-nav__link">
+      <a href="../../cv/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1869,7 +1874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/cv/chapter2/" class="md-nav__link">
+      <a href="../../cv/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1890,7 +1895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/cv/chapter3/" class="md-nav__link">
+      <a href="../../cv/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1916,6 +1921,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1937,16 +1944,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cs/quantum/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1963,7 +1970,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             量子计算理论基础与软件系统
@@ -1979,7 +1986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/quantum/chapter1/" class="md-nav__link">
+      <a href="../chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1997,10 +2004,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../cs/quantum/chapter2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    量子测量与量子图灵机
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2009,6 +2036,224 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态演化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="量子态演化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      波函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      哈密顿量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      薛定谔方程与量子态演化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性与非线性量子态演化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子测量
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="量子测量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值与特征向量的几何意义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值分解
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值分解的含义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子计算中的特征分解（谱分解）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      投影算子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子测量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      投影测量的可观测量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      投影测量的测量算子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子线路和测量操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态区分公设
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      通用量子门
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="通用量子门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子门分解
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子门分解代价
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子图灵机和量子电路模型
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2021,7 +2266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cs/quantum/chapter3/" class="md-nav__link">
+      <a href="../chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2054,8 +2299,6 @@
       
   
   
-    
-  
   
   
     
@@ -2070,22 +2313,19 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../math/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2096,13 +2336,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Math
@@ -2115,8 +2355,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2140,16 +2378,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../../math/prob_theory/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2160,13 +2398,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             概率论
@@ -2182,7 +2420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter1/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2203,7 +2441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter2/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2224,7 +2462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter3/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2245,7 +2483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter4/" class="md-nav__link">
+      <a href="../../../math/prob_theory/chapter4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2306,7 +2544,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hpc/" class="md-nav__link ">
+            <a href="../../../hpc/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2364,7 +2602,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hpc/cute/" class="md-nav__link ">
+            <a href="../../../hpc/cute/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2397,7 +2635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hpc/cute/layout/" class="md-nav__link">
+      <a href="../../../hpc/cute/layout/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2418,7 +2656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hpc/cute/tensor/" class="md-nav__link">
+      <a href="../../../hpc/cute/tensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2470,7 +2708,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hpc/hpc101/" class="md-nav__link ">
+            <a href="../../../hpc/hpc101/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2503,7 +2741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hpc/hpc101/cuda/" class="md-nav__link">
+      <a href="../../../hpc/hpc101/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2564,7 +2802,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../others/" class="md-nav__link ">
+            <a href="../../../others/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2597,7 +2835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/sight_singing/" class="md-nav__link">
+      <a href="../../../others/sight_singing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2618,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../others/piano/" class="md-nav__link">
+      <a href="../../../others/piano/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2696,7 +2934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/numpy/" class="md-nav__link">
+      <a href="../../../labs/numpy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2717,7 +2955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/simd/" class="md-nav__link">
+      <a href="../../../labs/simd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2738,7 +2976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/cuda/" class="md-nav__link">
+      <a href="../../../labs/cuda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2759,7 +2997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/pcg/" class="md-nav__link">
+      <a href="../../../labs/pcg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2780,7 +3018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../labs/cnn/" class="md-nav__link">
+      <a href="../../../labs/cnn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2831,7 +3069,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../books/" class="md-nav__link ">
+            <a href="../../../books/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2887,7 +3125,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../books/ostep/" class="md-nav__link ">
+            <a href="../../../books/ostep/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2962,7 +3200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../books/ostep/chapter1/process/" class="md-nav__link">
+      <a href="../../../books/ostep/chapter1/process/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3048,7 +3286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ctf/writeups/zjuctf2024/" class="md-nav__link">
+      <a href="../../../ctf/writeups/zjuctf2024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3089,6 +3327,212 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态演化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="量子态演化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      波函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      哈密顿量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      薛定谔方程与量子态演化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性与非线性量子态演化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子测量
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="量子测量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值与特征向量的几何意义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值分解
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值分解的含义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子计算中的特征分解（谱分解）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      投影算子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子测量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      投影测量的可观测量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      投影测量的测量算子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子线路和测量操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子态区分公设
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      通用量子门
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="通用量子门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子门分解
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子门分解代价
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      量子图灵机和量子电路模型
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3105,13 +3549,376 @@
   
 
 
-<h1 id="_1">概率论<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>本文档为 <a href="https://zju-turing.github.io/TuringCourses/math_phys/probability/"><strong>概率论（H）</strong></a> 的学习笔记，授课教师为 <strong>苏中根</strong> 。</p>
-<p>大体框架基本是照着苏中根老师的授课顺序写的，顺序可能和书上不一样。</p>
-<p>除了课件里的一些定义和定理，我还补全了一些对于我来说不太能显然得到的过程（如果觉得有些地方的过程还是不显然，欢迎联系我补充）。</p>
+<h1 id="_1">量子测量与量子图灵机<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">量子态演化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">波函数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>波函数是量子力学的基本假设，最简单的形式是 <span class="arithmatex">\(\phi(x) = Ae^{i(p/\hbar)x}\)</span>，表示了粒子在某一位置的概率幅。<span class="arithmatex">\(\lVert \phi(x) \rVert^2\)</span> 表示了粒子在该位置的概率密度。满足归一化条件，即对整个空间积分为 1。</p>
+<h3 id="_4">哈密顿量<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>表示为 <span class="arithmatex">\(H\)</span>，是一个厄米算符。作用于系统的波函数上，产生系统的能量和动力学演化。</p>
+<p>由动力项和势能项组成。</p>
+<ul>
+<li>动能项描述了系统中粒子的运动能量，通常用动量算符和质量来表示。</li>
+<li>势能项描述了系统中粒子之间的相互作用和受到的外部场的影响，可以是位置算符和外部势场的函数。</li>
+</ul>
+<div class="arithmatex">\[
+    \hat{H} = -\frac{\hbar^2}{2m} \nabla^2 + V(\bar{r})
+\]</div>
+<p>哈密顿量表达式的第一项实则为粒子的动能，第二项是一个空间位置的函数，即势能函数，表示粒子处在不同位置时的势能。</p>
+<div class="arithmatex">\[
+    \hat{H} = \hat{T} + \hat{V} = \frac{\mathbf{\hat{p}}^2}{2m} + V(\mathbf{r}, t) = -\frac{\hbar^2}{2m} \nabla^2 + V(\mathbf{r}, t)
+\]</div>
+<p>哈密顿量的本征值是系统能量的可能取值，对应的特征向量是在该能量取值下的状态向量。</p>
+<h3 id="_5">薛定谔方程与量子态演化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(H\)</span> 可以和时间有关，也可以独立与时间。若与时间独立，则薛定谔方程为：</p>
+<div class="arithmatex">\[
+    i\hbar \frac{\mathrm{d}}{\mathrm{d}\ t} \left\lvert \psi(t) \right\rangle = \hat{H} \left\lvert \psi(t) \right\rangle
+\]</div>
+<p>移项后积分：</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+        \int_{t_1}^{t_2} \frac{i\hbar}{\left\lvert \psi(t) \right\rangle} \mathrm{d} \left\lvert \psi(t) \right\rangle &amp;= \int_{t_1}^{t_2} \hat{H} \mathrm{d} t \\
+        i\hbar (\ln \left\lvert \psi(t_2) \right\rangle - \ln \left\lvert \psi(t_1) \right\rangle) &amp;= \hat{H} (t_2 - t_1)
+    \end{aligned}
+\]</div>
+<p>得到：</p>
+<div class="arithmatex">\[
+    \left\lvert \psi(t_2) \right\rangle = e^{\frac{-i\hat{H}\Delta t}{\hbar}} \left\lvert \psi(t_1) \right\rangle
+\]</div>
+<p>设 <span class="arithmatex">\(t_1 = 0, t_2 = t\)</span>，则：</p>
+<div class="arithmatex">\[
+    \left\lvert \psi(t) \right\rangle = e^{\frac{-i\hat{H}t}{\hbar}} \left\lvert \psi(0) \right\rangle = U \left\lvert \psi(0) \right\rangle
+\]</div>
+<p>该式表明，量子态从初态到终态的演化可以由一个与 <span class="arithmatex">\(H\)</span> 有关的算子表示，该算子又被称为时间演化算子 <span class="arithmatex">\(U\)</span>，且 <span class="arithmatex">\(U\)</span> 一定是幺正的。</p>
+<h3 id="_6">线性与非线性量子态演化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>根据量子力学原理，量子态演化过程由两部分组成：</p>
+<ol>
+<li>线性演化过程：如果一个物理系统没有被测量，它将按照薛定谔方程以一种确定的、线性的方式演化。</li>
+<li>非线性演化过程：如果对系统进行一个测量，系统将立即非线性地、随机地从初始的叠加态跃迁到正被测量的可观测量的一个本征态，这时，实验者就会感知到一个确定的观察值，即本征态相应的本征值。</li>
+</ol>
+<p>即作用量子门时，量子态的演化是线性的，而测量量子态时，量子态的演化是非线性的。</p>
+<h2 id="_7">量子测量<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">特征值与特征向量的几何意义<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>矩阵乘法对应了一个变换，是把任意一个向量变成另一个方向或长度都大多不同的新向量。如果矩阵对某一个向量或某些向量只发生伸缩变换，不对这些向量产生旋转的效果，那么这些向量就称为这个矩阵的特征向量，伸缩的比例就是特征值。</p>
+<h3 id="_9">特征值分解<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>向量 <span class="arithmatex">\(\mathbf{v}\)</span> 是矩阵 <span class="arithmatex">\(A\)</span> 的特征向量，对应的特征值是 <span class="arithmatex">\(\lambda\)</span>，则有：</p>
+<div class="arithmatex">\[
+    A\mathbf{v} = \lambda \mathbf{v}
+\]</div>
+<p>特征值分解：</p>
+<div class="arithmatex">\[
+    A = Q \Lambda Q^{-1}
+\]</div>
+<p>其中 <span class="arithmatex">\(\Lambda\)</span> 是一个对角矩阵，对角线上的元素是矩阵 <span class="arithmatex">\(A\)</span> 的特征值，<span class="arithmatex">\(Q\)</span> 是 <span class="arithmatex">\(A\)</span> 的特征向量组成的矩阵。</p>
+<h3 id="_10">特征值分解的含义<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>矩阵 <span class="arithmatex">\(A\)</span> 的信息可以由其特征值和特征向量表示。</p>
+<p>对于矩阵为高维的情况下，通过特征值分解得到的前 N 个特征向量，就对应了这个矩阵最主要的 N 个变化方向。利用这前 N 个变化方向，就可以近似这个矩阵（变换）。</p>
+<h3 id="_11">量子计算中的特征分解（谱分解）<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>只有对可对角化矩阵才可以施以特征分解。特征值的集合 <span class="arithmatex">\(\{\lambda_i\}\)</span>，也称为“谱”（Spectrum）。厄米矩阵（共轭对称的方阵）属于正规矩阵，根据正规矩阵的性质可知，其可以对角化。</p>
+<p>假设 <span class="arithmatex">\(A\)</span> 是一个复数域上的正规矩阵，特征值为 <span class="arithmatex">\(\{\lambda_i\}\)</span>，标准正交基为 <span class="arithmatex">\(\{\left\lvert e_i\right\rangle\}\)</span>，则有：</p>
+<div class="arithmatex">\[
+    A = \sum_i^n \lambda_i \left\lvert e_i \right\rangle \left\langle e_i \right\rangle
+\]</div>
+<p>标准正交基的完备性方程为：</p>
+<div class="arithmatex">\[
+    \sum_i^n \left\lvert e_i \right\rangle \left\langle e_i \right\rvert = I
+\]</div>
+<p>可通过完备性方程检验一组基是否是标准正交基。</p>
+<h3 id="_12">投影算子<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>定义投影到单位向量 <span class="arithmatex">\(\left\lvert e_k \right\rangle\)</span> 上的投影算子为：</p>
+<div class="arithmatex">\[
+    P_k = \left\lvert e_k \right\rangle \left\langle e_k \right\rvert
+\]</div>
+<p>满足性质：</p>
+<ul>
+<li><span class="arithmatex">\(P_k^2 = P_k\)</span></li>
+<li><span class="arithmatex">\(P_k P_j = \delta_{kj} P_k\)</span></li>
+<li><span class="arithmatex">\(\sum_k P_k = I\)</span></li>
+</ul>
+<p>则复数域上的正规矩阵 <span class="arithmatex">\(A\)</span> 可以表示为：</p>
+<div class="arithmatex">\[
+    A = \sum_i^n \lambda_i \left\lvert e_i \right\rangle \left\langle e_i \right\rvert = \sum_i^n \lambda_i P_i
+\]</div>
+<p>因此 <span class="arithmatex">\(A\)</span> 作用于任何向量，其几何意义为：该向量投影到 <span class="arithmatex">\(A\)</span> 的各特征向量上，然后再以特征值 <span class="arithmatex">\(\lambda_i\)</span> 为权重进行线性组合。</p>
+<h3 id="_13">量子测量<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>一般测量</li>
+<li>投影测量</li>
+<li>POVM 测量</li>
+</ul>
+<p>对于选定的观测性质，我们需要执行相应的测量算符。每个可能的测量结果都对应一个测量算符的特征值 <span class="arithmatex">\(\lambda_i\)</span>，由可观测量 <span class="arithmatex">\(\lvert P\left\lvert \psi \right\rangle \rvert^2\)</span> 描述。</p>
+<h3 id="_14">投影测量的可观测量<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>可观测量由 <span class="arithmatex">\(A\)</span> 表示，为待观测系统上的厄米算子，可以写成谱分解的形式：</p>
+<div class="arithmatex">\[
+    A = \sum_i^n \lambda_i P_i
+\]</div>
+<p>测量的可能结果与 <span class="arithmatex">\(A\)</span> 的特征值 <span class="arithmatex">\(\lambda_i\)</span> 相对应。对状态 <span class="arithmatex">\(\left\lvert \psi \right\rangle\)</span> 进行测量，得到的结果 <span class="arithmatex">\(i\)</span> 的概率为：</p>
+<div class="arithmatex">\[
+    p_i = p(\lambda = \lambda_i) = \left\langle \psi \right\lvert P_i^\dagger P_i \left\lvert \psi \right\rangle = \left\langle \psi \right\lvert P_i \left\lvert \psi \right\rangle
+\]</div>
+<p>测量后的态坍缩为：</p>
+<div class="arithmatex">\[
+    \frac{P_i \left\lvert \psi \right\rangle}{\sqrt{p_i}}
+\]</div>
+<p>观测量的平均值为：</p>
+<div class="arithmatex">\[
+    E(A) = \sum_i^n \lambda_i p_i = \left\langle \psi \right\lvert A \left\lvert \psi \right\rangle = \left\langle A \right\rangle
+\]</div>
+<p>标准差：</p>
+<div class="arithmatex">\[
+    \Delta(A) = \sqrt{\left\langle (A - \left\langle A \right\rangle)^2 \right\rangle} = \sqrt{\left\langle A^2 \right\rangle - \left\langle A \right\rangle^2}
+\]</div>
+<h3 id="_15">投影测量的测量算子<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>量子测量由投影算子的集合 <span class="arithmatex">\(\{P_i\}\)</span> 描述，投影算子是一类特殊的厄米算符，它的本征值为 0 或 1，其本征态形成了正交归一的完备基。</p>
+<p>指标(index) <span class="arithmatex">\(i\)</span> 表示在实验上可能发生的结果。如果测量前的量子系统 处在最新状态 <span class="arithmatex">\(\left\lvert \psi \right\rangle\)</span>，那么结果发生的概率为:</p>
+<div class="arithmatex">\[
+    p_i = \left\lvert P_i \left\lvert \psi \right\rangle \right\rvert^2 = \left\langle \psi \right\lvert P_i^\dagger P_i \left\lvert \psi \right\rangle = \left\langle \psi \right\lvert P_i \left\lvert \psi \right\rangle
+\]</div>
+<p>设 <span class="arithmatex">\(P_i\)</span> 的本征态为 <span class="arithmatex">\(\left\lvert \alpha \right\rangle\)</span>，则概率还可以表示为：</p>
+<div class="arithmatex">\[
+    p_\alpha = \left\lvert \left\langle \psi \lvert \alpha \right\rangle \right\rvert^2
+\]</div>
+<h3 id="_16">量子线路和测量操作<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>把测量操作作为量子线路的一部分，有时也被称为测量门，原理即投影测量。</p>
+<div class="admonition example">
+<p class="admonition-title">双比特量子电路整体测量</p>
+<p>对于如下的双比特量子电路：</p>
+<p><div align="center"><img src="/assets/img/CS/quantum/chapter2/2qubit_circuit_measurement.png" width="40%"/></div></p>
+<p>对其进行整体测量：</p>
+<ol>
+<li>
+<p>T1 时刻：</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+        \left\lvert \psi_1 \right\rangle &amp;= (X \otimes H) \left\lvert 00 \right\rangle \\
+        &amp;= (
+        \begin{bmatrix}
+            0 &amp; 1 \\
+            1 &amp; 0
+        \end{bmatrix}
+        \otimes
+        \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            1 &amp; 1 \\
+            1 &amp; -1
+        \end{bmatrix}
+        )
+        \left\lvert 00 \right\rangle \\
+        &amp;= \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            0 &amp; 0 &amp; 1 &amp; 1 \\
+            0 &amp; 0 &amp; 1 &amp; -1 \\
+            1 &amp; 1 &amp; 0 &amp; 0 \\
+            1 &amp; -1 &amp; 0 &amp; 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 \\
+            0 \\
+            0 \\
+            0
+        \end{bmatrix} \\
+        &amp;= \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            0 \\
+            0 \\
+            1 \\
+            1
+        \end{bmatrix} \\
+        &amp;= \frac{1}{\sqrt{2}} (\left\lvert 10 \right\rangle + \left\lvert 11 \right\rangle)
+    \end{aligned}
+\]</div>
+</li>
+<li>
+<p>T2 时刻，经过 CNOT 门：</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+        \left\lvert \psi_2 \right\rangle &amp;= \mathrm{CNOT} \left\lvert \psi_1 \right\rangle \\
+        &amp;=
+        \begin{bmatrix}
+            1 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 1 \\
+            0 &amp; 0 &amp; 1 &amp; 0
+        \end{bmatrix}
+        \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            0 \\
+            0 \\
+            1 \\
+            1
+        \end{bmatrix} \\
+        &amp;= \frac{1}{\sqrt{2}}(\left\lvert 10 \right\rangle + \left\lvert 11 \right\rangle)
+    \end{aligned}
+\]</div>
+</li>
+<li>
+<p>T3 时刻，进行整体测量，分别作用四个投影算子。</p>
+<ul>
+<li>
+<p>使用测量操作 <span class="arithmatex">\(M_{00} = \left\lvert 00 \right\rangle \left\langle 00 \right\rvert\)</span>，测量结果为 00 的概率为：</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+        P(\left\lvert 00 \right\rangle) &amp;= \left\langle \psi_2 \right\lvert M_{00}^\dagger M_{00} \left\lvert \psi_2 \right\rangle \\
+        &amp;= \left\langle \psi_2 \right\lvert M_{00} \left\lvert \psi_2 \right\rangle \\
+        &amp;= \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            0 &amp; 0 &amp; 1 &amp; 1
+        \end{bmatrix}
+        \begin{bmatrix}
+        1 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0
+        \end{bmatrix}
+        \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            0 \\
+            0 \\
+            1 \\
+            1
+        \end{bmatrix} \\
+        &amp;= 0
+    \end{aligned}
+\]</div>
+<p>可知，量子态不可能坍缩到 <span class="arithmatex">\(\left\lvert 00 \right\rangle\)</span>。</p>
+</li>
+<li>
+<p>其他三种情况同理。</p>
+</li>
+</ul>
+</li>
+</ol>
 </div>
+<div class="admonition example">
+<p class="admonition-title">双比特量子电路部分测量</p>
+<p>对于如下的双比特量子电路：</p>
+<p><div align="center"><img src="/assets/img/CS/quantum/chapter2/2qubit_circuit_partial_measurement.png" width="40%"/></div></p>
+<p>只对低位量子比特进行测量，则此时的两种测量矩阵为：</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+        M_{0}^{q_0} &amp;= M_{00} + M_{01} =
+        \begin{bmatrix}
+            1 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0
+        \end{bmatrix} +
+        \begin{bmatrix}
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0
+        \end{bmatrix} =
+        \begin{bmatrix}
+            1 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0
+        \end{bmatrix} \\
+        M_{1}^{q_0} &amp;= M_{10} + M_{11} =
+        \begin{bmatrix}
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 1 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0
+        \end{bmatrix} +
+        \begin{bmatrix}
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 1
+        \end{bmatrix} =
+        \begin{bmatrix}
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 1 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 1
+        \end{bmatrix}
+    \end{aligned}
+\]</div>
+<p>测量后得到的概率分别为：</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+        P_{q_0}(\left\lvert 0 \right\rangle) &amp;= \left\langle \psi_2 \right\lvert M_{0}^{q_0} \left\lvert \psi_2 \right\rangle
+        = \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            0 &amp; 0 &amp; 1 &amp; 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0
+        \end{bmatrix}
+        \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            0 \\
+            0 \\
+            1 \\
+            1
+        \end{bmatrix}
+        = 0 \\
+        P_{q_0}(\left\lvert 1 \right\rangle) &amp;= \left\langle \psi_2 \right\lvert M_{1}^{q_0} \left\lvert \psi_2 \right\rangle
+        = \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            0 &amp; 0 &amp; 1 &amp; 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 0 \\
+            0 &amp; 0 &amp; 1 &amp; 0 \\
+            0 &amp; 0 &amp; 0 &amp; 1
+        \end{bmatrix}
+        \frac{1}{\sqrt{2}}
+        \begin{bmatrix}
+            0 \\
+            0 \\
+            1 \\
+            1
+        \end{bmatrix}
+        = 1
+    \end{aligned}
+\]</div>
+<p>测量后，量子态坍缩为</p>
+<div class="arithmatex">\[
+    \left\lvert \psi_3 \right\rangle = \frac{M_{1}^{q_0} \left\lvert \psi_2 \right\rangle}{\sqrt{P_{q_0}(\left\lvert 1 \right\rangle)}} = \frac{1}{\sqrt{2}}(\left\lvert 10 \right\rangle + \left\lvert 11 \right\rangle)
+\]</div>
+</div>
+<h3 id="_17">量子态区分公设<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>量子测量的原理的一大应用是区分量子系统中不同的量子态。</p>
+<ul>
+<li>
+<p>如果一组态向量 <span class="arithmatex">\(\{\left\lvert \psi_i \right\rangle\}\)</span> 是正交的，那么可以定义测量算子 <span class="arithmatex">\(M_i = \left\lvert \psi_i \right\rangle \left\langle \psi_i \right\rvert\)</span>，对于其中的一个未知角标的态向量 <span class="arithmatex">\(\left\lvert \psi_k \right\rangle\)</span>，用这组测量算子进行测量，只有当 <span class="arithmatex">\(i = k\)</span> 时，有：</p>
+<div class="arithmatex">\[
+    p(i) = \left\langle \psi_i \right\lvert M_i \left\lvert \psi_i \right\rangle = 1
+\]</div>
+<p>其他情况下，有 <span class="arithmatex">\(p(i) = 0\)</span>。这样就可以区分出不同的量子态。</p>
+</li>
+<li>
+<p>如果态向量不正交，则不存在一组测量算子可以完全区分这些态向量，因为一个态向量可以分解为其他态向量上的分量，导致 <span class="arithmatex">\(p(i) &lt; 1\)</span>。</p>
+</li>
+</ul>
+<h2 id="_18">通用量子门<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>通用量子门（Universal Quantum Gate）是一种能够在量子计算中实现任意量子操作的门。</p>
+<p>以下的门集合是通用的：</p>
+<ul>
+<li>单量子比特门和 CNOT 门是通用的。</li>
+<li>通用门的标准集合，由 H 门、相位门、CNOT 门和 <span class="arithmatex">\(\pi/8\)</span> 门组成。</li>
+<li>H 门、相位门、CNOT 门和 Toffoli 门。</li>
+</ul>
+<h3 id="_19">量子门分解<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>通用量子门可以用来对任意的酉操作进行近似。这种近似的方法被称为量子门分解（Quantum Gate Decomposition）或量子门逼近（Quantum Gate Approximation）。</p>
+<p>基本思想：将目标酉操作分解为一系列更简单的量子门的乘积，通过合理选择和组合这些基本量子门，并对它们的参数进行调整，我们可以逐步逼近目标酉操作。</p>
+<p>分解的精度取决于所使用的门集合和逼近方法的复杂程度。通常情况下，使用更多的门和更复杂的门序列可以提供更精确的逼近结果。</p>
+<p>常见的量子门分解方法包括：</p>
+<ul>
+<li>应用基于泰勒级数展开的逼近方法，将目标酉操作近似为一系列基本门的乘积。</li>
+<li>利用通用量子门集合中的门进行分解。</li>
+<li>使用优化算法，例如基于梯度下降的方法，找到适合的门序列和参数来逼近目标酉操作。</li>
+</ul>
+<h3 id="_20">量子门分解代价<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>Solovay-Kitaev 定理表明，对任意的单量子比特门，如果要求精度为 <span class="arithmatex">\(\epsilon\)</span>，则需要 <span class="arithmatex">\(\mathcal{O}(\log^c(1/\epsilon))\)</span> 个门来逼近。对于有 <span class="arithmatex">\(m\)</span> 个门的量子系统以及精度为 <span class="arithmatex">\(\epsilon\)</span> 的近似，需要 <span class="arithmatex">\(\mathcal{O}(m \log^c(m/\epsilon))\)</span> 个门。</p>
+<h2 id="_21">量子图灵机和量子电路模型<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>没啥写的。</p>
 
 
 
@@ -3134,7 +3941,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年1月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年10月28日</span>
   </span>
 
     
@@ -3144,7 +3951,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年10月22日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年10月28日</span>
   </span>
 
     
@@ -3217,7 +4024,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Math">
+          <a href="../chapter1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 量子比特与量子门">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3227,20 +4034,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Math
+                量子比特与量子门
               </div>
             </div>
           </a>
         
         
           
-          <a href="chapter1/" class="md-footer__link md-footer__link--next" aria-label="下一页: 事件及其概率">
+          <a href="../chapter3/" class="md-footer__link md-footer__link--next" aria-label="下一页: 量子算法">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                事件及其概率
+                量子算法
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3298,12 +4105,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
