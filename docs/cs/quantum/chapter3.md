@@ -181,3 +181,180 @@ QFT 的量子门复杂度为 \(\mathcal{O}(n^2)\)。
 \]
 
 最后，对 \(R_p\) 的量子态进行逆量子傅立叶变换（IQFT），得 \(\left\lvert \varphi_1 \varphi_2 \cdots \varphi_n \right\rangle\)，从而得到 \(\varphi\) 的估计值。
+
+## Shor 算法
+
+### RSA
+
+制造公钥和私钥：
+
+1. 获得两个大质数 \(p_1\) 和 \(p_2\)。
+2. 计算 \(n = p_1 p_2\)，\(\phi(n) = (p_1 - 1)(p_2 - 1)\)。
+3. 取一个与 \(\phi(n)\) 互质的整数 \(e\)。
+4. 计算 \(e\) 在模 \(\phi(n)\) 下的逆元 \(d\)，满足 \(ed \equiv 1 \mod \phi(n)\)。
+5. 公钥为 \((n, e)\)，私钥为 \((n, d)\)。
+
+接收方计算出公钥和私钥后，将公钥发送给发送方，发送方使用公钥加密信息，接收方使用私钥解密信息。
+
+- 发送方加密信息 \(a\)：\(C = a^e \mod n\)。发送密文 \(C\)。
+- 接收方解密信息 \(C\)：\(a = C^d \mod n\)。
+
+破解 RSA 的难度在于分解 \(n\)。
+
+### Shor 算法
+
+Shor 算法包含经典计算和量子计算。
+
+经典计算部分：
+
+!!! note "阶"
+
+    定义 \(r = \mathrm{ord}_n(a)\) 为满足 \(a^r \equiv 1 \mod n\) 的最小正整数 \(r\)，称为 \(a\) 关于模 \(n\) 的阶。
+
+1. 随机选取小于 \(n\) 的整数 \(a\)，且 \(\gcd(a, n) = 1\)。
+2. 计算 \(r = \mathrm{ord}_n(a)\)。（量子计算部分）
+3. 若 \(r\) 为奇数，回到第一步。
+4. 若 \(r\) 为偶数，计算 \(x \equiv a^{r/2} \mod n\)，则
+
+    \[
+        \begin{aligned}
+            x^2 &\equiv 1 \mod n \\
+            (x - 1)(x + 1) &\equiv 0 \mod n
+        \end{aligned}
+    \]
+
+    则设 \((x - 1)(x + 1) = tn = (t_1p_1)(t_2p_2)\)，有
+
+    \[
+        \begin{aligned}
+            x - 1 &\equiv 0 \mod p_1 \Rightarrow p_1 = \gcd(x - 1, n) \\
+            x + 1 &\equiv 0 \mod p_2 \Rightarrow p_2 = \gcd(x + 1, n)
+        \end{aligned}
+    \]
+
+    若 \(p_1 = 1\) 或 \(p_2 = 1\)，回到第一步。否则，得到 \(p_1\) 和 \(p_2\) 为 \(n\) 的质因数。
+
+### Shor 算法求阶
+
+定义酉变换 \(U\)：
+
+\[
+    \begin{aligned}
+        &U\left\lvert y \right\rangle = \left\lvert ay \mod n \right\rangle \\
+        \Rightarrow\ &U^2\left\lvert y \right\rangle = U\left\lvert ay \mod n \right\rangle = \left\lvert a^2 y \mod n \right\rangle \\
+        \Rightarrow\ &U^t\left\lvert y \right\rangle = \left\lvert a^t y \mod n \right\rangle
+    \end{aligned}
+\]
+
+定义量子态 \(\left\lvert u_s \right\rangle\)：
+
+\[
+    \left\lvert u_s \right\rangle = \frac{1}{\sqrt{r}} \sum_{k=0}^{r-1} e^{-\frac{2\pi i sk}{r}} \left\lvert a^k \mod n \right\rangle
+\]
+
+性质：
+
+- \(U\left\lvert u_s \right\rangle = e^{2\pi i s / r} \left\lvert u_s \right\rangle\)。
+- \(\displaystyle\frac{1}{\sqrt{r}} \sum_{s=0}^{r-1} \left\lvert u_s \right\rangle = \left\lvert 1 \right\rangle\)。
+
+对 \(U\) 和 \(\left\lvert 1 \right\rangle\) 进行 QPE，即可等概率得到相位 \(\{0, 1/r, 2/r, \cdots, (r-1)/r\}\)。
+
+构造算子 \(U\)：令 \(f(x) = a^x \mod n\)，枚举所有可能的 \(x\)，写出变换前的量子态 \(\left\lvert x \right\rangle \left\lvert 0 \right\rangle\)，变换后的量子态 \(\left\lvert x \right\rangle \left\lvert f(x) \right\rangle\)，构造 \(U\)：
+
+\[
+    U = \sum_{x=0}^{n-1} \left\lvert x \right\rangle \left\lvert 0 \right\rangle \left\langle x \right\rvert \left\langle f(x) \right\rvert
+\]
+
+## Grover 算法
+
+搜索算法，用于在无序数据库中搜索目标元素，将 \(\mathcal{O}(N)\) 的经典时间复杂度降低到 \(\mathcal{O}(\sqrt{N})\)。
+
+设所有正解的叠加态为 \(\left\lvert \beta \right\rangle\)，所有错误解的叠加态为 \(\left\lvert \alpha \right\rangle\)，则：
+
+<div align="center"><img src="/assets/img/CS/quantum/chapter3/grover_circuit.png" width="40%"></div>
+
+Grover 算法通过旋转初始量子态，使其不断接近 \(\left\lvert \beta \right\rangle\)。
+
+### Oracle
+
+Oracle 用于判断当前量子态是否为目标态。
+
+\[
+    \left\lvert x \right\rangle \xrightarrow{\mathrm{Oracle}} (-1)^{f(x)} \left\lvert x \right\rangle
+\]
+
+其中 \(f(x) = 1\) 表示目标态，\(f(x) = 0\) 表示非目标态。
+
+### Grover 算子
+
+<div align="center"><img src="/assets/img/CS/quantum/chapter3/grover_operator.png" width="70%"></div>
+
+#### 作用 Oracle
+
+几何意义是将量子态关于 \(\left\lvert \alpha \right\rangle\) 翻转。
+
+<div align="center"><img src="/assets/img/CS/quantum/chapter3/grover_oracle.png" width="50%"></div>
+
+#### 作用 Diffusion
+
+酉矩阵表示为 \(H^{\otimes n} (2\left\lvert 0^n \right\rangle \left\langle 0^n \right\rvert - I) H^{\otimes n}\)，令 \(\left\lvert \psi \right\rangle = H^{\otimes n} \left\lvert 0^n \right\rangle\)，则 Diffusion 算子为 \(U_s = (2\left\lvert \psi \right\rangle \left\langle \psi \right\rvert - I)\)。即将量子态关于 \(\left\lvert \psi \right\rangle\) 翻转。
+
+<div align="center"><img src="/assets/img/CS/quantum/chapter3/grover_rest.png" width="50%"></div>
+
+!!! note "翻转算子"
+
+    设 \(\left\lvert v \right\rangle = p\left\lvert \psi \right\rangle + q\left\lvert \psi \right\rangle_{\perp}\)，则：
+
+    \[
+        \begin{aligned}
+            U_s \left\lvert v \right\rangle &= (2\left\lvert \psi \right\rangle \left\langle \psi \right\rvert - I) (p\left\lvert \psi \right\rangle + q\left\lvert \psi \right\rangle_{\perp}) \\
+            &= 2p\left\lvert \psi \right\rangle \left\langle \psi \vert \psi \right\rangle + 2q\left\lvert \psi \right\rangle \left\langle \psi \right\rvert \left\lvert \psi \right\rangle_{\perp} - p\left\lvert \psi \right\rangle - q\left\lvert \psi \right\rangle_{\perp}
+        \end{aligned}
+    \]
+
+    由于归一化条件，有 \(\left\lvert \psi \vert \psi \right\rangle = 1\)，所以
+
+    \[
+        \begin{aligned}
+            U_s \left\lvert v \right\rangle  &= 2p\left\lvert \psi \right\rangle - p\left\lvert \psi \right\rangle - q\left\lvert \psi \right\rangle_{\perp} \\
+            &= p\left\lvert \psi \right\rangle - q\left\lvert \psi \right\rangle_{\perp}
+        \end{aligned}
+    \]
+
+    故翻转算子 \(U_s\) 的作用是将量子态关于 \(\left\lvert \psi \right\rangle\) 翻转。
+
+#### 几何意义
+
+证明作用一次 G 算子，可以将量子态向目标态 \(\left\lvert \beta \right\rangle\) 旋转 \(\theta\) 角度。即
+
+\[
+    G^k \left\lvert \psi \right\rangle = \cos(\frac{2k + 1}{2} \theta) \left\lvert \alpha \right\rangle + \sin(\frac{2k + 1}{2} \theta) \left\lvert \beta \right\rangle
+\]
+
+设初始态中有 \(M\) 个目标态，\(N - M\) 个非目标态，则
+
+\[
+    \psi = \sqrt{\frac{N - M}{N}} \left\lvert \alpha \right\rangle + \sqrt{\frac{M}{N}} \left\lvert \beta \right\rangle
+\]
+
+则 \(\theta/2\) 为初始态与 \(\left\lvert \alpha \right\rangle\) 的夹角，有
+
+\[
+    \theta = 2 \arccos(\sqrt{\frac{N - M}{N}})
+\]
+
+#### 复杂度分析
+
+假设 \(M \ll N\)，则有近似
+
+\[
+    \theta \approx \sin(\theta) = \frac{2\sqrt{M(N - M)}}{N} \approx 2\sqrt{\frac{M}{N}}
+\]
+
+要让量子态接近 \(\left\lvert \beta \right\rangle\)，即令 \(\displaystyle\frac{2k + 1}{2} \theta = \frac{\pi}{2}\)，代入上式得
+
+\[
+    k = \frac{\pi}{2\theta} - \frac{1}{2} \approx \frac{\pi}{4} \sqrt{\frac{N}{M}} - \frac{1}{2} = \mathcal{O}(\sqrt{N/M})
+\]
+
+所以 Grover 算法的复杂度为 \(\mathcal{O}(\sqrt{N/M})\)。
