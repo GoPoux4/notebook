@@ -82,7 +82,7 @@
     考虑单量子比特下的 QFT：
 
     \[
-        \mathrm{QFT}_1 \left\lvert j \right\rangle = \frac{1}{\sqrt{2}} \sum_{k=0}^{1} e^{\frac{\pi i}{2} jk} \left\lvert k \right\rangle
+        \mathrm{QFT}_1 \left\lvert j \right\rangle = \frac{1}{\sqrt{2}} \sum_{k=0}^{1} e^{\frac{2 \pi i}{2} jk} \left\lvert k \right\rangle
     \]
 
     对于 \(\left\lvert 0 \right\rangle\) 和 \(\left\lvert 1 \right\rangle\)，有：
