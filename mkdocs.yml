@@ -164,6 +164,12 @@ nav:
       - 量子比特与量子门: cs/quantum/chapter1.md
       - 量子测量与量子图灵机: cs/quantum/chapter2.md
       - 量子算法: cs/quantum/chapter3.md
+    - 软件工程与游戏设计:
+      - cs/game/index.md
+      - Introductions: cs/game/chapter1.md
+      - Sprites and Randomness: cs/game/chapter2.md
+      - Maze Algorithms: cs/game/chapter3.md
+      - Final Lab: cs/game/final.md
   - Math:
     - Math: math/index.md
     - 概率论:
