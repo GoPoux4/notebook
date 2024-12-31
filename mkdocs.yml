@@ -151,6 +151,9 @@ nav:
     - 计算机组成与设计:
       - cs/co/index.md
       - 复习: cs/co/review.md
+    - 操作系统原理与实践:
+      - cs/os/index.md
+      - 复习: cs/os/review.md
     - 面向对象程序设计:
       - cs/oop/index.md
       - 复习: cs/oop/review.md
@@ -170,6 +173,8 @@ nav:
       - Sprites and Randomness: cs/game/chapter2.md
       - Maze Algorithms: cs/game/chapter3.md
       - Final Lab: cs/game/final.md
+    - 机器学习:
+      - 复习: cs/ml/review.md
   - Math:
     - Math: math/index.md
     - 概率论:
