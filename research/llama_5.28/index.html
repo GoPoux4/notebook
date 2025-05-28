@@ -8,28 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://note.gopoux.cc/cs/computer_logic/chapter7/">
+        <link rel="canonical" href="https://note.gopoux.cc/research/llama_5.28/">
       
       
-        <link rel="prev" href="../chapter6/">
       
       
-        <link rel="next" href="../../database/">
-      
-      
-      <link rel="icon" href="../../../assets/ico/favicon.png">
+      <link rel="icon" href="../../assets/ico/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>内存基础 - GoPoux 的笔记本</title>
+        <title>Llama CUDA Check Rules - GoPoux 的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,11 +38,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
+      <link rel="stylesheet" href="../../css/neoteroi-mkdocs.css">
     
-      <link rel="stylesheet" href="../../../css/counter.css">
+      <link rel="stylesheet" href="../../css/counter.css">
     
-      <link rel="stylesheet" href="../../../css/stylesheet.css">
+      <link rel="stylesheet" href="../../css/stylesheet.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
     
@@ -54,7 +50,7 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#memory-basics" class="md-skip">
+        <a href="#llama-cuda-check-rules" class="md-skip">
           跳转至
         </a>
       
@@ -94,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../.." title="GoPoux 的笔记本" class="md-header__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"/></svg>
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              内存基础
+              Llama CUDA Check Rules
             
           </span>
         </div>
@@ -227,7 +223,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -245,13 +241,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../cs/" class="md-tabs__link">
           
   
   
@@ -273,7 +267,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../math/" class="md-tabs__link">
+        <a href="../../math/" class="md-tabs__link">
           
   
   
@@ -295,7 +289,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../hpc/" class="md-tabs__link">
+        <a href="../../hpc/" class="md-tabs__link">
           
   
   
@@ -317,7 +311,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../others/" class="md-tabs__link">
+        <a href="../../others/" class="md-tabs__link">
           
   
   
@@ -339,7 +333,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../labs/numpy/" class="md-tabs__link">
+        <a href="../../labs/numpy/" class="md-tabs__link">
           
   
   
@@ -361,7 +355,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../books/" class="md-tabs__link">
+        <a href="../../books/" class="md-tabs__link">
           
   
   
@@ -383,7 +377,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../ctf/writeups/zjuctf2024/" class="md-tabs__link">
+        <a href="../../ctf/writeups/zjuctf2024/" class="md-tabs__link">
           
   
   
@@ -419,7 +413,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
+    <a href="../.." title="GoPoux 的笔记本" class="md-nav__button md-logo" aria-label="GoPoux 的笔记本" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"/></svg>
@@ -472,7 +466,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../.." class="md-nav__link ">
+            <a href="../.." class="md-nav__link ">
               
   
   
@@ -507,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../links/" class="md-nav__link">
+      <a href="../../links/" class="md-nav__link">
         
   
   
@@ -534,8 +528,6 @@
       
   
   
-    
-  
   
   
     
@@ -569,21 +561,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../cs/" class="md-nav__link ">
               
   
   
@@ -596,13 +585,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Computer Science
@@ -700,7 +689,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../fds/" class="md-nav__link ">
+            <a href="../../cs/fds/" class="md-nav__link ">
               
   
   
@@ -735,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fds/chapter1/" class="md-nav__link">
+      <a href="../../cs/fds/chapter1/" class="md-nav__link">
         
   
   
@@ -758,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fds/chapter2/" class="md-nav__link">
+      <a href="../../cs/fds/chapter2/" class="md-nav__link">
         
   
   
@@ -781,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fds/chapter3/" class="md-nav__link">
+      <a href="../../cs/fds/chapter3/" class="md-nav__link">
         
   
   
@@ -804,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fds/chapter4/" class="md-nav__link">
+      <a href="../../cs/fds/chapter4/" class="md-nav__link">
         
   
   
@@ -827,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fds/chapter5/" class="md-nav__link">
+      <a href="../../cs/fds/chapter5/" class="md-nav__link">
         
   
   
@@ -850,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fds/chapter6/" class="md-nav__link">
+      <a href="../../cs/fds/chapter6/" class="md-nav__link">
         
   
   
@@ -873,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../fds/chapter7/" class="md-nav__link">
+      <a href="../../cs/fds/chapter7/" class="md-nav__link">
         
   
   
@@ -955,7 +944,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../ads/" class="md-nav__link ">
+            <a href="../../cs/ads/" class="md-nav__link ">
               
   
   
@@ -990,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter1/" class="md-nav__link">
+      <a href="../../cs/ads/chapter1/" class="md-nav__link">
         
   
   
@@ -1013,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter2/" class="md-nav__link">
+      <a href="../../cs/ads/chapter2/" class="md-nav__link">
         
   
   
@@ -1036,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter3/" class="md-nav__link">
+      <a href="../../cs/ads/chapter3/" class="md-nav__link">
         
   
   
@@ -1059,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter4/" class="md-nav__link">
+      <a href="../../cs/ads/chapter4/" class="md-nav__link">
         
   
   
@@ -1082,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter5/" class="md-nav__link">
+      <a href="../../cs/ads/chapter5/" class="md-nav__link">
         
   
   
@@ -1105,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter6/" class="md-nav__link">
+      <a href="../../cs/ads/chapter6/" class="md-nav__link">
         
   
   
@@ -1128,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter7/" class="md-nav__link">
+      <a href="../../cs/ads/chapter7/" class="md-nav__link">
         
   
   
@@ -1151,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter8/" class="md-nav__link">
+      <a href="../../cs/ads/chapter8/" class="md-nav__link">
         
   
   
@@ -1174,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter9/" class="md-nav__link">
+      <a href="../../cs/ads/chapter9/" class="md-nav__link">
         
   
   
@@ -1197,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter10/" class="md-nav__link">
+      <a href="../../cs/ads/chapter10/" class="md-nav__link">
         
   
   
@@ -1220,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter11/" class="md-nav__link">
+      <a href="../../cs/ads/chapter11/" class="md-nav__link">
         
   
   
@@ -1243,7 +1232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter12/" class="md-nav__link">
+      <a href="../../cs/ads/chapter12/" class="md-nav__link">
         
   
   
@@ -1266,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter13/" class="md-nav__link">
+      <a href="../../cs/ads/chapter13/" class="md-nav__link">
         
   
   
@@ -1289,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter14/" class="md-nav__link">
+      <a href="../../cs/ads/chapter14/" class="md-nav__link">
         
   
   
@@ -1312,7 +1301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ads/chapter15/" class="md-nav__link">
+      <a href="../../cs/ads/chapter15/" class="md-nav__link">
         
   
   
@@ -1348,8 +1337,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1380,15 +1367,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../cs/computer_logic/" class="md-nav__link ">
               
   
   
@@ -1407,7 +1394,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             计算机逻辑设计基础
@@ -1423,7 +1410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter1/" class="md-nav__link">
+      <a href="../../cs/computer_logic/chapter1/" class="md-nav__link">
         
   
   
@@ -1446,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter2/" class="md-nav__link">
+      <a href="../../cs/computer_logic/chapter2/" class="md-nav__link">
         
   
   
@@ -1469,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter3/" class="md-nav__link">
+      <a href="../../cs/computer_logic/chapter3/" class="md-nav__link">
         
   
   
@@ -1492,7 +1479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter4/" class="md-nav__link">
+      <a href="../../cs/computer_logic/chapter4/" class="md-nav__link">
         
   
   
@@ -1515,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter5/" class="md-nav__link">
+      <a href="../../cs/computer_logic/chapter5/" class="md-nav__link">
         
   
   
@@ -1538,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter6/" class="md-nav__link">
+      <a href="../../cs/computer_logic/chapter6/" class="md-nav__link">
         
   
   
@@ -1558,32 +1545,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    内存基础
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../cs/computer_logic/chapter7/" class="md-nav__link">
         
   
   
@@ -1594,197 +1559,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#memory-definitions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Memory Definitions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-organization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Memory Organization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Memory Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-operation-timing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Memory Operation Timing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ram-integrated-circuits" class="md-nav__link">
-    <span class="md-ellipsis">
-      RAM Integrated Circuits
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="RAM Integrated Circuits">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#static-ram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Static RAM
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Static RAM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#storage-cell" class="md-nav__link">
-    <span class="md-ellipsis">
-      Storage Cell
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bit-slice" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bit Slice
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cell-arrays-and-coincident-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cell Arrays and Coincident Selection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#making-larger-memories" class="md-nav__link">
-    <span class="md-ellipsis">
-      Making Larger Memories
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#making-wider-memories" class="md-nav__link">
-    <span class="md-ellipsis">
-      Making Wider Memories
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dynamic-ram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dynamic RAM
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dynamic RAM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dram-cell" class="md-nav__link">
-    <span class="md-ellipsis">
-      DRAM Cell
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dram-slice" class="md-nav__link">
-    <span class="md-ellipsis">
-      DRAM Slice
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#block-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Block Diagram
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dynamic-ram-timing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dynamic RAM Timing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dram-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      DRAM Types
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1832,7 +1606,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../database/" class="md-nav__link ">
+            <a href="../../cs/database/" class="md-nav__link ">
               
   
   
@@ -1867,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../database/chapter1/" class="md-nav__link">
+      <a href="../../cs/database/chapter1/" class="md-nav__link">
         
   
   
@@ -1890,7 +1664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../database/chapter2/" class="md-nav__link">
+      <a href="../../cs/database/chapter2/" class="md-nav__link">
         
   
   
@@ -1913,7 +1687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../database/review/" class="md-nav__link">
+      <a href="../../cs/database/review/" class="md-nav__link">
         
   
   
@@ -1967,7 +1741,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../co/" class="md-nav__link ">
+            <a href="../../cs/co/" class="md-nav__link ">
               
   
   
@@ -2002,7 +1776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../co/review/" class="md-nav__link">
+      <a href="../../cs/co/review/" class="md-nav__link">
         
   
   
@@ -2056,7 +1830,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../os/" class="md-nav__link ">
+            <a href="../../cs/os/" class="md-nav__link ">
               
   
   
@@ -2091,7 +1865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../os/review/" class="md-nav__link">
+      <a href="../../cs/os/review/" class="md-nav__link">
         
   
   
@@ -2145,7 +1919,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../oop/" class="md-nav__link ">
+            <a href="../../cs/oop/" class="md-nav__link ">
               
   
   
@@ -2180,7 +1954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../oop/review/" class="md-nav__link">
+      <a href="../../cs/oop/review/" class="md-nav__link">
         
   
   
@@ -2238,7 +2012,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cv/" class="md-nav__link ">
+            <a href="../../cs/cv/" class="md-nav__link ">
               
   
   
@@ -2273,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cv/chapter1/" class="md-nav__link">
+      <a href="../../cs/cv/chapter1/" class="md-nav__link">
         
   
   
@@ -2296,7 +2070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cv/chapter2/" class="md-nav__link">
+      <a href="../../cs/cv/chapter2/" class="md-nav__link">
         
   
   
@@ -2319,7 +2093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cv/chapter3/" class="md-nav__link">
+      <a href="../../cs/cv/chapter3/" class="md-nav__link">
         
   
   
@@ -2377,7 +2151,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../quantum/" class="md-nav__link ">
+            <a href="../../cs/quantum/" class="md-nav__link ">
               
   
   
@@ -2412,7 +2186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../quantum/chapter1/" class="md-nav__link">
+      <a href="../../cs/quantum/chapter1/" class="md-nav__link">
         
   
   
@@ -2435,7 +2209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../quantum/chapter2/" class="md-nav__link">
+      <a href="../../cs/quantum/chapter2/" class="md-nav__link">
         
   
   
@@ -2458,7 +2232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../quantum/chapter3/" class="md-nav__link">
+      <a href="../../cs/quantum/chapter3/" class="md-nav__link">
         
   
   
@@ -2518,7 +2292,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../game/" class="md-nav__link ">
+            <a href="../../cs/game/" class="md-nav__link ">
               
   
   
@@ -2553,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../game/chapter1/" class="md-nav__link">
+      <a href="../../cs/game/chapter1/" class="md-nav__link">
         
   
   
@@ -2576,7 +2350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../game/chapter2/" class="md-nav__link">
+      <a href="../../cs/game/chapter2/" class="md-nav__link">
         
   
   
@@ -2599,7 +2373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../game/chapter3/" class="md-nav__link">
+      <a href="../../cs/game/chapter3/" class="md-nav__link">
         
   
   
@@ -2622,7 +2396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../game/final/" class="md-nav__link">
+      <a href="../../cs/game/final/" class="md-nav__link">
         
   
   
@@ -2698,7 +2472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ml/review/" class="md-nav__link">
+      <a href="../../cs/ml/review/" class="md-nav__link">
         
   
   
@@ -2759,7 +2533,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../math/" class="md-nav__link ">
+            <a href="../../math/" class="md-nav__link ">
               
   
   
@@ -2823,7 +2597,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../math/prob_theory/" class="md-nav__link ">
+            <a href="../../math/prob_theory/" class="md-nav__link ">
               
   
   
@@ -2858,7 +2632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../math/prob_theory/chapter1/" class="md-nav__link">
+      <a href="../../math/prob_theory/chapter1/" class="md-nav__link">
         
   
   
@@ -2881,7 +2655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../math/prob_theory/chapter2/" class="md-nav__link">
+      <a href="../../math/prob_theory/chapter2/" class="md-nav__link">
         
   
   
@@ -2904,7 +2678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../math/prob_theory/chapter3/" class="md-nav__link">
+      <a href="../../math/prob_theory/chapter3/" class="md-nav__link">
         
   
   
@@ -2927,7 +2701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../math/prob_theory/chapter4/" class="md-nav__link">
+      <a href="../../math/prob_theory/chapter4/" class="md-nav__link">
         
   
   
@@ -2990,7 +2764,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hpc/" class="md-nav__link ">
+            <a href="../../hpc/" class="md-nav__link ">
               
   
   
@@ -3050,7 +2824,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hpc/cute/" class="md-nav__link ">
+            <a href="../../hpc/cute/" class="md-nav__link ">
               
   
   
@@ -3085,7 +2859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hpc/cute/layout/" class="md-nav__link">
+      <a href="../../hpc/cute/layout/" class="md-nav__link">
         
   
   
@@ -3108,7 +2882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hpc/cute/tensor/" class="md-nav__link">
+      <a href="../../hpc/cute/tensor/" class="md-nav__link">
         
   
   
@@ -3162,7 +2936,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../hpc/hpc101/" class="md-nav__link ">
+            <a href="../../hpc/hpc101/" class="md-nav__link ">
               
   
   
@@ -3197,7 +2971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hpc/hpc101/cuda/" class="md-nav__link">
+      <a href="../../hpc/hpc101/cuda/" class="md-nav__link">
         
   
   
@@ -3260,7 +3034,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../others/" class="md-nav__link ">
+            <a href="../../others/" class="md-nav__link ">
               
   
   
@@ -3295,7 +3069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/sight_singing/" class="md-nav__link">
+      <a href="../../others/sight_singing/" class="md-nav__link">
         
   
   
@@ -3318,7 +3092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/piano/" class="md-nav__link">
+      <a href="../../others/piano/" class="md-nav__link">
         
   
   
@@ -3401,7 +3175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/numpy/" class="md-nav__link">
+      <a href="../../labs/numpy/" class="md-nav__link">
         
   
   
@@ -3424,7 +3198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/simd/" class="md-nav__link">
+      <a href="../../labs/simd/" class="md-nav__link">
         
   
   
@@ -3447,7 +3221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/cuda/" class="md-nav__link">
+      <a href="../../labs/cuda/" class="md-nav__link">
         
   
   
@@ -3470,7 +3244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/pcg/" class="md-nav__link">
+      <a href="../../labs/pcg/" class="md-nav__link">
         
   
   
@@ -3493,7 +3267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../labs/cnn/" class="md-nav__link">
+      <a href="../../labs/cnn/" class="md-nav__link">
         
   
   
@@ -3546,7 +3320,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../books/" class="md-nav__link ">
+            <a href="../../books/" class="md-nav__link ">
               
   
   
@@ -3604,7 +3378,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../books/ostep/" class="md-nav__link ">
+            <a href="../../books/ostep/" class="md-nav__link ">
               
   
   
@@ -3684,7 +3458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../books/ostep/chapter1/process/" class="md-nav__link">
+      <a href="../../books/ostep/chapter1/process/" class="md-nav__link">
         
   
   
@@ -3775,7 +3549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ctf/writeups/zjuctf2024/" class="md-nav__link">
+      <a href="../../ctf/writeups/zjuctf2024/" class="md-nav__link">
         
   
   
@@ -3825,161 +3599,263 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#memory-definitions" class="md-nav__link">
+  <a href="#check-rules" class="md-nav__link">
     <span class="md-ellipsis">
-      Memory Definitions
+      Check Rules
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#memory-organization" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Memory Organization
+      检查规则
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Memory Operations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-operation-timing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Memory Operation Timing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ram-integrated-circuits" class="md-nav__link">
-    <span class="md-ellipsis">
-      RAM Integrated Circuits
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="RAM Integrated Circuits">
+    <nav class="md-nav" aria-label="检查规则">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#static-ram" class="md-nav__link">
+  <a href="#ggml_cuda_argmax" class="md-nav__link">
     <span class="md-ellipsis">
-      Static RAM
+      ggml_cuda_argmax
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Static RAM">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_count_equal" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_count_equal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_repeat_back" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_repeat_back
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_get_rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_get_rows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_get_rows_back" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_get_rows_back
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_dup" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_dup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_cpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_cpy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_bin_bcast" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_bin_bcast
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_acc" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_acc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_unary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_unary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_norm" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_norm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_group_norm" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_group_norm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_l2_norm" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_l2_norm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_concat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_upscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_upscale
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_pad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_arange" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_arange
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_timestep_embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_timestep_embedding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_leaky_relu" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_leaky_relu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_silu_back" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_silu_back
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_rms_norm" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_rms_norm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_op_rms_norm_back" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_op_rms_norm_back
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ggml_cuda_mul_mat" class="md-nav__link">
+    <span class="md-ellipsis">
+      ggml_cuda_mul_mat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ggml_cuda_mul_mat">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#storage-cell" class="md-nav__link">
+  <a href="#ggml_cuda_mul_mat_vec" class="md-nav__link">
     <span class="md-ellipsis">
-      Storage Cell
+      ggml_cuda_mul_mat_vec
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#bit-slice" class="md-nav__link">
+  <a href="#ggml_cuda_mul_mat_vec_q" class="md-nav__link">
     <span class="md-ellipsis">
-      Bit Slice
+      ggml_cuda_mul_mat_vec_q
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#cell-arrays-and-coincident-selection" class="md-nav__link">
+  <a href="#ggml_cuda_mul_mat_batched_cublas" class="md-nav__link">
     <span class="md-ellipsis">
-      Cell Arrays and Coincident Selection
+      ggml_cuda_mul_mat_batched_cublas
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#making-larger-memories" class="md-nav__link">
+  <a href="#ggml_cuda_op_mul_mat" class="md-nav__link">
     <span class="md-ellipsis">
-      Making Larger Memories
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#making-wider-memories" class="md-nav__link">
-    <span class="md-ellipsis">
-      Making Wider Memories
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dynamic-ram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dynamic RAM
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dynamic RAM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dram-cell" class="md-nav__link">
-    <span class="md-ellipsis">
-      DRAM Cell
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dram-slice" class="md-nav__link">
-    <span class="md-ellipsis">
-      DRAM Slice
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#block-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Block Diagram
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dynamic-ram-timing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dynamic RAM Timing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dram-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      DRAM Types
+      ggml_cuda_op_mul_mat
     </span>
   </a>
   
@@ -4014,245 +3890,244 @@
   
 
 
-<h1 id="memory-basics">Memory Basics<a class="headerlink" href="#memory-basics" title="Permanent link">&para;</a></h1>
-<h2 id="memory-definitions">Memory Definitions<a class="headerlink" href="#memory-definitions" title="Permanent link">&para;</a></h2>
+<h1 id="llama-cuda-check-rules">Llama CUDA Check Rules<a class="headerlink" href="#llama-cuda-check-rules" title="Permanent link">&para;</a></h1>
+<p>llama.cpp 后端在调用 CUDA kernel 计算之前会对 tensor 进行检查。</p>
+<h2 id="check-rules">Check Rules<a class="headerlink" href="#check-rules" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><strong>Memory</strong>: A collection of storage cells together with the necessary circuits to transfer information to and from them.</p>
-<p>一组存储单元的集合，可以读、写。</p>
-</li>
-<li>
-<p><strong>Memory Organization</strong>: The basic architectural structure of a memory in terms of how data is accessed.</p>
-<p>内存的架构，内存能存放多少数据，一个字多少位，如何访问内存等。</p>
-</li>
-<li>
-<p><strong>Random Access Memory (RAM)</strong>: A memory organized such that data can be transferred to or from any cell (or collection of cells) in a time that is not dependent upon the particular cell selected.</p>
-</li>
-<li>
-<p><strong>Memory Address</strong>: A vector of bits that identifies a particular memory element (or collection of elements).</p>
-<p>内存地址，一个列表的编号，通过编号可以读写内存的数据。</p>
-</li>
-<li>
-<p><strong>Typical data elements</strong>:</p>
-<ul>
-<li><strong>Bit</strong>: A single binary digit (0 or 1).</li>
-<li><strong>Byte</strong>: A group of 8 bits.</li>
-<li>
-<p><strong>Word</strong>: A group of bits that is treated as a unit by the computer hardware.</p>
-<p>一次读写的数据单元，一般为 8 位或 16 位。</p>
-</li>
+<li>数据类型一致性：<ul>
+<li>检测 <code>src0</code>、<code>src1</code> 和 <code>dst</code> 的数据类型是否能被当前操作支持。</li>
+<li>检查某两个张量的类型是否相同。</li>
 </ul>
 </li>
-<li>
-<p><strong>Memory Data</strong>: a bit or a collection of bits to be stored into or accessed from memory cells.</p>
-<p>写入或读取的数据。</p>
-</li>
-<li>
-<p><strong>Memory Operations</strong>: operations on memory data supported by the memory unit. </p>
-</li>
+<li>内存布局：<ul>
+<li>检查张量的内存布局是否连续（<code>ggml_is_contiguous</code>）。</li>
+<li>检查最内层维度的元素是否连续，即字节步长是否等于数据类型的大小。（确保能被 GPU 高效访问）</li>
 </ul>
-<h2 id="memory-organization">Memory Organization<a class="headerlink" href="#memory-organization" title="Permanent link">&para;</a></h2>
-<p>Organized as an indexed array of words. Value of the index for each word is the memory address.</p>
-<div class="admonition example">
-<p class="admonition-title">Memory Block Diagram</p>
-<p>A basic memory system is shown here 基础的内存系统：</p>
-<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/memoryblock.png" width = 40%/></div></p>
-<ul>
-<li>k address lines are decoded to address <span class="arithmatex">\(2^k\)</span> words of memory.</li>
-<li>Each word is n bits.</li>
-<li>Read and Write are single control lines defining the simplest of memory operations.</li>
+</li>
+<li>张量形状、大小检查：<ul>
+<li>有些操作对张量的形状有限制，可能限制为二维或三维张量，或者限制某些维度的奇偶性。</li>
+<li>检查张量之间的形状是否匹配，比如广播操作</li>
+<li>检查张量总元素个数是否匹配，比如生成等差数列必须张量元素个数和等差数列长度相同。</li>
+<li>检查计算过程中涉及的张量元素个数是否在某些范围内，比如 <code>ggml_cuda_count_equal</code> 中的元素个数限制在 int32 范围内。</li>
 </ul>
-</div>
-<h2 id="memory-operations">Memory Operations<a class="headerlink" href="#memory-operations" title="Permanent link">&para;</a></h2>
-<p>Memory operations require the following:</p>
-<ul>
-<li><strong>Data</strong>: data written to, or read from, memory as required by the operation. 输入或输出的数据。</li>
-<li>
-<p><strong>Address</strong>: specifies the memory location to operate on. The address lines carry this information into the memory.</p>
-<p>Typically: n bits specify locations of <span class="arithmatex">\(2^n\)</span> words.</p>
 </li>
-<li>
-<p><strong>An operation</strong>: Information sent to the memory and interpreted as control information which specifies the type of operation to be performed. 控制信号，指定操作类型。</p>
-<p>Typically: a single bit specifies READ or WRITE.</p>
-<ul>
-<li>
-<p><strong>Read Memory</strong>: an operation that reads a data value stored in memory:</p>
-<p>读取内存中的数据。</p>
-<ol>
-<li>Place a valid address on the address lines.</li>
-<li>Toggle the memory read control line.</li>
-<li>Wait for the read data to become stable.</li>
-</ol>
+<li>参数有效性：<ul>
+<li>从 <code>ggml_tensor</code> 的 <code>op_params</code> 中获取参数，检查参数是否在合理范围内。</li>
+</ul>
 </li>
-<li>
-<p><strong>Write Memory</strong>: an operation that writes a data value to memory:</p>
-<p>写入数据到内存。</p>
-<ol>
-<li>Place a valid address on the address lines and valid data on the data lines.</li>
-<li>Toggle the memory write control line.</li>
-</ol>
-</li>
+<li>后端检查：<ul>
+<li>部分操作需要限制 tensor 的后端为 CUDA。</li>
 </ul>
 </li>
 </ul>
-<h2 id="memory-operation-timing">Memory Operation Timing<a class="headerlink" href="#memory-operation-timing" title="Permanent link">&para;</a></h2>
-<p>Most basic memories are <strong>asynchronous</strong></p>
+<h2 id="_1">检查规则<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="ggml_cuda_argmax">ggml_cuda_argmax<a class="headerlink" href="#ggml_cuda_argmax" title="Permanent link">&para;</a></h3>
+<p>找每一行的最大值列索引。</p>
 <ul>
-<li>
-<p>Read Timing</p>
-<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/readtiming.png" width = 60%/></div></p>
-<p><code>data valid</code> 之前需要等待一段时间，因为内存需要一定的时间读取数据。这个时间取决于内存的速度。</p>
-</li>
-<li>
-<p>Write Timing</p>
-<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/writetiming.png" width = 60%/></div></p>
-<p>在 R/W 信号下降时要将 addr 锁存起来，上升时要预先把数据准备好。</p>
-</li>
+<li>检查 <code>src</code> 和 <code>dst</code> 类型</li>
+<li>检查 <code>src</code> 连续性（<code>ggml_is_contiguous</code>）</li>
 </ul>
-<h2 id="ram-integrated-circuits">RAM Integrated Circuits<a class="headerlink" href="#ram-integrated-circuits" title="Permanent link">&para;</a></h2>
-<p>Types of random access memory:</p>
+<h3 id="ggml_cuda_count_equal">ggml_cuda_count_equal<a class="headerlink" href="#ggml_cuda_count_equal" title="Permanent link">&para;</a></h3>
+<p>计算 <code>src0</code> 和 <code>src1</code> 中对应位置的元素相等的个数。</p>
 <ul>
-<li>
-<p><strong>Static RAM (SRAM)</strong>: information stored in latches</p>
-<p>信息存储在锁存器中，不需要刷新。</p>
-</li>
-<li>
-<p><strong>Dynamic RAM (DRAM)</strong>: information stored as electrical charges on capacitors</p>
-<p>信息存储在电容中，需要刷新。</p>
-<ul>
-<li>Charge "leaks" off: 电容会漏电</li>
-<li>Periodic refresh  of charge required: 需要定期刷新</li>
+<li>检查 <code>src0</code> 和 <code>src1</code> 类型是否相同</li>
+<li><code>dst</code> 必须是 I64 类型</li>
+<li><code>src0</code> 和 <code>src1</code> 形状必须相同</li>
+<li>检查 <code>src0</code>、<code>src1</code> 和 <code>dst</code> 连续性</li>
+<li>限制 <code>src0</code> 和 <code>src1</code> 的元素总数在 int32 范围内（cuda <code>atomicAdd</code> 只能处理 int32）</li>
+<li>为 <code>dst</code> 对应内存清零，并且检查是否成功</li>
+<li>当 <code>src0</code> 和 <code>src1</code> 类型为 I32 时才进行计算</li>
 </ul>
-</li>
-</ul>
-<p><strong>Dependence on Power Supply</strong>:</p>
+<h3 id="ggml_cuda_op_repeat_back">ggml_cuda_op_repeat_back<a class="headerlink" href="#ggml_cuda_op_repeat_back" title="Permanent link">&para;</a></h3>
+<p>对 repeat 操作的反向传播。</p>
 <ul>
-<li><strong>Volatile</strong>: loses stored information when power turned off. 掉电后会丢失数据。</li>
-<li><strong>Non-volatile</strong>: retains information when power turned off. 掉电后不会丢失数据。</li>
+<li>检查 <code>src0</code> 和 <code>dst</code> 的类型是否相同</li>
+<li>检查 <code>dst</code> 连续性</li>
+<li>检查 <code>src0</code> 是否能由 <code>dst</code> 通过 repeat 操作得到</li>
+<li><code>GGML_ASSERT(ne2*ne3 &lt;= (1 &lt;&lt; 15));</code>：检查 <code>dst</code> 的第三和第四维度（<code>ne2</code> 和 <code>ne3</code>）的乘积是否在 int16 范围内（可能和 cuda kernel 网格大小和块大小有关？）</li>
+<li><code>dst</code> 类型必须为 F32</li>
 </ul>
-<p><strong>Address bus and Data bus</strong>: 数据总线和地址总线</p>
+<h3 id="ggml_cuda_op_get_rows">ggml_cuda_op_get_rows<a class="headerlink" href="#ggml_cuda_op_get_rows" title="Permanent link">&para;</a></h3>
+<p>从 <code>src0</code> 中获取 <code>src1</code> 指定的行向量，组成新的张量存到 <code>dst</code> 中。</p>
 <ul>
-<li>Address bus: 传输地址，<span class="arithmatex">\(存储容量=2^{地址总线位数}\)</span></li>
-<li>Data bus: 传输数据，<span class="arithmatex">\(一次处理数据的位宽=数据总线位数\)</span></li>
+<li>检查 <code>src1</code> 的类型是否为 I32</li>
+<li>检查 <code>dst</code> 的类型是否为 F32</li>
+<li>分别检查 <code>src0</code>、<code>src1</code> 和 <code>dst</code> 维度 0 中的元素在内存中是否连续</li>
+<li>对 <code>src0</code> 的类型分类<ul>
+<li>F32、F16：进一步检查 <code>src1</code> 的第四个维度为 1</li>
+<li>量化类型 Q4_0、Q8_0 等：检查 <code>src0</code> 最内层维度是偶数，应该是和量化的分块机制有关</li>
 </ul>
-<h3 id="static-ram">Static RAM<a class="headerlink" href="#static-ram" title="Permanent link">&para;</a></h3>
-<h4 id="storage-cell">Storage Cell<a class="headerlink" href="#storage-cell" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramcell.png" width = 60%/></div>
-
-<ul>
-<li>
-<p><strong>SR Latch</strong>: stores one bit of information</p>
-<p>一个锁存器，存储一位信息。</p>
-</li>
-<li>
-<p><strong>Select</strong>: select input for control</p>
-<p>控制信号，控制读写。如果为 1，那么数据会被写入到锁存器中。如果为 0，那么锁存器的值不会被修改和读出。</p>
-</li>
-<li>
-<p><strong>Dual Rail Data Inputs <span class="arithmatex">\(B\)</span> and <span class="arithmatex">\(\bar B\)</span></strong>: dual rail 数据输入</p>
-</li>
-<li><strong>Dual Rail Data Outputs <span class="arithmatex">\(C\)</span> and <span class="arithmatex">\(\bar C\)</span></strong>: dual rail 数据输出</li>
-</ul>
-<h4 id="bit-slice">Bit Slice<a class="headerlink" href="#bit-slice" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assets/img/CS/computer_logic/chapter7/srambitslice.png" width = 60%/></div>
-
-<p><strong>Bit Select</strong>: 控制整个 bit slice 的工作，当 Bit Select 为 0 时，整个 bit slice 不工作；当 Bit Select 为 1 时，bit slice 的读写收 Read/Write 控制。</p>
-<p>当 Bit Select 为 1 时：</p>
-<ul>
-<li>Read Operation: Read/Write 为 1，此时 Data in 处与门不工作，锁存器保持原来的值。根据 Word Select 选择输出的数据。</li>
-<li>Write Operation: Read/Write 为 0，此时 Data in 处与门工作，根据 Word Select 选择写入的数据。</li>
-</ul>
-<h4 id="cell-arrays-and-coincident-selection">Cell Arrays and Coincident Selection<a class="headerlink" href="#cell-arrays-and-coincident-selection" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramcellarray.png" width = 60%/></div>
-
-<ul>
-<li>Decoder: 译码器，将地址译码为控制信号，将对应地址上 RAM cell 的 Select 置为 1。</li>
-<li>三态门：使得 RAM chip 的输出可以与总线连接。</li>
-</ul>
-<p><strong>行列译码</strong></p>
-<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramrowcoldecode.png" width = 60%/></div>
-
-<div class="admonition example">
-<p class="admonition-title"><span class="arithmatex">\(8\times 2\)</span> RAM</p>
-<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/82ram.png" width = 60%/></div></p>
-<p>RAM slice 0 和 2、1 和 3 作为数据的高低位。</p>
-</div>
-<h4 id="making-larger-memories">Making Larger Memories<a class="headerlink" href="#making-larger-memories" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramlargermem.png" width = 40%/></div>
-
-<p>高两位接入译码器，低两位接入 RAM chip，减少复杂度。</p>
-<h4 id="making-wider-memories">Making Wider Memories<a class="headerlink" href="#making-wider-memories" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assets/img/CS/computer_logic/chapter7/sramwidermem.png" width = 40%/></div>
-
-<p>增加位宽，每块 RAM chip 就代表最后输出的某一位。</p>
-<h3 id="dynamic-ram">Dynamic RAM<a class="headerlink" href="#dynamic-ram" title="Permanent link">&para;</a></h3>
-<p>Basic Principle: Storage of information on capacitors. 信息存储在电容上。</p>
-<h4 id="dram-cell">DRAM Cell<a class="headerlink" href="#dram-cell" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Capacitor: 电容</li>
-<li>Switch: 开关</li>
-</ul>
-<div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramcell.png" width = 40%/></div>
-
-<p>基本功能：</p>
-<ul>
-<li>Store: 用三态门将电容锁住。</li>
-<li>Write: 将电容充电或放电。</li>
-<li>Read: 读取电容的电压。</li>
-</ul>
-<h4 id="dram-slice">DRAM Slice<a class="headerlink" href="#dram-slice" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramslice.png" width = 60%/></div>
-
-<h4 id="block-diagram">Block Diagram<a class="headerlink" href="#block-diagram" title="Permanent link">&para;</a></h4>
-<div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramblock.png" width = 60%/></div>
-
-<p>Read and Write Operations: 分开读取行列地址，CPU 提供信号告诉 DRAM 当前读取的是行地址还是列地址。</p>
-<ul>
-<li>
-<p>Application of row address: <span class="arithmatex">\(\overline{RAS}\)</span></p>
-<p>读取行地址，将行地址放入译码器，将对应的行的电容放入读取电路。</p>
-</li>
-<li>
-<p>Application of column address: <span class="arithmatex">\(\overline{CAS}\)</span></p>
-<p>读取列地址，将列地址放入译码器，将对应的列的电容放入读取电路。</p>
 </li>
 </ul>
-<h4 id="dynamic-ram-timing">Dynamic RAM Timing<a class="headerlink" href="#dynamic-ram-timing" title="Permanent link">&para;</a></h4>
+<h3 id="ggml_cuda_op_get_rows_back">ggml_cuda_op_get_rows_back<a class="headerlink" href="#ggml_cuda_op_get_rows_back" title="Permanent link">&para;</a></h3>
+<p>对 <code>ggml_cuda_op_get_rows</code> 的反向传播。</p>
+<ul>
+<li>检查 <code>src0</code>、<code>src1</code> 和 <code>dst</code> 的类型是否分别为 F32、I32 和 F32</li>
+<li>检查三个张量的连续性</li>
+<li>检查三个张量的第三四维度（<code>ne2</code> 和 <code>ne3</code>）的乘积是否为 1，即三个张量都为二维张量</li>
+</ul>
+<h3 id="ggml_cuda_dup">ggml_cuda_dup<a class="headerlink" href="#ggml_cuda_dup" title="Permanent link">&para;</a></h3>
+<p>将 <code>src</code> 的数据复制到 <code>dst</code>。直接调用 <code>ggml_cuda_cpy</code>。</p>
+<h3 id="ggml_cuda_cpy">ggml_cuda_cpy<a class="headerlink" href="#ggml_cuda_cpy" title="Permanent link">&para;</a></h3>
+<p>将 <code>src0</code> 的数据复制到 <code>src1</code>。</p>
+<ul>
+<li>检查 <code>src0</code> 和 <code>src1</code> 元素个数是否相同</li>
+<li>检查 <code>src0</code> 和 <code>src1</code> 占用字节数是否在 int32 范围内</li>
+</ul>
+<p>计算部分：</p>
+<ul>
+<li>如果 <code>src0</code> 和 <code>src1</code> 的类型相同、占用字节数相同并且都连续：直接调用 <code>cudaMemcpyAsync</code> 复制。</li>
+<li>类型不同或者不连续：对支持的类型进行排列组合<ul>
+<li>非量化类型（F32、F16）：无额外检查</li>
+<li>量化类型（Q4_0、Q8_0...）：<code>src1</code> 是量化类型时，会检查 <code>src0</code> 的元素个数是否能和量化类型对应的块大小对齐</li>
+</ul>
+</li>
+</ul>
+<h3 id="ggml_cuda_op_bin_bcast">ggml_cuda_op_bin_bcast<a class="headerlink" href="#ggml_cuda_op_bin_bcast" title="Permanent link">&para;</a></h3>
+<p>执行二元操作的广播，模板函数。</p>
+<ul>
+<li>限定 <code>src1</code> 类型为 F32 或 F16</li>
+<li>对 <code>src0</code> 、<code>src1</code> 和 <code>dst</code> 的类型进行排列组合，再进入 <code>bin_bcast_cuda.operator()</code> 进行计算</li>
+</ul>
+<p><code>bin_bcast_cuda.operator()</code> 进行广播操作，相关逻辑还在看。</p>
+<details class="note">
+<summary>问了 Gemini</summary>
+<p>在您提供的 <code>bin_bcast_cuda</code> 代码中，<code>GGML_ASSERT</code> 语句主要用于执行以下数据范围和完整性检查：</p>
 <ol>
 <li>
-<p>Read Timing</p>
-<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramreadtiming.png" width = 60%/></div></p>
+<ul>
+<li><code>GGML_ASSERT(nb0 % sizeof(dst_t) == 0);</code></li>
+<li><code>GGML_ASSERT(nb1 % sizeof(dst_t) == 0);</code></li>
+<li><code>GGML_ASSERT(nb2 % sizeof(dst_t) == 0);</code></li>
+<li><code>GGML_ASSERT(nb3 % sizeof(dst_t) == 0);</code></li>
+<li>以及针对 <code>src0</code> 和 <code>src1</code> 的类似检查（<code>nb00</code> 到 <code>nb03</code>，<code>nb10</code> 到 <code>nb13</code>）。</li>
+</ul>
+<p><strong>步长（Stride）与对齐检查：</strong></p>
+<p>这些断言检查确保了每个维度（从 <code>nb0</code> 到 <code>nb3</code> 代表目标张量 <code>dst</code> 的步长，<code>nb00</code> 到 <code>nb03</code> 代表 <code>src0</code> 的步长，<code>nb10</code> 到 <code>nb13</code> 代表 <code>src1</code> 的步长）的字节步长是对应数据类型大小（例如 <code>sizeof(float)</code> 或 <code>sizeof(__half)</code>）的精确倍数。在 GGML 中，张量数据以行主序存储，并且 <code>ggml_tensor</code> 结构包含每个维度的元素数量 (<code>ne</code>) 和字节步长 (<code>nb</code>) [1, 2, 3, 4, 5, 6]。这种设计允许存储非连续内存中的张量，这对于转置和置换等操作非常有用 [1, 2, 3, 4, 5]。如果步长不是数据类型大小的精确倍数，那么在内存中遍历张量时进行指针算术将导致内存访问错位或数据解释错误，可能引发程序崩溃或静默的数据损坏。因此，这些检查对于确保正确的内存访问和数据完整性至关重要。</p>
 </li>
 <li>
-<p>Write Timing</p>
-<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/dramwritetiming.png" width = 60%/></div></p>
+<p><strong>最内层步长检查（元素连续性）：</strong></p>
+<ul>
+<li><code>GGML_ASSERT(s0 == 1);</code></li>
+<li><code>GGML_ASSERT(s00 == 1);</code></li>
+<li><code>GGML_ASSERT(s10 == 1);</code></li>
+</ul>
+<p>这些断言检查确保了目标张量 (<code>dst</code>)、第一个源张量 (<code>src0</code>) 和第二个源张量 (<code>src1</code>) 的最内层维度（维度 0）的元素步长 (<code>s0</code>, <code>s00</code>, <code>s10</code>) 为 1。这意味着最内层维度的元素在内存中是严格连续的。这种连续性对于 GPU 上高效的逐元素操作至关重要，因为它允许在 CUDA 内核的最内层循环中进行简单的线性访问，从而促进内存合并（memory coalescing）和向量化。非单位步长将需要更复杂的索引计算，并可能导致性能下降。</p>
 </li>
 </ol>
-<h4 id="dram-types">DRAM Types<a class="headerlink" href="#dram-types" title="Permanent link">&para;</a></h4>
+</details>
+<p>属于 <code>ggml_cuda_op_bin_bcast</code> 的操作有：</p>
 <ul>
-<li>Synchronous DRAM (SDRAM)</li>
-<li>Double Data Rate SDRAM (DDR SDRAM)</li>
-<li>RAMBUS® DRAM (RDRAM)</li>
+<li><code>ggml_cuda_op_repeat</code>：把 <code>src0</code> 的数据进行重复，存到 <code>dst</code> 中。</li>
+<li><code>ggml_cuda_op_add</code>：tensor 元素相加</li>
+<li><code>ggml_cuda_op_sub</code>：tensor 元素相减</li>
+<li><code>ggml_cuda_op_mul</code>：tensor 元素相乘</li>
+<li><code>ggml_cuda_op_div</code>：tensor 元素相除</li>
 </ul>
-<p><strong>Synchronous DRAM</strong>:</p>
-<p>Transfers to and from the DRAM are synchronize with a clock。</p>
-<p>有时钟，一次可以读出多个数据。</p>
-<div class="admonition example">
-<p class="admonition-title">Synchronous DRAM - burst size=4</p>
-<p><div align=center><img src="/assets/img/CS/computer_logic/chapter7/sdramex.png" width = 60%/></div></p>
-</div>
-<p><strong>Double Data Rate SDRAM</strong>:</p>
-<p>Transfers data on both edges of the clock. 在时钟的上升沿和下降沿都可以读出数据。</p>
-<p>Provides a transfer rate of 2 data words per clock cycle.</p>
-<p><strong>RAMBUS® DRAM</strong>:</p>
-<p>Uses a packet-based bus for interaction between the RDRAM ICs and the memory bus to the processor.</p>
-<p>The bus consists of:</p>
+<h3 id="ggml_cuda_op_acc">ggml_cuda_op_acc<a class="headerlink" href="#ggml_cuda_op_acc" title="Permanent link">&para;</a></h3>
+<p>将 <code>src0</code> 和 <code>src1</code> 的数据相加，存到 <code>dst</code> 中。</p>
 <ul>
-<li>A 3-bit row address bus</li>
-<li>A 5-bit column address bus</li>
-<li>A 16 or 18-bit (for error correction) data bus</li>
+<li>检查 <code>src0</code>、<code>src1</code> 和 <code>dst</code> 的类型是否都为 F32</li>
+<li>检查 <code>dst</code> 是否为 3D 张量</li>
 </ul>
-<p>使用包传输，一次可以读出多个数据。</p>
+<h3 id="ggml_cuda_op_unary">ggml_cuda_op_unary<a class="headerlink" href="#ggml_cuda_op_unary" title="Permanent link">&para;</a></h3>
+<p>执行一元操作，模板函数。</p>
+<ul>
+<li>检查 <code>src0</code> 是否连续</li>
+<li>检查 <code>src0</code> 和 <code>dst</code> 的类型是否为 F32 或 F16，并且 <code>dst</code> 的类型必须和 <code>src0</code> 相同</li>
+</ul>
+<p>对于不同种类的一元操作并没有额外检查。</p>
+<h3 id="ggml_cuda_op_norm">ggml_cuda_op_norm<a class="headerlink" href="#ggml_cuda_op_norm" title="Permanent link">&para;</a></h3>
+<p>对 <code>src0</code> 进行归一化操作，存到 <code>dst</code> 中。</p>
+<ul>
+<li>检查 <code>src0</code> 和 <code>dst</code> 的类型是否为 F32</li>
+<li>从 <code>dst.op_params</code> 中获取 <code>eps</code> 参数，检查是否为正数</li>
+<li><code>src0</code> 张量的最内层维度（维度 0）的字节步长必须等于其数据类型的大小，即最内层维度的元素必须连续</li>
+</ul>
+<h3 id="ggml_cuda_op_group_norm">ggml_cuda_op_group_norm<a class="headerlink" href="#ggml_cuda_op_group_norm" title="Permanent link">&para;</a></h3>
+<p>对 <code>src0</code> 进行组归一化操作，存到 <code>dst</code> 中。</p>
+<ul>
+<li>检查 <code>src0</code> 和 <code>dst</code> 的类型是否为 F32</li>
+<li>检查 eps 参数是否为正数</li>
+</ul>
+<h3 id="ggml_cuda_op_l2_norm">ggml_cuda_op_l2_norm<a class="headerlink" href="#ggml_cuda_op_l2_norm" title="Permanent link">&para;</a></h3>
+<p>对 <code>src0</code> 进行 L2 归一化操作，存到 <code>dst</code> 中。</p>
+<p>检查与 <code>ggml_cuda_op_norm</code> 相同。</p>
+<h3 id="ggml_cuda_op_concat">ggml_cuda_op_concat<a class="headerlink" href="#ggml_cuda_op_concat" title="Permanent link">&para;</a></h3>
+<p>将两个 32 位浮点型张量 <code>src0</code> 和 <code>src1</code> 沿着指定的维度进行拼接，结果存储在 <code>dst</code> 中。</p>
+<ul>
+<li>检查 <code>src0</code>、 <code>src1</code> 和 <code>dst</code> 的类型是否为 F32</li>
+<li>之后根据 <code>src0</code> 和 <code>src1</code> 的连续性采用不同的计算方式</li>
+</ul>
+<h3 id="ggml_cuda_op_upscale">ggml_cuda_op_upscale<a class="headerlink" href="#ggml_cuda_op_upscale" title="Permanent link">&para;</a></h3>
+<p>对 <code>src0</code> 进行上采样操作，存到 <code>dst</code> 中。</p>
+<ul>
+<li>检查 <code>src0</code> 和 <code>dst</code> 的类型是否为 F32</li>
+</ul>
+<h3 id="ggml_cuda_op_pad">ggml_cuda_op_pad<a class="headerlink" href="#ggml_cuda_op_pad" title="Permanent link">&para;</a></h3>
+<p>对 <code>src0</code> 进行填充操作，存到 <code>dst</code> 中。</p>
+<ul>
+<li>检查 <code>src0</code> 和 <code>dst</code> 的类型是否为 F32</li>
+<li>限定 <code>src0</code> 和 <code>dst</code> 为 3D 张量</li>
+</ul>
+<h3 id="ggml_cuda_op_arange">ggml_cuda_op_arange<a class="headerlink" href="#ggml_cuda_op_arange" title="Permanent link">&para;</a></h3>
+<p>生成一个一维张量 <code>dst</code>，其元素为等差数列。</p>
+<ul>
+<li>检查 <code>dst</code> 的类型是否为 F32</li>
+<li>从 <code>dst.op_params</code> 中获取 <code>start</code>、<code>stop</code> 和 <code>step</code> 参数，检查生成的元素个数是否和 <code>dst</code> 的元素个数相同</li>
+</ul>
+<h3 id="ggml_cuda_op_timestep_embedding">ggml_cuda_op_timestep_embedding<a class="headerlink" href="#ggml_cuda_op_timestep_embedding" title="Permanent link">&para;</a></h3>
+<p>为 <code>src0</code> 生成时间步嵌入，存到 <code>dst</code> 中。</p>
+<ul>
+<li>检查 <code>src0</code> 和 <code>dst</code> 的类型是否为 F32</li>
+</ul>
+<h3 id="ggml_cuda_op_leaky_relu">ggml_cuda_op_leaky_relu<a class="headerlink" href="#ggml_cuda_op_leaky_relu" title="Permanent link">&para;</a></h3>
+<p>对 <code>src0</code> 进行 Leaky ReLU 操作，存到 <code>dst</code> 中。</p>
+<ul>
+<li>检查 <code>src0</code> 是否连续</li>
+<li>检查 <code>src0</code> 和 <code>dst</code> 的类型是否为 F32 或 F16，并且 <code>dst</code> 的类型必须和 <code>src0</code> 相同</li>
+</ul>
+<h3 id="ggml_cuda_op_silu_back">ggml_cuda_op_silu_back<a class="headerlink" href="#ggml_cuda_op_silu_back" title="Permanent link">&para;</a></h3>
+<p>对 <code>src0</code> 进行 SiLU 操作的反向传播，存到 <code>dst</code> 中。</p>
+<p>检测与 <code>ggml_cuda_op_leaky_relu</code> 相同。</p>
+<h3 id="ggml_cuda_op_rms_norm">ggml_cuda_op_rms_norm<a class="headerlink" href="#ggml_cuda_op_rms_norm" title="Permanent link">&para;</a></h3>
+<p>对 <code>src0</code> 进行 RMS 归一化操作，存到 <code>dst</code> 中。</p>
+<p>检查与 <code>ggml_cuda_op_norm</code> 相同。</p>
+<h3 id="ggml_cuda_op_rms_norm_back">ggml_cuda_op_rms_norm_back<a class="headerlink" href="#ggml_cuda_op_rms_norm_back" title="Permanent link">&para;</a></h3>
+<p>对 <code>src0</code> 进行 RMS 归一化操作的反向传播，存到 <code>dst</code> 中。</p>
+<ul>
+<li>检查 <code>src0</code>、<code>src1</code> 和 <code>dst</code> 的类型是否为 F32</li>
+<li>检查 eps 参数是否为正数</li>
+</ul>
+<h3 id="ggml_cuda_mul_mat">ggml_cuda_mul_mat<a class="headerlink" href="#ggml_cuda_mul_mat" title="Permanent link">&para;</a></h3>
+<p>矩阵乘法。</p>
+<p>根据不同输入选择不同的计算方式：</p>
+<ul>
+<li><code>use_mul_mat_vec</code>：<code>src0</code> 类型为非量化类型（F32、F16、BF16），且 <code>src1</code> 为 F32 向量。</li>
+<li><code>use_mul_mat_vec_q</code>：<code>src0</code> 为量化类型，且 <code>src1</code> 为第二维大小不超过 <code>MMVQ_MAX_BATCH_SIZE</code> 的 F32 张量。</li>
+<li><code>use_mul_mat_q</code>：<code>src0</code> 为量化类型，且 <code>src1</code> 为 F32 张量。</li>
+<li>其他情况使用通用的矩阵乘法 <code>ggml_cuda_op_mul_mat</code></li>
+</ul>
+<h4 id="ggml_cuda_mul_mat_vec">ggml_cuda_mul_mat_vec<a class="headerlink" href="#ggml_cuda_mul_mat_vec" title="Permanent link">&para;</a></h4>
+<p>矩阵和向量相乘。</p>
+<ul>
+<li>检查 <code>src1</code> 和 <code>dst</code> 的类型是否为 F32</li>
+<li>检查 <code>src1</code> 第四维度和 <code>dst</code> 的第四维度是否相等</li>
+<li>检查 <code>src0</code>、<code>src1</code> 和 <code>dst</code> 最内层维度元素是否连续</li>
+</ul>
+<h4 id="ggml_cuda_mul_mat_vec_q">ggml_cuda_mul_mat_vec_q<a class="headerlink" href="#ggml_cuda_mul_mat_vec_q" title="Permanent link">&para;</a></h4>
+<p>量化矩阵和向量相乘。</p>
+<p>检查和 <code>ggml_cuda_mul_mat_vec</code> 类似。</p>
+<h4 id="ggml_cuda_mul_mat_batched_cublas">ggml_cuda_mul_mat_batched_cublas<a class="headerlink" href="#ggml_cuda_mul_mat_batched_cublas" title="Permanent link">&para;</a></h4>
+<p>使用 cuBLAS 进行批量矩阵乘法。</p>
+<ul>
+<li>检查 <code>src0</code> 和 <code>src1</code> 是否为非转置布局（<code>nb0 &gt; nb1</code>）</li>
+<li>检查 <code>src0</code> 的后端是否为 CUDA 且类型为 F16</li>
+<li>检查 <code>src1</code> 的第三维是否为 <code>src0</code> 第三维的整数倍</li>
+<li>检查 <code>src1</code> 的第四维是否为 <code>src0</code> 第四维的整数倍（这两个检查应该是为了保证广播操作的正确性）</li>
+</ul>
+<h4 id="ggml_cuda_op_mul_mat">ggml_cuda_op_mul_mat<a class="headerlink" href="#ggml_cuda_op_mul_mat" title="Permanent link">&para;</a></h4>
+<p>通用矩阵乘法。</p>
 
 
 
@@ -4275,7 +4150,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2024年3月18日 12:16:04 UTC">2024年3月18日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月28日 09:49:34 UTC">2025年5月28日</span>
   </span>
 
     
@@ -4285,7 +4160,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2024年1月7日 11:00:29 UTC">2024年1月7日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年5月28日 09:49:34 UTC">2025年5月28日</span>
   </span>
 
     
@@ -4354,44 +4229,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../chapter6/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 寄存器和寄存器传输">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                寄存器和寄存器传输
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../../database/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数据库系统">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                数据库系统
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -4441,12 +4278,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
